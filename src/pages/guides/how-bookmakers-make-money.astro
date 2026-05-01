@@ -1,14 +1,437 @@
-    ---
-    import MainLayout from "../../layouts/MainLayout.astro";
-    ---
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
 
-    <MainLayout title="How Bookmakers Make Money" description="Learn how bookmakers use odds, margin, overround and liabilities to price betting markets.">
-      <section class="content-card">
-        <p class="eyebrow">Betting Maths</p>
-        <h1>How Bookmakers Make Money</h1>
-        <p class="lead">Learn how bookmakers use odds, margin, overround and liabilities to price betting markets.</p>
-        <div class="placeholder-box">
-  This starter page is ready for the full calculator, guide content and SEO structure.
-</div>
-      </section>
-    </MainLayout>
+<MainLayout
+  title="How Bookmakers Make Money"
+  description="Learn how bookmakers make money using overround, bookmaker margin, odds movement, liability management and the weight of money in betting markets."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting maths guide</p>
+    <h1>How Bookmakers Make Money</h1>
+    <p class="lead">
+      Bookmakers do not need to predict every result correctly. They make money by pricing markets with a built-in margin, managing liabilities and adjusting odds as money comes in.
+    </p>
+
+    <div class="callout">
+      <strong>Quick answer:</strong> Bookmakers make money by building margin into their odds. This margin is called the overround. They also manage risk by moving odds, limiting stakes and balancing liabilities across outcomes.
+    </div>
+
+    <div class="article-link-box">
+      <a class="button primary" href="/calculators/overround-calculator/">Use the Overround Calculator</a>
+      <a class="button secondary" href="/glossary/betting-jargon-explained/">View Betting Jargon Glossary</a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>The simple version</h2>
+    <p>
+      A bookmaker’s job is not simply to guess who will win. A bookmaker sets prices on all possible outcomes in a market. Those prices are usually designed so that the total implied probability is above 100%.
+    </p>
+    <p>
+      That extra percentage above 100% is known as the overround. It is one of the main ways bookmakers build a margin into the market.
+    </p>
+
+    <h2>Example of bookmaker margin</h2>
+    <p>
+      Imagine a football match with three possible outcomes: home win, draw and away win.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Outcome</th>
+          <th>Decimal odds</th>
+          <th>Implied probability</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Home win</td>
+          <td>2.10</td>
+          <td>47.62%</td>
+        </tr>
+        <tr>
+          <td>Draw</td>
+          <td>3.40</td>
+          <td>29.41%</td>
+        </tr>
+        <tr>
+          <td>Away win</td>
+          <td>3.60</td>
+          <td>27.78%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      Add the implied probabilities together:
+    </p>
+
+    <div class="formula-box">
+      <p>47.62% + 29.41% + 27.78% = 104.81%</p>
+    </div>
+
+    <p>
+      This market has a book percentage of 104.81%, which means the overround is 4.81%.
+    </p>
+
+    <div class="callout">
+      <strong>Try it:</strong> You can check any market using the <a href="/calculators/overround-calculator/">Overround Calculator</a>.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What is overround?</h2>
+    <p>
+      Overround is the amount by which a betting market adds up to more than 100% when every outcome is converted into implied probability.
+    </p>
+    <p>
+      In a fair theoretical market with no margin, all outcomes would add up to exactly 100%. In a bookmaker market, the total is normally above 100%.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Implied probability</strong> = 1 ÷ decimal odds × 100</p>
+      <p><strong>Book percentage</strong> = all implied probabilities added together</p>
+      <p><strong>Overround</strong> = book percentage − 100</p>
+    </div>
+
+    <p>
+      The higher the overround, the more margin is built into the overall market. This does not tell you whether one specific selection is good or bad value, but it does show the market’s overall pricing margin.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Do bookmakers guarantee profit on every event?</h2>
+    <p>
+      No. This is a common misunderstanding. A bookmaker can still lose money on an individual match, race or event.
+    </p>
+    <p>
+      If too much money is placed on one outcome and that outcome wins, the bookmaker may pay out more than they took in on that market. The overround gives the bookmaker a pricing advantage, but it does not guarantee a profit on every single result.
+    </p>
+
+    <h2>So why does the model work?</h2>
+    <p>
+      The model works over many markets because the bookmaker prices odds with margin, manages risk, moves prices when needed, and controls exposure through limits and trading decisions.
+    </p>
+    <p>
+      In simple terms, bookmakers aim to make the numbers work across thousands or millions of bets, not necessarily on one individual result.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>How odds movement helps bookmakers</h2>
+    <p>
+      Bookmakers can move odds when new information appears or when money comes in heavily on one selection. Odds are not fixed predictions. They are prices.
+    </p>
+    <p>
+      If a bookmaker receives a lot of bets on one team, they may shorten that team’s odds and lengthen the odds on other outcomes. This can do several things:
+    </p>
+
+    <ul class="standard-list">
+      <li>Reduce the bookmaker’s exposure on the heavily backed selection.</li>
+      <li>Encourage money on other outcomes.</li>
+      <li>Reflect new information or market opinion.</li>
+      <li>Keep the market aligned with competitors and exchanges.</li>
+    </ul>
+
+    <h2>What is weight of money?</h2>
+    <p>
+      Weight of money describes where the betting money is going. If a large amount of money is placed on one outcome, that can influence the odds.
+    </p>
+    <p>
+      This does not always mean the selection is more likely to win. It means the price is responding to demand, risk, market pressure or new information.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Liability management</h2>
+    <p>
+      Liability is the amount a bookmaker may need to pay out if a particular outcome wins. Managing liability is a major part of bookmaking.
+    </p>
+    <p>
+      For example, if a bookmaker takes a large number of bets on one horse, the potential payout on that horse may become much larger than on the other runners. The bookmaker can respond by shortening the price, limiting further stakes, or adjusting the rest of the market.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Possible bookmaker response</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Too much money on one selection</td>
+          <td>Shorten the odds to reduce future exposure.</td>
+        </tr>
+        <tr>
+          <td>Not enough money on other outcomes</td>
+          <td>Lengthen those odds to attract bets.</td>
+        </tr>
+        <tr>
+          <td>Large liability on one result</td>
+          <td>Limit stakes, move the price or hedge elsewhere.</td>
+        </tr>
+        <tr>
+          <td>Market information changes</td>
+          <td>Suspend or reprice the market.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Bookmakers vs betting exchanges</h2>
+    <p>
+      A traditional bookmaker sets prices and takes the other side of the customer’s bet. A betting exchange allows users to bet against each other.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>How it works</th>
+          <th>How money is made</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Bookmaker</td>
+          <td>Offers odds directly to customers.</td>
+          <td>Builds margin into the odds and manages liabilities.</td>
+        </tr>
+        <tr>
+          <td>Betting exchange</td>
+          <td>Users back and lay against each other.</td>
+          <td>Usually charges commission on net winnings.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      This is why exchange betting often uses terms like back bet, lay bet, liability, commission and greening up. These ideas are especially relevant to hedging.
+    </p>
+
+    <div class="callout">
+      <strong>Related tool:</strong> The <a href="/calculators/hedge-bet-calculator/">Hedge Bet Calculator</a> includes back and lay modes, commission and lay liability.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Why bookmakers limit some accounts</h2>
+    <p>
+      Some bettors find that bookmakers restrict their stakes or remove access to promotions. This can happen when an account is considered unprofitable, bonus-focused, arbitrage-focused or otherwise outside the bookmaker’s desired risk profile.
+    </p>
+    <p>
+      This is one reason why “beating the bookie” is difficult in practice. Even if someone finds good prices, they may not always be allowed to stake freely at those prices.
+    </p>
+
+    <h2>Why sign-up offers are not the same as value</h2>
+    <p>
+      Free bets, odds boosts and promotions can look attractive, but the terms matter. Wagering requirements, minimum odds, stake restrictions and withdrawal rules can all affect the real value of an offer.
+    </p>
+    <p>
+      Betting Maths is focused on the calculations and concepts behind betting, not on promising easy money from offers or systems.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Can you beat the bookie?</h2>
+    <p>
+      It is possible for some bettors to find value, trade well or use sharp market knowledge. But it is not easy, and it is not guaranteed.
+    </p>
+    <p>
+      The bookmaker has several advantages:
+    </p>
+
+    <ul class="standard-list">
+      <li>Margin built into the odds.</li>
+      <li>Ability to move prices.</li>
+      <li>Stake limits and account restrictions.</li>
+      <li>Access to market data and trading tools.</li>
+      <li>Large numbers of customers and markets.</li>
+    </ul>
+
+    <p>
+      This is why any claim of a guaranteed betting system should be treated with caution. Betting maths can help you understand the market, but it cannot remove uncertainty.
+    </p>
+
+    <div class="callout">
+      <strong>Important:</strong> If someone claims you can always beat the bookie, be careful. No betting calculation can guarantee winners.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>How betting maths helps</h2>
+    <p>
+      Betting maths does not tell you who will win. It helps you understand what the odds imply, how much margin is in a market, how stakes should be split, and what your possible outcomes are.
+    </p>
+
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/overround-calculator/">
+        <h3>Overround Calculator</h3>
+        <p>Calculate book percentage and bookmaker margin.</p>
+      </a>
+      <a class="related-card" href="/calculators/odds-converter/">
+        <h3>Odds Converter</h3>
+        <p>Convert odds into implied probability.</p>
+      </a>
+      <a class="related-card" href="/calculators/dutching-calculator/">
+        <h3>Dutching Calculator</h3>
+        <p>Split stakes across multiple selections.</p>
+      </a>
+      <a class="related-card" href="/calculators/hedge-bet-calculator/">
+        <h3>Hedge Bet Calculator</h3>
+        <p>Calculate back and lay hedge positions.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>How bookmakers make money FAQs</h2>
+
+    <h3>Do bookmakers make money from every bet?</h3>
+    <p>
+      No. A bookmaker can lose on individual bets and individual events. The business model is based on pricing, margin and risk management across many bets and markets.
+    </p>
+
+    <h3>What is bookmaker margin?</h3>
+    <p>
+      Bookmaker margin is the built-in edge in the odds. It is often measured by calculating the market’s overround.
+    </p>
+
+    <h3>What is overround?</h3>
+    <p>
+      Overround is the amount above 100% when all outcomes in a market are converted into implied probability and added together.
+    </p>
+
+    <h3>Why do odds change?</h3>
+    <p>
+      Odds can change because of team news, injuries, market opinion, money coming in, liability management, exchange movement or new information.
+    </p>
+
+    <h3>Can bookmakers lose money?</h3>
+    <p>
+      Yes. Bookmakers can lose on certain events, especially when liabilities are uneven. Their aim is to operate profitably over time, not to win every market.
+    </p>
+
+    <h3>Is betting against the bookmaker impossible?</h3>
+    <p>
+      Not impossible, but difficult. The bookmaker margin, odds movement, stake limits and account restrictions all make consistent profit challenging.
+    </p>
+
+    <div class="callout">
+      <strong>Responsible note:</strong> Understanding how bookmakers make money can help you understand betting markets, but it does not guarantee profit. Never bet more than you can afford to lose.
+    </div>
+  </section>
+
+  <style>
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .article-link-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .formula-box {
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+
+    .formula-box p {
+      margin: 0.4rem 0;
+      font-weight: 700;
+    }
+
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .example-table th,
+    .example-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .example-table th {
+      color: var(--color-navy);
+      background: #f4f7fa;
+      font-size: 0.9rem;
+    }
+
+    .example-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .standard-list {
+      padding-left: 1.3rem;
+    }
+
+    .standard-list li {
+      margin: 0.4rem 0;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .related-card {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .related-card:hover {
+      border-color: rgba(31, 138, 91, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .related-card h3 {
+      margin-bottom: 0.35rem;
+    }
+
+    .related-card p {
+      margin: 0;
+      color: var(--color-muted);
+    }
+
+    .callout a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 980px) {
+      .related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</MainLayout>
