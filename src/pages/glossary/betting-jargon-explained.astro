@@ -1,14 +1,964 @@
-    ---
-    import MainLayout from "../../layouts/MainLayout.astro";
-    ---
+---
+import MainLayout from "../../layouts/MainLayout.astro";
 
-    <MainLayout title="Betting Jargon Explained" description="An A-Z guide to betting terms, odds jargon and betting maths phrases.">
-      <section class="content-card">
-        <p class="eyebrow">Betting Maths</p>
-        <h1>Betting Jargon Explained</h1>
-        <p class="lead">An A-Z guide to betting terms, odds jargon and betting maths phrases.</p>
-        <div class="placeholder-box">
-  This starter page is ready for the full calculator, guide content and SEO structure.
-</div>
-      </section>
-    </MainLayout>
+const terms = [
+  {
+    letter: "A",
+    items: [
+      {
+        term: "Accumulator",
+        aka: "Acca",
+        definition:
+          "An accumulator is a bet made up of multiple selections. Every selection must win for the accumulator to pay out. Accumulators can offer bigger returns, but the risk increases because one losing selection loses the whole bet.",
+      },
+      {
+        term: "Arbitrage",
+        aka: "Arb",
+        definition:
+          "Arbitrage betting is when different prices allow all outcomes in a market to be covered for a profit. In practice, odds can move quickly, stake limits can apply, and commission can affect whether an arbitrage opportunity is actually usable.",
+      },
+      {
+        term: "Asian Handicap",
+        definition:
+          "Asian handicap betting gives one team or player a virtual head start or disadvantage. It removes or reduces the possibility of a draw depending on the handicap line. Some Asian handicap bets can be split across two handicap lines.",
+      },
+      {
+        term: "Ante-post",
+        definition:
+          "An ante-post bet is placed before the final field or event details are confirmed, often days, weeks or months in advance. Ante-post odds can be bigger, but if your selection does not take part you may still lose your stake depending on the rules.",
+      },
+      {
+        term: "Anytime Goalscorer",
+        definition:
+          "An anytime goalscorer bet is a football bet on a player to score at any point during the match. It does not usually matter whether the player scores first, last, or in between.",
+      },
+    ],
+  },
+  {
+    letter: "B",
+    items: [
+      {
+        term: "Back Bet",
+        definition:
+          "A back bet is the traditional type of bet where you bet on something to happen. If your selection wins, you receive a return based on the odds. If it loses, you lose your stake.",
+        link: "/calculators/hedge-bet-calculator/",
+        linkText: "Use the Hedge Bet Calculator",
+      },
+      {
+        term: "Banker",
+        definition:
+          "A banker is a selection that a bettor believes is very likely to win. The term is common in accumulators, but no selection is guaranteed.",
+      },
+      {
+        term: "Bankroll",
+        definition:
+          "A bankroll is the total amount of money set aside for betting. Bankroll management means controlling stake sizes so that one losing run does not wipe out the entire betting fund.",
+      },
+      {
+        term: "Best Odds Guaranteed",
+        aka: "BOG",
+        definition:
+          "Best Odds Guaranteed is a bookmaker offer, common in horse racing, where you receive the better of the odds you took and the starting price. Terms vary by bookmaker.",
+      },
+      {
+        term: "Bet Builder",
+        definition:
+          "A bet builder lets you combine multiple selections from the same match into one bet, such as a team to win, a player to score and over a certain number of cards. All parts must usually win for the bet to pay out.",
+      },
+      {
+        term: "Betting Exchange",
+        definition:
+          "A betting exchange is a platform where users bet against each other rather than directly against a bookmaker. Exchanges allow back bets and lay bets, and usually charge commission on winnings.",
+      },
+      {
+        term: "Betting Market",
+        definition:
+          "A betting market is the event or outcome category you are betting on. For example, match result, correct score, first goalscorer, over/under goals and winner markets are all different betting markets.",
+      },
+      {
+        term: "Book Percentage",
+        definition:
+          "Book percentage is the total implied probability of all outcomes in a market. A book percentage above 100% shows an overround, which represents the bookmaker’s built-in margin.",
+        link: "/calculators/overround-calculator/",
+        linkText: "Use the Overround Calculator",
+      },
+      {
+        term: "Bookmaker Margin",
+        definition:
+          "Bookmaker margin is the edge built into the odds. It is closely linked to overround. A market with a 106% book percentage has a 6% overround.",
+        link: "/calculators/overround-calculator/",
+        linkText: "Check bookmaker margin",
+      },
+    ],
+  },
+  {
+    letter: "C",
+    items: [
+      {
+        term: "Cash Out",
+        definition:
+          "Cash out is an offer from a bookmaker or exchange to settle a bet before the event has finished. The offer may be better or worse than creating your own hedge using current odds.",
+        link: "/calculators/hedge-bet-calculator/",
+        linkText: "Compare with the Hedge Bet Calculator",
+      },
+      {
+        term: "Closing Line",
+        definition:
+          "The closing line is the final price available before an event starts. Some bettors compare their taken odds against the closing line to judge whether they consistently beat the market price.",
+      },
+      {
+        term: "Combination Bet",
+        definition:
+          "A combination bet contains multiple selections arranged into several smaller bets. Examples include doubles, trebles, Yankees and Lucky 15s.",
+      },
+      {
+        term: "Commission",
+        definition:
+          "Commission is a fee charged by a betting exchange on net winnings. It matters when calculating lay bets, hedge bets and exchange trading profit.",
+        link: "/calculators/hedge-bet-calculator/",
+        linkText: "Use commission in the Hedge Bet Calculator",
+      },
+      {
+        term: "Correct Score",
+        definition:
+          "A correct score bet is a bet on the exact final score of a match. These markets usually have many possible outcomes and higher odds.",
+      },
+    ],
+  },
+  {
+    letter: "D",
+    items: [
+      {
+        term: "Decimal Odds",
+        definition:
+          "Decimal odds show the total return for every £1 staked, including the original stake. Decimal odds of 2.50 mean a £10 winning bet returns £25 in total.",
+        link: "/calculators/odds-converter/",
+        linkText: "Convert odds",
+      },
+      {
+        term: "Double",
+        definition:
+          "A double is an accumulator with two selections. Both selections must win for the bet to pay out.",
+      },
+      {
+        term: "Draw No Bet",
+        aka: "DNB",
+        definition:
+          "Draw No Bet is a market where your stake is refunded if the match ends in a draw. You only win if your chosen team wins, and you lose if your chosen team loses.",
+      },
+      {
+        term: "Drift",
+        definition:
+          "A price drifts when the odds get bigger. For example, if a selection moves from 3.00 to 4.00, it has drifted. Drifting odds usually suggest the market thinks the outcome is less likely than before.",
+      },
+      {
+        term: "Dutching",
+        definition:
+          "Dutching is a staking method where you back two or more selections and split your stake so that each winning outcome aims to return the same amount.",
+        link: "/calculators/dutching-calculator/",
+        linkText: "Use the Dutching Calculator",
+      },
+    ],
+  },
+  {
+    letter: "E",
+    items: [
+      {
+        term: "Each-Way Bet",
+        definition:
+          "An each-way bet is two bets in one: a win bet and a place bet. It is common in horse racing and golf. The place part pays if the selection finishes in one of the specified places.",
+      },
+      {
+        term: "Edge",
+        definition:
+          "An edge is a perceived advantage over the market price. A bettor might believe they have an edge if the odds are higher than the true chance of the outcome.",
+      },
+      {
+        term: "Evens",
+        definition:
+          "Evens means odds of 1/1 in fractional format, 2.00 in decimal odds, or +100 in American odds. It implies a 50% chance before margin.",
+        link: "/calculators/odds-converter/",
+        linkText: "Convert evens odds",
+      },
+      {
+        term: "Expected Value",
+        aka: "EV",
+        definition:
+          "Expected value is a calculation that compares the potential return of a bet with the estimated probability of it winning. Positive expected value means the price may be better than the true chance suggests, but the bet can still lose.",
+      },
+      {
+        term: "Exposure",
+        definition:
+          "Exposure is the amount at risk in a betting position. In lay betting, exposure is often linked to liability, because you may need to pay out more than the lay stake if the selection wins.",
+      },
+    ],
+  },
+  {
+    letter: "F",
+    items: [
+      {
+        term: "Favourite",
+        definition:
+          "The favourite is the selection with the shortest odds in a market. Shorter odds imply a higher chance of winning, but usually offer a smaller return.",
+      },
+      {
+        term: "First Goalscorer",
+        definition:
+          "A first goalscorer bet is a football bet on which player will score the first goal in a match. Rules can vary if the player does not start or does not take part.",
+      },
+      {
+        term: "Fixed Odds",
+        definition:
+          "Fixed odds are odds agreed when the bet is placed. If the price later changes, your bet usually remains at the original odds, unless special terms apply.",
+      },
+      {
+        term: "Fractional Odds",
+        definition:
+          "Fractional odds show profit relative to stake. Odds of 3/1 mean you win £3 profit for every £1 staked, plus your original stake back.",
+        link: "/calculators/odds-converter/",
+        linkText: "Convert fractional odds",
+      },
+      {
+        term: "Free Bet",
+        definition:
+          "A free bet is a promotional bet offered by a bookmaker. Terms vary, and the stake is often not returned with winnings.",
+      },
+    ],
+  },
+  {
+    letter: "G",
+    items: [
+      {
+        term: "Gamble Responsibly",
+        definition:
+          "Gamble responsibly means betting in a controlled way, understanding the risks, and never betting more than you can afford to lose. Betting should not be treated as guaranteed income.",
+      },
+      {
+        term: "Goals Market",
+        definition:
+          "A goals market is a football betting market based on how many goals are scored. Examples include over/under 2.5 goals, both teams to score and team total goals.",
+      },
+      {
+        term: "Greening Up",
+        definition:
+          "Greening up is an exchange betting phrase for spreading profit across outcomes, usually by backing and laying at different odds.",
+        link: "/calculators/hedge-bet-calculator/",
+        linkText: "Use the Hedge Bet Calculator",
+      },
+      {
+        term: "Gubbed",
+        definition:
+          "Gubbed is slang often used by matched bettors when a bookmaker restricts or removes promotions from an account. Account restrictions can affect the practicality of bonus or offer-based strategies.",
+      },
+    ],
+  },
+  {
+    letter: "H",
+    items: [
+      {
+        term: "Handicap",
+        definition:
+          "A handicap gives one selection a virtual advantage or disadvantage before the event starts. Handicap betting is used to make uneven contests more balanced from a betting perspective.",
+      },
+      {
+        term: "Hedging",
+        definition:
+          "Hedging means placing another bet to reduce risk, lock in profit or balance possible outcomes. It often involves backing and laying on a betting exchange.",
+        link: "/calculators/hedge-bet-calculator/",
+        linkText: "Use the Hedge Bet Calculator",
+      },
+      {
+        term: "Home-Draw-Away",
+        aka: "1X2",
+        definition:
+          "Home-Draw-Away, also called 1X2, is a three-outcome football market where you bet on the home win, draw or away win.",
+      },
+    ],
+  },
+  {
+    letter: "I",
+    items: [
+      {
+        term: "Implied Probability",
+        definition:
+          "Implied probability converts odds into a percentage chance. With decimal odds, the formula is 1 divided by the odds, multiplied by 100.",
+        link: "/calculators/odds-converter/",
+        linkText: "Calculate implied probability",
+      },
+      {
+        term: "In-Play Betting",
+        aka: "Live Betting",
+        definition:
+          "In-play betting is betting after an event has started. Odds can move quickly as the match or race develops.",
+      },
+      {
+        term: "Inside Information",
+        definition:
+          "Inside information refers to private or non-public knowledge that could affect a market. Betting rules and laws around inside information vary by sport, jurisdiction and platform.",
+      },
+    ],
+  },
+  {
+    letter: "J",
+    items: [
+      {
+        term: "Joint Favourite",
+        definition:
+          "Joint favourites are two or more selections that share the shortest odds in a market.",
+      },
+      {
+        term: "Juice",
+        definition:
+          "Juice is another word for the bookmaker’s margin or commission built into the odds. It is similar to vig, a term commonly used in US betting.",
+        link: "/calculators/overround-calculator/",
+        linkText: "Calculate the margin",
+      },
+    ],
+  },
+  {
+    letter: "L",
+    items: [
+      {
+        term: "Lay Bet",
+        definition:
+          "A lay bet is when you bet against a selection winning. If the selection loses, you win the backer’s stake minus commission. If the selection wins, you pay the liability.",
+        link: "/calculators/hedge-bet-calculator/",
+        linkText: "Use the Hedge Bet Calculator",
+      },
+      {
+        term: "Lay Liability",
+        definition:
+          "Lay liability is the amount you risk when laying a selection. It is calculated as lay stake multiplied by lay odds minus one.",
+        link: "/calculators/hedge-bet-calculator/",
+        linkText: "Calculate lay liability",
+      },
+      {
+        term: "Line",
+        definition:
+          "The line is the price or handicap set by the market. In spread or totals betting, the line might be a goal total, points total or handicap figure.",
+      },
+      {
+        term: "Liquidity",
+        definition:
+          "Liquidity is the amount of money available to be matched at a price on a betting exchange. Low liquidity can make it harder to place or hedge a bet at the displayed odds.",
+      },
+      {
+        term: "Long Shot",
+        definition:
+          "A long shot is a selection with high odds and a lower implied chance of winning.",
+      },
+    ],
+  },
+  {
+    letter: "M",
+    items: [
+      {
+        term: "Margin",
+        definition:
+          "Margin is the bookmaker’s built-in edge in a market. It can be measured by calculating the total implied probability of all outcomes.",
+        link: "/calculators/overround-calculator/",
+        linkText: "Use the Overround Calculator",
+      },
+      {
+        term: "Market Mover",
+        definition:
+          "A market mover is a selection whose odds have changed noticeably, often because of money entering the market, team news, injury news or changing opinion.",
+      },
+      {
+        term: "Matched Betting",
+        definition:
+          "Matched betting is a strategy that uses bookmaker offers and exchange lay bets to try to reduce risk. It relies heavily on correct calculations, offer terms and exchange commission.",
+      },
+      {
+        term: "Moneyline",
+        definition:
+          "Moneyline is a common US term for a straight win market. It is similar to betting on which team or player will win.",
+      },
+      {
+        term: "Multiple",
+        definition:
+          "A multiple is a bet involving more than one selection, such as a double, treble or accumulator.",
+      },
+    ],
+  },
+  {
+    letter: "N",
+    items: [
+      {
+        term: "Nap",
+        definition:
+          "A nap is a tipster’s strongest selection of the day. It is still only an opinion and should not be treated as guaranteed.",
+      },
+      {
+        term: "Non-Runner",
+        definition:
+          "A non-runner is a selection that does not take part in the event, most commonly in horse racing. Settlement depends on the market rules and timing.",
+      },
+      {
+        term: "No Action",
+        definition:
+          "No action means a bet is void and the stake is returned. This can happen under certain rules, such as postponed events or specific market conditions.",
+      },
+    ],
+  },
+  {
+    letter: "O",
+    items: [
+      {
+        term: "Odds",
+        definition:
+          "Odds show the price of a bet. They determine the potential return and imply the market’s view of how likely an outcome is.",
+        link: "/calculators/odds-converter/",
+        linkText: "Use the Odds Converter",
+      },
+      {
+        term: "Odds Boost",
+        definition:
+          "An odds boost is a promotion where a bookmaker increases the odds on a selection or market. The boosted price should still be compared with the true chance and any terms attached.",
+      },
+      {
+        term: "Odds-On",
+        definition:
+          "Odds-on means the potential profit is smaller than the stake. In decimal odds, this means odds below 2.00.",
+      },
+      {
+        term: "Outright Market",
+        definition:
+          "An outright market is a market on the overall winner of a competition or tournament, such as Premier League winner, Grand National winner or World Cup winner.",
+      },
+      {
+        term: "Overround",
+        definition:
+          "Overround is the amount by which a market’s total implied probability exceeds 100%. It is a key way to understand bookmaker margin.",
+        link: "/calculators/overround-calculator/",
+        linkText: "Use the Overround Calculator",
+      },
+      {
+        term: "Over/Under",
+        definition:
+          "Over/under betting is based on whether a total will be above or below a stated line, such as over 2.5 goals or under 40.5 points.",
+      },
+    ],
+  },
+  {
+    letter: "P",
+    items: [
+      {
+        term: "Parlay",
+        definition:
+          "Parlay is a US term for an accumulator. It combines multiple selections into one bet, with all selections needing to win.",
+      },
+      {
+        term: "Place Bet",
+        definition:
+          "A place bet wins if the selection finishes in one of the specified places. It is common in horse racing and is part of each-way betting.",
+      },
+      {
+        term: "Price",
+        definition:
+          "Price is another word for odds. If someone says a selection is priced at 5.00, they mean the odds are 5.00.",
+      },
+      {
+        term: "Profit",
+        definition:
+          "Profit is the amount won after subtracting the stake or total amount risked. In decimal odds, profit on a winning back bet is stake multiplied by odds minus one.",
+      },
+      {
+        term: "Punter",
+        definition:
+          "A punter is a person who places bets. It is a common UK term for a bettor.",
+      },
+    ],
+  },
+  {
+    letter: "R",
+    items: [
+      {
+        term: "Return",
+        definition:
+          "Return is the total amount paid back from a winning bet, usually including the original stake. Profit is the return minus the stake.",
+      },
+      {
+        term: "Rule 4",
+        definition:
+          "Rule 4 is a deduction applied in UK and Irish horse racing when a horse is withdrawn after bets have been placed. The deduction depends on the withdrawn horse’s price.",
+      },
+      {
+        term: "Runner",
+        definition:
+          "A runner is a selection taking part in an event, especially in horse racing or greyhound racing.",
+      },
+    ],
+  },
+  {
+    letter: "S",
+    items: [
+      {
+        term: "Saver Bet",
+        definition:
+          "A saver bet is a bet placed to reduce a possible loss on another position. It is a form of hedging, although it may not fully balance the result.",
+      },
+      {
+        term: "Selection",
+        definition:
+          "A selection is the outcome, team, player, horse or result you choose to bet on.",
+      },
+      {
+        term: "Shorten",
+        definition:
+          "Odds shorten when they get smaller. For example, a selection moving from 4.00 to 2.50 has shortened. This usually means the market sees it as more likely than before.",
+      },
+      {
+        term: "Single",
+        definition:
+          "A single is one bet on one selection. It is the simplest type of bet.",
+      },
+      {
+        term: "Starting Price",
+        aka: "SP",
+        definition:
+          "Starting Price is the official price of a horse or greyhound at the start of the race. Some bets are settled at SP rather than at a fixed earlier price.",
+      },
+      {
+        term: "Stake",
+        definition:
+          "Stake is the amount of money placed on a bet. The stake is separate from the potential profit.",
+      },
+      {
+        term: "Stake Returned",
+        definition:
+          "Stake returned means the original stake is included in the payout. Decimal odds normally include the returned stake in the total return.",
+      },
+      {
+        term: "Steam",
+        definition:
+          "Steam refers to a rapid shortening of odds, often because a lot of money has arrived on the same selection.",
+      },
+      {
+        term: "System Bet",
+        definition:
+          "A system bet is a structured multiple bet made up of several combinations. Examples include Trixie, Yankee, Canadian and Heinz bets.",
+      },
+    ],
+  },
+  {
+    letter: "T",
+    items: [
+      {
+        term: "Tipster",
+        definition:
+          "A tipster gives betting selections or predictions. Tipster claims should be treated carefully, especially if they promise guaranteed profit.",
+      },
+      {
+        term: "Treble",
+        definition:
+          "A treble is an accumulator with three selections. All three must win for the bet to pay out.",
+      },
+      {
+        term: "Trading",
+        definition:
+          "Trading in betting means backing and laying at different prices to manage a position before the event ends. It is common on betting exchanges.",
+      },
+      {
+        term: "Trixie",
+        definition:
+          "A Trixie is a multiple bet involving three selections, made up of three doubles and one treble.",
+      },
+    ],
+  },
+  {
+    letter: "U",
+    items: [
+      {
+        term: "Underround",
+        definition:
+          "Underround is when the total implied probability of a market is below 100%. It can sometimes suggest an arbitrage opportunity, although real-world restrictions may apply.",
+        link: "/calculators/overround-calculator/",
+        linkText: "Check for underround",
+      },
+      {
+        term: "Underdog",
+        definition:
+          "The underdog is the selection considered less likely to win. Underdogs usually have bigger odds than favourites.",
+      },
+    ],
+  },
+  {
+    letter: "V",
+    items: [
+      {
+        term: "Value Bet",
+        definition:
+          "A value bet is a bet where the odds appear higher than the true chance of the outcome. Value betting depends on estimating probability accurately, which is difficult.",
+      },
+      {
+        term: "Vig",
+        definition:
+          "Vig, short for vigorish, is a term often used in US betting for the bookmaker’s margin or built-in charge.",
+        link: "/calculators/overround-calculator/",
+        linkText: "Calculate the vig",
+      },
+      {
+        term: "Void Bet",
+        definition:
+          "A void bet is cancelled and the stake is returned. This can happen if an event is postponed, a player does not take part, or specific market rules are triggered.",
+      },
+    ],
+  },
+  {
+    letter: "W",
+    items: [
+      {
+        term: "Wager",
+        definition:
+          "A wager is another word for a bet. It is more commonly used in US betting language.",
+      },
+      {
+        term: "Weight of Money",
+        definition:
+          "Weight of money describes the amount of money being placed on different outcomes. It can influence odds movement, especially in exchange markets.",
+      },
+      {
+        term: "Win Bet",
+        definition:
+          "A win bet is a bet on a selection to win the event or market. It is the simplest form of betting in many sports.",
+      },
+      {
+        term: "Winning Margin",
+        definition:
+          "Winning margin is a market based on how much a team or player wins by. For example, a football team to win by exactly one goal.",
+      },
+    ],
+  },
+  {
+    letter: "Y",
+    items: [
+      {
+        term: "Yankee",
+        definition:
+          "A Yankee is a multiple bet involving four selections. It contains 11 bets: six doubles, four trebles and one four-fold accumulator.",
+      },
+    ],
+  },
+];
+
+const letters = terms.map((group) => group.letter);
+---
+
+<MainLayout
+  title="Betting Jargon Explained"
+  description="A plain-English A-Z glossary of betting terms, odds jargon, bookmaker margin, hedging, dutching, lay betting, accumulators and betting maths phrases."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting glossary</p>
+    <h1>Betting Jargon Explained</h1>
+    <p class="lead">
+      A plain-English A-Z guide to betting terms, odds jargon and betting maths phrases, including accumulators, overround, dutching, hedging, lay betting, bookmaker margin and implied probability.
+    </p>
+
+    <div class="callout">
+      <strong>Quick note:</strong> Betting terms can sound more complicated than they really are. This glossary explains the language and links key maths terms to our calculators where useful.
+    </div>
+
+    <div class="glossary-tools">
+      <label class="search-box">
+        <span>Search betting terms</span>
+        <input id="glossary-search" type="search" placeholder="Search terms such as overround, acca, lay bet, dutching..." />
+      </label>
+
+      <nav class="letter-nav" aria-label="Glossary letters">
+        {letters.map((letter) => (
+          <a href={`#letter-${letter}`}>{letter}</a>
+        ))}
+      </nav>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Popular betting maths terms</h2>
+    <p>
+      Some betting phrases are especially important for understanding how odds and markets work. These are the terms most closely linked to the Betting Maths calculators.
+    </p>
+
+    <div class="featured-grid">
+      <a class="featured-card" href="/calculators/overround-calculator/">
+        <h3>Overround</h3>
+        <p>Calculate bookmaker margin and book percentage.</p>
+      </a>
+      <a class="featured-card" href="/calculators/dutching-calculator/">
+        <h3>Dutching</h3>
+        <p>Split a stake across two or more selections.</p>
+      </a>
+      <a class="featured-card" href="/calculators/hedge-bet-calculator/">
+        <h3>Hedging</h3>
+        <p>Work out back and lay hedge stakes.</p>
+      </a>
+      <a class="featured-card" href="/calculators/odds-converter/">
+        <h3>Implied probability</h3>
+        <p>Convert odds into percentage chance.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>A-Z betting terms glossary</h2>
+
+    <div id="no-results" class="no-results" hidden>
+      No matching betting terms found. Try a broader search such as “odds”, “stake”, “lay” or “margin”.
+    </div>
+
+    <div class="glossary-list">
+      {terms.map((group) => (
+        <section class="letter-section" id={`letter-${group.letter}`}>
+          <h2>{group.letter}</h2>
+
+          <div class="term-grid">
+            {group.items.map((item) => (
+              <article class="term-card" data-term={`${item.term} ${item.aka ?? ""} ${item.definition}`}>
+                <h3>
+                  {item.term}
+                  {item.aka && <span>{item.aka}</span>}
+                </h3>
+                <p>{item.definition}</p>
+                {item.link && <a href={item.link}>{item.linkText}</a>}
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Why betting jargon matters</h2>
+    <p>
+      Understanding betting jargon is not just about knowing slang. Terms like overround, implied probability, lay liability, commission and value bet describe the actual maths behind betting markets.
+    </p>
+    <p>
+      If you understand what the terms mean, it becomes easier to read odds, compare markets, use calculators correctly and avoid misunderstanding what a bet can return.
+    </p>
+
+    <div class="callout">
+      <strong>Responsible note:</strong> Learning betting terminology can help you understand risk, but it does not guarantee profit. Betting always involves risk, and you should only bet what you can afford to lose.
+    </div>
+  </section>
+
+  <style>
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .glossary-tools {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+
+    .search-box {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .search-box span {
+      display: block;
+      margin-bottom: 0.45rem;
+      color: var(--color-navy);
+      font-weight: 800;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      color: var(--color-text);
+      font: inherit;
+      background: white;
+    }
+
+    .search-box input:focus {
+      outline: 2px solid rgba(31, 138, 91, 0.22);
+      border-color: var(--color-green);
+    }
+
+    .letter-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .letter-nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 38px;
+      height: 38px;
+      padding: 0 0.6rem;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      background: white;
+      color: var(--color-navy);
+      font-weight: 800;
+    }
+
+    .letter-nav a:hover {
+      background: var(--color-green);
+      border-color: var(--color-green);
+      color: white;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .featured-card {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .featured-card:hover {
+      border-color: rgba(31, 138, 91, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .featured-card h3 {
+      margin-bottom: 0.35rem;
+    }
+
+    .featured-card p {
+      margin: 0;
+      color: var(--color-muted);
+    }
+
+    .glossary-list {
+      display: grid;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .letter-section {
+      scroll-margin-top: 92px;
+    }
+
+    .letter-section > h2 {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      margin: 0 0 0.8rem;
+      border-radius: 14px;
+      background: var(--color-navy);
+      color: white;
+      font-size: 1.35rem;
+    }
+
+    .term-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .term-card {
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: white;
+    }
+
+    .term-card h3 {
+      margin-bottom: 0.45rem;
+    }
+
+    .term-card h3 span {
+      display: inline-flex;
+      margin-left: 0.35rem;
+      padding: 0.12rem 0.45rem;
+      border-radius: 999px;
+      background: #eef8f3;
+      color: var(--color-green-dark);
+      font-size: 0.78rem;
+      vertical-align: middle;
+    }
+
+    .term-card p {
+      margin: 0;
+      color: var(--color-muted);
+    }
+
+    .term-card a {
+      display: inline-block;
+      margin-top: 0.75rem;
+      color: var(--color-green-dark);
+      font-weight: 800;
+    }
+
+    .term-card[hidden],
+    .letter-section[hidden] {
+      display: none;
+    }
+
+    .no-results {
+      margin: 1rem 0;
+      padding: 1rem;
+      border-radius: 12px;
+      background: #fff7e6;
+      color: #8a5a00;
+      font-weight: 700;
+    }
+
+    @media (max-width: 980px) {
+      .featured-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .featured-grid,
+      .term-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <script>
+    const searchInput = document.getElementById("glossary-search");
+    const termCards = Array.from(document.querySelectorAll(".term-card"));
+    const letterSections = Array.from(document.querySelectorAll(".letter-section"));
+    const noResults = document.getElementById("no-results");
+
+    function filterGlossary() {
+      const query = searchInput.value.trim().toLowerCase();
+      let visibleCount = 0;
+
+      termCards.forEach((card) => {
+        const text = card.dataset.term.toLowerCase();
+        const matches = !query || text.includes(query);
+
+        card.hidden = !matches;
+
+        if (matches) {
+          visibleCount += 1;
+        }
+      });
+
+      letterSections.forEach((section) => {
+        const visibleCards = section.querySelectorAll(".term-card:not([hidden])");
+        section.hidden = visibleCards.length === 0;
+      });
+
+      noResults.hidden = visibleCount !== 0;
+    }
+
+    searchInput.addEventListener("input", filterGlossary);
+  </script>
+</MainLayout>
