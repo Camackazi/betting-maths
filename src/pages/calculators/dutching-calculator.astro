@@ -4,13 +4,13 @@ import MainLayout from "../../layouts/MainLayout.astro";
 
 <MainLayout
   title="Dutching Calculator"
-  description="Use this free dutching calculator to split a total stake across multiple selections and calculate equalised returns and profit."
+  description="Use this free dutching calculator to split a total stake across two or more selections and calculate equalised returns and profit."
 >
   <section class="content-card">
     <p class="eyebrow">Betting calculator</p>
     <h1>Dutching Calculator</h1>
     <p class="lead">
-      Use this calculator to split a total stake across multiple selections so that each winning outcome aims to return the same amount.
+      Use this calculator to split a total stake across two or more selections so that each winning outcome aims to return the same amount.
     </p>
 
     <div class="callout">
@@ -57,9 +57,9 @@ import MainLayout from "../../layouts/MainLayout.astro";
               <td>
                 <input type="number" value="3.00" min="1.01" step="0.01" aria-label="Decimal odds" />
               </td>
-              <td class="stake-cell">£42.55</td>
-              <td class="return-cell">£127.66</td>
-              <td class="profit-cell">£27.66</td>
+              <td class="stake-cell">£57.14</td>
+              <td class="return-cell">£171.43</td>
+              <td class="profit-cell">£71.43</td>
               <td>
                 <button class="remove-row" type="button" aria-label="Remove selection">×</button>
               </td>
@@ -71,23 +71,9 @@ import MainLayout from "../../layouts/MainLayout.astro";
               <td>
                 <input type="number" value="4.00" min="1.01" step="0.01" aria-label="Decimal odds" />
               </td>
-              <td class="stake-cell">£31.91</td>
-              <td class="return-cell">£127.66</td>
-              <td class="profit-cell">£27.66</td>
-              <td>
-                <button class="remove-row" type="button" aria-label="Remove selection">×</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input type="text" value="Selection 3" aria-label="Selection name" />
-              </td>
-              <td>
-                <input type="number" value="5.00" min="1.01" step="0.01" aria-label="Decimal odds" />
-              </td>
-              <td class="stake-cell">£25.53</td>
-              <td class="return-cell">£127.66</td>
-              <td class="profit-cell">£27.66</td>
+              <td class="stake-cell">£42.86</td>
+              <td class="return-cell">£171.43</td>
+              <td class="profit-cell">£71.43</td>
               <td>
                 <button class="remove-row" type="button" aria-label="Remove selection">×</button>
               </td>
@@ -109,20 +95,20 @@ import MainLayout from "../../layouts/MainLayout.astro";
         </div>
         <div class="result-card">
           <span>Target return</span>
-          <strong id="target-return-result">£127.66</strong>
+          <strong id="target-return-result">£171.43</strong>
         </div>
         <div class="result-card">
           <span>Equal profit</span>
-          <strong id="profit-result">£27.66</strong>
+          <strong id="profit-result">£71.43</strong>
         </div>
         <div class="result-card">
           <span>Book percentage</span>
-          <strong id="book-percentage-result">78.33%</strong>
+          <strong id="book-percentage-result">58.33%</strong>
         </div>
       </div>
 
       <p class="result-note" id="result-note">
-        With these odds, a £100.00 total stake aims for a return of £127.66 and an equal profit of £27.66.
+        With these odds, a £100.00 total stake aims for a return of £171.43 and an equal profit of £71.43.
       </p>
     </div>
   </section>
@@ -130,10 +116,10 @@ import MainLayout from "../../layouts/MainLayout.astro";
   <section class="content-card article-section">
     <h2>What is dutching?</h2>
     <p>
-      Dutching is a betting staking method where you back multiple outcomes in the same market. Instead of placing the same stake on each selection, you adjust the stake on each outcome so that the return is balanced.
+      Dutching is a betting staking method where you back two or more outcomes in the same market. Instead of placing the same stake on each selection, you adjust the stake on each outcome so that the return is balanced.
     </p>
     <p>
-      For example, if you want to cover three selections in a horse race or football market, a dutching calculator can work out how much to place on each one from your total stake.
+      For example, if you want to cover two horses in a race or two possible outcomes in another market, a dutching calculator can work out how much to place on each one from your total stake.
     </p>
 
     <h2>Dutching formula</h2>
@@ -150,7 +136,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
 
     <h2>Example</h2>
     <p>
-      If you want to split £100 across selections priced at 3.00, 4.00 and 5.00, this calculator works out the stake needed on each selection to aim for the same return.
+      If you want to split £100 across two selections priced at 3.00 and 4.00, this calculator works out the stake needed on each selection to aim for the same return.
     </p>
 
     <table class="example-table">
@@ -167,23 +153,16 @@ import MainLayout from "../../layouts/MainLayout.astro";
         <tr>
           <td>Selection 1</td>
           <td>3.00</td>
-          <td>£42.55</td>
-          <td>£127.66</td>
-          <td>£27.66</td>
+          <td>£57.14</td>
+          <td>£171.43</td>
+          <td>£71.43</td>
         </tr>
         <tr>
           <td>Selection 2</td>
           <td>4.00</td>
-          <td>£31.91</td>
-          <td>£127.66</td>
-          <td>£27.66</td>
-        </tr>
-        <tr>
-          <td>Selection 3</td>
-          <td>5.00</td>
-          <td>£25.53</td>
-          <td>£127.66</td>
-          <td>£27.66</td>
+          <td>£42.86</td>
+          <td>£171.43</td>
+          <td>£71.43</td>
         </tr>
       </tbody>
     </table>
@@ -208,12 +187,12 @@ import MainLayout from "../../layouts/MainLayout.astro";
 
     <h3>What does a dutching calculator do?</h3>
     <p>
-      A dutching calculator splits a total stake across multiple selections so each winning selection aims to produce the same return or profit.
+      A dutching calculator splits a total stake across two or more selections so each winning selection aims to produce the same return or profit.
     </p>
 
-    <h3>Does dutching work with more than three selections?</h3>
+    <h3>Does dutching work with more than two selections?</h3>
     <p>
-      Yes. This calculator lets you add extra selections. The same principle applies: each stake is calculated from the odds and the total stake.
+      Yes. This calculator starts with two selections, but you can add extra selections. The same principle applies: each stake is calculated from the odds and the total stake.
     </p>
 
     <h3>What happens if the book percentage is over 100%?</h3>
@@ -497,8 +476,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
 
     const exampleRows = [
       { name: "Selection 1", odds: "3.00" },
-      { name: "Selection 2", odds: "4.00" },
-      { name: "Selection 3", odds: "5.00" }
+      { name: "Selection 2", odds: "4.00" }
     ];
 
     function formatMoney(value) {
@@ -579,8 +557,8 @@ import MainLayout from "../../layouts/MainLayout.astro";
         selections.push({ row, odds, implied });
       });
 
-      if (hasInvalidOdds || selections.length === 0) {
-        setError("Please enter decimal odds greater than 1.00 for every selection.");
+      if (hasInvalidOdds || selections.length < 2) {
+        setError("Please enter valid decimal odds greater than 1.00 for at least two selections.");
         return;
       }
 
@@ -628,7 +606,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
           const rows = tableBody.querySelectorAll("tr");
 
           if (rows.length <= 2) {
-            resultNote.textContent = "Dutching needs at least two selections.";
+            resultNote.textContent = "Dutching needs at least two selections. Add another selection before removing one of these.";
             resultNote.className = "result-note error";
             return;
           }
