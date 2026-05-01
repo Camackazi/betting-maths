@@ -1,14 +1,668 @@
-    ---
-    import MainLayout from "../../layouts/MainLayout.astro";
-    ---
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
 
-    <MainLayout title="Dutching Calculator" description="Calculate stakes across multiple outcomes to balance returns.">
-      <section class="content-card">
-        <p class="eyebrow">Betting Maths</p>
-        <h1>Dutching Calculator</h1>
-        <p class="lead">Calculate stakes across multiple outcomes to balance returns.</p>
-        <div class="placeholder-box">
-  This starter page is ready for the full calculator, guide content and SEO structure.
-</div>
-      </section>
-    </MainLayout>
+<MainLayout
+  title="Dutching Calculator"
+  description="Use this free dutching calculator to split a total stake across multiple selections and calculate equalised returns and profit."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting calculator</p>
+    <h1>Dutching Calculator</h1>
+    <p class="lead">
+      Use this calculator to split a total stake across multiple selections so that each winning outcome aims to return the same amount.
+    </p>
+
+    <div class="callout">
+      <strong>Quick explanation:</strong> Dutching is a staking method where you back more than one outcome in the same market and divide your stake so the return is balanced across the selections.
+    </div>
+
+    <div class="calculator-panel" id="dutching-calculator">
+      <div class="calculator-header">
+        <div>
+          <h2>Enter your stake and odds</h2>
+          <p>Add each selection you want to cover, then enter the decimal odds and your total stake.</p>
+        </div>
+        <button class="button secondary small-button" type="button" id="reset-dutching">
+          Reset example
+        </button>
+      </div>
+
+      <label class="stake-box">
+        <span>Total stake</span>
+        <div class="stake-input-wrap">
+          <span>£</span>
+          <input id="total-stake" type="number" min="0.01" step="0.01" value="100" />
+        </div>
+        <small>The total amount you want to split across all selections.</small>
+      </label>
+
+      <div class="market-table-wrap">
+        <table class="market-table">
+          <thead>
+            <tr>
+              <th>Selection</th>
+              <th>Decimal odds</th>
+              <th>Stake</th>
+              <th>Return</th>
+              <th>Profit</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="dutching-rows">
+            <tr>
+              <td>
+                <input type="text" value="Selection 1" aria-label="Selection name" />
+              </td>
+              <td>
+                <input type="number" value="3.00" min="1.01" step="0.01" aria-label="Decimal odds" />
+              </td>
+              <td class="stake-cell">£42.55</td>
+              <td class="return-cell">£127.66</td>
+              <td class="profit-cell">£27.66</td>
+              <td>
+                <button class="remove-row" type="button" aria-label="Remove selection">×</button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" value="Selection 2" aria-label="Selection name" />
+              </td>
+              <td>
+                <input type="number" value="4.00" min="1.01" step="0.01" aria-label="Decimal odds" />
+              </td>
+              <td class="stake-cell">£31.91</td>
+              <td class="return-cell">£127.66</td>
+              <td class="profit-cell">£27.66</td>
+              <td>
+                <button class="remove-row" type="button" aria-label="Remove selection">×</button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" value="Selection 3" aria-label="Selection name" />
+              </td>
+              <td>
+                <input type="number" value="5.00" min="1.01" step="0.01" aria-label="Decimal odds" />
+              </td>
+              <td class="stake-cell">£25.53</td>
+              <td class="return-cell">£127.66</td>
+              <td class="profit-cell">£27.66</td>
+              <td>
+                <button class="remove-row" type="button" aria-label="Remove selection">×</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="calculator-actions">
+        <button class="button primary" type="button" id="add-selection">
+          Add selection
+        </button>
+      </div>
+
+      <div class="results-grid">
+        <div class="result-card">
+          <span>Total stake</span>
+          <strong id="total-stake-result">£100.00</strong>
+        </div>
+        <div class="result-card">
+          <span>Target return</span>
+          <strong id="target-return-result">£127.66</strong>
+        </div>
+        <div class="result-card">
+          <span>Equal profit</span>
+          <strong id="profit-result">£27.66</strong>
+        </div>
+        <div class="result-card">
+          <span>Book percentage</span>
+          <strong id="book-percentage-result">78.33%</strong>
+        </div>
+      </div>
+
+      <p class="result-note" id="result-note">
+        With these odds, a £100.00 total stake aims for a return of £127.66 and an equal profit of £27.66.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What is dutching?</h2>
+    <p>
+      Dutching is a betting staking method where you back multiple outcomes in the same market. Instead of placing the same stake on each selection, you adjust the stake on each outcome so that the return is balanced.
+    </p>
+    <p>
+      For example, if you want to cover three selections in a horse race or football market, a dutching calculator can work out how much to place on each one from your total stake.
+    </p>
+
+    <h2>Dutching formula</h2>
+    <p>
+      The basic method is to convert each selection into an implied probability, add those figures together, then divide the total stake in proportion to those probabilities.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Book percentage</strong> = sum of 1 ÷ decimal odds</p>
+      <p><strong>Target return</strong> = total stake ÷ book percentage</p>
+      <p><strong>Stake per selection</strong> = target return ÷ decimal odds</p>
+      <p><strong>Profit</strong> = target return − total stake</p>
+    </div>
+
+    <h2>Example</h2>
+    <p>
+      If you want to split £100 across selections priced at 3.00, 4.00 and 5.00, this calculator works out the stake needed on each selection to aim for the same return.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Selection</th>
+          <th>Odds</th>
+          <th>Stake</th>
+          <th>Return</th>
+          <th>Profit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Selection 1</td>
+          <td>3.00</td>
+          <td>£42.55</td>
+          <td>£127.66</td>
+          <td>£27.66</td>
+        </tr>
+        <tr>
+          <td>Selection 2</td>
+          <td>4.00</td>
+          <td>£31.91</td>
+          <td>£127.66</td>
+          <td>£27.66</td>
+        </tr>
+        <tr>
+          <td>Selection 3</td>
+          <td>5.00</td>
+          <td>£25.53</td>
+          <td>£127.66</td>
+          <td>£27.66</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>When is dutching useful?</h2>
+    <p>
+      Dutching can be useful when you want to cover several outcomes without staking the same amount on each one. It is often used to compare multiple selections in the same market and understand how the stake would need to be divided.
+    </p>
+
+    <h2>Can dutching guarantee profit?</h2>
+    <p>
+      No. Dutching does not guarantee profit. It only balances the return across the outcomes you choose to cover. If an uncovered outcome wins, the dutched bets lose. Odds can also change, stake limits may apply, and bookmaker margin can reduce value.
+    </p>
+
+    <div class="callout">
+      <strong>Responsible note:</strong> Dutching is a calculation method, not a guaranteed betting system. It can help you understand stakes and returns, but it cannot remove betting risk.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Dutching calculator FAQs</h2>
+
+    <h3>What does a dutching calculator do?</h3>
+    <p>
+      A dutching calculator splits a total stake across multiple selections so each winning selection aims to produce the same return or profit.
+    </p>
+
+    <h3>Does dutching work with more than three selections?</h3>
+    <p>
+      Yes. This calculator lets you add extra selections. The same principle applies: each stake is calculated from the odds and the total stake.
+    </p>
+
+    <h3>What happens if the book percentage is over 100%?</h3>
+    <p>
+      If the selections you cover add up to more than 100%, the equalised result will usually show a loss. This means the prices are not high enough to cover those selections profitably with this staking method.
+    </p>
+
+    <h3>Is dutching the same as arbitrage?</h3>
+    <p>
+      Not exactly. Dutching is a way of splitting stakes across outcomes. Arbitrage usually means finding prices that allow all possible outcomes in a market to be covered for a profit after costs.
+    </p>
+  </section>
+
+  <style>
+    .calculator-panel {
+      margin-top: 1.5rem;
+      padding: 1.25rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      background: #ffffff;
+    }
+
+    .calculator-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .calculator-header h2 {
+      margin: 0;
+    }
+
+    .calculator-header p {
+      margin: 0.25rem 0 0;
+      color: var(--color-muted);
+    }
+
+    .small-button {
+      padding: 0.55rem 0.75rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .stake-box {
+      display: block;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+      max-width: 360px;
+    }
+
+    .stake-box > span {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: var(--color-navy);
+      font-weight: 800;
+    }
+
+    .stake-input-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      background: white;
+    }
+
+    .stake-input-wrap span {
+      color: var(--color-muted);
+      font-weight: 800;
+    }
+
+    .stake-input-wrap input {
+      width: 100%;
+      border: 0;
+      padding: 0.5rem 0;
+      font: inherit;
+      font-size: 1.1rem;
+      color: var(--color-text);
+      background: transparent;
+    }
+
+    .stake-input-wrap input:focus {
+      outline: 0;
+    }
+
+    .stake-box small {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--color-muted);
+    }
+
+    .market-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+    }
+
+    .market-table,
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+
+    .market-table th,
+    .market-table td,
+    .example-table th,
+    .example-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .market-table th,
+    .example-table th {
+      color: var(--color-navy);
+      background: #f4f7fa;
+      font-size: 0.9rem;
+    }
+
+    .market-table tr:last-child td,
+    .example-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .market-table input {
+      width: 100%;
+      min-width: 110px;
+      padding: 0.65rem;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      color: var(--color-text);
+      font: inherit;
+    }
+
+    .market-table input:focus {
+      outline: 2px solid rgba(31, 138, 91, 0.22);
+      border-color: var(--color-green);
+    }
+
+    .stake-cell,
+    .return-cell,
+    .profit-cell {
+      font-weight: 800;
+      color: var(--color-navy);
+      white-space: nowrap;
+    }
+
+    .profit-cell.positive {
+      color: var(--color-green-dark);
+    }
+
+    .profit-cell.negative {
+      color: #b42318;
+    }
+
+    .remove-row {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      background: white;
+      color: var(--color-muted);
+      font-size: 1.2rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .remove-row:hover {
+      color: #b42318;
+      border-color: #f3b7b2;
+      background: #fff1f0;
+    }
+
+    .calculator-actions {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .result-card {
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .result-card span {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: var(--color-muted);
+      font-size: 0.9rem;
+    }
+
+    .result-card strong {
+      display: block;
+      color: var(--color-navy);
+      font-size: 1.35rem;
+      line-height: 1.2;
+      word-break: break-word;
+    }
+
+    .result-note {
+      margin: 1rem 0 0;
+      padding: 1rem;
+      border-radius: 12px;
+      background: #eef8f3;
+      color: var(--color-green-dark);
+      font-weight: 700;
+    }
+
+    .result-note.warning {
+      background: #fff7e6;
+      color: #8a5a00;
+    }
+
+    .result-note.error {
+      background: #fff1f0;
+      color: #b42318;
+    }
+
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .formula-box {
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+
+    .formula-box p {
+      margin: 0.4rem 0;
+    }
+
+    @media (max-width: 980px) {
+      .results-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .calculator-header {
+        flex-direction: column;
+      }
+
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <script>
+    const tableBody = document.getElementById("dutching-rows");
+    const totalStakeInput = document.getElementById("total-stake");
+    const addButton = document.getElementById("add-selection");
+    const resetButton = document.getElementById("reset-dutching");
+
+    const totalStakeResult = document.getElementById("total-stake-result");
+    const targetReturnResult = document.getElementById("target-return-result");
+    const profitResult = document.getElementById("profit-result");
+    const bookPercentageResult = document.getElementById("book-percentage-result");
+    const resultNote = document.getElementById("result-note");
+
+    const exampleRows = [
+      { name: "Selection 1", odds: "3.00" },
+      { name: "Selection 2", odds: "4.00" },
+      { name: "Selection 3", odds: "5.00" }
+    ];
+
+    function formatMoney(value) {
+      return new Intl.NumberFormat("en-GB", {
+        style: "currency",
+        currency: "GBP",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }).format(value);
+    }
+
+    function formatPercent(value) {
+      return `${value.toFixed(2)}%`;
+    }
+
+    function createRow(name = "Selection", odds = "") {
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+        <td>
+          <input type="text" value="${name}" aria-label="Selection name" />
+        </td>
+        <td>
+          <input type="number" value="${odds}" min="1.01" step="0.01" aria-label="Decimal odds" />
+        </td>
+        <td class="stake-cell">—</td>
+        <td class="return-cell">—</td>
+        <td class="profit-cell">—</td>
+        <td>
+          <button class="remove-row" type="button" aria-label="Remove selection">×</button>
+        </td>
+      `;
+
+      return row;
+    }
+
+    function setError(message) {
+      totalStakeResult.textContent = "—";
+      targetReturnResult.textContent = "—";
+      profitResult.textContent = "—";
+      bookPercentageResult.textContent = "—";
+      resultNote.textContent = message;
+      resultNote.className = "result-note error";
+
+      tableBody.querySelectorAll("tr").forEach((row) => {
+        row.querySelector(".stake-cell").textContent = "—";
+        row.querySelector(".return-cell").textContent = "—";
+        const profitCell = row.querySelector(".profit-cell");
+        profitCell.textContent = "—";
+        profitCell.className = "profit-cell";
+      });
+    }
+
+    function calculateDutching() {
+      const totalStake = Number(totalStakeInput.value);
+      const rows = Array.from(tableBody.querySelectorAll("tr"));
+
+      if (!Number.isFinite(totalStake) || totalStake <= 0) {
+        setError("Please enter a total stake greater than £0.");
+        return;
+      }
+
+      let bookDecimal = 0;
+      let hasInvalidOdds = false;
+      const selections = [];
+
+      rows.forEach((row) => {
+        const oddsInput = row.querySelector('input[type="number"]');
+        const odds = Number(oddsInput.value);
+
+        if (!oddsInput.value || !Number.isFinite(odds) || odds <= 1) {
+          hasInvalidOdds = true;
+          return;
+        }
+
+        const implied = 1 / odds;
+        bookDecimal += implied;
+        selections.push({ row, odds, implied });
+      });
+
+      if (hasInvalidOdds || selections.length === 0) {
+        setError("Please enter decimal odds greater than 1.00 for every selection.");
+        return;
+      }
+
+      const targetReturn = totalStake / bookDecimal;
+      const equalProfit = targetReturn - totalStake;
+      const bookPercentage = bookDecimal * 100;
+
+      selections.forEach((selection) => {
+        const stake = targetReturn / selection.odds;
+        const returnAmount = stake * selection.odds;
+        const profit = returnAmount - totalStake;
+
+        selection.row.querySelector(".stake-cell").textContent = formatMoney(stake);
+        selection.row.querySelector(".return-cell").textContent = formatMoney(returnAmount);
+
+        const profitCell = selection.row.querySelector(".profit-cell");
+        profitCell.textContent = formatMoney(profit);
+        profitCell.className = `profit-cell ${profit >= 0 ? "positive" : "negative"}`;
+      });
+
+      totalStakeResult.textContent = formatMoney(totalStake);
+      targetReturnResult.textContent = formatMoney(targetReturn);
+      profitResult.textContent = formatMoney(equalProfit);
+      bookPercentageResult.textContent = formatPercent(bookPercentage);
+
+      if (equalProfit > 0.005) {
+        resultNote.textContent = `With these odds, a ${formatMoney(totalStake)} total stake aims for a return of ${formatMoney(targetReturn)} and an equal profit of ${formatMoney(equalProfit)}.`;
+        resultNote.className = "result-note";
+      } else if (equalProfit < -0.005) {
+        resultNote.textContent = `With these odds, the selections add up to ${formatPercent(bookPercentage)}, so the equalised result is a loss of ${formatMoney(Math.abs(equalProfit))}.`;
+        resultNote.className = "result-note warning";
+      } else {
+        resultNote.textContent = `With these odds, the equalised result is very close to break-even.`;
+        resultNote.className = "result-note";
+      }
+    }
+
+    function attachEvents() {
+      tableBody.querySelectorAll("input").forEach((input) => {
+        input.addEventListener("input", calculateDutching);
+      });
+
+      tableBody.querySelectorAll(".remove-row").forEach((button) => {
+        button.addEventListener("click", () => {
+          const rows = tableBody.querySelectorAll("tr");
+
+          if (rows.length <= 2) {
+            resultNote.textContent = "Dutching needs at least two selections.";
+            resultNote.className = "result-note error";
+            return;
+          }
+
+          button.closest("tr").remove();
+          calculateDutching();
+        });
+      });
+    }
+
+    function renderRows(rows) {
+      tableBody.innerHTML = "";
+      rows.forEach((row) => {
+        tableBody.appendChild(createRow(row.name, row.odds));
+      });
+      attachEvents();
+      calculateDutching();
+    }
+
+    totalStakeInput.addEventListener("input", calculateDutching);
+
+    addButton.addEventListener("click", () => {
+      const nextNumber = tableBody.querySelectorAll("tr").length + 1;
+      tableBody.appendChild(createRow(`Selection ${nextNumber}`, ""));
+      attachEvents();
+      calculateDutching();
+    });
+
+    resetButton.addEventListener("click", () => {
+      totalStakeInput.value = "100";
+      renderRows(exampleRows);
+    });
+
+    attachEvents();
+    calculateDutching();
+  </script>
+</MainLayout>
