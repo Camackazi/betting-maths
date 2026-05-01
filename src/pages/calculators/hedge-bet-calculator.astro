@@ -4,74 +4,92 @@ import MainLayout from "../../layouts/MainLayout.astro";
 
 <MainLayout
   title="Hedge Bet Calculator"
-  description="Use this free hedge bet calculator to calculate a hedge stake, total stake and profit or loss across both possible outcomes."
+  description="Use this free hedge bet calculator to calculate back and lay hedge stakes, lay liability, commission and profit or loss across both outcomes."
 >
   <section class="content-card">
     <p class="eyebrow">Betting calculator</p>
     <h1>Hedge Bet Calculator</h1>
     <p class="lead">
-      Use this calculator to work out how much to stake on a hedge bet so the result is balanced across both outcomes.
+      Use this calculator to work out a hedge stake when backing and laying, including exchange commission and lay liability.
     </p>
 
     <div class="callout">
-      <strong>Quick explanation:</strong> Hedging means placing another bet to reduce risk, lock in a result, or balance profit across different outcomes.
+      <strong>Quick explanation:</strong> Hedging often involves backing first and laying later, or laying first and backing later. This calculator shows the hedge stake and the result if the selection wins or loses.
     </div>
 
     <div class="calculator-panel" id="hedge-calculator">
       <div class="calculator-header">
         <div>
-          <h2>Enter your original bet and hedge odds</h2>
-          <p>The calculator will show the hedge stake and the result if either side wins.</p>
+          <h2>Choose your hedge type</h2>
+          <p>Select whether you backed first or laid first, then enter the odds and commission.</p>
         </div>
         <button class="button secondary small-button" type="button" id="reset-hedge">
           Reset example
         </button>
       </div>
 
+      <div class="mode-tabs" role="group" aria-label="Hedge type">
+        <button class="mode-tab active" type="button" data-mode="back-first">
+          Back first, then lay
+        </button>
+        <button class="mode-tab" type="button" data-mode="lay-first">
+          Lay first, then back
+        </button>
+      </div>
+
       <div class="input-grid">
         <label class="input-group">
-          <span>Original stake</span>
+          <span id="original-stake-label">Back stake</span>
           <div class="money-input-wrap">
             <span>£</span>
             <input id="original-stake" type="number" min="0.01" step="0.01" value="100" />
           </div>
-          <small>The amount you placed on the original bet.</small>
+          <small id="original-stake-help">The amount you originally backed.</small>
         </label>
 
         <label class="input-group">
-          <span>Original odds</span>
+          <span id="original-odds-label">Back odds</span>
           <input id="original-odds" type="number" min="1.01" step="0.01" value="3.00" />
-          <small>The decimal odds taken on the original bet.</small>
+          <small id="original-odds-help">The decimal odds of your original back bet.</small>
         </label>
 
         <label class="input-group">
-          <span>Hedge odds</span>
+          <span id="hedge-odds-label">Lay odds</span>
           <input id="hedge-odds" type="number" min="1.01" step="0.01" value="2.00" />
-          <small>The decimal odds available for the hedge bet.</small>
+          <small id="hedge-odds-help">The decimal odds available for the hedge lay bet.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Exchange commission</span>
+          <div class="percent-input-wrap">
+            <input id="commission" type="number" min="0" max="99" step="0.1" value="2" />
+            <span>%</span>
+          </div>
+          <small>Commission charged on exchange winnings.</small>
         </label>
       </div>
 
       <div class="results-grid">
         <div class="result-card">
-          <span>Hedge stake</span>
-          <strong id="hedge-stake-result">£150.00</strong>
+          <span id="hedge-stake-label">Lay stake</span>
+          <strong id="hedge-stake-result">£151.52</strong>
         </div>
         <div class="result-card">
-          <span>Total staked</span>
-          <strong id="total-staked-result">£250.00</strong>
+          <span>Lay liability</span>
+          <strong id="lay-liability-result">£151.52</strong>
         </div>
         <div class="result-card">
-          <span>If original bet wins</span>
-          <strong id="original-wins-result">£50.00</strong>
+          <span>If selection wins</span>
+          <strong id="selection-wins-result">£48.48</strong>
         </div>
         <div class="result-card">
-          <span>If hedge bet wins</span>
-          <strong id="hedge-wins-result">£50.00</strong>
+          <span>If selection loses</span>
+          <strong id="selection-loses-result">£48.48</strong>
         </div>
       </div>
 
       <p class="result-note" id="result-note">
-        A hedge stake of £150.00 would balance the result at £50.00 profit whichever side wins.
+        A lay stake of £151.52 would balance the result at £48.48 profit whether the selection wins or loses.
       </p>
     </div>
   </section>
@@ -79,27 +97,56 @@ import MainLayout from "../../layouts/MainLayout.astro";
   <section class="content-card article-section">
     <h2>What is hedging a bet?</h2>
     <p>
-      Hedging a bet means placing another bet on a different outcome to reduce your exposure, lock in a return, or balance the result across more than one outcome.
+      Hedging a bet means placing another bet to reduce risk, lock in a result, or balance the profit and loss across different outcomes.
     </p>
     <p>
-      For example, if you backed a selection at higher odds and the odds later shorten, you may be able to place a hedge bet on the opposite side so that either result produces a similar profit.
+      In exchange betting, hedging often involves a combination of backing and laying. You might back a selection first and then lay it later, or lay a selection first and then back it later.
     </p>
 
-    <h2>Hedge bet formula</h2>
+    <h2>What does backing mean?</h2>
     <p>
-      A simple equal-profit hedge can be calculated by comparing the original potential return with the available hedge odds.
+      A back bet is the traditional type of bet. You are betting that something will happen. If the selection wins, you make a profit based on the odds. If the selection loses, you lose your stake.
+    </p>
+
+    <h2>What does laying mean?</h2>
+    <p>
+      A lay bet is the opposite side of a back bet. When you lay a selection, you are betting that it will not win. If the selection loses, you win the other person’s stake, minus any exchange commission. If the selection wins, you pay out the liability.
+    </p>
+
+    <h2>What is lay liability?</h2>
+    <p>
+      Lay liability is the amount you risk when placing a lay bet. It is calculated from the lay stake and the lay odds.
     </p>
 
     <div class="formula-box">
-      <p><strong>Hedge stake</strong> = original stake × original odds ÷ hedge odds</p>
-      <p><strong>Total staked</strong> = original stake + hedge stake</p>
-      <p><strong>Profit if original wins</strong> = original stake × original odds − total staked</p>
-      <p><strong>Profit if hedge wins</strong> = hedge stake × hedge odds − total staked</p>
+      <p><strong>Lay liability</strong> = lay stake × (lay odds − 1)</p>
     </div>
 
-    <h2>Example</h2>
+    <h2>Back first, then lay</h2>
     <p>
-      Suppose you originally placed £100 at decimal odds of 3.00. Later, you can hedge at odds of 2.00.
+      This is common when you back a selection at higher odds and later lay it at lower odds. This can be used to balance profit across both outcomes, sometimes called greening up.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Lay stake</strong> = back stake × back odds ÷ (lay odds − commission)</p>
+      <p><strong>If selection wins</strong> = back profit − lay liability</p>
+      <p><strong>If selection loses</strong> = lay stake after commission − back stake</p>
+    </div>
+
+    <h2>Lay first, then back</h2>
+    <p>
+      Sometimes a trader may lay a selection first, hoping the odds drift, then back it later at higher odds. The hedge bet is then a back bet rather than a lay bet.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Back stake</strong> = lay stake × (lay odds − commission) ÷ back odds</p>
+      <p><strong>If selection wins</strong> = back profit − lay liability</p>
+      <p><strong>If selection loses</strong> = lay stake after commission − back stake</p>
+    </div>
+
+    <h2>Example: back first, then lay</h2>
+    <p>
+      Suppose you back a selection with £100 at odds of 3.00. Later, you can lay the same selection at odds of 2.00 with 2% exchange commission.
     </p>
 
     <table class="example-table">
@@ -111,67 +158,68 @@ import MainLayout from "../../layouts/MainLayout.astro";
       </thead>
       <tbody>
         <tr>
-          <td>Original stake</td>
+          <td>Back stake</td>
           <td>£100.00</td>
         </tr>
         <tr>
-          <td>Original odds</td>
+          <td>Back odds</td>
           <td>3.00</td>
         </tr>
         <tr>
-          <td>Hedge odds</td>
+          <td>Lay odds</td>
           <td>2.00</td>
         </tr>
         <tr>
-          <td>Hedge stake</td>
-          <td>£150.00</td>
+          <td>Commission</td>
+          <td>2%</td>
+        </tr>
+        <tr>
+          <td>Lay stake</td>
+          <td>£151.52</td>
         </tr>
       </tbody>
     </table>
 
     <p>
-      If the original bet wins, the original return is £300. After subtracting the original £100 stake and the £150 hedge stake, the profit is £50.
-    </p>
-    <p>
-      If the hedge bet wins, the hedge return is £300. After subtracting the original £100 stake and the £150 hedge stake, the profit is also £50.
-    </p>
-
-    <h2>When is hedging useful?</h2>
-    <p>
-      Hedging can be useful when odds have moved in your favour and you want to reduce risk or secure a more balanced position. It can also be used to compare whether cashing out is better or worse than placing your own hedge bet.
+      In this example, the calculator balances the position so the profit is approximately the same whether the selection wins or loses.
     </p>
 
     <h2>Can hedging guarantee profit?</h2>
     <p>
-      Hedging can sometimes lock in profit if the odds move favourably, but it does not guarantee profit in every situation. If the hedge odds are not favourable enough, hedging may simply reduce a possible loss or reduce the maximum possible profit.
+      Hedging can sometimes lock in profit when odds have moved favourably, but it does not guarantee profit in every situation. If the prices are not favourable enough, hedging may simply reduce a loss or reduce the maximum possible profit.
     </p>
 
     <div class="callout">
-      <strong>Responsible note:</strong> Hedging is a calculation method, not a guaranteed betting system. It can reduce or balance risk, but it cannot remove betting risk completely.
+      <strong>Responsible note:</strong> Hedging, backing and laying are calculation methods. They can help you understand risk and exposure, but they do not remove betting risk.
     </div>
   </section>
 
   <section class="content-card article-section">
     <h2>Hedge bet calculator FAQs</h2>
 
-    <h3>What does a hedge bet calculator do?</h3>
+    <h3>What does this hedge calculator do?</h3>
     <p>
-      A hedge bet calculator works out how much to stake on a second bet so that the result is balanced across two outcomes.
+      It calculates the hedge stake needed to balance the result across two outcomes when using back and lay bets.
     </p>
 
-    <h3>Is hedging the same as cashing out?</h3>
+    <h3>Does the calculator include exchange commission?</h3>
     <p>
-      Not exactly. Cashing out is an offer from a bookmaker or exchange. Hedging is when you calculate and place another bet yourself. Comparing the two can help you understand whether a cash-out offer is fair.
+      Yes. You can enter the exchange commission percentage. The calculator applies commission to the winning exchange side.
     </p>
 
-    <h3>Why is my hedge result a loss?</h3>
+    <h3>What is greening up?</h3>
     <p>
-      If the original odds and hedge odds do not create enough value, the calculator may show a balanced loss. This means hedging would reduce or equalise the result, but not create profit.
+      Greening up is a common exchange betting phrase for spreading profit across all outcomes, so that the position shows a similar positive result whichever outcome occurs.
     </p>
 
-    <h3>Does this calculator include exchange commission?</h3>
+    <h3>Why is my result showing a loss?</h3>
     <p>
-      This simple hedge calculator does not include exchange commission. A future back-lay calculator can include commission, lay liability and exchange-specific calculations.
+      If the odds have not moved favourably enough, the hedge may balance the position at a loss. That can still reduce risk, but it does not create profit.
+    </p>
+
+    <h3>Is this a Betfair calculator?</h3>
+    <p>
+      This is a general back and lay hedge calculator. It can be used for exchange-style calculations, but a more specific Betfair calculator could later include more detailed settings and examples.
     </p>
   </section>
 
@@ -207,9 +255,37 @@ import MainLayout from "../../layouts/MainLayout.astro";
       cursor: pointer;
     }
 
+    .mode-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      padding: 0.4rem;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      background: var(--color-bg);
+      width: fit-content;
+    }
+
+    .mode-tab {
+      border: 0;
+      border-radius: 999px;
+      padding: 0.65rem 0.95rem;
+      background: transparent;
+      color: var(--color-muted);
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .mode-tab.active {
+      background: var(--color-green);
+      color: white;
+    }
+
     .input-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 1rem;
     }
 
@@ -250,7 +326,8 @@ import MainLayout from "../../layouts/MainLayout.astro";
       color: var(--color-muted);
     }
 
-    .money-input-wrap {
+    .money-input-wrap,
+    .percent-input-wrap {
       display: flex;
       align-items: center;
       gap: 0.4rem;
@@ -260,18 +337,21 @@ import MainLayout from "../../layouts/MainLayout.astro";
       background: white;
     }
 
-    .money-input-wrap span {
+    .money-input-wrap span,
+    .percent-input-wrap span {
       color: var(--color-muted);
       font-weight: 800;
     }
 
-    .money-input-wrap input {
+    .money-input-wrap input,
+    .percent-input-wrap input {
       border: 0;
       padding: 0.5rem 0;
       background: transparent;
     }
 
-    .money-input-wrap input:focus {
+    .money-input-wrap input:focus,
+    .percent-input-wrap input:focus {
       outline: 0;
     }
 
@@ -373,7 +453,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
       border-bottom: 0;
     }
 
-    @media (max-width: 980px) {
+    @media (max-width: 1120px) {
       .input-grid,
       .results-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -385,6 +465,15 @@ import MainLayout from "../../layouts/MainLayout.astro";
         flex-direction: column;
       }
 
+      .mode-tabs {
+        width: 100%;
+        border-radius: 16px;
+      }
+
+      .mode-tab {
+        flex: 1 1 100%;
+      }
+
       .input-grid,
       .results-grid {
         grid-template-columns: 1fr;
@@ -393,16 +482,28 @@ import MainLayout from "../../layouts/MainLayout.astro";
   </style>
 
   <script>
+    const modeButtons = document.querySelectorAll(".mode-tab");
     const originalStakeInput = document.getElementById("original-stake");
     const originalOddsInput = document.getElementById("original-odds");
     const hedgeOddsInput = document.getElementById("hedge-odds");
+    const commissionInput = document.getElementById("commission");
     const resetButton = document.getElementById("reset-hedge");
 
+    const originalStakeLabel = document.getElementById("original-stake-label");
+    const originalStakeHelp = document.getElementById("original-stake-help");
+    const originalOddsLabel = document.getElementById("original-odds-label");
+    const originalOddsHelp = document.getElementById("original-odds-help");
+    const hedgeOddsLabel = document.getElementById("hedge-odds-label");
+    const hedgeOddsHelp = document.getElementById("hedge-odds-help");
+
+    const hedgeStakeLabel = document.getElementById("hedge-stake-label");
     const hedgeStakeResult = document.getElementById("hedge-stake-result");
-    const totalStakedResult = document.getElementById("total-staked-result");
-    const originalWinsResult = document.getElementById("original-wins-result");
-    const hedgeWinsResult = document.getElementById("hedge-wins-result");
+    const layLiabilityResult = document.getElementById("lay-liability-result");
+    const selectionWinsResult = document.getElementById("selection-wins-result");
+    const selectionLosesResult = document.getElementById("selection-loses-result");
     const resultNote = document.getElementById("result-note");
+
+    let currentMode = "back-first";
 
     function formatMoney(value) {
       return new Intl.NumberFormat("en-GB", {
@@ -419,72 +520,168 @@ import MainLayout from "../../layouts/MainLayout.astro";
 
     function showError(message) {
       hedgeStakeResult.textContent = "—";
-      totalStakedResult.textContent = "—";
-      originalWinsResult.textContent = "—";
-      hedgeWinsResult.textContent = "—";
-      originalWinsResult.className = "";
-      hedgeWinsResult.className = "";
+      layLiabilityResult.textContent = "—";
+      selectionWinsResult.textContent = "—";
+      selectionLosesResult.textContent = "—";
+      selectionWinsResult.className = "";
+      selectionLosesResult.className = "";
       resultNote.textContent = message;
       resultNote.className = "result-note error";
+    }
+
+    function updateLabels() {
+      if (currentMode === "back-first") {
+        originalStakeLabel.textContent = "Back stake";
+        originalStakeHelp.textContent = "The amount you originally backed.";
+        originalOddsLabel.textContent = "Back odds";
+        originalOddsHelp.textContent = "The decimal odds of your original back bet.";
+        hedgeOddsLabel.textContent = "Lay odds";
+        hedgeOddsHelp.textContent = "The decimal odds available for the hedge lay bet.";
+        hedgeStakeLabel.textContent = "Lay stake";
+      } else {
+        originalStakeLabel.textContent = "Lay stake";
+        originalStakeHelp.textContent = "The amount you originally laid.";
+        originalOddsLabel.textContent = "Lay odds";
+        originalOddsHelp.textContent = "The decimal odds of your original lay bet.";
+        hedgeOddsLabel.textContent = "Back odds";
+        hedgeOddsHelp.textContent = "The decimal odds available for the hedge back bet.";
+        hedgeStakeLabel.textContent = "Back stake";
+      }
     }
 
     function calculateHedge() {
       const originalStake = Number(originalStakeInput.value);
       const originalOdds = Number(originalOddsInput.value);
       const hedgeOdds = Number(hedgeOddsInput.value);
+      const commissionPercent = Number(commissionInput.value);
+      const commission = commissionPercent / 100;
 
       if (!Number.isFinite(originalStake) || originalStake <= 0) {
-        showError("Please enter an original stake greater than £0.");
+        showError("Please enter a stake greater than £0.");
         return;
       }
 
       if (!Number.isFinite(originalOdds) || originalOdds <= 1) {
-        showError("Please enter original decimal odds greater than 1.00.");
+        showError("Please enter decimal odds greater than 1.00 for the original bet.");
         return;
       }
 
       if (!Number.isFinite(hedgeOdds) || hedgeOdds <= 1) {
-        showError("Please enter hedge decimal odds greater than 1.00.");
+        showError("Please enter decimal odds greater than 1.00 for the hedge bet.");
         return;
       }
 
-      const hedgeStake = (originalStake * originalOdds) / hedgeOdds;
-      const totalStaked = originalStake + hedgeStake;
+      if (!Number.isFinite(commissionPercent) || commissionPercent < 0 || commissionPercent >= 100) {
+        showError("Please enter a commission percentage between 0 and 99.");
+        return;
+      }
 
-      const originalWinsProfit = (originalStake * originalOdds) - totalStaked;
-      const hedgeWinsProfit = (hedgeStake * hedgeOdds) - totalStaked;
+      let hedgeStake;
+      let layLiability;
+      let selectionWinsProfit;
+      let selectionLosesProfit;
+      let noteStakeLabel;
+
+      if (currentMode === "back-first") {
+        const backStake = originalStake;
+        const backOdds = originalOdds;
+        const layOdds = hedgeOdds;
+
+        hedgeStake = (backStake * backOdds) / (layOdds - commission);
+        layLiability = hedgeStake * (layOdds - 1);
+
+        selectionWinsProfit = (backStake * (backOdds - 1)) - layLiability;
+        selectionLosesProfit = (hedgeStake * (1 - commission)) - backStake;
+        noteStakeLabel = "lay stake";
+      } else {
+        const layStake = originalStake;
+        const layOdds = originalOdds;
+        const backOdds = hedgeOdds;
+
+        hedgeStake = (layStake * (layOdds - commission)) / backOdds;
+        layLiability = layStake * (layOdds - 1);
+
+        selectionWinsProfit = (hedgeStake * (backOdds - 1)) - layLiability;
+        selectionLosesProfit = (layStake * (1 - commission)) - hedgeStake;
+        noteStakeLabel = "back stake";
+      }
+
+      if (!Number.isFinite(hedgeStake) || hedgeStake <= 0) {
+        showError("These inputs do not produce a valid hedge stake.");
+        return;
+      }
 
       hedgeStakeResult.textContent = formatMoney(hedgeStake);
-      totalStakedResult.textContent = formatMoney(totalStaked);
-      originalWinsResult.textContent = formatMoney(originalWinsProfit);
-      hedgeWinsResult.textContent = formatMoney(hedgeWinsProfit);
+      layLiabilityResult.textContent = formatMoney(layLiability);
+      selectionWinsResult.textContent = formatMoney(selectionWinsProfit);
+      selectionLosesResult.textContent = formatMoney(selectionLosesProfit);
 
-      setResultClass(originalWinsResult, originalWinsProfit);
-      setResultClass(hedgeWinsResult, hedgeWinsProfit);
+      setResultClass(selectionWinsResult, selectionWinsProfit);
+      setResultClass(selectionLosesResult, selectionLosesProfit);
 
-      if (originalWinsProfit > 0.005 && hedgeWinsProfit > 0.005) {
-        resultNote.textContent = `A hedge stake of ${formatMoney(hedgeStake)} would balance the result at ${formatMoney(originalWinsProfit)} profit whichever side wins.`;
+      const roundedDifference = Math.abs(selectionWinsProfit - selectionLosesProfit);
+
+      if (selectionWinsProfit > 0.005 && selectionLosesProfit > 0.005) {
+        resultNote.textContent = `A ${noteStakeLabel} of ${formatMoney(hedgeStake)} would balance the result at about ${formatMoney(selectionWinsProfit)} profit whether the selection wins or loses.`;
         resultNote.className = "result-note";
-      } else if (originalWinsProfit < -0.005 && hedgeWinsProfit < -0.005) {
-        resultNote.textContent = `This hedge would balance the result, but both outcomes show a loss of ${formatMoney(Math.abs(originalWinsProfit))}.`;
+      } else if (selectionWinsProfit < -0.005 && selectionLosesProfit < -0.005) {
+        resultNote.textContent = `This hedge balances the position, but both outcomes show a loss of about ${formatMoney(Math.abs(selectionWinsProfit))}.`;
         resultNote.className = "result-note warning";
-      } else {
+      } else if (roundedDifference <= 0.02) {
         resultNote.textContent = `This hedge balances the two outcomes at approximately break-even.`;
         resultNote.className = "result-note";
+      } else {
+        resultNote.textContent = `This hedge reduces exposure, but the two outcomes are not perfectly equal after rounding.`;
+        resultNote.className = "result-note warning";
       }
     }
 
-    [originalStakeInput, originalOddsInput, hedgeOddsInput].forEach((input) => {
+    modeButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        currentMode = button.dataset.mode;
+
+        modeButtons.forEach((modeButton) => {
+          modeButton.classList.toggle("active", modeButton === button);
+        });
+
+        if (currentMode === "back-first") {
+          originalStakeInput.value = "100";
+          originalOddsInput.value = "3.00";
+          hedgeOddsInput.value = "2.00";
+          commissionInput.value = "2";
+        } else {
+          originalStakeInput.value = "100";
+          originalOddsInput.value = "2.00";
+          hedgeOddsInput.value = "3.00";
+          commissionInput.value = "2";
+        }
+
+        updateLabels();
+        calculateHedge();
+      });
+    });
+
+    [originalStakeInput, originalOddsInput, hedgeOddsInput, commissionInput].forEach((input) => {
       input.addEventListener("input", calculateHedge);
     });
 
     resetButton.addEventListener("click", () => {
+      currentMode = "back-first";
+
+      modeButtons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.mode === "back-first");
+      });
+
       originalStakeInput.value = "100";
       originalOddsInput.value = "3.00";
       hedgeOddsInput.value = "2.00";
+      commissionInput.value = "2";
+
+      updateLabels();
       calculateHedge();
     });
 
+    updateLabels();
     calculateHedge();
   </script>
 </MainLayout>
