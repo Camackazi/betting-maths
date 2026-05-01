@@ -1,14 +1,130 @@
-    ---
-    import MainLayout from "../layouts/MainLayout.astro";
-    ---
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
 
-    <MainLayout title="Contact" description="Contact information for Betting Maths.">
-      <section class="content-card">
-        <p class="eyebrow">Betting Maths</p>
-        <h1>Contact</h1>
-        <p class="lead">Contact information for Betting Maths.</p>
-        <div class="placeholder-box">
-  This starter page is ready for the full calculator, guide content and SEO structure.
-</div>
-      </section>
-    </MainLayout>
+<MainLayout
+  title="Contact"
+  description="Contact Betting Maths with questions, feedback, calculator suggestions or corrections."
+>
+  <section class="content-card">
+    <p class="eyebrow">Contact Betting Maths</p>
+    <h1>Contact</h1>
+    <p class="lead">
+      Have feedback, spotted an issue, or want to suggest a new calculator or guide? Use this page to get in touch.
+    </p>
+
+    <div class="callout">
+      <strong>Important:</strong> Betting Maths cannot provide betting tips, predictions, personalised betting advice or help with gambling losses.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What you can contact us about</h2>
+    <p>
+      Betting Maths is still growing, so feedback is useful. You can get in touch about:
+    </p>
+
+    <ul class="standard-list">
+      <li>Calculator errors or rounding issues.</li>
+      <li>Suggestions for new calculators.</li>
+      <li>Betting jargon or glossary terms that should be added.</li>
+      <li>Guide topics you would like explained.</li>
+      <li>Broken links or page formatting problems.</li>
+      <li>General feedback about the site.</li>
+    </ul>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Contact details</h2>
+    <p>
+      Add your preferred contact email address here before publishing the site publicly.
+    </p>
+
+    <div class="contact-box">
+      <h3>Email</h3>
+      <p>
+        <strong>Replace this with your email address</strong>
+      </p>
+      <p class="muted">
+        Example: hello@bettingmaths.co.uk
+      </p>
+    </div>
+
+    <p>
+      If you do not want to publish a personal email address, you could create a dedicated address for the site, such as:
+    </p>
+
+    <ul class="standard-list">
+      <li>hello@bettingmaths.co.uk</li>
+      <li>contact@bettingmaths.co.uk</li>
+      <li>support@bettingmaths.co.uk</li>
+    </ul>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What we cannot help with</h2>
+    <p>
+      Betting Maths is an educational calculator site. We cannot help with:
+    </p>
+
+    <ul class="standard-list">
+      <li>Choosing bets or giving tips.</li>
+      <li>Predicting results.</li>
+      <li>Recovering gambling losses.</li>
+      <li>Providing personalised financial or gambling advice.</li>
+      <li>Resolving account issues with bookmakers or betting exchanges.</li>
+    </ul>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Need gambling support?</h2>
+    <p>
+      If gambling is causing stress, debt, secrecy, arguments, or a feeling that you cannot stop, please visit the <a href="/responsible-gambling/">Responsible Gambling</a> page for support resources.
+    </p>
+
+    <div class="callout">
+      <strong>Reminder:</strong> Betting calculators can explain numbers, but they cannot remove risk or guarantee profit.
+    </div>
+  </section>
+
+  <style>
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .standard-list {
+      padding-left: 1.3rem;
+    }
+
+    .standard-list li {
+      margin: 0.45rem 0;
+    }
+
+    .contact-box {
+      margin: 1rem 0;
+      padding: 1.2rem;
+      border: 1px solid rgba(31, 138, 91, 0.35);
+      border-radius: 14px;
+      background: #eef8f3;
+    }
+
+    .contact-box h3 {
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-box p {
+      margin: 0.35rem 0;
+    }
+
+    .muted {
+      color: var(--color-muted);
+    }
+
+    .article-section a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  </style>
+</MainLayout>
