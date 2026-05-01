@@ -3,7 +3,420 @@
     ---
 
     <MainLayout title="What Is Dutching in Betting?" description="Learn how dutching works and how stakes can be split across multiple outcomes.">
-      <section class="content-card">
+      <section class="content-card">---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="What Is Dutching in Betting?"
+  description="Learn what dutching means in betting, how dutching works, how to split stakes across selections and how to calculate equal profit across two or more outcomes."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting maths guide</p>
+    <h1>What Is Dutching in Betting?</h1>
+    <p class="lead">
+      Dutching is a staking method where you back two or more selections in the same market and split your stake so that each winning outcome aims to return the same amount.
+    </p>
+
+    <div class="callout">
+      <strong>Quick answer:</strong> Dutching lets you cover more than one selection by adjusting the stake on each outcome. The goal is usually to create an equal or balanced return whichever covered selection wins.
+    </div>
+
+    <div class="article-link-box">
+      <a class="button primary" href="/calculators/dutching-calculator/">Use the Dutching Calculator</a>
+      <a class="button secondary" href="/glossary/betting-jargon-explained/">View Betting Jargon Glossary</a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What does dutching mean?</h2>
+    <p>
+      Dutching means backing multiple selections in the same betting market instead of choosing just one. Rather than placing the same stake on each selection, you calculate different stake amounts based on the odds.
+    </p>
+    <p>
+      The aim is usually to make the return similar if any of your chosen selections wins. This can be useful in markets where you think more than one outcome is worth covering.
+    </p>
+
+    <h2>Simple dutching example</h2>
+    <p>
+      Imagine a race where you want to back two selections. One is priced at 3.00 and the other is priced at 4.00. If you have a total stake of £100, you would not simply place £50 on each if you want the same return from either result.
+    </p>
+    <p>
+      Instead, you stake more on the shorter-priced selection and less on the bigger-priced selection.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Selection</th>
+          <th>Odds</th>
+          <th>Stake</th>
+          <th>Return</th>
+          <th>Profit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Selection 1</td>
+          <td>3.00</td>
+          <td>£57.14</td>
+          <td>£171.43</td>
+          <td>£71.43</td>
+        </tr>
+        <tr>
+          <td>Selection 2</td>
+          <td>4.00</td>
+          <td>£42.86</td>
+          <td>£171.43</td>
+          <td>£71.43</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Try it:</strong> Enter the odds and total stake into the <a href="/calculators/dutching-calculator/">Dutching Calculator</a> to see the stake split instantly.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>How does dutching work?</h2>
+    <p>
+      Dutching works by using the implied probability of each selection. Shorter odds require a larger stake to produce the same return, while bigger odds require a smaller stake.
+    </p>
+    <p>
+      The calculator adds the implied probability of your chosen selections, then uses that total to divide your total stake across the outcomes.
+    </p>
+
+    <h2>Dutching formula</h2>
+    <div class="formula-box">
+      <p><strong>Book percentage</strong> = sum of 1 ÷ decimal odds</p>
+      <p><strong>Target return</strong> = total stake ÷ book percentage</p>
+      <p><strong>Stake per selection</strong> = target return ÷ decimal odds</p>
+      <p><strong>Profit</strong> = target return − total stake</p>
+    </div>
+
+    <p>
+      In simple terms, the lower the odds, the more you need to stake. The higher the odds, the less you need to stake to achieve the same target return.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Dutching with two selections</h2>
+    <p>
+      Dutching can be used with a minimum of two selections. This might happen when you believe two outcomes are more likely than the market suggests, or when you want to cover two possible results in the same event.
+    </p>
+    <p>
+      For example, in a horse race you might want to back two runners. In a football market, you might want to cover two outcomes such as home win and draw.
+    </p>
+
+    <h2>Dutching with three or more selections</h2>
+    <p>
+      Dutching can also be used across three, four or more selections. The more selections you cover, the more likely it is that one of your covered outcomes wins, but the available profit may fall because your stake is spread more widely.
+    </p>
+    <p>
+      Covering too many selections can also push the combined book percentage above 100%, which may produce an equalised loss rather than an equalised profit.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Dutching and book percentage</h2>
+    <p>
+      Dutching is closely linked to book percentage. When you add the implied probabilities of the selections you want to cover, you can see whether the combined price is favourable.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Combined book percentage</th>
+          <th>What it means for dutching</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Below 100%</td>
+          <td>The selected outcomes may be coverable for an equalised profit before practical factors.</td>
+        </tr>
+        <tr>
+          <td>Around 100%</td>
+          <td>The position may be close to break-even.</td>
+        </tr>
+        <tr>
+          <td>Above 100%</td>
+          <td>The selected outcomes may produce an equalised loss if covered together.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      This is why dutching links naturally to overround, underround and implied probability. You can use the <a href="/calculators/overround-calculator/">Overround Calculator</a> to understand book percentage across a whole market.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Dutching in horse racing</h2>
+    <p>
+      Dutching is often discussed in horse racing because there are usually several runners and a bettor may want to cover more than one horse.
+    </p>
+    <p>
+      For example, if you think two or three horses are overpriced, dutching can show how to split the stake so that each covered runner produces a similar return.
+    </p>
+    <p>
+      However, horse racing markets can move quickly, and factors such as non-runners, rule deductions, each-way terms and liquidity can affect the final result.
+    </p>
+
+    <h2>Dutching in football betting</h2>
+    <p>
+      Dutching can also be used in football markets. A common example is covering two outcomes in a 1X2 market, such as home win and draw, or draw and away win.
+    </p>
+    <p>
+      It can also apply to correct score markets, goals markets or player markets, although the more outcomes involved, the more important the calculations become.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Dutching vs accumulator betting</h2>
+    <p>
+      Dutching and accumulators are very different.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>How it works</th>
+          <th>Main risk</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Dutching</td>
+          <td>You cover multiple outcomes in the same or related market.</td>
+          <td>An uncovered outcome can still win.</td>
+        </tr>
+        <tr>
+          <td>Accumulator</td>
+          <td>You combine multiple selections and need all of them to win.</td>
+          <td>One losing selection loses the whole accumulator.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      Dutching spreads a stake across outcomes. An accumulator combines selections into a single higher-risk bet.
+    </p>
+
+    <h2>Dutching vs hedging</h2>
+    <p>
+      Dutching usually starts by backing multiple selections. Hedging usually involves adjusting an existing position, often by backing and laying at different odds.
+    </p>
+    <p>
+      They both involve betting maths, but the purpose is different. Dutching is about stake distribution. Hedging is about managing or balancing an existing position.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Can dutching guarantee profit?</h2>
+    <p>
+      No. Dutching does not guarantee profit. It only calculates how to split your stake across the selections you choose.
+    </p>
+    <p>
+      If one of your covered selections wins, the result may be balanced. But if an uncovered outcome wins, the dutched bets lose. The odds also need to be favourable enough for the calculation to produce a profit.
+    </p>
+
+    <div class="callout">
+      <strong>Important:</strong> Dutching is a calculation method, not a guaranteed betting system. It can help you understand stakes and returns, but it cannot remove betting risk.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Common dutching mistakes</h2>
+
+    <h3>Covering too many selections</h3>
+    <p>
+      The more outcomes you cover, the lower the potential return may become. Covering too much of the market can turn a possible profit into a break-even result or loss.
+    </p>
+
+    <h3>Ignoring the combined book percentage</h3>
+    <p>
+      If the selections you cover add up to more than 100%, the dutching calculation may show an equalised loss. The odds matter as much as the number of selections.
+    </p>
+
+    <h3>Using equal stakes instead of calculated stakes</h3>
+    <p>
+      Equal stakes do not usually produce equal returns because each selection has different odds. Dutching calculates the stake needed for each price.
+    </p>
+
+    <h3>Forgetting practical limits</h3>
+    <p>
+      Odds can change, stakes can be restricted, markets can be suspended and available liquidity can disappear. A calculation is only useful if you can actually place the bets at the prices used.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Related betting calculators</h2>
+    <p>
+      Dutching is closely connected to odds conversion, implied probability, overround and hedging.
+    </p>
+
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/dutching-calculator/">
+        <h3>Dutching Calculator</h3>
+        <p>Split a total stake across two or more selections.</p>
+      </a>
+      <a class="related-card" href="/calculators/odds-converter/">
+        <h3>Odds Converter</h3>
+        <p>Convert odds and calculate implied probability.</p>
+      </a>
+      <a class="related-card" href="/calculators/overround-calculator/">
+        <h3>Overround Calculator</h3>
+        <p>Calculate book percentage and bookmaker margin.</p>
+      </a>
+      <a class="related-card" href="/calculators/hedge-bet-calculator/">
+        <h3>Hedge Bet Calculator</h3>
+        <p>Calculate back and lay hedge stakes.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Dutching FAQs</h2>
+
+    <h3>What is dutching in simple terms?</h3>
+    <p>
+      Dutching is when you back two or more selections and split your stake so that each winning selection aims to return the same amount.
+    </p>
+
+    <h3>Can you dutch two selections?</h3>
+    <p>
+      Yes. Dutching can be used with two selections, and the same method can also be extended to three or more selections.
+    </p>
+
+    <h3>Is dutching profitable?</h3>
+    <p>
+      Dutching can produce a profit if the odds on your chosen selections are favourable enough. It can also produce a loss if the combined book percentage is above 100% or if an uncovered outcome wins.
+    </p>
+
+    <h3>Is dutching the same as arbitrage?</h3>
+    <p>
+      Not exactly. Dutching is a staking method. Arbitrage is when prices allow all outcomes to be covered for a profit, usually by using different bookmakers or exchanges.
+    </p>
+
+    <h3>Can you dutch football bets?</h3>
+    <p>
+      Yes. Dutching can be used in football markets, such as covering two outcomes in the match result market or multiple correct scores.
+    </p>
+
+    <h3>Can you dutch horse racing bets?</h3>
+    <p>
+      Yes. Horse racing is one of the markets where dutching is commonly discussed because there are often several runners that a bettor may want to cover.
+    </p>
+
+    <div class="callout">
+      <strong>Responsible note:</strong> Dutching can help calculate stakes, but it does not predict winners or guarantee profit. Only bet what you can afford to lose.
+    </div>
+  </section>
+
+  <style>
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .article-link-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .formula-box {
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+
+    .formula-box p {
+      margin: 0.4rem 0;
+      font-weight: 700;
+    }
+
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .example-table th,
+    .example-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .example-table th {
+      color: var(--color-navy);
+      background: #f4f7fa;
+      font-size: 0.9rem;
+    }
+
+    .example-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .related-card {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .related-card:hover {
+      border-color: rgba(31, 138, 91, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .related-card h3 {
+      margin-bottom: 0.35rem;
+    }
+
+    .related-card p {
+      margin: 0;
+      color: var(--color-muted);
+    }
+
+    .callout a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 980px) {
+      .related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</MainLayout>
         <p class="eyebrow">Betting Maths</p>
         <h1>What Is Dutching in Betting?</h1>
         <p class="lead">Learn how dutching works and how stakes can be split across multiple outcomes.</p>
