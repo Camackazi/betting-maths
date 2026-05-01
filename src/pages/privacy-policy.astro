@@ -1,14 +1,151 @@
-    ---
-    import MainLayout from "../layouts/MainLayout.astro";
-    ---
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
 
-    <MainLayout title="Privacy Policy" description="Privacy Policy information for Betting Maths.">
-      <section class="content-card">
-        <p class="eyebrow">Betting Maths</p>
-        <h1>Privacy Policy</h1>
-        <p class="lead">Privacy Policy information for Betting Maths.</p>
-        <div class="placeholder-box">
-  This starter page is ready for the full calculator, guide content and SEO structure.
-</div>
-      </section>
-    </MainLayout>
+<MainLayout
+  title="Privacy Policy"
+  description="Privacy policy for Betting Maths, explaining what information may be collected, how it may be used, cookies, analytics and contact information."
+>
+  <section class="content-card">
+    <p class="eyebrow">Site information</p>
+    <h1>Privacy Policy</h1>
+    <p class="lead">
+      This Privacy Policy explains how Betting Maths may collect, use and protect information when you use this website.
+    </p>
+
+    <div class="callout">
+      <strong>Current position:</strong> Betting Maths is a simple educational website. We do not currently offer user accounts, paid memberships or personalised betting services.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Information we may collect</h2>
+    <p>
+      Betting Maths may collect limited information depending on how the site is used and which features are added over time.
+    </p>
+
+    <ul class="standard-list">
+      <li>Basic technical information, such as browser type, device type and pages visited.</li>
+      <li>Anonymous or aggregated analytics data, if analytics are added.</li>
+      <li>Information you choose to send us, such as a message through a contact form or email.</li>
+    </ul>
+
+    <p>
+      We do not ask users to create accounts to use the calculators or guides.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>How information may be used</h2>
+    <p>
+      Information may be used to:
+    </p>
+
+    <ul class="standard-list">
+      <li>Keep the website working properly.</li>
+      <li>Understand which pages and calculators are useful.</li>
+      <li>Improve site content, layout and user experience.</li>
+      <li>Respond to messages or enquiries if you contact us.</li>
+      <li>Monitor site performance and security.</li>
+    </ul>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Cookies</h2>
+    <p>
+      Cookies are small files stored on your device by a website. Betting Maths may use cookies in the future for analytics, security, advertising or site functionality.
+    </p>
+    <p>
+      At launch, the site is designed to be simple and does not require user accounts. If analytics, advertising or affiliate tracking are added later, this Privacy Policy should be updated to explain those tools clearly.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Analytics</h2>
+    <p>
+      Betting Maths may use analytics tools in the future to understand how visitors use the site. Analytics can help show which calculators, guides and glossary terms are most useful.
+    </p>
+    <p>
+      If analytics are added, they should be used to understand general site performance rather than to personally identify individual users.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Advertising and affiliate links</h2>
+    <p>
+      Betting Maths may include advertising or affiliate links in the future. If this happens, the site should clearly explain when links are commercial or affiliate links.
+    </p>
+    <p>
+      Advertising and affiliate partners may use cookies or tracking technologies according to their own privacy policies. This page should be updated before any advertising or affiliate tracking is added.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>External links</h2>
+    <p>
+      Betting Maths may link to external websites, such as responsible gambling resources, bookmaker or exchange information, data sources or further reading.
+    </p>
+    <p>
+      We are not responsible for the privacy practices, content or policies of external websites. You should check the privacy policy of any external site you visit.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Data security</h2>
+    <p>
+      We aim to keep the site secure and avoid collecting unnecessary personal information. However, no website or online service can guarantee complete security.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Children and under-18s</h2>
+    <p>
+      Betting Maths contains gambling-related educational content and is intended for adults only. It is not intended for children or anyone under 18.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Your choices</h2>
+    <p>
+      You can usually control cookies through your browser settings. You can also choose not to contact us or submit any personal information.
+    </p>
+    <p>
+      If you have contacted us and want your message or personal details deleted, you can ask us to remove them where practical.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Changes to this policy</h2>
+    <p>
+      This Privacy Policy may be updated as Betting Maths develops, especially if analytics, advertising, affiliate links, contact forms, newsletters or other features are added.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Contact</h2>
+    <p>
+      If you have any questions about this Privacy Policy, please use the contact details on the <a href="/contact/">Contact</a> page.
+    </p>
+  </section>
+
+  <style>
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .standard-list {
+      padding-left: 1.3rem;
+    }
+
+    .standard-list li {
+      margin: 0.45rem 0;
+    }
+
+    .article-section a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  </style>
+</MainLayout>
