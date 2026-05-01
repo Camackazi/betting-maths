@@ -1,14 +1,110 @@
-    ---
-    import MainLayout from "../layouts/MainLayout.astro";
-    ---
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
 
-    <MainLayout title="Disclaimer" description="Disclaimer information for Betting Maths.">
-      <section class="content-card">
-        <p class="eyebrow">Betting Maths</p>
-        <h1>Disclaimer</h1>
-        <p class="lead">Disclaimer information for Betting Maths.</p>
-        <div class="placeholder-box">
-  This starter page is ready for the full calculator, guide content and SEO structure.
-</div>
-      </section>
-    </MainLayout>
+<MainLayout
+  title="Disclaimer"
+  description="Disclaimer for Betting Maths, including educational purpose, no betting advice, no guaranteed profit and limitation of responsibility."
+>
+  <section class="content-card">
+    <p class="eyebrow">Site information</p>
+    <h1>Disclaimer</h1>
+    <p class="lead">
+      Betting Maths provides calculators and plain-English guides for educational purposes only. Nothing on this site should be treated as betting advice, financial advice or a guaranteed profit strategy.
+    </p>
+
+    <div class="callout">
+      <strong>Important:</strong> Betting always involves risk. Calculators can help explain numbers, but they cannot predict results or remove uncertainty.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Educational purpose only</h2>
+    <p>
+      Betting Maths is designed to help users understand betting calculations, odds, implied probability, overround, dutching, hedging, back bets, lay bets, liability, commission and bookmaker margin.
+    </p>
+    <p>
+      The content is provided for general information and education. It is not personalised advice and should not be relied on as a recommendation to place any bet.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>No betting advice</h2>
+    <p>
+      Betting Maths does not provide betting tips, predictions, selections, staking recommendations or advice on whether you should gamble.
+    </p>
+    <p>
+      Any examples on this site are used to explain calculations. They are not recommendations and should not be interpreted as suggestions to place similar bets.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>No guarantee of accuracy or profit</h2>
+    <p>
+      We aim to make the calculators and explanations as clear and accurate as possible, but errors, rounding differences or misunderstandings may occur.
+    </p>
+    <p>
+      Betting markets can change quickly. Odds may move, bets may be limited or rejected, markets may be suspended, commission may apply, and bookmaker or exchange rules may affect the final result.
+    </p>
+    <p>
+      Betting Maths does not guarantee that any calculation, example or explanation will produce a profit or avoid a loss.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Check all calculations yourself</h2>
+    <p>
+      You are responsible for checking any calculation before using it. This is especially important for hedge bets, lay bets, dutching calculations, exchange commission, lay liability and any situation where odds or stakes may change.
+    </p>
+    <p>
+      If you choose to place a bet, you do so at your own risk.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>External links</h2>
+    <p>
+      Betting Maths may link to external websites for information, support resources or further reading.
+    </p>
+    <p>
+      We are not responsible for the content, accuracy, policies or availability of external websites. Visiting external links is at your own discretion.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Gambling risk</h2>
+    <p>
+      Gambling can lead to financial loss and other harm. You should only gamble if you are legally allowed to do so, and only with money you can afford to lose.
+    </p>
+    <p>
+      If gambling is causing stress, debt, secrecy, arguments, or a feeling that you cannot stop, please consider seeking support.
+    </p>
+
+    <div class="callout">
+      <strong>Need support?</strong> Visit our <a href="/responsible-gambling/">Responsible Gambling</a> page for safer gambling information and support links.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Use of this site</h2>
+    <p>
+      By using Betting Maths, you understand that the site is provided for general educational purposes only and that you are responsible for your own decisions.
+    </p>
+    <p>
+      We may update this disclaimer from time to time as the site develops.
+    </p>
+  </section>
+
+  <style>
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .callout a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  </style>
+</MainLayout>
