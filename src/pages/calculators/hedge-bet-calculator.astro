@@ -1,14 +1,490 @@
-    ---
-    import MainLayout from "../../layouts/MainLayout.astro";
-    ---
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
 
-    <MainLayout title="Hedge Bet Calculator" description="Calculate a hedge stake and compare profit or loss across outcomes.">
-      <section class="content-card">
-        <p class="eyebrow">Betting Maths</p>
-        <h1>Hedge Bet Calculator</h1>
-        <p class="lead">Calculate a hedge stake and compare profit or loss across outcomes.</p>
-        <div class="placeholder-box">
-  This starter page is ready for the full calculator, guide content and SEO structure.
-</div>
-      </section>
-    </MainLayout>
+<MainLayout
+  title="Hedge Bet Calculator"
+  description="Use this free hedge bet calculator to calculate a hedge stake, total stake and profit or loss across both possible outcomes."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting calculator</p>
+    <h1>Hedge Bet Calculator</h1>
+    <p class="lead">
+      Use this calculator to work out how much to stake on a hedge bet so the result is balanced across both outcomes.
+    </p>
+
+    <div class="callout">
+      <strong>Quick explanation:</strong> Hedging means placing another bet to reduce risk, lock in a result, or balance profit across different outcomes.
+    </div>
+
+    <div class="calculator-panel" id="hedge-calculator">
+      <div class="calculator-header">
+        <div>
+          <h2>Enter your original bet and hedge odds</h2>
+          <p>The calculator will show the hedge stake and the result if either side wins.</p>
+        </div>
+        <button class="button secondary small-button" type="button" id="reset-hedge">
+          Reset example
+        </button>
+      </div>
+
+      <div class="input-grid">
+        <label class="input-group">
+          <span>Original stake</span>
+          <div class="money-input-wrap">
+            <span>£</span>
+            <input id="original-stake" type="number" min="0.01" step="0.01" value="100" />
+          </div>
+          <small>The amount you placed on the original bet.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Original odds</span>
+          <input id="original-odds" type="number" min="1.01" step="0.01" value="3.00" />
+          <small>The decimal odds taken on the original bet.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Hedge odds</span>
+          <input id="hedge-odds" type="number" min="1.01" step="0.01" value="2.00" />
+          <small>The decimal odds available for the hedge bet.</small>
+        </label>
+      </div>
+
+      <div class="results-grid">
+        <div class="result-card">
+          <span>Hedge stake</span>
+          <strong id="hedge-stake-result">£150.00</strong>
+        </div>
+        <div class="result-card">
+          <span>Total staked</span>
+          <strong id="total-staked-result">£250.00</strong>
+        </div>
+        <div class="result-card">
+          <span>If original bet wins</span>
+          <strong id="original-wins-result">£50.00</strong>
+        </div>
+        <div class="result-card">
+          <span>If hedge bet wins</span>
+          <strong id="hedge-wins-result">£50.00</strong>
+        </div>
+      </div>
+
+      <p class="result-note" id="result-note">
+        A hedge stake of £150.00 would balance the result at £50.00 profit whichever side wins.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What is hedging a bet?</h2>
+    <p>
+      Hedging a bet means placing another bet on a different outcome to reduce your exposure, lock in a return, or balance the result across more than one outcome.
+    </p>
+    <p>
+      For example, if you backed a selection at higher odds and the odds later shorten, you may be able to place a hedge bet on the opposite side so that either result produces a similar profit.
+    </p>
+
+    <h2>Hedge bet formula</h2>
+    <p>
+      A simple equal-profit hedge can be calculated by comparing the original potential return with the available hedge odds.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Hedge stake</strong> = original stake × original odds ÷ hedge odds</p>
+      <p><strong>Total staked</strong> = original stake + hedge stake</p>
+      <p><strong>Profit if original wins</strong> = original stake × original odds − total staked</p>
+      <p><strong>Profit if hedge wins</strong> = hedge stake × hedge odds − total staked</p>
+    </div>
+
+    <h2>Example</h2>
+    <p>
+      Suppose you originally placed £100 at decimal odds of 3.00. Later, you can hedge at odds of 2.00.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Input</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Original stake</td>
+          <td>£100.00</td>
+        </tr>
+        <tr>
+          <td>Original odds</td>
+          <td>3.00</td>
+        </tr>
+        <tr>
+          <td>Hedge odds</td>
+          <td>2.00</td>
+        </tr>
+        <tr>
+          <td>Hedge stake</td>
+          <td>£150.00</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      If the original bet wins, the original return is £300. After subtracting the original £100 stake and the £150 hedge stake, the profit is £50.
+    </p>
+    <p>
+      If the hedge bet wins, the hedge return is £300. After subtracting the original £100 stake and the £150 hedge stake, the profit is also £50.
+    </p>
+
+    <h2>When is hedging useful?</h2>
+    <p>
+      Hedging can be useful when odds have moved in your favour and you want to reduce risk or secure a more balanced position. It can also be used to compare whether cashing out is better or worse than placing your own hedge bet.
+    </p>
+
+    <h2>Can hedging guarantee profit?</h2>
+    <p>
+      Hedging can sometimes lock in profit if the odds move favourably, but it does not guarantee profit in every situation. If the hedge odds are not favourable enough, hedging may simply reduce a possible loss or reduce the maximum possible profit.
+    </p>
+
+    <div class="callout">
+      <strong>Responsible note:</strong> Hedging is a calculation method, not a guaranteed betting system. It can reduce or balance risk, but it cannot remove betting risk completely.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Hedge bet calculator FAQs</h2>
+
+    <h3>What does a hedge bet calculator do?</h3>
+    <p>
+      A hedge bet calculator works out how much to stake on a second bet so that the result is balanced across two outcomes.
+    </p>
+
+    <h3>Is hedging the same as cashing out?</h3>
+    <p>
+      Not exactly. Cashing out is an offer from a bookmaker or exchange. Hedging is when you calculate and place another bet yourself. Comparing the two can help you understand whether a cash-out offer is fair.
+    </p>
+
+    <h3>Why is my hedge result a loss?</h3>
+    <p>
+      If the original odds and hedge odds do not create enough value, the calculator may show a balanced loss. This means hedging would reduce or equalise the result, but not create profit.
+    </p>
+
+    <h3>Does this calculator include exchange commission?</h3>
+    <p>
+      This simple hedge calculator does not include exchange commission. A future back-lay calculator can include commission, lay liability and exchange-specific calculations.
+    </p>
+  </section>
+
+  <style>
+    .calculator-panel {
+      margin-top: 1.5rem;
+      padding: 1.25rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      background: #ffffff;
+    }
+
+    .calculator-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .calculator-header h2 {
+      margin: 0;
+    }
+
+    .calculator-header p {
+      margin: 0.25rem 0 0;
+      color: var(--color-muted);
+    }
+
+    .small-button {
+      padding: 0.55rem 0.75rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .input-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .input-group {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .input-group > span {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: var(--color-navy);
+      font-weight: 800;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      color: var(--color-text);
+      font: inherit;
+      font-size: 1.05rem;
+      background: white;
+    }
+
+    .input-group input:focus {
+      outline: 2px solid rgba(31, 138, 91, 0.22);
+      border-color: var(--color-green);
+    }
+
+    .input-group small {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--color-muted);
+    }
+
+    .money-input-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      background: white;
+    }
+
+    .money-input-wrap span {
+      color: var(--color-muted);
+      font-weight: 800;
+    }
+
+    .money-input-wrap input {
+      border: 0;
+      padding: 0.5rem 0;
+      background: transparent;
+    }
+
+    .money-input-wrap input:focus {
+      outline: 0;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .result-card {
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .result-card span {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: var(--color-muted);
+      font-size: 0.9rem;
+    }
+
+    .result-card strong {
+      display: block;
+      color: var(--color-navy);
+      font-size: 1.35rem;
+      line-height: 1.2;
+      word-break: break-word;
+    }
+
+    .result-card strong.positive {
+      color: var(--color-green-dark);
+    }
+
+    .result-card strong.negative {
+      color: #b42318;
+    }
+
+    .result-note {
+      margin: 1rem 0 0;
+      padding: 1rem;
+      border-radius: 12px;
+      background: #eef8f3;
+      color: var(--color-green-dark);
+      font-weight: 700;
+    }
+
+    .result-note.warning {
+      background: #fff7e6;
+      color: #8a5a00;
+    }
+
+    .result-note.error {
+      background: #fff1f0;
+      color: #b42318;
+    }
+
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .formula-box {
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+
+    .formula-box p {
+      margin: 0.4rem 0;
+    }
+
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .example-table th,
+    .example-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .example-table th {
+      color: var(--color-navy);
+      background: #f4f7fa;
+      font-size: 0.9rem;
+    }
+
+    .example-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    @media (max-width: 980px) {
+      .input-grid,
+      .results-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .calculator-header {
+        flex-direction: column;
+      }
+
+      .input-grid,
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <script>
+    const originalStakeInput = document.getElementById("original-stake");
+    const originalOddsInput = document.getElementById("original-odds");
+    const hedgeOddsInput = document.getElementById("hedge-odds");
+    const resetButton = document.getElementById("reset-hedge");
+
+    const hedgeStakeResult = document.getElementById("hedge-stake-result");
+    const totalStakedResult = document.getElementById("total-staked-result");
+    const originalWinsResult = document.getElementById("original-wins-result");
+    const hedgeWinsResult = document.getElementById("hedge-wins-result");
+    const resultNote = document.getElementById("result-note");
+
+    function formatMoney(value) {
+      return new Intl.NumberFormat("en-GB", {
+        style: "currency",
+        currency: "GBP",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }).format(value);
+    }
+
+    function setResultClass(element, value) {
+      element.className = value >= 0 ? "positive" : "negative";
+    }
+
+    function showError(message) {
+      hedgeStakeResult.textContent = "—";
+      totalStakedResult.textContent = "—";
+      originalWinsResult.textContent = "—";
+      hedgeWinsResult.textContent = "—";
+      originalWinsResult.className = "";
+      hedgeWinsResult.className = "";
+      resultNote.textContent = message;
+      resultNote.className = "result-note error";
+    }
+
+    function calculateHedge() {
+      const originalStake = Number(originalStakeInput.value);
+      const originalOdds = Number(originalOddsInput.value);
+      const hedgeOdds = Number(hedgeOddsInput.value);
+
+      if (!Number.isFinite(originalStake) || originalStake <= 0) {
+        showError("Please enter an original stake greater than £0.");
+        return;
+      }
+
+      if (!Number.isFinite(originalOdds) || originalOdds <= 1) {
+        showError("Please enter original decimal odds greater than 1.00.");
+        return;
+      }
+
+      if (!Number.isFinite(hedgeOdds) || hedgeOdds <= 1) {
+        showError("Please enter hedge decimal odds greater than 1.00.");
+        return;
+      }
+
+      const hedgeStake = (originalStake * originalOdds) / hedgeOdds;
+      const totalStaked = originalStake + hedgeStake;
+
+      const originalWinsProfit = (originalStake * originalOdds) - totalStaked;
+      const hedgeWinsProfit = (hedgeStake * hedgeOdds) - totalStaked;
+
+      hedgeStakeResult.textContent = formatMoney(hedgeStake);
+      totalStakedResult.textContent = formatMoney(totalStaked);
+      originalWinsResult.textContent = formatMoney(originalWinsProfit);
+      hedgeWinsResult.textContent = formatMoney(hedgeWinsProfit);
+
+      setResultClass(originalWinsResult, originalWinsProfit);
+      setResultClass(hedgeWinsResult, hedgeWinsProfit);
+
+      if (originalWinsProfit > 0.005 && hedgeWinsProfit > 0.005) {
+        resultNote.textContent = `A hedge stake of ${formatMoney(hedgeStake)} would balance the result at ${formatMoney(originalWinsProfit)} profit whichever side wins.`;
+        resultNote.className = "result-note";
+      } else if (originalWinsProfit < -0.005 && hedgeWinsProfit < -0.005) {
+        resultNote.textContent = `This hedge would balance the result, but both outcomes show a loss of ${formatMoney(Math.abs(originalWinsProfit))}.`;
+        resultNote.className = "result-note warning";
+      } else {
+        resultNote.textContent = `This hedge balances the two outcomes at approximately break-even.`;
+        resultNote.className = "result-note";
+      }
+    }
+
+    [originalStakeInput, originalOddsInput, hedgeOddsInput].forEach((input) => {
+      input.addEventListener("input", calculateHedge);
+    });
+
+    resetButton.addEventListener("click", () => {
+      originalStakeInput.value = "100";
+      originalOddsInput.value = "3.00";
+      hedgeOddsInput.value = "2.00";
+      calculateHedge();
+    });
+
+    calculateHedge();
+  </script>
+</MainLayout>
