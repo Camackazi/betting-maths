@@ -1,14 +1,535 @@
-    ---
-    import MainLayout from "../../layouts/MainLayout.astro";
-    ---
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
 
-    <MainLayout title="Overround Calculator" description="Calculate the book percentage and bookmaker margin for a betting market.">
-      <section class="content-card">
-        <p class="eyebrow">Betting Maths</p>
-        <h1>Overround Calculator</h1>
-        <p class="lead">Calculate the book percentage and bookmaker margin for a betting market.</p>
-        <div class="placeholder-box">
-  This starter page is ready for the full calculator, guide content and SEO structure.
-</div>
-      </section>
-    </MainLayout>
+<MainLayout
+  title="Overround Calculator"
+  description="Use this free overround calculator to work out the book percentage, implied probability and bookmaker margin in a betting market."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting calculator</p>
+    <h1>Overround Calculator</h1>
+    <p class="lead">
+      Use this calculator to work out the implied probability, total book percentage and bookmaker margin in a betting market.
+    </p>
+
+    <div class="callout">
+      <strong>Quick explanation:</strong> Overround is the amount above 100% when all outcomes in a market are converted into implied probability and added together.
+    </div>
+
+    <div class="calculator-panel" id="overround-calculator">
+      <div class="calculator-header">
+        <div>
+          <h2>Enter the odds</h2>
+          <p>Add each outcome in the market, then enter the decimal odds.</p>
+        </div>
+        <button class="button secondary small-button" type="button" id="reset-market">
+          Reset example
+        </button>
+      </div>
+
+      <div class="market-table-wrap">
+        <table class="market-table">
+          <thead>
+            <tr>
+              <th>Outcome</th>
+              <th>Decimal odds</th>
+              <th>Implied probability</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="market-rows">
+            <tr>
+              <td>
+                <input type="text" value="Home" aria-label="Outcome name" />
+              </td>
+              <td>
+                <input type="number" value="2.10" min="1.01" step="0.01" aria-label="Decimal odds" />
+              </td>
+              <td class="probability-cell">47.62%</td>
+              <td>
+                <button class="remove-row" type="button" aria-label="Remove outcome">×</button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" value="Draw" aria-label="Outcome name" />
+              </td>
+              <td>
+                <input type="number" value="3.40" min="1.01" step="0.01" aria-label="Decimal odds" />
+              </td>
+              <td class="probability-cell">29.41%</td>
+              <td>
+                <button class="remove-row" type="button" aria-label="Remove outcome">×</button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" value="Away" aria-label="Outcome name" />
+              </td>
+              <td>
+                <input type="number" value="3.60" min="1.01" step="0.01" aria-label="Decimal odds" />
+              </td>
+              <td class="probability-cell">27.78%</td>
+              <td>
+                <button class="remove-row" type="button" aria-label="Remove outcome">×</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="calculator-actions">
+        <button class="button primary" type="button" id="add-outcome">
+          Add outcome
+        </button>
+      </div>
+
+      <div class="results-grid">
+        <div class="result-card">
+          <span>Total book percentage</span>
+          <strong id="book-percentage">104.81%</strong>
+        </div>
+        <div class="result-card">
+          <span>Overround / margin</span>
+          <strong id="overround-value">4.81%</strong>
+        </div>
+        <div class="result-card">
+          <span>Market type</span>
+          <strong id="market-type">Overround</strong>
+        </div>
+      </div>
+
+      <p class="result-note" id="result-note">
+        This market totals 104.81%, which means the odds include an overround of 4.81%.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What is overround?</h2>
+    <p>
+      Overround is the bookmaker’s built-in margin in a betting market. It is calculated by converting each outcome’s odds into implied probability, then adding those probabilities together.
+    </p>
+    <p>
+      In a perfectly fair market, all outcomes would add up to 100%. In most bookmaker markets, the total is above 100%. The amount above 100% is the overround.
+    </p>
+
+    <h2>Overround formula</h2>
+    <div class="formula-box">
+      <p><strong>Implied probability</strong> = 1 ÷ decimal odds × 100</p>
+      <p><strong>Book percentage</strong> = all implied probabilities added together</p>
+      <p><strong>Overround</strong> = book percentage − 100</p>
+    </div>
+
+    <h2>Example</h2>
+    <p>
+      Imagine a football match with these odds:
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Outcome</th>
+          <th>Odds</th>
+          <th>Implied probability</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Home</td>
+          <td>2.10</td>
+          <td>47.62%</td>
+        </tr>
+        <tr>
+          <td>Draw</td>
+          <td>3.40</td>
+          <td>29.41%</td>
+        </tr>
+        <tr>
+          <td>Away</td>
+          <td>3.60</td>
+          <td>27.78%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      Added together, those implied probabilities total 104.81%. That means the market has a 4.81% overround.
+    </p>
+
+    <h2>Why does overround matter?</h2>
+    <p>
+      Overround helps explain how bookmakers price markets in their favour. It does not mean a bookmaker is guaranteed to profit on every individual event, but it does show that the odds are usually built with a margin above the true 100% market.
+    </p>
+
+    <h2>What is underround?</h2>
+    <p>
+      If a market adds up to less than 100%, it is called an underround. This can sometimes indicate an arbitrage opportunity, although real-world factors such as stake limits, changing odds, account restrictions and exchange commission can affect whether it is actually usable.
+    </p>
+
+    <div class="callout">
+      <strong>Responsible note:</strong> Understanding overround can help you understand how odds are priced, but it does not guarantee profit or remove betting risk.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Overround calculator FAQs</h2>
+
+    <h3>What is a good overround?</h3>
+    <p>
+      A lower overround usually means a more competitive market for the bettor. For example, a market with a 102% book percentage is generally better value than a similar market priced at 110%, assuming the odds are otherwise comparable.
+    </p>
+
+    <h3>Can overround be below 100%?</h3>
+    <p>
+      Yes. If the total implied probability is below 100%, the market is known as an underround. This is uncommon with a single bookmaker, but it can appear when comparing odds across multiple bookmakers or exchanges.
+    </p>
+
+    <h3>Is overround the same as bookmaker margin?</h3>
+    <p>
+      They are closely related. Overround usually refers to the amount above 100% in the book percentage. Bookmaker margin is often used more generally to describe the bookmaker’s built-in edge.
+    </p>
+
+    <h3>Does overround guarantee the bookmaker makes money?</h3>
+    <p>
+      Not on every single event. Bookmakers can still lose on individual results, especially if liabilities are uneven. Over time, margin, pricing and liability management are part of how bookmakers aim to operate profitably.
+    </p>
+  </section>
+
+  <style>
+    .calculator-panel {
+      margin-top: 1.5rem;
+      padding: 1.25rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      background: #ffffff;
+    }
+
+    .calculator-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .calculator-header h2 {
+      margin: 0;
+    }
+
+    .calculator-header p {
+      margin: 0.25rem 0 0;
+      color: var(--color-muted);
+    }
+
+    .small-button {
+      padding: 0.55rem 0.75rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .market-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+    }
+
+    .market-table,
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+
+    .market-table th,
+    .market-table td,
+    .example-table th,
+    .example-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .market-table th,
+    .example-table th {
+      color: var(--color-navy);
+      background: #f4f7fa;
+      font-size: 0.9rem;
+    }
+
+    .market-table tr:last-child td,
+    .example-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .market-table input {
+      width: 100%;
+      min-width: 110px;
+      padding: 0.65rem;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      color: var(--color-text);
+      font: inherit;
+    }
+
+    .market-table input:focus {
+      outline: 2px solid rgba(31, 138, 91, 0.22);
+      border-color: var(--color-green);
+    }
+
+    .probability-cell {
+      font-weight: 800;
+      color: var(--color-navy);
+      white-space: nowrap;
+    }
+
+    .remove-row {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      background: white;
+      color: var(--color-muted);
+      font-size: 1.2rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .remove-row:hover {
+      color: #b42318;
+      border-color: #f3b7b2;
+      background: #fff1f0;
+    }
+
+    .calculator-actions {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .result-card {
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .result-card span {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: var(--color-muted);
+      font-size: 0.9rem;
+    }
+
+    .result-card strong {
+      display: block;
+      color: var(--color-navy);
+      font-size: 1.4rem;
+      line-height: 1.2;
+    }
+
+    .result-note {
+      margin: 1rem 0 0;
+      padding: 1rem;
+      border-radius: 12px;
+      background: #eef8f3;
+      color: var(--color-green-dark);
+      font-weight: 700;
+    }
+
+    .result-note.warning {
+      background: #fff7e6;
+      color: #8a5a00;
+    }
+
+    .result-note.error {
+      background: #fff1f0;
+      color: #b42318;
+    }
+
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .formula-box {
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+
+    .formula-box p {
+      margin: 0.4rem 0;
+    }
+
+    @media (max-width: 760px) {
+      .calculator-header {
+        flex-direction: column;
+      }
+
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <script>
+    const tableBody = document.getElementById("market-rows");
+    const addButton = document.getElementById("add-outcome");
+    const resetButton = document.getElementById("reset-market");
+    const bookPercentageElement = document.getElementById("book-percentage");
+    const overroundElement = document.getElementById("overround-value");
+    const marketTypeElement = document.getElementById("market-type");
+    const resultNote = document.getElementById("result-note");
+
+    const exampleRows = [
+      { name: "Home", odds: "2.10" },
+      { name: "Draw", odds: "3.40" },
+      { name: "Away", odds: "3.60" }
+    ];
+
+    function formatPercent(value) {
+      return `${value.toFixed(2)}%`;
+    }
+
+    function createRow(name = "Outcome", odds = "") {
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+        <td>
+          <input type="text" value="${name}" aria-label="Outcome name" />
+        </td>
+        <td>
+          <input type="number" value="${odds}" min="1.01" step="0.01" aria-label="Decimal odds" />
+        </td>
+        <td class="probability-cell">—</td>
+        <td>
+          <button class="remove-row" type="button" aria-label="Remove outcome">×</button>
+        </td>
+      `;
+
+      return row;
+    }
+
+    function calculateOverround() {
+      const rows = Array.from(tableBody.querySelectorAll("tr"));
+      let totalProbability = 0;
+      let validOddsCount = 0;
+      let hasInvalidOdds = false;
+
+      rows.forEach((row) => {
+        const oddsInput = row.querySelector('input[type="number"]');
+        const probabilityCell = row.querySelector(".probability-cell");
+        const odds = Number(oddsInput.value);
+
+        if (!oddsInput.value) {
+          probabilityCell.textContent = "—";
+          return;
+        }
+
+        if (!Number.isFinite(odds) || odds <= 1) {
+          probabilityCell.textContent = "Invalid";
+          hasInvalidOdds = true;
+          return;
+        }
+
+        const probability = (1 / odds) * 100;
+        totalProbability += probability;
+        validOddsCount += 1;
+        probabilityCell.textContent = formatPercent(probability);
+      });
+
+      if (hasInvalidOdds) {
+        bookPercentageElement.textContent = "—";
+        overroundElement.textContent = "—";
+        marketTypeElement.textContent = "Check odds";
+        resultNote.textContent = "Please enter decimal odds greater than 1.00 for each outcome.";
+        resultNote.className = "result-note error";
+        return;
+      }
+
+      if (validOddsCount === 0) {
+        bookPercentageElement.textContent = "—";
+        overroundElement.textContent = "—";
+        marketTypeElement.textContent = "No odds";
+        resultNote.textContent = "Enter decimal odds to calculate the book percentage and overround.";
+        resultNote.className = "result-note warning";
+        return;
+      }
+
+      const overround = totalProbability - 100;
+
+      bookPercentageElement.textContent = formatPercent(totalProbability);
+      overroundElement.textContent = formatPercent(overround);
+
+      if (overround > 0.005) {
+        marketTypeElement.textContent = "Overround";
+        resultNote.textContent = `This market totals ${formatPercent(totalProbability)}, which means the odds include an overround of ${formatPercent(overround)}.`;
+        resultNote.className = "result-note warning";
+      } else if (overround < -0.005) {
+        marketTypeElement.textContent = "Underround";
+        resultNote.textContent = `This market totals ${formatPercent(totalProbability)}, which is below 100%. This is known as an underround.`;
+        resultNote.className = "result-note";
+      } else {
+        marketTypeElement.textContent = "Fair book";
+        resultNote.textContent = "This market is very close to 100%, which means the implied probabilities are close to a fair book.";
+        resultNote.className = "result-note";
+      }
+    }
+
+    function attachEvents() {
+      tableBody.querySelectorAll("input").forEach((input) => {
+        input.addEventListener("input", calculateOverround);
+      });
+
+      tableBody.querySelectorAll(".remove-row").forEach((button) => {
+        button.addEventListener("click", () => {
+          const rows = tableBody.querySelectorAll("tr");
+
+          if (rows.length <= 2) {
+            resultNote.textContent = "A market needs at least two outcomes.";
+            resultNote.className = "result-note error";
+            return;
+          }
+
+          button.closest("tr").remove();
+          calculateOverround();
+        });
+      });
+    }
+
+    function renderRows(rows) {
+      tableBody.innerHTML = "";
+      rows.forEach((row) => {
+        tableBody.appendChild(createRow(row.name, row.odds));
+      });
+      attachEvents();
+      calculateOverround();
+    }
+
+    addButton.addEventListener("click", () => {
+      const nextNumber = tableBody.querySelectorAll("tr").length + 1;
+      tableBody.appendChild(createRow(`Outcome ${nextNumber}`, ""));
+      attachEvents();
+      calculateOverround();
+    });
+
+    resetButton.addEventListener("click", () => {
+      renderRows(exampleRows);
+    });
+
+    attachEvents();
+    calculateOverround();
+  </script>
+</MainLayout>
