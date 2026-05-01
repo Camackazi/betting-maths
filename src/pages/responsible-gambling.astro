@@ -1,14 +1,169 @@
-    ---
-    import MainLayout from "../layouts/MainLayout.astro";
-    ---
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
 
-    <MainLayout title="Responsible Gambling" description="Responsible Gambling information for Betting Maths.">
-      <section class="content-card">
-        <p class="eyebrow">Betting Maths</p>
-        <h1>Responsible Gambling</h1>
-        <p class="lead">Responsible Gambling information for Betting Maths.</p>
-        <div class="placeholder-box">
-  This starter page is ready for the full calculator, guide content and SEO structure.
-</div>
-      </section>
-    </MainLayout>
+<MainLayout
+  title="Responsible Gambling"
+  description="Responsible gambling information for Betting Maths, including safer gambling reminders, risk warnings and support resources."
+>
+  <section class="content-card">
+    <p class="eyebrow">Responsible gambling</p>
+    <h1>Responsible Gambling</h1>
+    <p class="lead">
+      Betting Maths is an educational site about betting calculations. It does not provide betting tips, financial advice or guaranteed profit strategies.
+    </p>
+
+    <div class="callout">
+      <strong>Important:</strong> Betting always involves risk. Only bet what you can afford to lose, and never treat gambling as a guaranteed way to make money.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What Betting Maths is for</h2>
+    <p>
+      Betting Maths exists to explain the numbers behind betting markets. The calculators and guides are designed to help users understand concepts such as odds, implied probability, overround, dutching, hedging, back bets, lay bets, liability and bookmaker margin.
+    </p>
+    <p>
+      These tools can help explain how calculations work, but they cannot predict outcomes, remove risk or guarantee profit.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Safer gambling reminders</h2>
+    <ul class="standard-list">
+      <li>Only gamble with money you can afford to lose.</li>
+      <li>Do not chase losses.</li>
+      <li>Do not increase stakes because of frustration, pressure or emotion.</li>
+      <li>Set limits before betting and stick to them.</li>
+      <li>Take breaks from gambling.</li>
+      <li>Do not borrow money to gamble.</li>
+      <li>Do not treat betting as income.</li>
+      <li>Be careful with “systems” or claims of guaranteed profit.</li>
+      <li>Remember that odds can change quickly and calculations can be affected by limits, commission and market movement.</li>
+    </ul>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Warning signs</h2>
+    <p>
+      It may be time to stop, take a break or seek support if gambling is causing stress, secrecy, debt, arguments, missed responsibilities or repeated attempts to win back losses.
+    </p>
+
+    <ul class="standard-list">
+      <li>You feel unable to stop or control your gambling.</li>
+      <li>You gamble with money needed for bills, rent, food or family commitments.</li>
+      <li>You hide gambling activity from other people.</li>
+      <li>You chase losses after a bad result.</li>
+      <li>You feel anxious, angry or distressed because of gambling.</li>
+      <li>You borrow money, use credit or sell items to gamble.</li>
+    </ul>
+
+    <div class="callout">
+      <strong>If gambling is causing harm:</strong> Stop using betting calculators and gambling sites, and consider contacting a support service.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Where to get help in the UK</h2>
+    <p>
+      If you are in Great Britain and need support, the National Gambling Helpline is available on:
+    </p>
+
+    <div class="support-box">
+      <h3>National Gambling Helpline</h3>
+      <p><strong>0808 8020 133</strong></p>
+      <p>Free support, 24 hours a day, 7 days a week.</p>
+      <p>
+        You can also visit:
+        <a href="https://www.gamcare.org.uk/" rel="nofollow noopener" target="_blank">GamCare</a>
+        or
+        <a href="https://www.gambleaware.org/" rel="nofollow noopener" target="_blank">GambleAware</a>.
+      </p>
+    </div>
+
+    <p>
+      The NHS also provides information about getting help for gambling problems:
+      <a href="https://www.nhs.uk/live-well/addiction-support/gambling-addiction/" rel="nofollow noopener" target="_blank">NHS gambling addiction support</a>.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Self-exclusion and blocking tools</h2>
+    <p>
+      If you want to stop gambling online, you may want to consider self-exclusion and blocking tools.
+    </p>
+
+    <ul class="standard-list">
+      <li>
+        <strong>GAMSTOP:</strong> A free self-exclusion scheme for UK-licensed online gambling sites.
+        <a href="https://www.gamstop.co.uk/" rel="nofollow noopener" target="_blank">Visit GAMSTOP</a>.
+      </li>
+      <li>
+        <strong>Gamban:</strong> Software that can help block access to gambling websites and apps.
+        <a href="https://gamban.com/" rel="nofollow noopener" target="_blank">Visit Gamban</a>.
+      </li>
+      <li>
+        <strong>Bank gambling blocks:</strong> Many banks allow gambling transaction blocks through their app or customer service.
+      </li>
+    </ul>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Our position on betting systems</h2>
+    <p>
+      Betting Maths does not promote guaranteed betting systems. Pages about overround, hedging, dutching and bookmaker margin are educational. They are intended to explain calculations, not to suggest that betting profit is guaranteed or easy.
+    </p>
+    <p>
+      Any claim that you can always beat the bookmaker, always make profit, or remove all risk from gambling should be treated with caution.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Age restriction</h2>
+    <p>
+      Betting Maths is intended for adults only. If you are under 18, you should not gamble or use gambling-related services.
+    </p>
+
+    <div class="callout">
+      <strong>Final reminder:</strong> Betting calculators can explain numbers, but they cannot make gambling safe, predictable or risk-free.
+    </div>
+  </section>
+
+  <style>
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .standard-list {
+      padding-left: 1.3rem;
+    }
+
+    .standard-list li {
+      margin: 0.45rem 0;
+    }
+
+    .support-box {
+      margin: 1rem 0;
+      padding: 1.2rem;
+      border: 1px solid rgba(31, 138, 91, 0.35);
+      border-radius: 14px;
+      background: #eef8f3;
+    }
+
+    .support-box h3 {
+      margin-bottom: 0.4rem;
+    }
+
+    .support-box p {
+      margin: 0.35rem 0;
+    }
+
+    .support-box a,
+    .article-section a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  </style>
+</MainLayout>
