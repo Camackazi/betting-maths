@@ -1,0 +1,61 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import CalculatorCard from "../components/CalculatorCard.astro";
+---
+
+<MainLayout
+  title="Free Betting Calculators and Betting Maths Guides"
+  description="Free betting calculators and plain-English guides to help you understand odds, stakes, overround, hedging, dutching and bookmaker margins."
+>
+  <section class="hero">
+    <p class="eyebrow">Betting calculators and guides</p>
+    <h1>Understand the odds. Use the maths. Bet smarter.</h1>
+    <p class="lead">
+      Betting Maths explains odds, stakes, overround, hedging, dutching and bookmaker margins with simple calculators and plain-English examples.
+    </p>
+    <div class="button-row">
+      <a class="button primary" href="/calculators/overround-calculator/">Use a calculator</a>
+      <a class="button secondary" href="/glossary/betting-jargon-explained/">Learn the jargon</a>
+    </div>
+  </section>
+
+  <h2>Popular calculators</h2>
+  <div class="grid">
+    <CalculatorCard
+      title="Overround Calculator"
+      description="Work out the bookmaker margin built into a betting market."
+      href="/calculators/overround-calculator/"
+    />
+    <CalculatorCard
+      title="Dutching Calculator"
+      description="Split your stake across multiple outcomes for a balanced return."
+      href="/calculators/dutching-calculator/"
+    />
+    <CalculatorCard
+      title="Hedge Bet Calculator"
+      description="Calculate a hedge stake and compare potential outcomes."
+      href="/calculators/hedge-bet-calculator/"
+    />
+    <CalculatorCard
+      title="Odds Converter"
+      description="Convert decimal, fractional and American odds with implied probability."
+      href="/calculators/odds-converter/"
+    />
+  </div>
+
+  <h2>Start learning betting maths</h2>
+  <div class="grid">
+    <a class="content-card" href="/guides/what-is-overround/">
+      <h3>What is overround?</h3>
+      <p>Learn how bookmakers build a margin into their odds and how to calculate it.</p>
+    </a>
+    <a class="content-card" href="/guides/how-bookmakers-make-money/">
+      <h3>How bookmakers make money</h3>
+      <p>Understand book percentage, liabilities and why the odds are usually priced in the bookmaker’s favour.</p>
+    </a>
+  </div>
+
+  <div class="callout">
+    <strong>Responsible note:</strong> Betting Maths is an educational calculator site. It does not provide tips or guarantee profit.
+  </div>
+</MainLayout>

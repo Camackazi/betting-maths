@@ -1,0 +1,49 @@
+---
+const currentPath = Astro.url.pathname;
+
+const sections = [
+  {
+    title: "Calculators",
+    links: [
+      { href: "/calculators/overround-calculator/", label: "Overround Calculator" },
+      { href: "/calculators/dutching-calculator/", label: "Dutching Calculator" },
+      { href: "/calculators/hedge-bet-calculator/", label: "Hedge Bet Calculator" },
+      { href: "/calculators/odds-converter/", label: "Odds Converter" }
+    ]
+  },
+  {
+    title: "Guides",
+    links: [
+      { href: "/guides/what-is-overround/", label: "What Is Overround?" },
+      { href: "/guides/how-to-hedge-a-bet/", label: "How to Hedge a Bet" },
+      { href: "/guides/what-is-dutching/", label: "What Is Dutching?" },
+      { href: "/guides/how-bookmakers-make-money/", label: "How Bookmakers Make Money" }
+    ]
+  },
+  {
+    title: "Glossary",
+    links: [
+      { href: "/glossary/betting-jargon-explained/", label: "Betting Jargon Explained" }
+    ]
+  }
+];
+---
+
+<aside class="sidebar" data-sidebar>
+  <nav aria-label="Main navigation">
+    <a class={`sidebar-home ${currentPath === "/" ? "active" : ""}`} href="/">Home</a>
+
+    {sections.map((section) => (
+      <div class="nav-section">
+        <h2>{section.title}</h2>
+        <ul>
+          {section.links.map((link) => (
+            <li>
+              <a class={currentPath === link.href ? "active" : ""} href={link.href}>{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </nav>
+</aside>
