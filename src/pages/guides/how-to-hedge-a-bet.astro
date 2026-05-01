@@ -1,14 +1,418 @@
-    ---
-    import MainLayout from "../../layouts/MainLayout.astro";
-    ---
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
 
-    <MainLayout title="How to Hedge a Bet" description="Learn what hedging a bet means, when people use it and how the maths works.">
-      <section class="content-card">
-        <p class="eyebrow">Betting Maths</p>
-        <h1>How to Hedge a Bet</h1>
-        <p class="lead">Learn what hedging a bet means, when people use it and how the maths works.</p>
-        <div class="placeholder-box">
-  This starter page is ready for the full calculator, guide content and SEO structure.
-</div>
-      </section>
-    </MainLayout>
+<MainLayout
+  title="How to Hedge a Bet"
+  description="Learn how to hedge a bet, including back and lay betting, lay liability, exchange commission, greening up and how to calculate a hedge stake."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting maths guide</p>
+    <h1>How to Hedge a Bet</h1>
+    <p class="lead">
+      Hedging a bet means placing another bet to reduce risk, lock in a result, or balance profit and loss across different outcomes.
+    </p>
+
+    <div class="callout">
+      <strong>Quick answer:</strong> To hedge a bet, you place a second bet that offsets your original position. In exchange betting, this often means backing first and laying later, or laying first and backing later.
+    </div>
+
+    <div class="article-link-box">
+      <a class="button primary" href="/calculators/hedge-bet-calculator/">Use the Hedge Bet Calculator</a>
+      <a class="button secondary" href="/glossary/betting-jargon-explained/">View Betting Jargon Glossary</a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What does hedging a bet mean?</h2>
+    <p>
+      Hedging means changing your betting position so that the final result is less dependent on one single outcome. Instead of simply letting the original bet run, you place another bet that covers the opposite side or reduces the amount at risk.
+    </p>
+    <p>
+      A hedge can be used to lock in profit, reduce a possible loss, or compare whether a bookmaker’s cash out offer is fair.
+    </p>
+
+    <h2>Simple example of hedging</h2>
+    <p>
+      Imagine you back a selection at odds of 3.00 with a £100 stake. If it wins, the total return is £300. Later, the odds shorten and you can lay the same selection at lower odds on a betting exchange.
+    </p>
+    <p>
+      By laying the selection, you are effectively betting against it. If you calculate the lay stake correctly, you can balance the result so that both outcomes produce a similar profit.
+    </p>
+
+    <div class="callout">
+      <strong>Try it:</strong> The <a href="/calculators/hedge-bet-calculator/">Hedge Bet Calculator</a> can calculate the hedge stake, lay liability and profit or loss across both outcomes.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Backing and laying explained</h2>
+
+    <h3>What is a back bet?</h3>
+    <p>
+      A back bet is the normal type of bet. You are betting that a selection will win. If it wins, you receive a return based on the odds. If it loses, you lose your stake.
+    </p>
+
+    <h3>What is a lay bet?</h3>
+    <p>
+      A lay bet is the opposite of a back bet. When you lay a selection, you are betting that it will not win. If the selection loses, you win the backer’s stake, usually minus exchange commission. If the selection wins, you pay out the liability.
+    </p>
+
+    <h3>What is lay liability?</h3>
+    <p>
+      Lay liability is the amount you risk when you place a lay bet. It is not the same as the lay stake. The liability depends on the lay odds.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Lay liability</strong> = lay stake × (lay odds − 1)</p>
+    </div>
+
+    <p>
+      For example, if you lay £100 at odds of 3.00, your liability is £200. That is because you would need to pay £200 profit to the backer if the selection wins.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Back first, then lay</h2>
+    <p>
+      This is one of the most common hedge betting situations. You first back a selection, then later lay the same selection at different odds.
+    </p>
+    <p>
+      If the lay odds are lower than the original back odds, you may be able to lock in a profit across both outcomes.
+    </p>
+
+    <h3>Example: back first, lay later</h3>
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Input</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Back stake</td>
+          <td>£100.00</td>
+        </tr>
+        <tr>
+          <td>Back odds</td>
+          <td>3.00</td>
+        </tr>
+        <tr>
+          <td>Lay odds</td>
+          <td>2.00</td>
+        </tr>
+        <tr>
+          <td>Exchange commission</td>
+          <td>2%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      In this type of position, the hedge stake is the lay stake. The calculator works out how much to lay so that the result is balanced after commission.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Lay stake</strong> = back stake × back odds ÷ (lay odds − commission)</p>
+    </div>
+
+    <p>
+      With the example above, the lay stake is approximately £151.52. That balances the result at about £48.48 profit whether the selection wins or loses.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Lay first, then back</h2>
+    <p>
+      Hedging can also work the other way round. You might lay a selection first, then back it later.
+    </p>
+    <p>
+      This can happen in exchange trading when someone expects the odds to drift. If you lay at lower odds and later back at higher odds, the difference in price can create a hedging opportunity.
+    </p>
+
+    <h3>Example: lay first, back later</h3>
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Input</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Lay stake</td>
+          <td>£100.00</td>
+        </tr>
+        <tr>
+          <td>Lay odds</td>
+          <td>2.00</td>
+        </tr>
+        <tr>
+          <td>Back odds</td>
+          <td>3.00</td>
+        </tr>
+        <tr>
+          <td>Exchange commission</td>
+          <td>2%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      In this case, the hedge stake is the back stake. The calculator works out how much to back so that the profit or loss is balanced across both outcomes.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Back stake</strong> = lay stake × (lay odds − commission) ÷ back odds</p>
+    </div>
+
+    <p>
+      With the example above, the hedge back stake is approximately £66.00.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Hedging vs cash out</h2>
+    <p>
+      Cash out is an offer from a bookmaker or exchange to settle a bet before the event is finished. Hedging is when you calculate and place another bet yourself.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>How it works</th>
+          <th>Main issue</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Cash out</td>
+          <td>The bookmaker offers a settlement value.</td>
+          <td>The offer may include a margin and may not be the best available value.</td>
+        </tr>
+        <tr>
+          <td>Hedging</td>
+          <td>You calculate and place another bet yourself.</td>
+          <td>You need accurate odds, stake calculations and commission settings.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      A hedge calculator can help you compare your own calculated hedge against a cash out offer. It does not mean hedging is always better, but it gives you the numbers to compare.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What is greening up?</h2>
+    <p>
+      Greening up is a betting exchange phrase. It usually means spreading the profit across all outcomes so that the position shows a positive result no matter what happens.
+    </p>
+    <p>
+      The phrase comes from exchange interfaces where profitable positions may be shown in green. If the hedge produces a loss across outcomes, some people call this “redding up” instead.
+    </p>
+
+    <h2>Can hedging guarantee profit?</h2>
+    <p>
+      No. Hedging does not automatically create profit. It depends on the odds you originally took, the odds now available, commission, liquidity and whether the market has moved favourably.
+    </p>
+    <p>
+      If the numbers are not favourable, hedging may simply reduce risk, reduce a loss, or reduce your maximum possible profit.
+    </p>
+
+    <div class="callout">
+      <strong>Important:</strong> Hedging is a risk-management calculation, not a guaranteed betting system.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Common hedge betting mistakes</h2>
+
+    <h3>Ignoring exchange commission</h3>
+    <p>
+      Commission can change the correct hedge stake and the final profit. Even a small commission percentage can matter when the margins are tight.
+    </p>
+
+    <h3>Confusing lay stake with lay liability</h3>
+    <p>
+      The lay stake is what the backer is trying to win from you. The lay liability is what you risk if the selection wins. These are not the same thing.
+    </p>
+
+    <h3>Assuming cash out is always fair</h3>
+    <p>
+      A cash out offer is convenient, but it may include margin. Calculating your own hedge can help you understand whether the offer is reasonable.
+    </p>
+
+    <h3>Trying to hedge after odds move against you</h3>
+    <p>
+      If the market moves the wrong way, hedging may lock in a loss rather than a profit. That may still be useful for reducing risk, but it is not the same as greening up.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Related betting calculators</h2>
+    <p>
+      Hedging connects closely to odds conversion, implied probability, dutching and bookmaker margin.
+    </p>
+
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/hedge-bet-calculator/">
+        <h3>Hedge Bet Calculator</h3>
+        <p>Calculate back and lay hedge stakes with commission.</p>
+      </a>
+      <a class="related-card" href="/calculators/odds-converter/">
+        <h3>Odds Converter</h3>
+        <p>Convert decimal, fractional and American odds.</p>
+      </a>
+      <a class="related-card" href="/calculators/dutching-calculator/">
+        <h3>Dutching Calculator</h3>
+        <p>Split a stake across multiple selections.</p>
+      </a>
+      <a class="related-card" href="/glossary/betting-jargon-explained/">
+        <h3>Betting Jargon Explained</h3>
+        <p>Learn backing, laying, liability and other betting terms.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Hedge betting FAQs</h2>
+
+    <h3>What is the easiest way to hedge a bet?</h3>
+    <p>
+      The easiest way is to use a hedge calculator. Enter the original stake, original odds, hedge odds and commission to see the hedge stake and the result if either outcome happens.
+    </p>
+
+    <h3>What is the difference between backing and laying?</h3>
+    <p>
+      Backing means betting that a selection will win. Laying means betting that a selection will not win.
+    </p>
+
+    <h3>What is lay liability?</h3>
+    <p>
+      Lay liability is the amount you risk when laying a bet. It is calculated as lay stake multiplied by lay odds minus one.
+    </p>
+
+    <h3>Does hedging always make money?</h3>
+    <p>
+      No. Hedging only creates profit if the odds and stakes allow it. Otherwise it may reduce risk, reduce a loss, or reduce the maximum possible profit.
+    </p>
+
+    <h3>Is hedging the same as matched betting?</h3>
+    <p>
+      Not exactly. Matched betting often uses bookmaker offers and exchange lay bets to try to reduce risk. Hedging is a broader risk-management calculation that can be used in many betting situations.
+    </p>
+
+    <h3>Can I hedge a bet without a betting exchange?</h3>
+    <p>
+      Sometimes, but betting exchanges make hedging easier because you can both back and lay. Without an exchange, you may need to use opposite bookmaker markets, which can be less precise.
+    </p>
+
+    <div class="callout">
+      <strong>Responsible note:</strong> Hedging can help you understand and manage a betting position, but it cannot remove risk. Never chase losses or stake more than you can afford to lose.
+    </div>
+  </section>
+
+  <style>
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .article-link-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .formula-box {
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+
+    .formula-box p {
+      margin: 0.4rem 0;
+      font-weight: 700;
+    }
+
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .example-table th,
+    .example-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .example-table th {
+      color: var(--color-navy);
+      background: #f4f7fa;
+      font-size: 0.9rem;
+    }
+
+    .example-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .related-card {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .related-card:hover {
+      border-color: rgba(31, 138, 91, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .related-card h3 {
+      margin-bottom: 0.35rem;
+    }
+
+    .related-card p {
+      margin: 0;
+      color: var(--color-muted);
+    }
+
+    .callout a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 980px) {
+      .related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</MainLayout>
