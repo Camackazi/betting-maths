@@ -1,14 +1,430 @@
-    ---
-    import MainLayout from "../../layouts/MainLayout.astro";
-    ---
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
 
-    <MainLayout title="What Is Overround in Betting?" description="A plain-English guide to overround, book percentage and bookmaker margin.">
-      <section class="content-card">
-        <p class="eyebrow">Betting Maths</p>
-        <h1>What Is Overround in Betting?</h1>
-        <p class="lead">A plain-English guide to overround, book percentage and bookmaker margin.</p>
-        <div class="placeholder-box">
-  This starter page is ready for the full calculator, guide content and SEO structure.
-</div>
-      </section>
-    </MainLayout>
+<MainLayout
+  title="What Is Overround in Betting?"
+  description="Learn what overround means in betting, how bookmaker margin works, how to calculate book percentage and why betting markets usually add up to more than 100%."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting maths guide</p>
+    <h1>What Is Overround in Betting?</h1>
+    <p class="lead">
+      Overround is one of the most important betting maths terms to understand. It shows how much margin is built into a betting market by converting every outcome into implied probability and adding them together.
+    </p>
+
+    <div class="callout">
+      <strong>Quick answer:</strong> Overround is the amount above 100% when all possible outcomes in a betting market are converted into implied probability. If a market adds up to 106%, the overround is 6%.
+    </div>
+
+    <div class="article-link-box">
+      <a class="button primary" href="/calculators/overround-calculator/">Use the Overround Calculator</a>
+      <a class="button secondary" href="/glossary/betting-jargon-explained/">View Betting Jargon Glossary</a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What does overround mean?</h2>
+    <p>
+      Overround is the bookmaker’s built-in margin in a betting market. To understand it, you need to convert each outcome’s odds into implied probability, then add those probabilities together.
+    </p>
+    <p>
+      In a perfectly fair market, all possible outcomes would add up to exactly 100%. In most bookmaker markets, they add up to more than 100%. The amount above 100% is called the overround.
+    </p>
+
+    <h2>Simple overround example</h2>
+    <p>
+      Imagine a football match with three possible outcomes: home win, draw and away win.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Outcome</th>
+          <th>Decimal odds</th>
+          <th>Implied probability</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Home win</td>
+          <td>2.10</td>
+          <td>47.62%</td>
+        </tr>
+        <tr>
+          <td>Draw</td>
+          <td>3.40</td>
+          <td>29.41%</td>
+        </tr>
+        <tr>
+          <td>Away win</td>
+          <td>3.60</td>
+          <td>27.78%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      Add those implied probabilities together:
+    </p>
+
+    <div class="formula-box">
+      <p>47.62% + 29.41% + 27.78% = 104.81%</p>
+    </div>
+
+    <p>
+      This market has a book percentage of 104.81%. That means the overround is 4.81%.
+    </p>
+
+    <div class="callout">
+      <strong>Try it yourself:</strong> Enter the odds into the <a href="/calculators/overround-calculator/">Overround Calculator</a> to see the bookmaker margin instantly.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>How do you calculate overround?</h2>
+    <p>
+      The calculation has three steps:
+    </p>
+
+    <ol class="numbered-list">
+      <li>Convert each outcome’s odds into implied probability.</li>
+      <li>Add all the implied probabilities together.</li>
+      <li>Subtract 100% to find the overround.</li>
+    </ol>
+
+    <h3>Step 1: Convert odds into implied probability</h3>
+    <p>
+      With decimal odds, the implied probability formula is:
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Implied probability</strong> = 1 ÷ decimal odds × 100</p>
+    </div>
+
+    <p>
+      For example, decimal odds of 2.00 imply a 50% chance:
+    </p>
+
+    <div class="formula-box">
+      <p>1 ÷ 2.00 × 100 = 50%</p>
+    </div>
+
+    <h3>Step 2: Add the probabilities together</h3>
+    <p>
+      Once you have converted every outcome, add the percentages together. This gives you the book percentage.
+    </p>
+
+    <h3>Step 3: Subtract 100%</h3>
+    <p>
+      The amount above 100% is the overround.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Overround</strong> = book percentage − 100</p>
+    </div>
+
+    <p>
+      So if the book percentage is 107.50%, the overround is 7.50%.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Why do bookmakers use overround?</h2>
+    <p>
+      Bookmakers do not usually price a market so that all outcomes add up to exactly 100%. Instead, the odds are normally priced so that the total implied probability is above 100%. This creates a built-in margin.
+    </p>
+    <p>
+      That margin helps explain how bookmakers can operate profitably over a large number of markets, even though they may lose on individual events.
+    </p>
+
+    <h2>Does overround mean the bookmaker always wins?</h2>
+    <p>
+      No. Overround does not mean a bookmaker is guaranteed to make money on every match, race or event. If too much money is taken on one outcome, the bookmaker may still lose on that specific event.
+    </p>
+    <p>
+      Overround is better understood as a pricing advantage built into the market. Bookmakers also manage risk through stake limits, odds movement, market suspension and liability management.
+    </p>
+
+    <h2>Overround and weight of money</h2>
+    <p>
+      Odds can move when money enters the market. If a bookmaker receives heavy betting on one selection, they may shorten the odds on that selection and lengthen others. This helps manage liabilities and reflect market demand.
+    </p>
+    <p>
+      This is why odds are not just a prediction. They are also a price shaped by margin, risk and the weight of money.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What is a good overround?</h2>
+    <p>
+      A lower overround is generally better for bettors because there is less margin built into the market. A higher overround means the prices are less generous overall.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Book percentage</th>
+          <th>Overround</th>
+          <th>What it suggests</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>100%</td>
+          <td>0%</td>
+          <td>A theoretical fair book with no margin.</td>
+        </tr>
+        <tr>
+          <td>102%</td>
+          <td>2%</td>
+          <td>A very competitive market.</td>
+        </tr>
+        <tr>
+          <td>105%</td>
+          <td>5%</td>
+          <td>A typical margin in many betting markets.</td>
+        </tr>
+        <tr>
+          <td>110%</td>
+          <td>10%</td>
+          <td>A higher-margin market.</td>
+        </tr>
+        <tr>
+          <td>120%+</td>
+          <td>20%+</td>
+          <td>A very high-margin market, often seen in niche or less competitive markets.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      These are only rough guidelines. The typical overround can vary depending on the sport, market type, bookmaker, liquidity and how close the event is to starting.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What is underround?</h2>
+    <p>
+      Underround is the opposite of overround. It happens when the total implied probability of the outcomes is below 100%.
+    </p>
+    <p>
+      For example, if several prices across different bookmakers add up to 98%, that is a 2% underround. This can sometimes suggest an arbitrage opportunity.
+    </p>
+
+    <div class="callout">
+      <strong>Important:</strong> Underround does not automatically mean guaranteed profit. Odds can move, stakes can be limited, accounts can be restricted, and exchange commission can change the final result.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Overround vs bookmaker margin</h2>
+    <p>
+      Overround and bookmaker margin are closely related, and people often use them in similar ways.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Term</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Book percentage</td>
+          <td>The total implied probability of all outcomes in the market.</td>
+        </tr>
+        <tr>
+          <td>Overround</td>
+          <td>The amount by which the book percentage is above 100%.</td>
+        </tr>
+        <tr>
+          <td>Bookmaker margin</td>
+          <td>The bookmaker’s built-in edge or pricing margin.</td>
+        </tr>
+        <tr>
+          <td>Vig / juice</td>
+          <td>Terms often used in US betting for the bookmaker’s margin.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      On Betting Maths, the <a href="/calculators/overround-calculator/">Overround Calculator</a> shows both the total book percentage and the overround.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Why overround matters for betting maths</h2>
+    <p>
+      Overround is useful because it helps you see the difference between the odds on offer and a theoretical fair market. It also connects to other betting maths topics, including implied probability, dutching, hedging, value betting and arbitrage.
+    </p>
+
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/overround-calculator/">
+        <h3>Overround Calculator</h3>
+        <p>Calculate book percentage and bookmaker margin.</p>
+      </a>
+      <a class="related-card" href="/calculators/odds-converter/">
+        <h3>Odds Converter</h3>
+        <p>Convert odds and calculate implied probability.</p>
+      </a>
+      <a class="related-card" href="/calculators/dutching-calculator/">
+        <h3>Dutching Calculator</h3>
+        <p>Split stakes across multiple selections.</p>
+      </a>
+      <a class="related-card" href="/glossary/betting-jargon-explained/">
+        <h3>Betting Jargon Explained</h3>
+        <p>Learn common betting terms and maths phrases.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Overround FAQs</h2>
+
+    <h3>What does overround mean in simple terms?</h3>
+    <p>
+      Overround is the bookmaker’s margin shown as the amount above 100% when all outcomes in a market are converted into implied probability and added together.
+    </p>
+
+    <h3>Is a lower overround better?</h3>
+    <p>
+      Usually, yes. A lower overround means there is less margin built into the market. That generally means the prices are more competitive overall.
+    </p>
+
+    <h3>Can a market have no overround?</h3>
+    <p>
+      A market that adds up to exactly 100% would have no overround. This is known as a fair book, but it is uncommon with normal bookmaker prices.
+    </p>
+
+    <h3>Can overround be negative?</h3>
+    <p>
+      If a market adds up to less than 100%, it is usually called an underround rather than a negative overround.
+    </p>
+
+    <h3>Is overround the same as value?</h3>
+    <p>
+      No. Overround measures the total margin in a market. Value betting is about whether a specific price is higher than the true chance of that outcome.
+    </p>
+
+    <h3>Does overround guarantee the bookmaker makes money?</h3>
+    <p>
+      Not on every individual event. Bookmakers can still lose on a result, but overround is one part of how they price markets with a built-in long-term advantage.
+    </p>
+
+    <div class="callout">
+      <strong>Responsible note:</strong> Understanding overround can help you read odds more clearly, but it does not guarantee profit or remove betting risk.
+    </div>
+  </section>
+
+  <style>
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .article-link-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .formula-box {
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+
+    .formula-box p {
+      margin: 0.4rem 0;
+      font-weight: 700;
+    }
+
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .example-table th,
+    .example-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .example-table th {
+      color: var(--color-navy);
+      background: #f4f7fa;
+      font-size: 0.9rem;
+    }
+
+    .example-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .numbered-list {
+      padding-left: 1.3rem;
+    }
+
+    .numbered-list li {
+      margin: 0.4rem 0;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .related-card {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .related-card:hover {
+      border-color: rgba(31, 138, 91, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .related-card h3 {
+      margin-bottom: 0.35rem;
+    }
+
+    .related-card p {
+      margin: 0;
+      color: var(--color-muted);
+    }
+
+    .callout a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 980px) {
+      .related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</MainLayout>
