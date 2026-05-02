@@ -1,0 +1,27 @@
+---
+const {
+  position = "default",
+  label = "Advertisement"
+} = Astro.props;
+
+/*
+  Hidden for now.
+
+  When Betting Maths is ready for ads, this component can be updated once
+  and every page using <AdSlot /> will automatically show the correct ad block.
+
+  Suggested future positions:
+  - intro
+  - mid-article
+  - page-end
+  - calculator-after-results
+*/
+
+const adsEnabled = false;
+---
+
+{adsEnabled && (
+  <div class={`ad-slot ad-slot-${position}`} aria-label={label}>
+    <span>{label}</span>
+  </div>
+)}
