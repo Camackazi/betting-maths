@@ -5,13 +5,13 @@ import CalculatorCard from "../components/CalculatorCard.astro";
 
 <MainLayout
   title="Free Betting Calculators and Betting Maths Guides"
-  description="Free betting calculators and plain-English guides to help you understand odds, overround, dutching, hedging, bookmaker margin and betting jargon."
+  description="Free betting calculators and plain-English guides to help you understand odds, overround, dutching, hedging, accumulators, bookmaker margin and betting jargon."
 >
   <section class="hero">
     <p class="eyebrow">Betting calculators and plain-English guides</p>
     <h1>Understand the odds. Use the maths. Bet smarter.</h1>
     <p class="lead">
-      Betting Maths helps you understand odds, stakes, overround, dutching, hedging, back and lay betting, bookmaker margin and common betting jargon with simple calculators and practical examples.
+      Betting Maths helps you understand odds, stakes, overround, dutching, hedging, accumulators, back and lay betting, bookmaker margin and common betting jargon with simple calculators and practical examples.
     </p>
     <div class="button-row">
       <a class="button primary" href="/calculators/overround-calculator/">Start with the Overround Calculator</a>
@@ -22,7 +22,7 @@ import CalculatorCard from "../components/CalculatorCard.astro";
   <section class="content-card intro-panel">
     <h2>What is Betting Maths?</h2>
     <p>
-      Betting Maths is a free betting education and calculator site. It is designed to explain how odds, implied probability, overround, dutching, hedging and bookmaker margins work in plain English.
+      Betting Maths is a free betting education and calculator site. It is designed to explain how odds, implied probability, overround, dutching, hedging, accumulators and bookmaker margins work in plain English.
     </p>
     <p>
       The aim is not to provide betting tips or guaranteed profit systems. The aim is to help you understand the numbers behind betting markets so you can read odds, calculate outcomes and understand risk more clearly.
@@ -51,12 +51,17 @@ import CalculatorCard from "../components/CalculatorCard.astro";
       description="Calculate back and lay hedge stakes, lay liability, commission and possible profit or loss."
       href="/calculators/hedge-bet-calculator/"
     />
+    <CalculatorCard
+      title="Accumulator Calculator"
+      description="Multiply odds across multiple selections and calculate acca returns, profit and implied probability."
+      href="/calculators/accumulator-calculator/"
+    />
   </div>
 
   <section class="content-card article-section">
     <h2>Learn the key betting maths concepts</h2>
     <p>
-      Start with these guides if you want to understand how betting markets are priced and why the odds are usually built in the bookmaker’s favour.
+      Start with these guides if you want to understand how betting markets are priced, why the odds are usually built in the bookmaker’s favour, and why betting systems should be treated carefully.
     </p>
 
     <div class="guide-grid">
@@ -82,6 +87,12 @@ import CalculatorCard from "../components/CalculatorCard.astro";
         <span>Guide</span>
         <h3>How Bookmakers Make Money</h3>
         <p>Understand overround, odds movement, weight of money and liability management.</p>
+      </a>
+
+      <a class="guide-card" href="/guides/can-you-always-beat-the-bookie/">
+        <span>Guide</span>
+        <h3>Can You Always Beat the Bookie?</h3>
+        <p>Learn why guaranteed betting systems are risky and what maths can actually show.</p>
       </a>
     </div>
   </section>
@@ -135,6 +146,40 @@ import CalculatorCard from "../components/CalculatorCard.astro";
 
     <p>
       That means the market has a 4.81% overround. This is one simple example of how betting maths helps explain bookmaker margin.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Accumulator example</h2>
+    <p>
+      Accumulators multiply odds together. For example, decimal odds of 2.00, 1.80 and 2.50 combine to make accumulator odds of 9.00.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Selection</th>
+          <th>Decimal odds</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Selection 1</td>
+          <td>2.00</td>
+        </tr>
+        <tr>
+          <td>Selection 2</td>
+          <td>1.80</td>
+        </tr>
+        <tr>
+          <td>Selection 3</td>
+          <td>2.50</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      A £10 stake at combined odds of 9.00 would return £90, including £80 profit. The <a href="/calculators/accumulator-calculator/">Accumulator Calculator</a> works this out automatically and also shows the implied probability.
     </p>
   </section>
 
@@ -217,6 +262,13 @@ import CalculatorCard from "../components/CalculatorCard.astro";
 
     .example-table tr:last-child td {
       border-bottom: 0;
+    }
+
+    .article-section a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     @media (max-width: 760px) {
