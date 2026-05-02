@@ -4,17 +4,17 @@ import MainLayout from "../../layouts/MainLayout.astro";
 
 <MainLayout
   title="Betting Maths Guides"
-  description="Plain-English betting maths guides explaining implied probability, overround, bookmaker margin, hedging, dutching, cash out, arbitrage and how bookmakers make money."
+  description="Plain-English betting maths guides explaining implied probability, overround, bookmaker margin, free bets, matched betting, stake not returned, hedging, dutching, cash out, arbitrage and how bookmakers make money."
 >
   <section class="content-card">
     <p class="eyebrow">Betting guides</p>
     <h1>Betting Maths Guides</h1>
     <p class="lead">
-      Learn the key betting maths concepts behind odds, implied probability, overround, bookmaker margin, hedging, dutching, arbitrage, cash out and back/lay betting.
+      Learn the key betting maths concepts behind odds, implied probability, overround, bookmaker margin, free bets, matched betting, stake not returned, hedging, dutching, arbitrage, cash out and back/lay betting.
     </p>
 
     <div class="callout">
-      <strong>Quick guide:</strong> Start with implied probability if you are new to betting maths, then move on to overround, bookmaker margin, dutching and hedging.
+      <strong>Quick guide:</strong> Start with implied probability if you are new to betting maths, then move on to overround, bookmaker margin, free bets, dutching and hedging.
     </div>
   </section>
 
@@ -37,10 +37,10 @@ import MainLayout from "../../layouts/MainLayout.astro";
         <p>Understand bookmaker margin, overround, book percentage and how market prices are built.</p>
       </a>
 
-      <a class="guide-card featured-guide" href="/guides/what-is-overround/">
+      <a class="guide-card featured-guide" href="/guides/what-is-a-free-bet/">
         <span>Core guide</span>
-        <h3>What Is Overround?</h3>
-        <p>Learn how overround is calculated and how it shows the margin in a betting market.</p>
+        <h3>What Is a Free Bet?</h3>
+        <p>Learn how free bets work, why stake not returned matters, and how offer value is calculated.</p>
       </a>
     </div>
   </section>
@@ -80,6 +80,24 @@ import MainLayout from "../../layouts/MainLayout.astro";
         <span>Risk</span>
         <h3>Can You Always Beat the Bookie?</h3>
         <p>Learn why guaranteed betting systems are risky and what maths can actually show.</p>
+      </a>
+
+      <a class="guide-card" href="/guides/what-is-a-free-bet/">
+        <span>Free bets</span>
+        <h3>What Is a Free Bet?</h3>
+        <p>Understand free bet value, stake not returned, free bet lay stakes and offer terms.</p>
+      </a>
+
+      <a class="guide-card" href="/guides/what-is-matched-betting/">
+        <span>Matched betting</span>
+        <h3>What Is Matched Betting?</h3>
+        <p>Learn how qualifying bets, free bets, back bets and lay bets work together.</p>
+      </a>
+
+      <a class="guide-card" href="/guides/stake-returned-vs-stake-not-returned/">
+        <span>Free bet terms</span>
+        <h3>Stake Returned vs Stake Not Returned</h3>
+        <p>Learn the difference between cash-style returns and stake-not-returned free bets.</p>
       </a>
 
       <a class="guide-card" href="/guides/how-to-hedge-a-bet/">
@@ -139,6 +157,21 @@ import MainLayout from "../../layouts/MainLayout.astro";
           <td><a href="/calculators/overround-calculator/">Overround Calculator</a></td>
         </tr>
         <tr>
+          <td>How free bets work</td>
+          <td><a href="/guides/what-is-a-free-bet/">What Is a Free Bet?</a></td>
+          <td><a href="/calculators/free-bet-calculator/">Free Bet Calculator</a></td>
+        </tr>
+        <tr>
+          <td>The difference between stake returned and stake not returned</td>
+          <td><a href="/guides/stake-returned-vs-stake-not-returned/">Stake Returned vs Stake Not Returned</a></td>
+          <td><a href="/calculators/free-bet-calculator/">Free Bet Calculator</a></td>
+        </tr>
+        <tr>
+          <td>How matched betting works</td>
+          <td><a href="/guides/what-is-matched-betting/">What Is Matched Betting?</a></td>
+          <td><a href="/calculators/matched-betting-calculator/">Matched Betting Calculator</a></td>
+        </tr>
+        <tr>
           <td>How bookmakers manage risk</td>
           <td><a href="/guides/how-bookmakers-make-money/">How Bookmakers Make Money</a></td>
           <td><a href="/calculators/overround-calculator/">Overround Calculator</a></td>
@@ -151,7 +184,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
         <tr>
           <td>How to compare dutching and arbitrage</td>
           <td><a href="/guides/dutching-vs-arbitrage/">Dutching vs Arbitrage</a></td>
-          <td><a href="/calculators/dutching-calculator/">Dutching Calculator</a></td>
+          <td><a href="/calculators/arbitrage-calculator/">Arbitrage Calculator</a></td>
         </tr>
         <tr>
           <td>How to lock in or reduce risk on a position</td>
@@ -191,6 +224,15 @@ import MainLayout from "../../layouts/MainLayout.astro";
           <li><a href="/guides/how-bookmakers-make-money/">How Bookmakers Make Money</a></li>
           <li><a href="/guides/bookmaker-margin-explained/">Bookmaker Margin Explained</a></li>
           <li><a href="/guides/can-you-always-beat-the-bookie/">Can You Always Beat the Bookie?</a></li>
+        </ul>
+      </div>
+
+      <div class="topic-card">
+        <h3>Free bets and offers</h3>
+        <ul>
+          <li><a href="/guides/what-is-a-free-bet/">What Is a Free Bet?</a></li>
+          <li><a href="/guides/stake-returned-vs-stake-not-returned/">Stake Returned vs Stake Not Returned</a></li>
+          <li><a href="/guides/what-is-matched-betting/">What Is Matched Betting?</a></li>
         </ul>
       </div>
 
