@@ -1,0 +1,701 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="Each-Way Calculator"
+  description="Use this free each-way calculator to work out total stake, win return, place return and profit for each-way bets."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting calculator</p>
+    <h1>Each-Way Calculator</h1>
+    <p class="lead">
+      Use this each-way calculator to work out your total stake, place odds, possible return and profit if your selection wins, places or loses.
+    </p>
+
+    <div class="callout">
+      <strong>Quick explanation:</strong> An each-way bet is two bets: one win bet and one place bet. Your total stake is double the stake you enter.
+    </div>
+
+    <div class="calculator-panel" id="each-way-calculator">
+      <div class="calculator-header">
+        <div>
+          <h2>Enter your each-way bet</h2>
+          <p>Add the stake per part, win odds and place terms to calculate the possible outcomes.</p>
+        </div>
+        <button class="button secondary small-button" type="button" id="reset-each-way">
+          Reset example
+        </button>
+      </div>
+
+      <div class="input-grid">
+        <label class="input-group">
+          <span>Each-way stake</span>
+          <div class="money-input-wrap">
+            <span>£</span>
+            <input id="each-way-stake" type="number" min="0.01" step="0.01" value="10" />
+          </div>
+          <small>This is the stake on the win part and the same again on the place part.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Win odds</span>
+          <input id="win-odds" type="number" min="1.01" step="0.01" value="9.00" />
+          <small>Enter decimal odds. Example: 9.00 equals 8/1.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Place terms</span>
+          <select id="place-terms">
+            <option value="0.2" selected>1/5 odds</option>
+            <option value="0.25">1/4 odds</option>
+            <option value="0.3333333333">1/3 odds</option>
+            <option value="0.5">1/2 odds</option>
+          </select>
+          <small>The fraction of win odds paid on the place part.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Number of places</span>
+          <input id="places-paid" type="number" min="1" step="1" value="4" />
+          <small>For reference only. This does not change the payout maths.</small>
+        </label>
+      </div>
+
+      <div class="results-grid">
+        <div class="result-card">
+          <span>Total stake</span>
+          <strong id="total-stake-result">£20.00</strong>
+        </div>
+        <div class="result-card">
+          <span>Place odds</span>
+          <strong id="place-odds-result">2.60</strong>
+        </div>
+        <div class="result-card">
+          <span>If selection wins</span>
+          <strong id="win-result">£96.00</strong>
+        </div>
+        <div class="result-card">
+          <span>If selection places only</span>
+          <strong id="place-result">£6.00</strong>
+        </div>
+        <div class="result-card">
+          <span>If selection loses</span>
+          <strong id="lose-result">-£20.00</strong>
+        </div>
+      </div>
+
+      <p class="result-note" id="result-note">
+        A £10.00 each-way bet costs £20.00 in total. If the selection wins, the profit would be £96.00.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What is an each-way bet?</h2>
+    <p>
+      An each-way bet is two bets in one: a win bet and a place bet. The win part pays if your selection wins. The place part pays if your selection finishes in one of the specified place positions.
+    </p>
+    <p>
+      Each-way betting is common in horse racing, golf and some large-field outright markets. It can reduce the chance of losing the whole stake, but the total stake is twice the amount entered.
+    </p>
+
+    <h2>How each-way stakes work</h2>
+    <p>
+      If you place £10 each-way, you are really placing two £10 bets:
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Win stake</strong> = £10</p>
+      <p><strong>Place stake</strong> = £10</p>
+      <p><strong>Total stake</strong> = £20</p>
+    </div>
+
+    <p>
+      This is one of the most common misunderstandings with each-way betting. The displayed stake is usually the stake per part, not the total cost.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Each-way place terms explained</h2>
+    <p>
+      The place part of an each-way bet is paid at a fraction of the win odds. Common place terms include 1/4 odds and 1/5 odds.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Place decimal odds</strong> = 1 + ((win decimal odds − 1) × place fraction)</p>
+    </div>
+
+    <p>
+      For example, decimal odds of 9.00 are equivalent to 8/1. If the place terms are 1/5 odds, the place profit odds are 8/5. In decimal format, that gives place odds of 2.60.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Win odds</th>
+          <th>Place terms</th>
+          <th>Place odds</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>9.00</td>
+          <td>1/5</td>
+          <td>2.60</td>
+        </tr>
+        <tr>
+          <td>9.00</td>
+          <td>1/4</td>
+          <td>3.00</td>
+        </tr>
+        <tr>
+          <td>5.00</td>
+          <td>1/5</td>
+          <td>1.80</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Each-way example</h2>
+    <p>
+      Suppose you place £10 each-way on a horse at decimal odds of 9.00, with place terms of 1/5 odds.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Outcome</th>
+          <th>What happens?</th>
+          <th>Profit / loss</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Selection wins</td>
+          <td>Win part pays and place part pays.</td>
+          <td>£96.00 profit</td>
+        </tr>
+        <tr>
+          <td>Selection places only</td>
+          <td>Win part loses, place part pays.</td>
+          <td>£6.00 profit</td>
+        </tr>
+        <tr>
+          <td>Selection loses</td>
+          <td>Both parts lose.</td>
+          <td>£20.00 loss</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      The exact result depends on the stake, win odds, place terms and whether the selection wins, places or finishes outside the places.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Each-way betting in horse racing</h2>
+    <p>
+      Each-way betting is especially common in horse racing because races often have several runners and bookmakers may offer place terms based on the number of runners and the type of race.
+    </p>
+    <p>
+      The number of places paid can vary. For example, some races may pay three places, four places or more. Promotional offers may also change place terms, but the calculation still depends on the place fraction and the odds.
+    </p>
+
+    <div class="callout">
+      <strong>Important:</strong> Always check the bookmaker’s each-way terms before placing a bet. Place terms, number of places, non-runner rules and deductions can all affect the final result.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Each-way vs win-only betting</h2>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Bet type</th>
+          <th>How it works</th>
+          <th>Main trade-off</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Win-only</td>
+          <td>The selection must win.</td>
+          <td>Lower total stake, but no place return.</td>
+        </tr>
+        <tr>
+          <td>Each-way</td>
+          <td>The selection can win or place.</td>
+          <td>Total stake is doubled, and place odds are reduced.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      Each-way betting can be useful for understanding different possible outcomes, but it is not automatically better value than a win-only bet.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Common each-way mistakes</h2>
+
+    <h3>Forgetting the stake is doubled</h3>
+    <p>
+      A £10 each-way bet usually costs £20 in total: £10 on the win part and £10 on the place part.
+    </p>
+
+    <h3>Ignoring the place terms</h3>
+    <p>
+      The place return depends on the fraction of the odds being paid. 1/4 odds pays more than 1/5 odds, assuming the same win odds.
+    </p>
+
+    <h3>Assuming a place always means profit</h3>
+    <p>
+      A place-only result can still be a loss if the place odds are too short compared with the total stake.
+    </p>
+
+    <h3>Not checking the number of places</h3>
+    <p>
+      The number of places paid matters. Finishing fifth might pay in one market but lose in another, depending on the terms.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Related betting calculators</h2>
+
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/odds-converter/">
+        <h3>Odds Converter</h3>
+        <p>Convert decimal, fractional and American odds.</p>
+      </a>
+      <a class="related-card" href="/calculators/accumulator-calculator/">
+        <h3>Accumulator Calculator</h3>
+        <p>Calculate combined odds and acca returns.</p>
+      </a>
+      <a class="related-card" href="/calculators/dutching-calculator/">
+        <h3>Dutching Calculator</h3>
+        <p>Split stakes across multiple selections.</p>
+      </a>
+      <a class="related-card" href="/glossary/betting-jargon-explained/">
+        <h3>Betting Jargon Explained</h3>
+        <p>Learn each-way, place bet, stake, return and other terms.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Each-way calculator FAQs</h2>
+
+    <h3>What does an each-way calculator do?</h3>
+    <p>
+      An each-way calculator works out the total stake, place odds, possible return and profit or loss for win, place-only and losing outcomes.
+    </p>
+
+    <h3>Does each-way stake mean total stake?</h3>
+    <p>
+      Usually no. A £10 each-way bet normally means £10 on the win part and £10 on the place part, making £20 total.
+    </p>
+
+    <h3>How are each-way place odds calculated?</h3>
+    <p>
+      Place odds are calculated by applying the place fraction to the profit part of the win odds, then adding the stake back in decimal format.
+    </p>
+
+    <h3>Can an each-way place still lose money?</h3>
+    <p>
+      Yes. If the place return is less than the total each-way stake, a place-only result can still produce a loss.
+    </p>
+
+    <h3>Are each-way bets good value?</h3>
+    <p>
+      Not automatically. Each-way value depends on the win odds, place terms, number of places, market margin and the true chance of the selection winning or placing.
+    </p>
+
+    <div class="callout">
+      <strong>Responsible note:</strong> Each-way betting can reduce the chance of losing the full stake, but it does not remove risk or guarantee profit.
+    </div>
+  </section>
+
+  <style>
+    .calculator-panel {
+      margin-top: 1.5rem;
+      padding: 1.25rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      background: #ffffff;
+    }
+
+    .calculator-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .calculator-header h2 {
+      margin: 0;
+    }
+
+    .calculator-header p {
+      margin: 0.25rem 0 0;
+      color: var(--color-muted);
+    }
+
+    .small-button {
+      padding: 0.55rem 0.75rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .input-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .input-group {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .input-group > span {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: var(--color-navy);
+      font-weight: 800;
+    }
+
+    .input-group input,
+    .input-group select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      color: var(--color-text);
+      font: inherit;
+      font-size: 1.05rem;
+      background: white;
+    }
+
+    .input-group input:focus,
+    .input-group select:focus {
+      outline: 2px solid rgba(31, 138, 91, 0.22);
+      border-color: var(--color-green);
+    }
+
+    .input-group small {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--color-muted);
+    }
+
+    .money-input-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      background: white;
+    }
+
+    .money-input-wrap span {
+      color: var(--color-muted);
+      font-weight: 800;
+    }
+
+    .money-input-wrap input {
+      border: 0;
+      padding: 0.5rem 0;
+      background: transparent;
+    }
+
+    .money-input-wrap input:focus {
+      outline: 0;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .result-card {
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .result-card span {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: var(--color-muted);
+      font-size: 0.9rem;
+    }
+
+    .result-card strong {
+      display: block;
+      color: var(--color-navy);
+      font-size: 1.3rem;
+      line-height: 1.2;
+      word-break: break-word;
+    }
+
+    .result-card strong.positive {
+      color: var(--color-green-dark);
+    }
+
+    .result-card strong.negative {
+      color: #b42318;
+    }
+
+    .result-note {
+      margin: 1rem 0 0;
+      padding: 1rem;
+      border-radius: 12px;
+      background: #eef8f3;
+      color: var(--color-green-dark);
+      font-weight: 700;
+    }
+
+    .result-note.warning {
+      background: #fff7e6;
+      color: #8a5a00;
+    }
+
+    .result-note.error {
+      background: #fff1f0;
+      color: #b42318;
+    }
+
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .formula-box {
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+
+    .formula-box p {
+      margin: 0.4rem 0;
+      font-weight: 700;
+    }
+
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .example-table th,
+    .example-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .example-table th {
+      color: var(--color-navy);
+      background: #f4f7fa;
+      font-size: 0.9rem;
+    }
+
+    .example-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .related-card {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .related-card:hover {
+      border-color: rgba(31, 138, 91, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .related-card h3 {
+      margin-bottom: 0.35rem;
+    }
+
+    .related-card p {
+      margin: 0;
+      color: var(--color-muted);
+    }
+
+    .article-section a,
+    .callout a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 1120px) {
+      .input-grid,
+      .results-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .calculator-header {
+        flex-direction: column;
+      }
+
+      .input-grid,
+      .results-grid,
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <script>
+    const stakeInput = document.getElementById("each-way-stake");
+    const winOddsInput = document.getElementById("win-odds");
+    const placeTermsInput = document.getElementById("place-terms");
+    const placesPaidInput = document.getElementById("places-paid");
+    const resetButton = document.getElementById("reset-each-way");
+
+    const totalStakeResult = document.getElementById("total-stake-result");
+    const placeOddsResult = document.getElementById("place-odds-result");
+    const winResult = document.getElementById("win-result");
+    const placeResult = document.getElementById("place-result");
+    const loseResult = document.getElementById("lose-result");
+    const resultNote = document.getElementById("result-note");
+
+    function formatMoney(value) {
+      return new Intl.NumberFormat("en-GB", {
+        style: "currency",
+        currency: "GBP",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }).format(value);
+    }
+
+    function formatOdds(value) {
+      return value.toFixed(2);
+    }
+
+    function setResultClass(element, value) {
+      element.className = value >= 0 ? "positive" : "negative";
+    }
+
+    function showError(message) {
+      totalStakeResult.textContent = "—";
+      placeOddsResult.textContent = "—";
+      winResult.textContent = "—";
+      placeResult.textContent = "—";
+      loseResult.textContent = "—";
+      winResult.className = "";
+      placeResult.className = "";
+      loseResult.className = "";
+      resultNote.textContent = message;
+      resultNote.className = "result-note error";
+    }
+
+    function calculateEachWay() {
+      const stake = Number(stakeInput.value);
+      const winOdds = Number(winOddsInput.value);
+      const placeFraction = Number(placeTermsInput.value);
+      const placesPaid = Number(placesPaidInput.value);
+
+      if (!Number.isFinite(stake) || stake <= 0) {
+        showError("Please enter an each-way stake greater than £0.");
+        return;
+      }
+
+      if (!Number.isFinite(winOdds) || winOdds <= 1) {
+        showError("Please enter decimal win odds greater than 1.00.");
+        return;
+      }
+
+      if (!Number.isFinite(placeFraction) || placeFraction <= 0) {
+        showError("Please choose valid place terms.");
+        return;
+      }
+
+      if (!Number.isFinite(placesPaid) || placesPaid < 1) {
+        showError("Please enter at least one place paid.");
+        return;
+      }
+
+      const totalStake = stake * 2;
+      const placeOdds = 1 + ((winOdds - 1) * placeFraction);
+
+      const winReturn = (stake * winOdds) + (stake * placeOdds);
+      const winProfit = winReturn - totalStake;
+
+      const placeOnlyReturn = stake * placeOdds;
+      const placeOnlyProfit = placeOnlyReturn - totalStake;
+
+      const loseProfit = -totalStake;
+
+      totalStakeResult.textContent = formatMoney(totalStake);
+      placeOddsResult.textContent = formatOdds(placeOdds);
+      winResult.textContent = formatMoney(winProfit);
+      placeResult.textContent = formatMoney(placeOnlyProfit);
+      loseResult.textContent = formatMoney(loseProfit);
+
+      setResultClass(winResult, winProfit);
+      setResultClass(placeResult, placeOnlyProfit);
+      setResultClass(loseResult, loseProfit);
+
+      if (placeOnlyProfit >= 0) {
+        resultNote.textContent = `A ${formatMoney(stake)} each-way bet costs ${formatMoney(totalStake)} in total. If the selection wins, the profit would be ${formatMoney(winProfit)}. If it places without winning, the profit would be ${formatMoney(placeOnlyProfit)}.`;
+        resultNote.className = "result-note";
+      } else {
+        resultNote.textContent = `A ${formatMoney(stake)} each-way bet costs ${formatMoney(totalStake)} in total. If the selection wins, the profit would be ${formatMoney(winProfit)}. If it places without winning, the result would be a loss of ${formatMoney(Math.abs(placeOnlyProfit))}.`;
+        resultNote.className = "result-note warning";
+      }
+    }
+
+    [stakeInput, winOddsInput, placeTermsInput, placesPaidInput].forEach((input) => {
+      input.addEventListener("input", calculateEachWay);
+      input.addEventListener("change", calculateEachWay);
+    });
+
+    resetButton.addEventListener("click", () => {
+      stakeInput.value = "10";
+      winOddsInput.value = "9.00";
+      placeTermsInput.value = "0.2";
+      placesPaidInput.value = "4";
+      calculateEachWay();
+    });
+
+    calculateEachWay();
+  </script>
+</MainLayout>
