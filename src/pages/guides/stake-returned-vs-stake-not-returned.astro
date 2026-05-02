@@ -1,0 +1,414 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="Stake Returned vs Stake Not Returned"
+  description="Learn the difference between stake returned and stake not returned free bets, how payouts are calculated, and why this matters for free bet and matched betting calculations."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting maths guide</p>
+    <h1>Stake Returned vs Stake Not Returned</h1>
+    <p class="lead">
+      Stake returned and stake not returned are two important betting terms that affect how free bets, bonuses and returns are calculated.
+    </p>
+
+    <div class="callout">
+      <strong>Quick answer:</strong> Stake returned means the stake is included in the payout. Stake not returned means only the profit part is paid.
+    </div>
+
+    <div class="article-link-box">
+      <a class="button primary" href="/calculators/free-bet-calculator/">Use the Free Bet Calculator</a>
+      <a class="button secondary" href="/guides/what-is-a-free-bet/">What Is a Free Bet?</a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What does stake returned mean?</h2>
+    <p>
+      Stake returned means your original stake is included in the payout when the bet wins. This is how normal cash bets usually work.
+    </p>
+    <p>
+      For example, if you place £10 at decimal odds of 5.00 and the bet wins, the total return is £50. That includes £40 profit plus the original £10 stake.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Total return</strong> = stake × decimal odds</p>
+      <p>£10 × 5.00 = £50</p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What does stake not returned mean?</h2>
+    <p>
+      Stake not returned means the stake is not included in the payout. Only the profit part is paid if the bet wins.
+    </p>
+    <p>
+      This is common with bookmaker free bets. If you use a £10 stake-not-returned free bet at odds of 5.00, the payout is usually £40 profit rather than £50 total return.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Stake-not-returned payout</strong> = stake × (decimal odds − 1)</p>
+      <p>£10 × (5.00 − 1) = £40</p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Stake returned vs stake not returned example</h2>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Bet type</th>
+          <th>Stake</th>
+          <th>Odds</th>
+          <th>Profit part</th>
+          <th>Stake included?</th>
+          <th>Total paid</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Stake returned</td>
+          <td>£10</td>
+          <td>5.00</td>
+          <td>£40</td>
+          <td>Yes</td>
+          <td>£50</td>
+        </tr>
+        <tr>
+          <td>Stake not returned</td>
+          <td>£10</td>
+          <td>5.00</td>
+          <td>£40</td>
+          <td>No</td>
+          <td>£40</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      The difference is the returned stake. In this example, stake returned pays £10 more than stake not returned.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Why stake not returned matters for free bets</h2>
+    <p>
+      Many free bets are stake not returned. That means the headline value of the free bet is not the same as cash.
+    </p>
+    <p>
+      A £50 stake-not-returned free bet at odds of 6.00 pays £250 if it wins, not £300. The free bet stake is removed from the payout.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Free bet value</th>
+          <th>Odds</th>
+          <th>Cash-style return</th>
+          <th>Stake-not-returned payout</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>£50</td>
+          <td>6.00</td>
+          <td>£300</td>
+          <td>£250</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Key point:</strong> If you calculate a stake-not-returned free bet like a normal cash bet, the lay stake and expected profit may be wrong.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>How it affects back/lay calculations</h2>
+    <p>
+      Back/lay calculations depend on whether the back bet behaves like a normal cash bet or a stake-not-returned free bet.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Calculation type</th>
+          <th>Lay stake formula</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Stake returned / normal cash bet</td>
+          <td>Stake × back odds ÷ (lay odds − commission)</td>
+        </tr>
+        <tr>
+          <td>Stake not returned free bet</td>
+          <td>Stake × (back odds − 1) ÷ (lay odds − commission)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      The difference is important because stake-not-returned free bets only pay the profit part if they win.
+    </p>
+
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/free-bet-calculator/">
+        <h3>Free Bet Calculator</h3>
+        <p>Calculate stake-not-returned and stake-returned free bet examples.</p>
+      </a>
+      <a class="related-card" href="/calculators/back-lay-calculator/">
+        <h3>Back/Lay Calculator</h3>
+        <p>Calculate lay stake, liability and back/lay outcomes.</p>
+      </a>
+      <a class="related-card" href="/calculators/matched-betting-calculator/">
+        <h3>Matched Betting Calculator</h3>
+        <p>Estimate qualifying bets and free bet conversion.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Stake returned, stake not returned and matched betting</h2>
+    <p>
+      In matched betting, a common offer is a stake-not-returned free bet. That means the free bet calculation is different from the qualifying bet calculation.
+    </p>
+    <p>
+      The qualifying bet is usually a normal cash bet where the stake is returned if it wins. The free bet is often stake not returned, so only the profit part is paid.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Matched betting stage</th>
+          <th>Common stake type</th>
+          <th>Why it matters</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Qualifying bet</td>
+          <td>Stake returned</td>
+          <td>Usually behaves like a normal cash bet.</td>
+        </tr>
+        <tr>
+          <td>Free bet</td>
+          <td>Often stake not returned</td>
+          <td>Needs a different lay stake formula.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Related guide:</strong> Read <a href="/guides/what-is-matched-betting/">What Is Matched Betting?</a> for a plain-English explanation of qualifying bets and free bet conversion.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>How to spot the difference in bookmaker terms</h2>
+    <p>
+      Bookmakers may use slightly different wording. Look for phrases like these:
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Wording</th>
+          <th>Likely meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>“Stake not returned”</td>
+          <td>The free bet stake is not included in winnings.</td>
+        </tr>
+        <tr>
+          <td>“Free bet stake not included in returns”</td>
+          <td>Only the profit part is paid.</td>
+        </tr>
+        <tr>
+          <td>“Returns exclude free bet stake”</td>
+          <td>The stake is not returned.</td>
+        </tr>
+        <tr>
+          <td>“Paid as bonus funds”</td>
+          <td>Winnings or stake may have extra restrictions.</td>
+        </tr>
+        <tr>
+          <td>“Stake returned”</td>
+          <td>The stake is included in the payout.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      If the terms are unclear, do not assume. The difference can change the calculation significantly.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Common mistakes</h2>
+
+    <h3>Treating a free bet like cash</h3>
+    <p>
+      A free bet usually has restrictions and may not return the stake. It should not automatically be valued like cash.
+    </p>
+
+    <h3>Using the wrong lay stake formula</h3>
+    <p>
+      A stake-not-returned free bet needs a different calculation from a normal cash bet.
+    </p>
+
+    <h3>Ignoring commission</h3>
+    <p>
+      Exchange commission affects the final result and should be included in back/lay calculations.
+    </p>
+
+    <h3>Only reading the headline offer</h3>
+    <p>
+      The headline may say “£50 free bet”, but the actual terms decide how valuable that offer is.
+    </p>
+
+    <h3>Missing expiry dates and restrictions</h3>
+    <p>
+      Free bets often expire and may be limited to certain markets or odds.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Stake returned vs stake not returned FAQs</h2>
+
+    <h3>Is stake not returned worse than stake returned?</h3>
+    <p>
+      Usually yes, because the stake is not included in the payout. But it can still have value if used carefully.
+    </p>
+
+    <h3>Are most free bets stake not returned?</h3>
+    <p>
+      Many bookmaker free bets are stake not returned, but terms vary. Always check the offer wording.
+    </p>
+
+    <h3>Does decimal odds include stake returned?</h3>
+    <p>
+      Normal decimal odds show total return including stake for cash bets. Free bets may work differently depending on the terms.
+    </p>
+
+    <h3>Why does this matter for matched betting?</h3>
+    <p>
+      Because the lay stake calculation changes depending on whether the free bet stake is returned.
+    </p>
+
+    <h3>Which calculator should I use?</h3>
+    <p>
+      Use the Free Bet Calculator for stake-not-returned and stake-returned comparisons. Use the Matched Betting Calculator for a full qualifying bet plus free bet example.
+    </p>
+
+    <div class="callout">
+      <strong>Responsible note:</strong> Understanding stake returned and stake not returned can help you read offers more clearly, but betting promotions still involve risk and restrictions.
+    </div>
+  </section>
+
+  <style>
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .article-link-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .formula-box {
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+
+    .formula-box p {
+      margin: 0.4rem 0;
+      font-weight: 700;
+    }
+
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .example-table th,
+    .example-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .example-table th {
+      color: var(--color-navy);
+      background: #f4f7fa;
+      font-size: 0.9rem;
+    }
+
+    .example-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .related-card {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .related-card:hover {
+      border-color: rgba(31, 138, 91, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .related-card h3 {
+      margin-bottom: 0.35rem;
+    }
+
+    .related-card p {
+      margin: 0;
+      color: var(--color-muted);
+    }
+
+    .callout a,
+    .article-section a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 980px) {
+      .related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</MainLayout>
