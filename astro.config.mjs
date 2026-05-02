@@ -1,7 +1,7 @@
-import { defineConfig } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
+import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: 'https://betting-maths.vercel.app',
-  integrations: [sitemap()]
+  site: "https://www.bettingmaths.co.uk",
+  integrations: [sitemap()],
 });
