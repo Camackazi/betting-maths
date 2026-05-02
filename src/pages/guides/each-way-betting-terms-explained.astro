@@ -1,1 +1,484 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
 
+<MainLayout
+  title="Each-Way Betting Terms Explained"
+  description="Learn common each-way betting terms including win part, place part, place terms, extra places, Rule 4, non-runners, dead heat rules and total stake."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting maths guide</p>
+    <h1>Each-Way Betting Terms Explained</h1>
+    <p class="lead">
+      Each-way betting has its own language. This guide explains the key terms, including win part, place part, place terms, extra places, non-runners, Rule 4 and total stake.
+    </p>
+
+    <div class="callout">
+      <strong>Quick answer:</strong> An each-way bet is two bets in one: a win bet and a place bet. A £10 each-way bet usually costs £20 in total.
+    </div>
+
+    <div class="article-link-box">
+      <a class="button primary" href="/calculators/each-way-calculator/">Use the Each-Way Calculator</a>
+      <a class="button secondary" href="/calculators/each-way-extra-places-calculator/">Use the Extra Places Calculator</a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Each-way bet</h2>
+    <p>
+      An each-way bet is made up of two separate parts: a win part and a place part.
+    </p>
+    <p>
+      If you place £10 each-way, you are usually placing £10 on the selection to win and £10 on the selection to place. That means the total stake is £20.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Each-way stake</th>
+          <th>Win part</th>
+          <th>Place part</th>
+          <th>Total stake</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>£10 each-way</td>
+          <td>£10</td>
+          <td>£10</td>
+          <td>£20</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Win part</h2>
+    <p>
+      The win part of an each-way bet is the normal win bet. It only wins if the selection finishes first.
+    </p>
+    <p>
+      If the selection does not win, the win part loses, even if the selection finishes in a place position.
+    </p>
+
+    <h2>Place part</h2>
+    <p>
+      The place part pays if the selection finishes within the stated place terms. The number of places and the place fraction decide how the place part is settled.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Selection result</th>
+          <th>Win part</th>
+          <th>Place part</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Finishes 1st</td>
+          <td>Wins</td>
+          <td>Wins</td>
+        </tr>
+        <tr>
+          <td>Finishes in a place but not 1st</td>
+          <td>Loses</td>
+          <td>Wins</td>
+        </tr>
+        <tr>
+          <td>Finishes outside the places</td>
+          <td>Loses</td>
+          <td>Loses</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Place terms</h2>
+    <p>
+      Place terms describe how many places are paid and what fraction of the odds are paid on the place part.
+    </p>
+    <p>
+      For example, a bookmaker might offer 1/5 odds for the first three places. That means the place part is paid at one-fifth of the win odds if the selection places.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Place odds</strong> = 1 + ((win odds − 1) × place fraction)</p>
+    </div>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Win odds</th>
+          <th>Place terms</th>
+          <th>Decimal place odds</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>9.00</td>
+          <td>1/5 odds</td>
+          <td>2.60</td>
+        </tr>
+        <tr>
+          <td>9.00</td>
+          <td>1/4 odds</td>
+          <td>3.00</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Try it:</strong> The <a href="/calculators/each-way-calculator/">Each-Way Calculator</a> works out place odds, total stake and possible outcomes automatically.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Number of places</h2>
+    <p>
+      The number of places tells you which finishing positions are paid on the place part. This can depend on the race type, field size, sport, bookmaker and offer.
+    </p>
+    <p>
+      Always check the exact terms before placing the bet. A race paying three places is different from a race paying four or five places.
+    </p>
+
+    <h2>Extra places</h2>
+    <p>
+      Extra places are enhanced offers where a bookmaker pays more finishing positions than the standard each-way market.
+    </p>
+    <p>
+      For example, standard terms might pay three places, while an extra places offer pays five.
+    </p>
+
+    <div class="related-grid">
+      <a class="related-card" href="/guides/what-are-extra-places-in-each-way-betting/">
+        <h3>What Are Extra Places?</h3>
+        <p>Learn how enhanced place offers work.</p>
+      </a>
+      <a class="related-card" href="/calculators/each-way-extra-places-calculator/">
+        <h3>Each-Way Extra Places Calculator</h3>
+        <p>Compare normal place terms with extra places offers.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Total stake</h2>
+    <p>
+      The total stake on an each-way bet is usually double the named each-way stake because there are two parts.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Displayed stake</th>
+          <th>Actual win stake</th>
+          <th>Actual place stake</th>
+          <th>Total cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>£5 each-way</td>
+          <td>£5</td>
+          <td>£5</td>
+          <td>£10</td>
+        </tr>
+        <tr>
+          <td>£10 each-way</td>
+          <td>£10</td>
+          <td>£10</td>
+          <td>£20</td>
+        </tr>
+        <tr>
+          <td>£25 each-way</td>
+          <td>£25</td>
+          <td>£25</td>
+          <td>£50</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Common mistake:</strong> A £10 each-way bet does not usually cost £10. It usually costs £20.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Place-only result</h2>
+    <p>
+      A place-only result happens when the selection places but does not win. In this case, the win part loses and the place part pays.
+    </p>
+    <p>
+      Whether the overall bet makes a profit depends on the place odds and the total stake.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Each-way stake</th>
+          <th>Win odds</th>
+          <th>Place odds</th>
+          <th>Place return</th>
+          <th>Total stake</th>
+          <th>Place-only result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>£10 each-way</td>
+          <td>9.00</td>
+          <td>2.60</td>
+          <td>£26</td>
+          <td>£20</td>
+          <td>£6 profit</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Rule 4</h2>
+    <p>
+      Rule 4 is a deduction that can apply when a horse becomes a non-runner after bets have already been placed.
+    </p>
+    <p>
+      It normally reduces the winnings or profit part of a winning bet to reflect the changed market after the withdrawal.
+    </p>
+
+    <div class="related-grid">
+      <a class="related-card" href="/guides/what-is-rule-4-in-horse-racing/">
+        <h3>What Is Rule 4?</h3>
+        <p>Learn why deductions happen after non-runners.</p>
+      </a>
+      <a class="related-card" href="/calculators/rule-4-calculator/">
+        <h3>Rule 4 Calculator</h3>
+        <p>Estimate the deduction from winnings.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Non-runner</h2>
+    <p>
+      A non-runner is a horse that does not take part in the race after previously being included in the market.
+    </p>
+    <p>
+      Non-runners can affect odds, each-way terms, extra places and Rule 4 deductions. The final settlement depends on the bookmaker’s rules and the timing of the withdrawal.
+    </p>
+
+    <h2>Dead heat</h2>
+    <p>
+      A dead heat happens when two or more selections cannot be separated for a finishing position. Dead heat rules can reduce the stake or payout used for settlement.
+    </p>
+    <p>
+      Dead heat rules can make each-way returns more complicated, especially where several selections share a place position.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Best odds guaranteed</h2>
+    <p>
+      Best odds guaranteed is a bookmaker promotion where you may be paid at the bigger of the price you took or the starting price if your selection wins.
+    </p>
+    <p>
+      This can affect the final return, but terms vary. Best odds guaranteed may also interact with deductions, promotions and bookmaker-specific rules.
+    </p>
+
+    <h2>Starting price</h2>
+    <p>
+      Starting price, often shortened to SP, is the official price of a runner when the race starts.
+    </p>
+    <p>
+      Some bets are placed at a fixed price, while others are placed at SP. The type of price can affect how the bet is settled.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Each-way betting term summary</h2>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Term</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Each-way bet</td>
+          <td>A bet split into a win part and a place part.</td>
+        </tr>
+        <tr>
+          <td>Win part</td>
+          <td>The part that only wins if the selection finishes first.</td>
+        </tr>
+        <tr>
+          <td>Place part</td>
+          <td>The part that pays if the selection finishes within the place terms.</td>
+        </tr>
+        <tr>
+          <td>Place terms</td>
+          <td>The number of places paid and the fraction of odds paid on the place part.</td>
+        </tr>
+        <tr>
+          <td>Extra places</td>
+          <td>An offer paying more place positions than standard terms.</td>
+        </tr>
+        <tr>
+          <td>Rule 4</td>
+          <td>A deduction from winnings after a non-runner changes the market.</td>
+        </tr>
+        <tr>
+          <td>Non-runner</td>
+          <td>A horse that does not take part after being included in the market.</td>
+        </tr>
+        <tr>
+          <td>Dead heat</td>
+          <td>A tied finishing position that can affect settlement.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Each-way betting FAQs</h2>
+
+    <h3>What does each-way mean?</h3>
+    <p>
+      Each-way means the bet is split into a win part and a place part.
+    </p>
+
+    <h3>How much does a £10 each-way bet cost?</h3>
+    <p>
+      Usually £20 total: £10 on the win part and £10 on the place part.
+    </p>
+
+    <h3>What are place terms?</h3>
+    <p>
+      Place terms tell you how many places are paid and what fraction of the win odds applies to the place part.
+    </p>
+
+    <h3>What are extra places?</h3>
+    <p>
+      Extra places are enhanced offers where the bookmaker pays more finishing positions than the standard each-way terms.
+    </p>
+
+    <h3>Can Rule 4 affect each-way bets?</h3>
+    <p>
+      Yes. Rule 4 can affect the win and place parts depending on the race and settlement.
+    </p>
+
+    <h3>Which calculator should I use?</h3>
+    <p>
+      Use the Each-Way Calculator for standard each-way returns, the Extra Places Calculator for enhanced place offers, and the Rule 4 Calculator for deductions.
+    </p>
+
+    <div class="callout">
+      <strong>Responsible note:</strong> Each-way betting terms can be complicated. Always check the bookmaker’s rules before placing a bet.
+    </div>
+  </section>
+
+  <style>
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .article-link-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .formula-box {
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+
+    .formula-box p {
+      margin: 0.4rem 0;
+      font-weight: 700;
+    }
+
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .example-table th,
+    .example-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .example-table th {
+      color: var(--color-navy);
+      background: #f4f7fa;
+      font-size: 0.9rem;
+    }
+
+    .example-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .related-card {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .related-card:hover {
+      border-color: rgba(31, 138, 91, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .related-card h3 {
+      margin-bottom: 0.35rem;
+    }
+
+    .related-card p {
+      margin: 0;
+      color: var(--color-muted);
+    }
+
+    .callout a,
+    .article-section a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 980px) {
+      .related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</MainLayout>
