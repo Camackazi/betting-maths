@@ -1,0 +1,675 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="Lay Liability Calculator"
+  description="Use this free lay liability calculator to work out lay bet liability, exchange commission, profit if the selection loses and loss if the selection wins."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting calculator</p>
+    <h1>Lay Liability Calculator</h1>
+    <p class="lead">
+      Use this calculator to work out the liability on a lay bet, including possible profit after exchange commission.
+    </p>
+
+    <div class="callout">
+      <strong>Quick explanation:</strong> When you lay a selection, you are betting against it. If the selection wins, you pay the liability. If it loses, you win the lay stake, minus commission.
+    </div>
+
+    <div class="calculator-panel" id="lay-liability-calculator">
+      <div class="calculator-header">
+        <div>
+          <h2>Enter your lay bet</h2>
+          <p>Add the lay stake, lay odds and exchange commission to calculate your liability and possible result.</p>
+        </div>
+        <button class="button secondary small-button" type="button" id="reset-lay">
+          Reset example
+        </button>
+      </div>
+
+      <div class="input-grid">
+        <label class="input-group">
+          <span>Lay stake</span>
+          <div class="money-input-wrap">
+            <span>£</span>
+            <input id="lay-stake" type="number" min="0.01" step="0.01" value="100" />
+          </div>
+          <small>The amount you are laying against the selection.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Lay odds</span>
+          <input id="lay-odds" type="number" min="1.01" step="0.01" value="3.00" />
+          <small>The decimal odds at which you are laying the selection.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Exchange commission</span>
+          <div class="percent-input-wrap">
+            <input id="commission" type="number" min="0" max="99" step="0.1" value="2" />
+            <span>%</span>
+          </div>
+          <small>Commission charged on exchange winnings.</small>
+        </label>
+      </div>
+
+      <div class="results-grid">
+        <div class="result-card">
+          <span>Lay liability</span>
+          <strong id="liability-result">£200.00</strong>
+        </div>
+        <div class="result-card">
+          <span>If selection loses</span>
+          <strong id="selection-loses-result">£98.00</strong>
+        </div>
+        <div class="result-card">
+          <span>If selection wins</span>
+          <strong id="selection-wins-result">-£200.00</strong>
+        </div>
+        <div class="result-card">
+          <span>Gross lay win</span>
+          <strong id="gross-win-result">£100.00</strong>
+        </div>
+        <div class="result-card">
+          <span>Commission</span>
+          <strong id="commission-result">£2.00</strong>
+        </div>
+      </div>
+
+      <p class="result-note" id="result-note">
+        Laying £100.00 at odds of 3.00 creates a liability of £200.00. If the selection loses, the profit after 2% commission is £98.00.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What is lay liability?</h2>
+    <p>
+      Lay liability is the amount you risk when placing a lay bet on a betting exchange. It is the amount you would need to pay out if the selection you laid goes on to win.
+    </p>
+    <p>
+      This is different from a normal back bet. With a back bet, your stake is usually the amount at risk. With a lay bet, your liability can be larger than the lay stake depending on the odds.
+    </p>
+
+    <h2>Lay liability formula</h2>
+    <div class="formula-box">
+      <p><strong>Lay liability</strong> = lay stake × (lay odds − 1)</p>
+    </div>
+
+    <p>
+      For example, if you lay £100 at odds of 3.00, the liability is:
+    </p>
+
+    <div class="formula-box">
+      <p>£100 × (3.00 − 1) = £200</p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What happens when a lay bet wins?</h2>
+    <p>
+      A lay bet wins if the selection does not win. For example, if you lay a horse and the horse loses, your lay bet wins.
+    </p>
+    <p>
+      When a lay bet wins, you win the backer’s stake. On a betting exchange, commission is usually taken from your net winnings.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Lay profit after commission</strong> = lay stake × (1 − commission)</p>
+    </div>
+
+    <p>
+      So if you lay £100 and the commission is 2%, your profit if the selection loses is £98.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What happens when a lay bet loses?</h2>
+    <p>
+      A lay bet loses if the selection wins. In that case, you pay the liability.
+    </p>
+    <p>
+      For example, if you lay £100 at odds of 3.00, your liability is £200. If the selection wins, your loss is £200.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Lay stake</th>
+          <th>Lay odds</th>
+          <th>Liability</th>
+          <th>If selection loses</th>
+          <th>If selection wins</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>£100</td>
+          <td>3.00</td>
+          <td>£200</td>
+          <td>£98 profit after 2% commission</td>
+          <td>£200 loss</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Lay stake vs lay liability</h2>
+    <p>
+      Lay stake and lay liability are often confused.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Term</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Lay stake</td>
+          <td>The amount the backer is trying to win from you.</td>
+        </tr>
+        <tr>
+          <td>Lay liability</td>
+          <td>The amount you risk if the selection wins.</td>
+        </tr>
+        <tr>
+          <td>Exchange commission</td>
+          <td>A fee charged on winning exchange bets.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      At short odds, the liability may be close to the lay stake. At bigger odds, the liability can become much larger.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Why lay liability matters</h2>
+    <p>
+      Lay liability matters because it shows your real exposure. A lay stake of £100 can look simple, but if the lay odds are 10.00, the liability is £900.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Lay stake</th>
+          <th>Lay odds</th>
+          <th>Liability</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>£100</td>
+          <td>2.00</td>
+          <td>£100</td>
+        </tr>
+        <tr>
+          <td>£100</td>
+          <td>3.00</td>
+          <td>£200</td>
+        </tr>
+        <tr>
+          <td>£100</td>
+          <td>5.00</td>
+          <td>£400</td>
+        </tr>
+        <tr>
+          <td>£100</td>
+          <td>10.00</td>
+          <td>£900</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Important:</strong> The higher the lay odds, the larger the liability becomes. Always check your liability before placing a lay bet.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Lay liability and hedging</h2>
+    <p>
+      Lay liability is especially important when hedging. If you back a selection first and then lay it later, the lay stake and lay liability determine your final profit or loss across both outcomes.
+    </p>
+    <p>
+      If you want to calculate a full back-and-lay hedge, use the <a href="/calculators/hedge-bet-calculator/">Hedge Bet Calculator</a>. It includes back first, lay later and lay first, back later modes.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Common lay betting mistakes</h2>
+
+    <h3>Looking only at the lay stake</h3>
+    <p>
+      The lay stake is not the full amount at risk. The liability is the amount you can lose if the selection wins.
+    </p>
+
+    <h3>Forgetting commission</h3>
+    <p>
+      Exchange commission reduces your profit when the lay bet wins. It usually does not reduce your liability when the lay bet loses.
+    </p>
+
+    <h3>Laying at high odds without checking exposure</h3>
+    <p>
+      High lay odds can create large liabilities. This can be risky if the stake is too large relative to your bankroll.
+    </p>
+
+    <h3>Confusing back bets and lay bets</h3>
+    <p>
+      Backing means betting that something will happen. Laying means betting against it. The risk and payout structure are different.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Related betting calculators</h2>
+
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/hedge-bet-calculator/">
+        <h3>Hedge Bet Calculator</h3>
+        <p>Calculate back and lay hedge stakes with commission.</p>
+      </a>
+      <a class="related-card" href="/calculators/odds-converter/">
+        <h3>Odds Converter</h3>
+        <p>Convert odds and calculate implied probability.</p>
+      </a>
+      <a class="related-card" href="/calculators/dutching-calculator/">
+        <h3>Dutching Calculator</h3>
+        <p>Split stakes across multiple selections.</p>
+      </a>
+      <a class="related-card" href="/glossary/betting-jargon-explained/">
+        <h3>Betting Jargon Explained</h3>
+        <p>Learn lay bet, liability, commission and exchange terms.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Lay liability calculator FAQs</h2>
+
+    <h3>What does a lay liability calculator do?</h3>
+    <p>
+      A lay liability calculator works out how much you risk when placing a lay bet at a given stake and odds.
+    </p>
+
+    <h3>How do you calculate lay liability?</h3>
+    <p>
+      Lay liability is calculated as lay stake multiplied by lay odds minus one. For example, £100 at odds of 3.00 gives liability of £200.
+    </p>
+
+    <h3>Do I pay commission on a losing lay bet?</h3>
+    <p>
+      Commission is usually charged on net winnings, not on losing bets. If your lay bet loses, your loss is normally the liability.
+    </p>
+
+    <h3>Is lay stake the same as liability?</h3>
+    <p>
+      No. The lay stake is the amount you can win before commission if the selection loses. The liability is the amount you risk if the selection wins.
+    </p>
+
+    <h3>Why is lay liability higher at bigger odds?</h3>
+    <p>
+      Because you are offering a larger payout to the backer if the selection wins. The liability grows as the odds increase.
+    </p>
+
+    <div class="callout">
+      <strong>Responsible note:</strong> Lay betting can create large liabilities. Always understand your exposure before placing any bet.
+    </div>
+  </section>
+
+  <style>
+    .calculator-panel {
+      margin-top: 1.5rem;
+      padding: 1.25rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      background: #ffffff;
+    }
+
+    .calculator-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .calculator-header h2 {
+      margin: 0;
+    }
+
+    .calculator-header p {
+      margin: 0.25rem 0 0;
+      color: var(--color-muted);
+    }
+
+    .small-button {
+      padding: 0.55rem 0.75rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .input-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .input-group {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .input-group > span {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: var(--color-navy);
+      font-weight: 800;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      color: var(--color-text);
+      font: inherit;
+      font-size: 1.05rem;
+      background: white;
+    }
+
+    .input-group input:focus {
+      outline: 2px solid rgba(31, 138, 91, 0.22);
+      border-color: var(--color-green);
+    }
+
+    .input-group small {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--color-muted);
+    }
+
+    .money-input-wrap,
+    .percent-input-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      background: white;
+    }
+
+    .money-input-wrap span,
+    .percent-input-wrap span {
+      color: var(--color-muted);
+      font-weight: 800;
+    }
+
+    .money-input-wrap input,
+    .percent-input-wrap input {
+      border: 0;
+      padding: 0.5rem 0;
+      background: transparent;
+    }
+
+    .money-input-wrap input:focus,
+    .percent-input-wrap input:focus {
+      outline: 0;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .result-card {
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .result-card span {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: var(--color-muted);
+      font-size: 0.9rem;
+    }
+
+    .result-card strong {
+      display: block;
+      color: var(--color-navy);
+      font-size: 1.3rem;
+      line-height: 1.2;
+      word-break: break-word;
+    }
+
+    .result-card strong.positive {
+      color: var(--color-green-dark);
+    }
+
+    .result-card strong.negative {
+      color: #b42318;
+    }
+
+    .result-note {
+      margin: 1rem 0 0;
+      padding: 1rem;
+      border-radius: 12px;
+      background: #eef8f3;
+      color: var(--color-green-dark);
+      font-weight: 700;
+    }
+
+    .result-note.error {
+      background: #fff1f0;
+      color: #b42318;
+    }
+
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .formula-box {
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+
+    .formula-box p {
+      margin: 0.4rem 0;
+      font-weight: 700;
+    }
+
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .example-table th,
+    .example-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .example-table th {
+      color: var(--color-navy);
+      background: #f4f7fa;
+      font-size: 0.9rem;
+    }
+
+    .example-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .related-card {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .related-card:hover {
+      border-color: rgba(31, 138, 91, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .related-card h3 {
+      margin-bottom: 0.35rem;
+    }
+
+    .related-card p {
+      margin: 0;
+      color: var(--color-muted);
+    }
+
+    .article-section a,
+    .callout a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 1120px) {
+      .results-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 860px) {
+      .input-grid,
+      .results-grid,
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .calculator-header {
+        flex-direction: column;
+      }
+    }
+  </style>
+
+  <script>
+    const layStakeInput = document.getElementById("lay-stake");
+    const layOddsInput = document.getElementById("lay-odds");
+    const commissionInput = document.getElementById("commission");
+    const resetButton = document.getElementById("reset-lay");
+
+    const liabilityResult = document.getElementById("liability-result");
+    const selectionLosesResult = document.getElementById("selection-loses-result");
+    const selectionWinsResult = document.getElementById("selection-wins-result");
+    const grossWinResult = document.getElementById("gross-win-result");
+    const commissionResult = document.getElementById("commission-result");
+    const resultNote = document.getElementById("result-note");
+
+    function formatMoney(value) {
+      return new Intl.NumberFormat("en-GB", {
+        style: "currency",
+        currency: "GBP",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }).format(value);
+    }
+
+    function setResultClass(element, value) {
+      element.className = value >= 0 ? "positive" : "negative";
+    }
+
+    function showError(message) {
+      liabilityResult.textContent = "—";
+      selectionLosesResult.textContent = "—";
+      selectionWinsResult.textContent = "—";
+      grossWinResult.textContent = "—";
+      commissionResult.textContent = "—";
+      selectionLosesResult.className = "";
+      selectionWinsResult.className = "";
+      resultNote.textContent = message;
+      resultNote.className = "result-note error";
+    }
+
+    function calculateLayLiability() {
+      const layStake = Number(layStakeInput.value);
+      const layOdds = Number(layOddsInput.value);
+      const commissionPercent = Number(commissionInput.value);
+      const commission = commissionPercent / 100;
+
+      if (!Number.isFinite(layStake) || layStake <= 0) {
+        showError("Please enter a lay stake greater than £0.");
+        return;
+      }
+
+      if (!Number.isFinite(layOdds) || layOdds <= 1) {
+        showError("Please enter lay decimal odds greater than 1.00.");
+        return;
+      }
+
+      if (!Number.isFinite(commissionPercent) || commissionPercent < 0 || commissionPercent >= 100) {
+        showError("Please enter a commission percentage between 0 and 99.");
+        return;
+      }
+
+      const liability = layStake * (layOdds - 1);
+      const grossWin = layStake;
+      const commissionAmount = grossWin * commission;
+      const profitIfSelectionLoses = grossWin - commissionAmount;
+      const lossIfSelectionWins = -liability;
+
+      liabilityResult.textContent = formatMoney(liability);
+      selectionLosesResult.textContent = formatMoney(profitIfSelectionLoses);
+      selectionWinsResult.textContent = formatMoney(lossIfSelectionWins);
+      grossWinResult.textContent = formatMoney(grossWin);
+      commissionResult.textContent = formatMoney(commissionAmount);
+
+      setResultClass(selectionLosesResult, profitIfSelectionLoses);
+      setResultClass(selectionWinsResult, lossIfSelectionWins);
+
+      resultNote.textContent = `Laying ${formatMoney(layStake)} at odds of ${layOdds.toFixed(2)} creates a liability of ${formatMoney(liability)}. If the selection loses, the profit after ${commissionPercent}% commission is ${formatMoney(profitIfSelectionLoses)}.`;
+      resultNote.className = "result-note";
+    }
+
+    [layStakeInput, layOddsInput, commissionInput].forEach((input) => {
+      input.addEventListener("input", calculateLayLiability);
+    });
+
+    resetButton.addEventListener("click", () => {
+      layStakeInput.value = "100";
+      layOddsInput.value = "3.00";
+      commissionInput.value = "2";
+      calculateLayLiability();
+    });
+
+    calculateLayLiability();
+  </script>
+</MainLayout>
