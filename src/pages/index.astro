@@ -76,14 +76,32 @@ import CalculatorCard from "../components/CalculatorCard.astro";
   <section class="content-card article-section">
     <h2>Learn the key betting maths concepts</h2>
     <p>
-      Start with these guides if you want to understand how betting markets are priced, why the odds are usually built in the bookmaker’s favour, and why betting systems should be treated carefully.
+      Start with these guides if you want to understand how odds are priced, how bookmaker margin works, how staking methods differ, and why betting systems should be treated carefully.
     </p>
 
     <div class="guide-grid">
+      <a class="guide-card featured-guide" href="/guides/what-is-implied-probability/">
+        <span>Core guide</span>
+        <h3>What Is Implied Probability?</h3>
+        <p>Learn how odds convert into percentage chance and why implied probability matters across betting maths.</p>
+      </a>
+
+      <a class="guide-card featured-guide" href="/guides/bookmaker-margin-explained/">
+        <span>Core guide</span>
+        <h3>Bookmaker Margin Explained</h3>
+        <p>Understand bookmaker margin, overround, book percentage and why markets usually add up to more than 100%.</p>
+      </a>
+
       <a class="guide-card" href="/guides/what-is-overround/">
         <span>Guide</span>
         <h3>What Is Overround in Betting?</h3>
-        <p>Learn how book percentage and bookmaker margin are calculated.</p>
+        <p>Learn how book percentage and bookmaker margin are calculated from market odds.</p>
+      </a>
+
+      <a class="guide-card" href="/guides/how-bookmakers-make-money/">
+        <span>Guide</span>
+        <h3>How Bookmakers Make Money</h3>
+        <p>Understand overround, odds movement, weight of money and liability management.</p>
       </a>
 
       <a class="guide-card" href="/guides/how-to-hedge-a-bet/">
@@ -92,16 +110,22 @@ import CalculatorCard from "../components/CalculatorCard.astro";
         <p>Understand back and lay hedging, lay liability, commission and greening up.</p>
       </a>
 
+      <a class="guide-card" href="/guides/hedging-vs-cash-out/">
+        <span>Guide</span>
+        <h3>Hedging vs Cash Out</h3>
+        <p>Compare bookmaker cash out offers with manual hedging calculations.</p>
+      </a>
+
       <a class="guide-card" href="/guides/what-is-dutching/">
         <span>Guide</span>
         <h3>What Is Dutching in Betting?</h3>
         <p>Learn how dutching splits stakes across multiple selections.</p>
       </a>
 
-      <a class="guide-card" href="/guides/how-bookmakers-make-money/">
+      <a class="guide-card" href="/guides/dutching-vs-arbitrage/">
         <span>Guide</span>
-        <h3>How Bookmakers Make Money</h3>
-        <p>Understand overround, odds movement, weight of money and liability management.</p>
+        <h3>Dutching vs Arbitrage</h3>
+        <p>Learn the difference between splitting stakes and covering all outcomes for a theoretical profit.</p>
       </a>
 
       <a class="guide-card" href="/guides/can-you-always-beat-the-bookie/">
@@ -307,7 +331,7 @@ import CalculatorCard from "../components/CalculatorCard.astro";
 
     .guide-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1rem;
       margin-top: 1rem;
     }
@@ -334,6 +358,15 @@ import CalculatorCard from "../components/CalculatorCard.astro";
       color: var(--color-green-dark);
       font-size: 0.78rem;
       font-weight: 800;
+    }
+
+    .guide-card.featured-guide {
+      background: #eef8f3;
+      border-color: rgba(31, 138, 91, 0.28);
+    }
+
+    .guide-card.featured-guide span {
+      background: white;
     }
 
     .guide-card h3 {
@@ -378,6 +411,12 @@ import CalculatorCard from "../components/CalculatorCard.astro";
       font-weight: 800;
       text-decoration: underline;
       text-underline-offset: 3px;
+    }
+
+    @media (max-width: 1100px) {
+      .guide-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
     @media (max-width: 760px) {
