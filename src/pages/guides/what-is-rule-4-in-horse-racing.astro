@@ -1,0 +1,361 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="What Is Rule 4 in Horse Racing?"
+  description="Learn what Rule 4 means in horse racing, why deductions happen after non-runners, how Rule 4 affects winnings, and how to estimate adjusted returns."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting maths guide</p>
+    <h1>What Is Rule 4 in Horse Racing?</h1>
+    <p class="lead">
+      Rule 4 is a horse racing deduction that can reduce winnings when a horse is withdrawn after bets have already been placed.
+    </p>
+
+    <div class="callout">
+      <strong>Quick answer:</strong> Rule 4 usually reduces the profit part of a winning bet after a non-runner changes the market. The returned stake is normally not reduced.
+    </div>
+
+    <div class="article-link-box">
+      <a class="button primary" href="/calculators/rule-4-calculator/">Use the Rule 4 Calculator</a>
+      <a class="button secondary" href="/calculators/each-way-calculator/">Use the Each-Way Calculator</a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What does Rule 4 mean?</h2>
+    <p>
+      Rule 4 is a deduction applied to winnings in some horse racing bets when a horse is withdrawn from the race after the market has already formed.
+    </p>
+    <p>
+      The reason is simple: when a horse becomes a non-runner, the race changes. The remaining horses may have a better chance than they did when the original bet was placed. Rule 4 adjusts winning payouts to reflect that change.
+    </p>
+
+    <h2>Simple Rule 4 example</h2>
+    <p>
+      Imagine you place £10 at decimal odds of 6.00. If the bet wins without any deduction, the profit is £50 and the total return is £60.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Stake</th>
+          <th>Odds</th>
+          <th>Original profit</th>
+          <th>Total return before deduction</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>£10</td>
+          <td>6.00</td>
+          <td>£50</td>
+          <td>£60</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      If a 20p Rule 4 deduction applies, 20% is deducted from the profit. The stake is then added back.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Original profit</th>
+          <th>Deduction</th>
+          <th>Deduction amount</th>
+          <th>Adjusted profit</th>
+          <th>Adjusted return</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>£50</td>
+          <td>20p in the £</td>
+          <td>£10</td>
+          <td>£40</td>
+          <td>£50</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Try it:</strong> Enter this example into the <a href="/calculators/rule-4-calculator/">Rule 4 Calculator</a> to see the adjusted profit and return.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Why does Rule 4 happen?</h2>
+    <p>
+      Rule 4 exists because the odds you took were based on a field that included the withdrawn horse. Once that horse is removed, the remaining runners are no longer priced against the same field.
+    </p>
+    <p>
+      If no deduction existed, bettors who backed the remaining horses before the non-runner could sometimes receive a better payout than the changed race conditions justify.
+    </p>
+
+    <h2>What is a non-runner?</h2>
+    <p>
+      A non-runner is a horse that was expected to run but does not take part in the race. Non-runners can happen for several reasons, including going changes, veterinary issues, withdrawals, stalls problems or other race-day factors.
+    </p>
+    <p>
+      When a non-runner is declared, bookmakers may adjust the market and apply a deduction to some winning bets already placed.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>How is Rule 4 calculated?</h2>
+    <p>
+      Rule 4 is usually expressed as pence in the pound. A 20p deduction means 20% of the winnings are deducted. A 10p deduction means 10% of the winnings are deducted.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Original profit</strong> = stake × (decimal odds − 1)</p>
+      <p><strong>Deduction amount</strong> = original profit × deduction percentage</p>
+      <p><strong>Adjusted profit</strong> = original profit − deduction amount</p>
+      <p><strong>Adjusted return</strong> = adjusted profit + stake</p>
+    </div>
+
+    <p>
+      The key point is that the deduction is normally applied to the profit part of the bet. The original stake is then returned separately if the bet wins.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Rule 4 and each-way bets</h2>
+    <p>
+      Rule 4 can also affect each-way bets. An each-way bet has two parts: the win part and the place part.
+    </p>
+    <p>
+      If the horse wins, both the win and place parts may be affected by the relevant deduction. If the horse places without winning, the place return may be affected.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Each-way outcome</th>
+          <th>What may be affected?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Horse wins</td>
+          <td>Win part and place part may both be adjusted.</td>
+        </tr>
+        <tr>
+          <td>Horse places but does not win</td>
+          <td>Place part may be adjusted.</td>
+        </tr>
+        <tr>
+          <td>Horse loses</td>
+          <td>No winnings to deduct.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/each-way-calculator/">
+        <h3>Each-Way Calculator</h3>
+        <p>Calculate win, place-only and losing each-way outcomes.</p>
+      </a>
+      <a class="related-card" href="/guides/each-way-betting-terms-explained/">
+        <h3>Each-Way Betting Terms Explained</h3>
+        <p>Learn the key terms used in each-way betting.</p>
+      </a>
+      <a class="related-card" href="/calculators/rule-4-calculator/">
+        <h3>Rule 4 Calculator</h3>
+        <p>Estimate deductions from winnings.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Rule 4 and extra places</h2>
+    <p>
+      Extra places offers can also be affected by non-runner rules. A race that originally offered extra places may change if the field size reduces.
+    </p>
+    <p>
+      This matters because each-way terms, extra places and non-runners are all connected to the final number of runners and the bookmaker’s offer rules.
+    </p>
+
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/each-way-extra-places-calculator/">
+        <h3>Each-Way Extra Places Calculator</h3>
+        <p>Compare normal place terms with extra places offers.</p>
+      </a>
+      <a class="related-card" href="/guides/what-are-extra-places-in-each-way-betting/">
+        <h3>What Are Extra Places?</h3>
+        <p>Understand enhanced place offers in racing and golf.</p>
+      </a>
+    </div>
+
+    <div class="callout">
+      <strong>Important:</strong> Non-runners can affect odds, deductions, each-way terms and extra places. Always check the bookmaker’s final settlement rules.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Common Rule 4 mistakes</h2>
+
+    <h3>Thinking the whole return is reduced</h3>
+    <p>
+      Rule 4 is usually applied to the winnings or profit part of the bet, not the original returned stake.
+    </p>
+
+    <h3>Forgetting about each-way place terms</h3>
+    <p>
+      On each-way bets, the place part can also be affected. This can make settlement harder to understand.
+    </p>
+
+    <h3>Assuming all bookmakers settle the same way</h3>
+    <p>
+      Rule 4 deductions, timing, offer rules and special terms can vary. Always check the bookmaker’s rules and the final bet settlement.
+    </p>
+
+    <h3>Ignoring non-runner changes to extra places</h3>
+    <p>
+      If the number of runners changes, extra place offers and each-way terms may also change.
+    </p>
+
+    <h3>Not checking whether odds were guaranteed</h3>
+    <p>
+      Promotions such as best odds guaranteed may interact with deductions and settlement rules. The exact terms matter.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Rule 4 FAQs</h2>
+
+    <h3>What is Rule 4 in simple terms?</h3>
+    <p>
+      Rule 4 is a deduction from winnings when a horse is withdrawn after bets have been placed.
+    </p>
+
+    <h3>Does Rule 4 reduce my stake?</h3>
+    <p>
+      Usually no. The deduction is normally applied to the profit or winnings, then the stake is returned if the bet wins.
+    </p>
+
+    <h3>Why was my winning horse racing bet paid less than expected?</h3>
+    <p>
+      A Rule 4 deduction may have been applied because of a non-runner. Other terms can also affect settlement, so check the bet details.
+    </p>
+
+    <h3>Can Rule 4 affect each-way bets?</h3>
+    <p>
+      Yes. Rule 4 can affect the win and place parts of an each-way bet depending on how the bet settles.
+    </p>
+
+    <h3>Which calculator should I use?</h3>
+    <p>
+      Use the Rule 4 Calculator to estimate the deduction from winnings. Use the Each-Way Calculator if you also need to calculate win and place returns.
+    </p>
+
+    <div class="callout">
+      <strong>Responsible note:</strong> Rule 4 calculations can help explain a deduction, but the official bookmaker settlement is what matters. Betting always involves risk.
+    </div>
+  </section>
+
+  <style>
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .article-link-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .formula-box {
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+
+    .formula-box p {
+      margin: 0.4rem 0;
+      font-weight: 700;
+    }
+
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .example-table th,
+    .example-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .example-table th {
+      color: var(--color-navy);
+      background: #f4f7fa;
+      font-size: 0.9rem;
+    }
+
+    .example-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .related-card {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .related-card:hover {
+      border-color: rgba(31, 138, 91, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .related-card h3 {
+      margin-bottom: 0.35rem;
+    }
+
+    .related-card p {
+      margin: 0;
+      color: var(--color-muted);
+    }
+
+    .callout a,
+    .article-section a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 980px) {
+      .related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</MainLayout>
