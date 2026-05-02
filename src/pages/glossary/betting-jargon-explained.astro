@@ -10,6 +10,15 @@ const terms = [
         aka: "Acca",
         definition:
           "An accumulator is a bet made up of multiple selections. Every selection must win for the accumulator to pay out. Accumulators can offer bigger returns, but the risk increases because one losing selection loses the whole bet.",
+        link: "/calculators/accumulator-calculator/",
+        linkText: "Use the Accumulator Calculator",
+      },
+      {
+        term: "Accumulator Odds",
+        definition:
+          "Accumulator odds are calculated by multiplying the odds from each selection together. With decimal odds, a 2.00 selection, a 1.80 selection and a 2.50 selection combine to make odds of 9.00.",
+        link: "/calculators/accumulator-calculator/",
+        linkText: "Calculate acca odds",
       },
       {
         term: "Arbitrage",
@@ -41,8 +50,15 @@ const terms = [
         term: "Back Bet",
         definition:
           "A back bet is the traditional type of bet where you bet on something to happen. If your selection wins, you receive a return based on the odds. If it loses, you lose your stake.",
-        link: "/calculators/hedge-bet-calculator/",
-        linkText: "Use the Hedge Bet Calculator",
+        link: "/calculators/back-lay-calculator/",
+        linkText: "Use the Back/Lay Calculator",
+      },
+      {
+        term: "Back/Lay Betting",
+        definition:
+          "Back/lay betting involves backing a selection and laying the same selection, usually on an exchange. It is commonly used for hedging, matched betting and exchange trading calculations.",
+        link: "/calculators/back-lay-calculator/",
+        linkText: "Use the Back/Lay Calculator",
       },
       {
         term: "Banker",
@@ -115,8 +131,8 @@ const terms = [
         term: "Commission",
         definition:
           "Commission is a fee charged by a betting exchange on net winnings. It matters when calculating lay bets, hedge bets and exchange trading profit.",
-        link: "/calculators/hedge-bet-calculator/",
-        linkText: "Use commission in the Hedge Bet Calculator",
+        link: "/calculators/lay-liability-calculator/",
+        linkText: "Calculate commission impact",
       },
       {
         term: "Correct Score",
@@ -139,6 +155,8 @@ const terms = [
         term: "Double",
         definition:
           "A double is an accumulator with two selections. Both selections must win for the bet to pay out.",
+        link: "/calculators/accumulator-calculator/",
+        linkText: "Calculate double returns",
       },
       {
         term: "Draw No Bet",
@@ -167,6 +185,8 @@ const terms = [
         term: "Each-Way Bet",
         definition:
           "An each-way bet is two bets in one: a win bet and a place bet. It is common in horse racing and golf. The place part pays if the selection finishes in one of the specified places.",
+        link: "/calculators/each-way-calculator/",
+        linkText: "Use the Each-Way Calculator",
       },
       {
         term: "Edge",
@@ -181,6 +201,13 @@ const terms = [
         linkText: "Convert evens odds",
       },
       {
+        term: "Exchange Commission",
+        definition:
+          "Exchange commission is a fee charged on exchange winnings. It affects lay betting, back/lay calculations, hedging and matched betting examples.",
+        link: "/calculators/back-lay-calculator/",
+        linkText: "Use commission in calculations",
+      },
+      {
         term: "Expected Value",
         aka: "EV",
         definition:
@@ -190,6 +217,8 @@ const terms = [
         term: "Exposure",
         definition:
           "Exposure is the amount at risk in a betting position. In lay betting, exposure is often linked to liability, because you may need to pay out more than the lay stake if the selection wins.",
+        link: "/calculators/lay-liability-calculator/",
+        linkText: "Calculate lay exposure",
       },
     ],
   },
@@ -221,7 +250,17 @@ const terms = [
       {
         term: "Free Bet",
         definition:
-          "A free bet is a promotional bet offered by a bookmaker. Terms vary, and the stake is often not returned with winnings.",
+          "A free bet is a promotional bet offered by a bookmaker. Some free bets are stake not returned, meaning only the profit part is paid if the bet wins.",
+        link: "/calculators/back-lay-calculator/",
+        linkText: "Calculate free bet lay stake",
+      },
+      {
+        term: "Free Bet Stake Not Returned",
+        aka: "SNR",
+        definition:
+          "Stake not returned means the free bet stake is not included in the payout. If a £10 free bet wins at 5.00, the profit is usually £40 rather than a £50 total return.",
+        link: "/calculators/back-lay-calculator/",
+        linkText: "Use free bet mode",
       },
     ],
   },
@@ -244,6 +283,13 @@ const terms = [
           "Greening up is an exchange betting phrase for spreading profit across outcomes, usually by backing and laying at different odds.",
         link: "/calculators/hedge-bet-calculator/",
         linkText: "Use the Hedge Bet Calculator",
+      },
+      {
+        term: "Gross Win",
+        definition:
+          "Gross win is the amount won before deductions such as exchange commission. In lay betting, the gross win is usually the lay stake before commission is taken.",
+        link: "/calculators/lay-liability-calculator/",
+        linkText: "See gross lay win",
       },
       {
         term: "Gubbed",
@@ -322,15 +368,22 @@ const terms = [
         term: "Lay Bet",
         definition:
           "A lay bet is when you bet against a selection winning. If the selection loses, you win the backer’s stake minus commission. If the selection wins, you pay the liability.",
-        link: "/calculators/hedge-bet-calculator/",
-        linkText: "Use the Hedge Bet Calculator",
+        link: "/calculators/lay-liability-calculator/",
+        linkText: "Use the Lay Liability Calculator",
       },
       {
         term: "Lay Liability",
         definition:
           "Lay liability is the amount you risk when laying a selection. It is calculated as lay stake multiplied by lay odds minus one.",
-        link: "/calculators/hedge-bet-calculator/",
+        link: "/calculators/lay-liability-calculator/",
         linkText: "Calculate lay liability",
+      },
+      {
+        term: "Lay Stake",
+        definition:
+          "The lay stake is the amount you stand to win before commission if the selection you lay does not win. It is different from lay liability, which is the amount you risk if the selection wins.",
+        link: "/calculators/back-lay-calculator/",
+        linkText: "Calculate lay stake",
       },
       {
         term: "Line",
@@ -346,6 +399,11 @@ const terms = [
         term: "Long Shot",
         definition:
           "A long shot is a selection with high odds and a lower implied chance of winning.",
+      },
+      {
+        term: "Lucky 15",
+        definition:
+          "A Lucky 15 is a multiple bet involving four selections. It includes singles, doubles, trebles and a four-fold accumulator, making 15 bets in total.",
       },
     ],
   },
@@ -368,6 +426,8 @@ const terms = [
         term: "Matched Betting",
         definition:
           "Matched betting is a strategy that uses bookmaker offers and exchange lay bets to try to reduce risk. It relies heavily on correct calculations, offer terms and exchange commission.",
+        link: "/calculators/back-lay-calculator/",
+        linkText: "Use the Back/Lay Calculator",
       },
       {
         term: "Moneyline",
@@ -378,6 +438,8 @@ const terms = [
         term: "Multiple",
         definition:
           "A multiple is a bet involving more than one selection, such as a double, treble or accumulator.",
+        link: "/calculators/accumulator-calculator/",
+        linkText: "Calculate multiple returns",
       },
     ],
   },
@@ -388,6 +450,11 @@ const terms = [
         term: "Nap",
         definition:
           "A nap is a tipster’s strongest selection of the day. It is still only an opinion and should not be treated as guaranteed.",
+      },
+      {
+        term: "Net Profit",
+        definition:
+          "Net profit is the final profit after stakes, losses, commission or other deductions have been accounted for.",
       },
       {
         term: "Non-Runner",
@@ -447,11 +514,29 @@ const terms = [
         term: "Parlay",
         definition:
           "Parlay is a US term for an accumulator. It combines multiple selections into one bet, with all selections needing to win.",
+        link: "/calculators/accumulator-calculator/",
+        linkText: "Use the Accumulator Calculator",
       },
       {
         term: "Place Bet",
         definition:
           "A place bet wins if the selection finishes in one of the specified places. It is common in horse racing and is part of each-way betting.",
+        link: "/calculators/each-way-calculator/",
+        linkText: "Use the Each-Way Calculator",
+      },
+      {
+        term: "Place Odds",
+        definition:
+          "Place odds are the reduced odds paid on the place part of an each-way bet. They are usually calculated as a fraction of the win odds, such as 1/4 or 1/5 odds.",
+        link: "/calculators/each-way-calculator/",
+        linkText: "Calculate place odds",
+      },
+      {
+        term: "Place Terms",
+        definition:
+          "Place terms explain how much of the win odds are paid on the place part of an each-way bet, and how many places are paid.",
+        link: "/calculators/each-way-calculator/",
+        linkText: "Use place terms",
       },
       {
         term: "Price",
@@ -467,6 +552,18 @@ const terms = [
         term: "Punter",
         definition:
           "A punter is a person who places bets. It is a common UK term for a bettor.",
+      },
+    ],
+  },
+  {
+    letter: "Q",
+    items: [
+      {
+        term: "Qualifier Bet",
+        definition:
+          "A qualifier bet is a bet placed to qualify for an offer or promotion. In matched betting, qualifier bets are often backed and laid to reduce risk, but the result depends on odds, commission and offer terms.",
+        link: "/calculators/back-lay-calculator/",
+        linkText: "Use the Back/Lay Calculator",
       },
     ],
   },
@@ -525,6 +622,14 @@ const terms = [
           "Stake is the amount of money placed on a bet. The stake is separate from the potential profit.",
       },
       {
+        term: "Stake Not Returned",
+        aka: "SNR",
+        definition:
+          "Stake not returned usually refers to a free bet where the stake is not included in the winnings. Only the profit part is paid if the bet wins.",
+        link: "/calculators/back-lay-calculator/",
+        linkText: "Calculate SNR free bet",
+      },
+      {
         term: "Stake Returned",
         definition:
           "Stake returned means the original stake is included in the payout. Decimal odds normally include the returned stake in the total return.",
@@ -550,14 +655,25 @@ const terms = [
           "A tipster gives betting selections or predictions. Tipster claims should be treated carefully, especially if they promise guaranteed profit.",
       },
       {
+        term: "Total Stake",
+        definition:
+          "Total stake is the full amount risked on a bet or group of bets. For each-way bets, the total stake is usually double the each-way stake entered.",
+        link: "/calculators/each-way-calculator/",
+        linkText: "Calculate each-way total stake",
+      },
+      {
         term: "Treble",
         definition:
           "A treble is an accumulator with three selections. All three must win for the bet to pay out.",
+        link: "/calculators/accumulator-calculator/",
+        linkText: "Calculate treble returns",
       },
       {
         term: "Trading",
         definition:
           "Trading in betting means backing and laying at different prices to manage a position before the event ends. It is common on betting exchanges.",
+        link: "/calculators/hedge-bet-calculator/",
+        linkText: "Use the Hedge Bet Calculator",
       },
       {
         term: "Trixie",
@@ -647,13 +763,13 @@ const letters = terms.map((group) => group.letter);
 
 <MainLayout
   title="Betting Jargon Explained"
-  description="A plain-English A-Z glossary of betting terms, odds jargon, bookmaker margin, hedging, dutching, lay betting, accumulators and betting maths phrases."
+  description="A plain-English A-Z glossary of betting terms, odds jargon, bookmaker margin, hedging, dutching, lay betting, accumulators, each-way betting and betting maths phrases."
 >
   <section class="content-card">
     <p class="eyebrow">Betting glossary</p>
     <h1>Betting Jargon Explained</h1>
     <p class="lead">
-      A plain-English A-Z guide to betting terms, odds jargon and betting maths phrases, including accumulators, overround, dutching, hedging, lay betting, bookmaker margin and implied probability.
+      A plain-English A-Z guide to betting terms, odds jargon and betting maths phrases, including accumulators, each-way bets, overround, dutching, hedging, lay betting, bookmaker margin, back/lay betting and implied probability.
     </p>
 
     <div class="callout">
@@ -663,7 +779,7 @@ const letters = terms.map((group) => group.letter);
     <div class="glossary-tools">
       <label class="search-box">
         <span>Search betting terms</span>
-        <input id="glossary-search" type="search" placeholder="Search terms such as overround, acca, lay bet, dutching..." />
+        <input id="glossary-search" type="search" placeholder="Search terms such as acca, each-way, lay bet, overround, SNR, liability..." />
       </label>
 
       <nav class="letter-nav" aria-label="Glossary letters">
@@ -693,8 +809,24 @@ const letters = terms.map((group) => group.letter);
         <h3>Hedging</h3>
         <p>Work out back and lay hedge stakes.</p>
       </a>
+      <a class="featured-card" href="/calculators/back-lay-calculator/">
+        <h3>Back/Lay</h3>
+        <p>Calculate lay stake, liability and commission.</p>
+      </a>
+      <a class="featured-card" href="/calculators/lay-liability-calculator/">
+        <h3>Lay Liability</h3>
+        <p>Understand your exchange betting exposure.</p>
+      </a>
+      <a class="featured-card" href="/calculators/accumulator-calculator/">
+        <h3>Accumulator</h3>
+        <p>Multiply odds and calculate acca returns.</p>
+      </a>
+      <a class="featured-card" href="/calculators/each-way-calculator/">
+        <h3>Each-Way</h3>
+        <p>Calculate win, place and losing outcomes.</p>
+      </a>
       <a class="featured-card" href="/calculators/odds-converter/">
-        <h3>Implied probability</h3>
+        <h3>Implied Probability</h3>
         <p>Convert odds into percentage chance.</p>
       </a>
     </div>
@@ -704,7 +836,7 @@ const letters = terms.map((group) => group.letter);
     <h2>A-Z betting terms glossary</h2>
 
     <div id="no-results" class="no-results" hidden>
-      No matching betting terms found. Try a broader search such as “odds”, “stake”, “lay” or “margin”.
+      No matching betting terms found. Try a broader search such as “odds”, “stake”, “lay”, “acca”, “each-way” or “margin”.
     </div>
 
     <div class="glossary-list">
@@ -732,7 +864,7 @@ const letters = terms.map((group) => group.letter);
   <section class="content-card article-section">
     <h2>Why betting jargon matters</h2>
     <p>
-      Understanding betting jargon is not just about knowing slang. Terms like overround, implied probability, lay liability, commission and value bet describe the actual maths behind betting markets.
+      Understanding betting jargon is not just about knowing slang. Terms like overround, implied probability, lay liability, commission, stake not returned, each-way terms and value bet describe the actual maths behind betting markets.
     </p>
     <p>
       If you understand what the terms mean, it becomes easier to read odds, compare markets, use calculators correctly and avoid misunderstanding what a bet can return.
