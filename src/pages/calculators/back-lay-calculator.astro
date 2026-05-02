@@ -1,0 +1,810 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="Back/Lay Calculator"
+  description="Use this free back lay calculator to calculate lay stake, lay liability, exchange commission and profit or loss across back and lay betting outcomes."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting calculator</p>
+    <h1>Back/Lay Calculator</h1>
+    <p class="lead">
+      Use this calculator to work out the lay stake needed to balance a back bet and lay bet, including lay liability and exchange commission.
+    </p>
+
+    <div class="callout">
+      <strong>Quick explanation:</strong> Back/lay calculations are used when you back a selection with a bookmaker or exchange, then lay the same selection on an exchange to balance the result.
+    </div>
+
+    <div class="calculator-panel" id="back-lay-calculator">
+      <div class="calculator-header">
+        <div>
+          <h2>Choose your back/lay calculation</h2>
+          <p>Use standard mode for normal back bets, or free bet mode for stake-not-returned free bet examples.</p>
+        </div>
+        <button class="button secondary small-button" type="button" id="reset-back-lay">
+          Reset example
+        </button>
+      </div>
+
+      <div class="mode-tabs" role="group" aria-label="Back lay calculation type">
+        <button class="mode-tab active" type="button" data-mode="standard">
+          Standard back bet
+        </button>
+        <button class="mode-tab" type="button" data-mode="freebet">
+          Free bet stake not returned
+        </button>
+      </div>
+
+      <div class="input-grid">
+        <label class="input-group">
+          <span id="back-stake-label">Back stake</span>
+          <div class="money-input-wrap">
+            <span>£</span>
+            <input id="back-stake" type="number" min="0.01" step="0.01" value="100" />
+          </div>
+          <small id="back-stake-help">The amount placed on the back bet.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Back odds</span>
+          <input id="back-odds" type="number" min="1.01" step="0.01" value="3.00" />
+          <small>The decimal odds of the back bet.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Lay odds</span>
+          <input id="lay-odds" type="number" min="1.01" step="0.01" value="2.00" />
+          <small>The decimal odds available on the lay side.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Exchange commission</span>
+          <div class="percent-input-wrap">
+            <input id="commission" type="number" min="0" max="99" step="0.1" value="2" />
+            <span>%</span>
+          </div>
+          <small>Commission charged on exchange winnings.</small>
+        </label>
+      </div>
+
+      <div class="results-grid">
+        <div class="result-card">
+          <span>Lay stake</span>
+          <strong id="lay-stake-result">£151.52</strong>
+        </div>
+        <div class="result-card">
+          <span>Lay liability</span>
+          <strong id="lay-liability-result">£151.52</strong>
+        </div>
+        <div class="result-card">
+          <span>If selection wins</span>
+          <strong id="selection-wins-result">£48.48</strong>
+        </div>
+        <div class="result-card">
+          <span>If selection loses</span>
+          <strong id="selection-loses-result">£48.48</strong>
+        </div>
+        <div class="result-card">
+          <span>Difference</span>
+          <strong id="difference-result">£0.00</strong>
+        </div>
+      </div>
+
+      <p class="result-note" id="result-note">
+        A lay stake of £151.52 would balance the result at about £48.48 profit whether the selection wins or loses.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What is a back/lay bet?</h2>
+    <p>
+      A back/lay calculation compares a normal back bet with a lay bet on the same selection. Backing means betting that the selection will win. Laying means betting that the selection will not win.
+    </p>
+    <p>
+      Back/lay calculations are commonly used in exchange betting, matched betting, hedging and trading because they show how much to lay, how much liability is created, and what the result would be if the selection wins or loses.
+    </p>
+
+    <h2>What this calculator shows</h2>
+    <ul class="standard-list">
+      <li>The lay stake needed to balance the back and lay position.</li>
+      <li>The lay liability on the exchange.</li>
+      <li>The result if the selection wins.</li>
+      <li>The result if the selection loses.</li>
+      <li>The difference between the two outcomes.</li>
+    </ul>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Standard back bet formula</h2>
+    <p>
+      In standard mode, the calculator assumes you have placed a normal back bet where your stake is returned if the bet wins.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Lay stake</strong> = back stake × back odds ÷ (lay odds − commission)</p>
+      <p><strong>Lay liability</strong> = lay stake × (lay odds − 1)</p>
+      <p><strong>If selection wins</strong> = back profit − lay liability</p>
+      <p><strong>If selection loses</strong> = lay stake after commission − back stake</p>
+    </div>
+
+    <h2>Standard back/lay example</h2>
+    <p>
+      Suppose you back a selection with £100 at decimal odds of 3.00, then lay the same selection at odds of 2.00 with 2% exchange commission.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Input</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Back stake</td>
+          <td>£100.00</td>
+        </tr>
+        <tr>
+          <td>Back odds</td>
+          <td>3.00</td>
+        </tr>
+        <tr>
+          <td>Lay odds</td>
+          <td>2.00</td>
+        </tr>
+        <tr>
+          <td>Commission</td>
+          <td>2%</td>
+        </tr>
+        <tr>
+          <td>Lay stake</td>
+          <td>£151.52</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      This balances the result at about £48.48 profit whether the selection wins or loses.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Free bet stake-not-returned mode</h2>
+    <p>
+      Some free bets are stake not returned. This means that if the free bet wins, only the profit part is paid. The free bet stake itself is not returned.
+    </p>
+    <p>
+      Free bet mode adjusts the lay stake formula to reflect this.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Lay stake</strong> = free bet stake × (back odds − 1) ÷ (lay odds − commission)</p>
+      <p><strong>If selection wins</strong> = free bet profit − lay liability</p>
+      <p><strong>If selection loses</strong> = lay stake after commission</p>
+    </div>
+
+    <div class="callout">
+      <strong>Important:</strong> Free bet terms vary. Some are stake not returned, some have minimum odds, expiry dates, restricted markets or other conditions. Always check the terms before relying on any calculation.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Back bet vs lay bet</h2>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Bet type</th>
+          <th>What you want to happen</th>
+          <th>Main risk</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Back bet</td>
+          <td>You want the selection to win.</td>
+          <td>You lose your back stake if it loses.</td>
+        </tr>
+        <tr>
+          <td>Lay bet</td>
+          <td>You want the selection not to win.</td>
+          <td>You pay the lay liability if it wins.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      When used together, a back bet and lay bet can be used to reduce risk, hedge a position or balance outcomes. The key is calculating the lay stake and liability correctly.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Back/lay vs hedging</h2>
+    <p>
+      Back/lay betting and hedging are closely linked. Hedging is the broader idea of placing another bet to reduce risk or balance a position. Back/lay is one of the most common ways to do that on a betting exchange.
+    </p>
+    <p>
+      If you want to calculate a position where you may have laid first and backed later, use the <a href="/calculators/hedge-bet-calculator/">Hedge Bet Calculator</a>. It includes both back-first and lay-first modes.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Common back/lay mistakes</h2>
+
+    <h3>Forgetting commission</h3>
+    <p>
+      Exchange commission affects the correct lay stake and final profit. A calculation that ignores commission may look better than the real result.
+    </p>
+
+    <h3>Confusing lay stake and liability</h3>
+    <p>
+      The lay stake is not the amount you risk. Your liability is the amount you can lose if the selection wins.
+    </p>
+
+    <h3>Using the wrong free bet type</h3>
+    <p>
+      A stake-not-returned free bet needs a different calculation from a normal cash bet. If you use the wrong mode, the lay stake may be wrong.
+    </p>
+
+    <h3>Not checking liquidity</h3>
+    <p>
+      Exchange odds may be visible, but there may not be enough money available to match your full lay stake at that price.
+    </p>
+
+    <h3>Relying on odds that have moved</h3>
+    <p>
+      Back/lay calculations depend on the exact odds used. If the lay odds change before the bet is matched, the result can change.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Related betting calculators</h2>
+
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/hedge-bet-calculator/">
+        <h3>Hedge Bet Calculator</h3>
+        <p>Calculate back-first and lay-first hedge positions.</p>
+      </a>
+      <a class="related-card" href="/calculators/lay-liability-calculator/">
+        <h3>Lay Liability Calculator</h3>
+        <p>Work out the liability on a lay bet.</p>
+      </a>
+      <a class="related-card" href="/calculators/odds-converter/">
+        <h3>Odds Converter</h3>
+        <p>Convert odds and calculate implied probability.</p>
+      </a>
+      <a class="related-card" href="/glossary/betting-jargon-explained/">
+        <h3>Betting Jargon Explained</h3>
+        <p>Learn back bet, lay bet, liability and exchange terms.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Back/lay calculator FAQs</h2>
+
+    <h3>What does a back/lay calculator do?</h3>
+    <p>
+      A back/lay calculator works out the lay stake needed to balance a back bet and lay bet, including exchange commission and lay liability.
+    </p>
+
+    <h3>What is lay liability?</h3>
+    <p>
+      Lay liability is the amount you risk on the exchange if the selection you lay goes on to win.
+    </p>
+
+    <h3>Why does commission matter?</h3>
+    <p>
+      Commission reduces your exchange winnings. This changes the correct lay stake and final result.
+    </p>
+
+    <h3>What does stake not returned mean?</h3>
+    <p>
+      Stake not returned means the free bet stake is not included in the payout. Only the profit part is paid if the free bet wins.
+    </p>
+
+    <h3>Is this the same as a hedge calculator?</h3>
+    <p>
+      It is related. This calculator focuses on backing first and laying the same selection. The Hedge Bet Calculator also covers lay-first, back-later positions.
+    </p>
+
+    <div class="callout">
+      <strong>Responsible note:</strong> Back/lay calculations can explain stakes and outcomes, but they do not remove betting risk. Always check odds, commission, liquidity and terms before placing any bet.
+    </div>
+  </section>
+
+  <style>
+    .calculator-panel {
+      margin-top: 1.5rem;
+      padding: 1.25rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      background: #ffffff;
+    }
+
+    .calculator-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .calculator-header h2 {
+      margin: 0;
+    }
+
+    .calculator-header p {
+      margin: 0.25rem 0 0;
+      color: var(--color-muted);
+    }
+
+    .small-button {
+      padding: 0.55rem 0.75rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .mode-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      padding: 0.4rem;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      background: var(--color-bg);
+      width: fit-content;
+    }
+
+    .mode-tab {
+      border: 0;
+      border-radius: 999px;
+      padding: 0.65rem 0.95rem;
+      background: transparent;
+      color: var(--color-muted);
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .mode-tab.active {
+      background: var(--color-green);
+      color: white;
+    }
+
+    .input-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .input-group {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .input-group > span {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: var(--color-navy);
+      font-weight: 800;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      color: var(--color-text);
+      font: inherit;
+      font-size: 1.05rem;
+      background: white;
+    }
+
+    .input-group input:focus {
+      outline: 2px solid rgba(31, 138, 91, 0.22);
+      border-color: var(--color-green);
+    }
+
+    .input-group small {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--color-muted);
+    }
+
+    .money-input-wrap,
+    .percent-input-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      background: white;
+    }
+
+    .money-input-wrap span,
+    .percent-input-wrap span {
+      color: var(--color-muted);
+      font-weight: 800;
+    }
+
+    .money-input-wrap input,
+    .percent-input-wrap input {
+      border: 0;
+      padding: 0.5rem 0;
+      background: transparent;
+    }
+
+    .money-input-wrap input:focus,
+    .percent-input-wrap input:focus {
+      outline: 0;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .result-card {
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .result-card span {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: var(--color-muted);
+      font-size: 0.9rem;
+    }
+
+    .result-card strong {
+      display: block;
+      color: var(--color-navy);
+      font-size: 1.3rem;
+      line-height: 1.2;
+      word-break: break-word;
+    }
+
+    .result-card strong.positive {
+      color: var(--color-green-dark);
+    }
+
+    .result-card strong.negative {
+      color: #b42318;
+    }
+
+    .result-note {
+      margin: 1rem 0 0;
+      padding: 1rem;
+      border-radius: 12px;
+      background: #eef8f3;
+      color: var(--color-green-dark);
+      font-weight: 700;
+    }
+
+    .result-note.warning {
+      background: #fff7e6;
+      color: #8a5a00;
+    }
+
+    .result-note.error {
+      background: #fff1f0;
+      color: #b42318;
+    }
+
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .standard-list {
+      padding-left: 1.3rem;
+    }
+
+    .standard-list li {
+      margin: 0.45rem 0;
+    }
+
+    .formula-box {
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+
+    .formula-box p {
+      margin: 0.4rem 0;
+      font-weight: 700;
+    }
+
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .example-table th,
+    .example-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .example-table th {
+      color: var(--color-navy);
+      background: #f4f7fa;
+      font-size: 0.9rem;
+    }
+
+    .example-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .related-card {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .related-card:hover {
+      border-color: rgba(31, 138, 91, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .related-card h3 {
+      margin-bottom: 0.35rem;
+    }
+
+    .related-card p {
+      margin: 0;
+      color: var(--color-muted);
+    }
+
+    .article-section a,
+    .callout a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 1120px) {
+      .input-grid,
+      .results-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .calculator-header {
+        flex-direction: column;
+      }
+
+      .mode-tabs {
+        width: 100%;
+        border-radius: 16px;
+      }
+
+      .mode-tab {
+        flex: 1 1 100%;
+      }
+
+      .input-grid,
+      .results-grid,
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <script>
+    const modeButtons = document.querySelectorAll(".mode-tab");
+    const backStakeInput = document.getElementById("back-stake");
+    const backOddsInput = document.getElementById("back-odds");
+    const layOddsInput = document.getElementById("lay-odds");
+    const commissionInput = document.getElementById("commission");
+    const resetButton = document.getElementById("reset-back-lay");
+
+    const backStakeLabel = document.getElementById("back-stake-label");
+    const backStakeHelp = document.getElementById("back-stake-help");
+
+    const layStakeResult = document.getElementById("lay-stake-result");
+    const layLiabilityResult = document.getElementById("lay-liability-result");
+    const selectionWinsResult = document.getElementById("selection-wins-result");
+    const selectionLosesResult = document.getElementById("selection-loses-result");
+    const differenceResult = document.getElementById("difference-result");
+    const resultNote = document.getElementById("result-note");
+
+    let currentMode = "standard";
+
+    function formatMoney(value) {
+      return new Intl.NumberFormat("en-GB", {
+        style: "currency",
+        currency: "GBP",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }).format(value);
+    }
+
+    function setResultClass(element, value) {
+      element.className = value >= 0 ? "positive" : "negative";
+    }
+
+    function showError(message) {
+      layStakeResult.textContent = "—";
+      layLiabilityResult.textContent = "—";
+      selectionWinsResult.textContent = "—";
+      selectionLosesResult.textContent = "—";
+      differenceResult.textContent = "—";
+      selectionWinsResult.className = "";
+      selectionLosesResult.className = "";
+      differenceResult.className = "";
+      resultNote.textContent = message;
+      resultNote.className = "result-note error";
+    }
+
+    function updateLabels() {
+      if (currentMode === "standard") {
+        backStakeLabel.textContent = "Back stake";
+        backStakeHelp.textContent = "The amount placed on the back bet.";
+      } else {
+        backStakeLabel.textContent = "Free bet stake";
+        backStakeHelp.textContent = "The value of the free bet stake not returned.";
+      }
+    }
+
+    function calculateBackLay() {
+      const backStake = Number(backStakeInput.value);
+      const backOdds = Number(backOddsInput.value);
+      const layOdds = Number(layOddsInput.value);
+      const commissionPercent = Number(commissionInput.value);
+      const commission = commissionPercent / 100;
+
+      if (!Number.isFinite(backStake) || backStake <= 0) {
+        showError("Please enter a stake greater than £0.");
+        return;
+      }
+
+      if (!Number.isFinite(backOdds) || backOdds <= 1) {
+        showError("Please enter back decimal odds greater than 1.00.");
+        return;
+      }
+
+      if (!Number.isFinite(layOdds) || layOdds <= 1) {
+        showError("Please enter lay decimal odds greater than 1.00.");
+        return;
+      }
+
+      if (!Number.isFinite(commissionPercent) || commissionPercent < 0 || commissionPercent >= 100) {
+        showError("Please enter a commission percentage between 0 and 99.");
+        return;
+      }
+
+      let layStake;
+      let selectionWinsProfit;
+      let selectionLosesProfit;
+
+      if (currentMode === "standard") {
+        layStake = (backStake * backOdds) / (layOdds - commission);
+        const layLiability = layStake * (layOdds - 1);
+
+        selectionWinsProfit = (backStake * (backOdds - 1)) - layLiability;
+        selectionLosesProfit = (layStake * (1 - commission)) - backStake;
+      } else {
+        layStake = (backStake * (backOdds - 1)) / (layOdds - commission);
+        const layLiability = layStake * (layOdds - 1);
+
+        selectionWinsProfit = (backStake * (backOdds - 1)) - layLiability;
+        selectionLosesProfit = layStake * (1 - commission);
+      }
+
+      const layLiability = layStake * (layOdds - 1);
+      const difference = Math.abs(selectionWinsProfit - selectionLosesProfit);
+
+      if (!Number.isFinite(layStake) || layStake <= 0) {
+        showError("These inputs do not produce a valid lay stake.");
+        return;
+      }
+
+      layStakeResult.textContent = formatMoney(layStake);
+      layLiabilityResult.textContent = formatMoney(layLiability);
+      selectionWinsResult.textContent = formatMoney(selectionWinsProfit);
+      selectionLosesResult.textContent = formatMoney(selectionLosesProfit);
+      differenceResult.textContent = formatMoney(difference);
+
+      setResultClass(selectionWinsResult, selectionWinsProfit);
+      setResultClass(selectionLosesResult, selectionLosesProfit);
+      differenceResult.className = difference <= 0.02 ? "positive" : "negative";
+
+      const modeText = currentMode === "standard" ? "lay stake" : "free bet lay stake";
+
+      if (selectionWinsProfit > 0.005 && selectionLosesProfit > 0.005) {
+        resultNote.textContent = `A ${modeText} of ${formatMoney(layStake)} would balance the result at about ${formatMoney(selectionWinsProfit)} profit whether the selection wins or loses.`;
+        resultNote.className = "result-note";
+      } else if (selectionWinsProfit < -0.005 && selectionLosesProfit < -0.005) {
+        resultNote.textContent = `This calculation balances the result, but both outcomes show a loss of about ${formatMoney(Math.abs(selectionWinsProfit))}.`;
+        resultNote.className = "result-note warning";
+      } else {
+        resultNote.textContent = `This calculation balances the two outcomes as closely as possible after commission and rounding.`;
+        resultNote.className = "result-note";
+      }
+    }
+
+    modeButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        currentMode = button.dataset.mode;
+
+        modeButtons.forEach((modeButton) => {
+          modeButton.classList.toggle("active", modeButton === button);
+        });
+
+        if (currentMode === "standard") {
+          backStakeInput.value = "100";
+          backOddsInput.value = "3.00";
+          layOddsInput.value = "2.00";
+          commissionInput.value = "2";
+        } else {
+          backStakeInput.value = "50";
+          backOddsInput.value = "6.00";
+          layOddsInput.value = "5.50";
+          commissionInput.value = "2";
+        }
+
+        updateLabels();
+        calculateBackLay();
+      });
+    });
+
+    [backStakeInput, backOddsInput, layOddsInput, commissionInput].forEach((input) => {
+      input.addEventListener("input", calculateBackLay);
+    });
+
+    resetButton.addEventListener("click", () => {
+      currentMode = "standard";
+
+      modeButtons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.mode === "standard");
+      });
+
+      backStakeInput.value = "100";
+      backOddsInput.value = "3.00";
+      layOddsInput.value = "2.00";
+      commissionInput.value = "2";
+
+      updateLabels();
+      calculateBackLay();
+    });
+
+    updateLabels();
+    calculateBackLay();
+  </script>
+</MainLayout>
