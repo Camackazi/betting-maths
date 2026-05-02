@@ -1,0 +1,615 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="Free Bet Calculator"
+  description="Use this free bet calculator to calculate lay stake, lay liability, profit and conversion rate for stake-not-returned and stake-returned free bets."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting calculator</p>
+    <h1>Free Bet Calculator</h1>
+    <p class="lead">
+      Use this free bet calculator to work out the lay stake, lay liability and expected profit from a free bet, including stake-not-returned free bets.
+    </p>
+
+    <div class="callout">
+      <strong>Quick explanation:</strong> Many bookmaker free bets are stake not returned, meaning only the profit part is paid if the bet wins. This calculator helps show the difference.
+    </div>
+
+    <div class="calculator-panel">
+      <div class="calculator-header">
+        <div>
+          <h2>Enter your free bet details</h2>
+          <p>Choose whether the free bet stake is returned, then enter the back odds, lay odds and exchange commission.</p>
+        </div>
+        <button class="button secondary small-button" type="button" id="reset-free-bet">Reset example</button>
+      </div>
+
+      <div class="mode-tabs" role="group" aria-label="Free bet type">
+        <button class="mode-tab active" type="button" data-mode="snr">Stake not returned</button>
+        <button class="mode-tab" type="button" data-mode="sr">Stake returned / cash bet</button>
+      </div>
+
+      <div class="input-grid">
+        <label class="input-group">
+          <span id="stake-label">Free bet stake</span>
+          <div class="money-input-wrap">
+            <span>£</span>
+            <input id="free-bet-stake" type="number" min="0.01" step="0.01" value="50" />
+          </div>
+          <small id="stake-help">The value of the free bet where the stake is not returned.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Back odds</span>
+          <input id="back-odds" type="number" min="1.01" step="0.01" value="6.00" />
+          <small>The bookmaker odds for the free bet.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Lay odds</span>
+          <input id="lay-odds" type="number" min="1.01" step="0.01" value="5.50" />
+          <small>The exchange lay odds for the same selection.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Exchange commission</span>
+          <div class="percent-input-wrap">
+            <input id="commission" type="number" min="0" max="99" step="0.1" value="2" />
+            <span>%</span>
+          </div>
+          <small>Commission charged on exchange winnings.</small>
+        </label>
+      </div>
+
+      <div class="results-grid">
+        <div class="result-card">
+          <span>Lay stake</span>
+          <strong id="lay-stake-result">£45.62</strong>
+        </div>
+        <div class="result-card">
+          <span>Lay liability</span>
+          <strong id="lay-liability-result">£205.29</strong>
+        </div>
+        <div class="result-card">
+          <span>If free bet wins</span>
+          <strong id="selection-wins-result">£44.71</strong>
+        </div>
+        <div class="result-card">
+          <span>If free bet loses</span>
+          <strong id="selection-loses-result">£44.71</strong>
+        </div>
+        <div class="result-card">
+          <span>Conversion rate</span>
+          <strong id="conversion-result">89.41%</strong>
+        </div>
+      </div>
+
+      <p class="result-note" id="result-note">
+        This stake-not-returned free bet converts to about £44.71 profit, or 89.41% of the free bet value.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What is a free bet calculator?</h2>
+    <p>
+      A free bet calculator helps work out how much to lay on a betting exchange when using a bookmaker free bet. It shows the lay stake, lay liability, and the expected profit if the free bet wins or loses.
+    </p>
+    <p>
+      This is useful because many free bets do not return the stake. A £50 stake-not-returned free bet at odds of 6.00 does not pay a £300 return. It usually pays £250 profit if it wins.
+    </p>
+
+    <h2>Stake not returned formula</h2>
+    <div class="formula-box">
+      <p><strong>Lay stake</strong> = free bet stake × (back odds − 1) ÷ (lay odds − commission)</p>
+      <p><strong>Lay liability</strong> = lay stake × (lay odds − 1)</p>
+      <p><strong>If free bet wins</strong> = free bet profit − lay liability</p>
+      <p><strong>If free bet loses</strong> = lay stake after commission</p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Stake not returned vs stake returned</h2>
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Free bet type</th>
+          <th>What happens if it wins?</th>
+          <th>Common use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Stake not returned</td>
+          <td>Only the profit part is paid.</td>
+          <td>Common bookmaker free bet offers.</td>
+        </tr>
+        <tr>
+          <td>Stake returned / cash bet</td>
+          <td>The stake is included in the return.</td>
+          <td>Normal cash bets or some bonus types.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Important:</strong> Free bet terms vary. Always check minimum odds, expiry dates, eligible markets, settlement rules and whether the stake is returned.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Related calculators</h2>
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/back-lay-calculator/">
+        <h3>Back/Lay Calculator</h3>
+        <p>Calculate lay stake and liability for back and lay positions.</p>
+      </a>
+      <a class="related-card" href="/calculators/lay-liability-calculator/">
+        <h3>Lay Liability Calculator</h3>
+        <p>Understand the exposure created by a lay bet.</p>
+      </a>
+      <a class="related-card" href="/glossary/betting-jargon-explained/">
+        <h3>Betting Jargon Explained</h3>
+        <p>Learn free bet, stake not returned, lay stake and liability terms.</p>
+      </a>
+    </div>
+  </section>
+
+  <style>
+    .calculator-panel {
+      margin-top: 1.5rem;
+      padding: 1.25rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      background: #ffffff;
+    }
+
+    .calculator-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .calculator-header h2 {
+      margin: 0;
+    }
+
+    .calculator-header p {
+      margin: 0.25rem 0 0;
+      color: var(--color-muted);
+    }
+
+    .small-button {
+      padding: 0.55rem 0.75rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .mode-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      padding: 0.4rem;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      background: var(--color-bg);
+      width: fit-content;
+    }
+
+    .mode-tab {
+      border: 0;
+      border-radius: 999px;
+      padding: 0.65rem 0.95rem;
+      background: transparent;
+      color: var(--color-muted);
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .mode-tab.active {
+      background: var(--color-green);
+      color: white;
+    }
+
+    .input-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .input-group {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .input-group > span {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: var(--color-navy);
+      font-weight: 800;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      color: var(--color-text);
+      font: inherit;
+      font-size: 1.05rem;
+      background: white;
+    }
+
+    .input-group small {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--color-muted);
+    }
+
+    .money-input-wrap,
+    .percent-input-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      background: white;
+    }
+
+    .money-input-wrap span,
+    .percent-input-wrap span {
+      color: var(--color-muted);
+      font-weight: 800;
+    }
+
+    .money-input-wrap input,
+    .percent-input-wrap input {
+      border: 0;
+      padding: 0.5rem 0;
+      background: transparent;
+    }
+
+    .money-input-wrap input:focus,
+    .percent-input-wrap input:focus {
+      outline: 0;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .result-card {
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .result-card span {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: var(--color-muted);
+      font-size: 0.9rem;
+    }
+
+    .result-card strong {
+      display: block;
+      color: var(--color-navy);
+      font-size: 1.25rem;
+      line-height: 1.2;
+    }
+
+    .result-card strong.positive {
+      color: var(--color-green-dark);
+    }
+
+    .result-card strong.negative {
+      color: #b42318;
+    }
+
+    .result-note {
+      margin: 1rem 0 0;
+      padding: 1rem;
+      border-radius: 12px;
+      background: #eef8f3;
+      color: var(--color-green-dark);
+      font-weight: 700;
+    }
+
+    .result-note.warning {
+      background: #fff7e6;
+      color: #8a5a00;
+    }
+
+    .result-note.error {
+      background: #fff1f0;
+      color: #b42318;
+    }
+
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .formula-box {
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+
+    .formula-box p {
+      margin: 0.4rem 0;
+      font-weight: 700;
+    }
+
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .example-table th,
+    .example-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .example-table th {
+      color: var(--color-navy);
+      background: #f4f7fa;
+      font-size: 0.9rem;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .related-card {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .related-card p {
+      margin: 0;
+      color: var(--color-muted);
+    }
+
+    .callout a,
+    .article-section a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 1120px) {
+      .input-grid,
+      .results-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .calculator-header {
+        flex-direction: column;
+      }
+
+      .mode-tabs {
+        width: 100%;
+        border-radius: 16px;
+      }
+
+      .mode-tab {
+        flex: 1 1 100%;
+      }
+
+      .input-grid,
+      .results-grid,
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <script>
+    const modeButtons = document.querySelectorAll(".mode-tab");
+    const stakeInput = document.getElementById("free-bet-stake");
+    const backOddsInput = document.getElementById("back-odds");
+    const layOddsInput = document.getElementById("lay-odds");
+    const commissionInput = document.getElementById("commission");
+    const resetButton = document.getElementById("reset-free-bet");
+
+    const stakeLabel = document.getElementById("stake-label");
+    const stakeHelp = document.getElementById("stake-help");
+
+    const layStakeResult = document.getElementById("lay-stake-result");
+    const layLiabilityResult = document.getElementById("lay-liability-result");
+    const selectionWinsResult = document.getElementById("selection-wins-result");
+    const selectionLosesResult = document.getElementById("selection-loses-result");
+    const conversionResult = document.getElementById("conversion-result");
+    const resultNote = document.getElementById("result-note");
+
+    let currentMode = "snr";
+
+    function formatMoney(value) {
+      return new Intl.NumberFormat("en-GB", {
+        style: "currency",
+        currency: "GBP",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }).format(value);
+    }
+
+    function formatPercent(value) {
+      return `${value.toFixed(2)}%`;
+    }
+
+    function setResultClass(element, value) {
+      element.className = value >= 0 ? "positive" : "negative";
+    }
+
+    function showError(message) {
+      layStakeResult.textContent = "—";
+      layLiabilityResult.textContent = "—";
+      selectionWinsResult.textContent = "—";
+      selectionLosesResult.textContent = "—";
+      conversionResult.textContent = "—";
+      selectionWinsResult.className = "";
+      selectionLosesResult.className = "";
+      resultNote.textContent = message;
+      resultNote.className = "result-note error";
+    }
+
+    function updateLabels() {
+      if (currentMode === "snr") {
+        stakeLabel.textContent = "Free bet stake";
+        stakeHelp.textContent = "The value of the free bet where the stake is not returned.";
+      } else {
+        stakeLabel.textContent = "Stake";
+        stakeHelp.textContent = "The stake value when stake is returned or when treating it like a cash bet.";
+      }
+    }
+
+    function calculateFreeBet() {
+      const stake = Number(stakeInput.value);
+      const backOdds = Number(backOddsInput.value);
+      const layOdds = Number(layOddsInput.value);
+      const commissionPercent = Number(commissionInput.value);
+      const commission = commissionPercent / 100;
+
+      if (!Number.isFinite(stake) || stake <= 0) {
+        showError("Please enter a stake greater than £0.");
+        return;
+      }
+
+      if (!Number.isFinite(backOdds) || backOdds <= 1) {
+        showError("Please enter back decimal odds greater than 1.00.");
+        return;
+      }
+
+      if (!Number.isFinite(layOdds) || layOdds <= 1) {
+        showError("Please enter lay decimal odds greater than 1.00.");
+        return;
+      }
+
+      if (!Number.isFinite(commissionPercent) || commissionPercent < 0 || commissionPercent >= 100) {
+        showError("Please enter a commission percentage between 0 and 99.");
+        return;
+      }
+
+      let layStake;
+      let ifSelectionWins;
+      let ifSelectionLoses;
+
+      if (currentMode === "snr") {
+        layStake = (stake * (backOdds - 1)) / (layOdds - commission);
+        const liability = layStake * (layOdds - 1);
+        ifSelectionWins = (stake * (backOdds - 1)) - liability;
+        ifSelectionLoses = layStake * (1 - commission);
+      } else {
+        layStake = (stake * backOdds) / (layOdds - commission);
+        const liability = layStake * (layOdds - 1);
+        ifSelectionWins = (stake * (backOdds - 1)) - liability;
+        ifSelectionLoses = (layStake * (1 - commission)) - stake;
+      }
+
+      const liability = layStake * (layOdds - 1);
+      const averageProfit = (ifSelectionWins + ifSelectionLoses) / 2;
+      const conversion = (averageProfit / stake) * 100;
+
+      layStakeResult.textContent = formatMoney(layStake);
+      layLiabilityResult.textContent = formatMoney(liability);
+      selectionWinsResult.textContent = formatMoney(ifSelectionWins);
+      selectionLosesResult.textContent = formatMoney(ifSelectionLoses);
+      conversionResult.textContent = formatPercent(conversion);
+
+      setResultClass(selectionWinsResult, ifSelectionWins);
+      setResultClass(selectionLosesResult, ifSelectionLoses);
+
+      if (averageProfit >= 0) {
+        resultNote.textContent = `This ${currentMode === "snr" ? "stake-not-returned free bet" : "stake-returned / cash-style bet"} converts to about ${formatMoney(averageProfit)} profit, or ${formatPercent(conversion)} of the stake value.`;
+        resultNote.className = "result-note";
+      } else {
+        resultNote.textContent = `These inputs create an estimated loss of about ${formatMoney(Math.abs(averageProfit))}. Check the odds, commission and free bet type.`;
+        resultNote.className = "result-note warning";
+      }
+    }
+
+    modeButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        currentMode = button.dataset.mode;
+
+        modeButtons.forEach((modeButton) => {
+          modeButton.classList.toggle("active", modeButton === button);
+        });
+
+        if (currentMode === "snr") {
+          stakeInput.value = "50";
+          backOddsInput.value = "6.00";
+          layOddsInput.value = "5.50";
+          commissionInput.value = "2";
+        } else {
+          stakeInput.value = "50";
+          backOddsInput.value = "3.00";
+          layOddsInput.value = "2.90";
+          commissionInput.value = "2";
+        }
+
+        updateLabels();
+        calculateFreeBet();
+      });
+    });
+
+    [stakeInput, backOddsInput, layOddsInput, commissionInput].forEach((input) => {
+      input.addEventListener("input", calculateFreeBet);
+    });
+
+    resetButton.addEventListener("click", () => {
+      currentMode = "snr";
+
+      modeButtons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.mode === "snr");
+      });
+
+      stakeInput.value = "50";
+      backOddsInput.value = "6.00";
+      layOddsInput.value = "5.50";
+      commissionInput.value = "2";
+
+      updateLabels();
+      calculateFreeBet();
+    });
+
+    updateLabels();
+    calculateFreeBet();
+  </script>
+</MainLayout>
