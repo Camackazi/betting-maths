@@ -1,0 +1,560 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="Dutching vs Arbitrage"
+  description="Learn the difference between dutching and arbitrage betting, how each method works, how book percentage matters, and why neither approach guarantees easy profit."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting maths guide</p>
+    <h1>Dutching vs Arbitrage</h1>
+    <p class="lead">
+      Dutching and arbitrage both involve covering more than one outcome, but they are not the same thing. Dutching is a staking method. Arbitrage is a pricing opportunity.
+    </p>
+
+    <div class="callout">
+      <strong>Quick answer:</strong> Dutching splits a stake across selected outcomes. Arbitrage aims to cover all outcomes for a profit when the available odds add up to less than 100%.
+    </div>
+
+    <div class="article-link-box">
+      <a class="button primary" href="/calculators/dutching-calculator/">Use the Dutching Calculator</a>
+      <a class="button secondary" href="/calculators/overround-calculator/">Check Book Percentage</a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What is dutching?</h2>
+    <p>
+      Dutching is a staking method where you back two or more selections and split your stake so that each covered outcome aims to return a similar amount.
+    </p>
+    <p>
+      You do not necessarily cover every possible outcome in the market. For example, in a horse race you might dutch two or three runners and leave the rest of the field uncovered.
+    </p>
+
+    <h2>What is arbitrage?</h2>
+    <p>
+      Arbitrage betting is when the available odds allow all outcomes in a market to be covered for a profit. This usually happens when prices across different bookmakers or exchanges create an underround.
+    </p>
+    <p>
+      In simple terms, dutching is about splitting stakes. Arbitrage is about finding a set of prices that mathematically covers the whole market.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>The main difference</h2>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>What it does</th>
+          <th>Does it cover all outcomes?</th>
+          <th>Main risk</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Dutching</td>
+          <td>Splits stake across selected outcomes.</td>
+          <td>Not always.</td>
+          <td>An uncovered outcome can win.</td>
+        </tr>
+        <tr>
+          <td>Arbitrage</td>
+          <td>Covers all outcomes when prices allow a profit.</td>
+          <td>Yes, in theory.</td>
+          <td>Odds move, stake limits, restrictions or commission can remove the profit.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Simple way to remember it:</strong> Dutching is a staking calculation. Arbitrage is a market-pricing opportunity.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Dutching example</h2>
+    <p>
+      Imagine you want to back two selections in the same market. Selection A is priced at 3.00 and Selection B is priced at 4.00. You have a total stake of £100.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Selection</th>
+          <th>Odds</th>
+          <th>Stake</th>
+          <th>Return</th>
+          <th>Profit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Selection A</td>
+          <td>3.00</td>
+          <td>£57.14</td>
+          <td>£171.43</td>
+          <td>£71.43</td>
+        </tr>
+        <tr>
+          <td>Selection B</td>
+          <td>4.00</td>
+          <td>£42.86</td>
+          <td>£171.43</td>
+          <td>£71.43</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      If either Selection A or Selection B wins, the return is balanced. But if another outcome wins, both dutched selections lose.
+    </p>
+
+    <div class="callout">
+      <strong>Try it:</strong> Enter the odds and total stake into the <a href="/calculators/dutching-calculator/">Dutching Calculator</a>.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Arbitrage example</h2>
+    <p>
+      Arbitrage requires all outcomes to be covered at prices that create an underround. For a simple two-outcome market, imagine these prices are available:
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Outcome</th>
+          <th>Odds</th>
+          <th>Implied probability</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Outcome A</td>
+          <td>2.10</td>
+          <td>47.62%</td>
+        </tr>
+        <tr>
+          <td>Outcome B</td>
+          <td>2.10</td>
+          <td>47.62%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="formula-box">
+      <p>47.62% + 47.62% = 95.24%</p>
+    </div>
+
+    <p>
+      Because the total implied probability is below 100%, this is an underround. In theory, that means both outcomes could be covered for a profit.
+    </p>
+
+    <div class="callout">
+      <strong>Important:</strong> In real betting, an apparent arbitrage can disappear quickly if odds move, bets are limited, markets are suspended or commission applies.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>How book percentage links them together</h2>
+    <p>
+      Both dutching and arbitrage rely on implied probability and book percentage.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Book percentage</th>
+          <th>What it means</th>
+          <th>Effect</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Below 100%</td>
+          <td>Underround</td>
+          <td>May suggest an arbitrage opportunity if all outcomes can be covered.</td>
+        </tr>
+        <tr>
+          <td>Around 100%</td>
+          <td>Close to fair book</td>
+          <td>May be close to break-even before practical issues.</td>
+        </tr>
+        <tr>
+          <td>Above 100%</td>
+          <td>Overround</td>
+          <td>Market includes margin; covering all outcomes may produce a loss.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      If you are dutching only some outcomes, the combined percentage of those selections helps show whether your selected group is priced attractively. If you are looking for arbitrage, the entire market needs to add up to less than 100%.
+    </p>
+
+    <div class="callout">
+      <strong>Useful tool:</strong> Use the <a href="/calculators/overround-calculator/">Overround Calculator</a> to check whether a market is an overround or underround.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Dutching does not need to be arbitrage</h2>
+    <p>
+      A dutching calculation can still be useful even if it is not an arbitrage. You might use dutching because you think two or three selections are more likely than the market suggests, or because you want to cover several possible outcomes.
+    </p>
+    <p>
+      But unless all outcomes are covered at favourable prices, dutching does not remove risk. An uncovered outcome can still win.
+    </p>
+
+    <h2>Arbitrage usually uses dutching-style staking</h2>
+    <p>
+      Arbitrage often uses a similar stake-splitting calculation to dutching. The difference is that arbitrage tries to cover every possible outcome for a guaranteed mathematical profit.
+    </p>
+    <p>
+      So arbitrage may use dutching maths, but not every dutching calculation is arbitrage.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Dutching in football betting</h2>
+    <p>
+      In football, dutching is often used to cover two outcomes in a three-outcome market. For example, you might cover home win and draw, leaving the away win uncovered.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Market</th>
+          <th>Covered outcomes</th>
+          <th>Uncovered outcome</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Home / Draw / Away</td>
+          <td>Home win and draw</td>
+          <td>Away win</td>
+        </tr>
+        <tr>
+          <td>Correct score</td>
+          <td>Several likely scorelines</td>
+          <td>Any other scoreline</td>
+        </tr>
+        <tr>
+          <td>Goals market</td>
+          <td>Selected goal bands or totals</td>
+          <td>Outcomes outside the covered range</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      This can be useful for understanding stake distribution, but it is not risk-free because the uncovered outcome can still happen.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Dutching in horse racing</h2>
+    <p>
+      Dutching is often discussed in horse racing because there are many runners and a bettor may want to cover more than one horse.
+    </p>
+    <p>
+      For example, you might think two runners are overpriced and use dutching to split the stake between them. But if neither runner wins, the dutched bet loses.
+    </p>
+
+    <div class="callout">
+      <strong>Horse racing note:</strong> Non-runners, Rule 4 deductions, each-way terms and price changes can affect calculations. Always check the final market rules.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Why arbitrage is harder in practice</h2>
+    <p>
+      Arbitrage sounds simple in theory, but practical issues can make it difficult.
+    </p>
+
+    <ul class="standard-list">
+      <li>Odds can move before all bets are placed.</li>
+      <li>Bookmakers can limit stakes.</li>
+      <li>Accounts may be restricted.</li>
+      <li>Markets can be suspended.</li>
+      <li>Different bookmakers may have different settlement rules.</li>
+      <li>Exchange commission can reduce or remove the profit.</li>
+      <li>Liquidity may be too low to place the full stake.</li>
+    </ul>
+
+    <p>
+      This is why an apparent arbitrage on paper may not be easy to execute in real life.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Dutching vs arbitrage vs hedging</h2>
+    <p>
+      Dutching, arbitrage and hedging are related, but each has a different purpose.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Main purpose</th>
+          <th>Typical use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Dutching</td>
+          <td>Split stake across multiple selections.</td>
+          <td>Cover several possible winners.</td>
+        </tr>
+        <tr>
+          <td>Arbitrage</td>
+          <td>Cover all outcomes for a theoretical profit.</td>
+          <td>Use price differences across markets.</td>
+        </tr>
+        <tr>
+          <td>Hedging</td>
+          <td>Reduce risk or balance an existing position.</td>
+          <td>Back and lay after odds movement.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      If you already have a bet and want to reduce risk, hedging may be the relevant calculation. If you are splitting a stake across selections before the result, dutching is usually the relevant calculation.
+    </p>
+
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/hedge-bet-calculator/">
+        <h3>Hedge Bet Calculator</h3>
+        <p>Calculate back-first and lay-first hedge positions.</p>
+      </a>
+      <a class="related-card" href="/guides/hedging-vs-cash-out/">
+        <h3>Hedging vs Cash Out</h3>
+        <p>Compare bookmaker cash out with manual hedging.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Can dutching guarantee profit?</h2>
+    <p>
+      No. Dutching only tells you how to split a stake across the selections you choose. If an uncovered outcome wins, the dutched bet loses.
+    </p>
+    <p>
+      Dutching can produce an equalised profit if the selected odds are favourable enough and one of the covered selections wins. But it does not guarantee that one of those selections will win.
+    </p>
+
+    <h2>Can arbitrage guarantee profit?</h2>
+    <p>
+      In theory, arbitrage can create a guaranteed mathematical profit if all outcomes are covered at the required odds. In practice, there are execution risks.
+    </p>
+    <p>
+      Odds may move, bets may be limited, and terms may differ. So even arbitrage should be treated carefully rather than as easy money.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Common mistakes</h2>
+
+    <h3>Calling all dutching arbitrage</h3>
+    <p>
+      Dutching is not automatically arbitrage. If you have not covered every possible outcome, there is still an uncovered result that can beat you.
+    </p>
+
+    <h3>Ignoring book percentage</h3>
+    <p>
+      Book percentage shows whether the prices are favourable. Without checking implied probabilities, you may not know whether the calculation is profitable, break-even or losing.
+    </p>
+
+    <h3>Forgetting commission</h3>
+    <p>
+      Exchange commission can turn a small theoretical profit into a smaller profit, break-even result or loss.
+    </p>
+
+    <h3>Using prices you cannot actually get</h3>
+    <p>
+      Calculations only work if the bets can be placed at the odds used. If the price disappears or there is not enough liquidity, the result changes.
+    </p>
+
+    <h3>Assuming maths removes betting risk</h3>
+    <p>
+      Betting maths can explain the position, but it does not remove market movement, rules, human error, restrictions or gambling risk.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Related betting calculators and guides</h2>
+
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/dutching-calculator/">
+        <h3>Dutching Calculator</h3>
+        <p>Split a total stake across selected outcomes.</p>
+      </a>
+      <a class="related-card" href="/calculators/overround-calculator/">
+        <h3>Overround Calculator</h3>
+        <p>Check book percentage, overround and underround.</p>
+      </a>
+      <a class="related-card" href="/guides/what-is-dutching/">
+        <h3>What Is Dutching?</h3>
+        <p>Learn how dutching works in betting.</p>
+      </a>
+      <a class="related-card" href="/guides/bookmaker-margin-explained/">
+        <h3>Bookmaker Margin Explained</h3>
+        <p>Understand overround and bookmaker edge.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Dutching vs arbitrage FAQs</h2>
+
+    <h3>Is dutching the same as arbitrage?</h3>
+    <p>
+      No. Dutching is a staking method. Arbitrage is when all outcomes can be covered for a theoretical profit because of the available prices.
+    </p>
+
+    <h3>Can dutching be used for arbitrage?</h3>
+    <p>
+      Yes. Arbitrage often uses dutching-style stake splitting, but only when every possible outcome is covered at favourable prices.
+    </p>
+
+    <h3>Can dutching lose?</h3>
+    <p>
+      Yes. If an uncovered outcome wins, or if the covered prices are not favourable, dutching can lose.
+    </p>
+
+    <h3>What is underround?</h3>
+    <p>
+      Underround is when the total implied probability of all outcomes is below 100%. This can sometimes suggest an arbitrage opportunity.
+    </p>
+
+    <h3>Why is arbitrage difficult in practice?</h3>
+    <p>
+      Odds can move, stake limits can apply, markets can suspend, accounts can be restricted and commission can reduce the profit.
+    </p>
+
+    <h3>Which calculator should I use?</h3>
+    <p>
+      Use the Dutching Calculator to split a stake across selections. Use the Overround Calculator to check whether a whole market is overround or underround.
+    </p>
+
+    <div class="callout">
+      <strong>Responsible note:</strong> Dutching and arbitrage calculations can explain stakes and prices, but they do not make betting risk-free.
+    </div>
+  </section>
+
+  <style>
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .article-link-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .formula-box {
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+
+    .formula-box p {
+      margin: 0.4rem 0;
+      font-weight: 700;
+    }
+
+    .standard-list {
+      padding-left: 1.3rem;
+    }
+
+    .standard-list li {
+      margin: 0.45rem 0;
+    }
+
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .example-table th,
+    .example-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .example-table th {
+      color: var(--color-navy);
+      background: #f4f7fa;
+      font-size: 0.9rem;
+    }
+
+    .example-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .related-card {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .related-card:hover {
+      border-color: rgba(31, 138, 91, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .related-card h3 {
+      margin-bottom: 0.35rem;
+    }
+
+    .related-card p {
+      margin: 0;
+      color: var(--color-muted);
+    }
+
+    .callout a,
+    .article-section a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 980px) {
+      .related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</MainLayout>
