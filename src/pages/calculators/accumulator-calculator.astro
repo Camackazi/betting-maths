@@ -1,0 +1,809 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="Accumulator Calculator"
+  description="Use this free accumulator calculator to multiply decimal odds, calculate combined acca odds, potential returns, profit and implied probability."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting calculator</p>
+    <h1>Accumulator Calculator</h1>
+    <p class="lead">
+      Use this accumulator calculator to multiply the odds from two or more selections and work out the combined odds, potential return and profit.
+    </p>
+
+    <div class="callout">
+      <strong>Quick explanation:</strong> An accumulator, often called an acca, combines multiple selections into one bet. Every selection must win for the accumulator to pay out.
+    </div>
+
+    <div class="calculator-panel" id="accumulator-calculator">
+      <div class="calculator-header">
+        <div>
+          <h2>Enter your stake and odds</h2>
+          <p>Add each leg of your accumulator, then enter the decimal odds for each selection.</p>
+        </div>
+        <button class="button secondary small-button" type="button" id="reset-acca">
+          Reset example
+        </button>
+      </div>
+
+      <label class="stake-box">
+        <span>Total stake</span>
+        <div class="stake-input-wrap">
+          <span>£</span>
+          <input id="total-stake" type="number" min="0.01" step="0.01" value="10" />
+        </div>
+        <small>The amount you are staking on the accumulator.</small>
+      </label>
+
+      <div class="market-table-wrap">
+        <table class="market-table">
+          <thead>
+            <tr>
+              <th>Selection</th>
+              <th>Decimal odds</th>
+              <th>Implied probability</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="acca-rows">
+            <tr>
+              <td>
+                <input type="text" value="Selection 1" aria-label="Selection name" />
+              </td>
+              <td>
+                <input type="number" value="2.00" min="1.01" step="0.01" aria-label="Decimal odds" />
+              </td>
+              <td class="probability-cell">50.00%</td>
+              <td>
+                <button class="remove-row" type="button" aria-label="Remove selection">×</button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" value="Selection 2" aria-label="Selection name" />
+              </td>
+              <td>
+                <input type="number" value="1.80" min="1.01" step="0.01" aria-label="Decimal odds" />
+              </td>
+              <td class="probability-cell">55.56%</td>
+              <td>
+                <button class="remove-row" type="button" aria-label="Remove selection">×</button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" value="Selection 3" aria-label="Selection name" />
+              </td>
+              <td>
+                <input type="number" value="2.50" min="1.01" step="0.01" aria-label="Decimal odds" />
+              </td>
+              <td class="probability-cell">40.00%</td>
+              <td>
+                <button class="remove-row" type="button" aria-label="Remove selection">×</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="calculator-actions">
+        <button class="button primary" type="button" id="add-selection">
+          Add selection
+        </button>
+      </div>
+
+      <div class="results-grid">
+        <div class="result-card">
+          <span>Selections</span>
+          <strong id="selection-count-result">3</strong>
+        </div>
+        <div class="result-card">
+          <span>Combined odds</span>
+          <strong id="combined-odds-result">9.00</strong>
+        </div>
+        <div class="result-card">
+          <span>Potential return</span>
+          <strong id="return-result">£90.00</strong>
+        </div>
+        <div class="result-card">
+          <span>Potential profit</span>
+          <strong id="profit-result">£80.00</strong>
+        </div>
+        <div class="result-card">
+          <span>Acca implied probability</span>
+          <strong id="probability-result">11.11%</strong>
+        </div>
+      </div>
+
+      <p class="result-note" id="result-note">
+        A £10.00 stake at combined odds of 9.00 would return £90.00, including £80.00 profit.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What is an accumulator?</h2>
+    <p>
+      An accumulator is a bet that combines two or more selections into one larger bet. Each selection is known as a leg. For the accumulator to win, every leg must win.
+    </p>
+    <p>
+      Accumulators are popular because the odds multiply together, which can create larger potential returns from a smaller stake. The downside is that one losing selection loses the whole accumulator.
+    </p>
+
+    <h2>Accumulator formula</h2>
+    <p>
+      With decimal odds, calculating an accumulator is simple. Multiply all the decimal odds together, then multiply the combined odds by your stake.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Combined odds</strong> = odds 1 × odds 2 × odds 3...</p>
+      <p><strong>Total return</strong> = stake × combined odds</p>
+      <p><strong>Profit</strong> = total return − stake</p>
+    </div>
+
+    <h2>Example accumulator calculation</h2>
+    <p>
+      Imagine a three-selection accumulator with odds of 2.00, 1.80 and 2.50.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Selection</th>
+          <th>Decimal odds</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Selection 1</td>
+          <td>2.00</td>
+        </tr>
+        <tr>
+          <td>Selection 2</td>
+          <td>1.80</td>
+        </tr>
+        <tr>
+          <td>Selection 3</td>
+          <td>2.50</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="formula-box">
+      <p>2.00 × 1.80 × 2.50 = 9.00</p>
+    </div>
+
+    <p>
+      If the stake is £10, the total return would be £90. That includes the original £10 stake and £80 profit.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Why accumulator odds grow quickly</h2>
+    <p>
+      Accumulator odds grow quickly because every selection multiplies the combined price. Adding another leg can increase the possible return, but it also makes the bet harder to win because every selection must be correct.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Bet type</th>
+          <th>Number of selections</th>
+          <th>What must happen?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Single</td>
+          <td>1</td>
+          <td>One selection must win.</td>
+        </tr>
+        <tr>
+          <td>Double</td>
+          <td>2</td>
+          <td>Both selections must win.</td>
+        </tr>
+        <tr>
+          <td>Treble</td>
+          <td>3</td>
+          <td>All three selections must win.</td>
+        </tr>
+        <tr>
+          <td>Accumulator</td>
+          <td>4 or more</td>
+          <td>Every selection must win.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      This is why accumulators can look attractive but are usually much harder to land than they first appear.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Accumulator implied probability</h2>
+    <p>
+      The combined decimal odds can also be converted into implied probability. This shows the chance suggested by the combined odds before considering whether the price is fair or whether any bookmaker margin is included.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Accumulator implied probability</strong> = 1 ÷ combined decimal odds × 100</p>
+    </div>
+
+    <p>
+      For example, combined odds of 9.00 imply a probability of 11.11%.
+    </p>
+
+    <div class="callout">
+      <strong>Useful tool:</strong> If you want to convert decimal, fractional and American odds, use the <a href="/calculators/odds-converter/">Odds Converter</a>.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Accumulator vs dutching</h2>
+    <p>
+      Accumulators and dutching are very different betting calculations.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>How it works</th>
+          <th>Main risk</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Accumulator</td>
+          <td>You combine multiple selections and need all of them to win.</td>
+          <td>One losing selection loses the whole bet.</td>
+        </tr>
+        <tr>
+          <td>Dutching</td>
+          <td>You split a stake across multiple outcomes.</td>
+          <td>An uncovered outcome can still win.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      An accumulator multiplies odds together. Dutching splits your stake across outcomes. If you want to split a stake across multiple selections, use the <a href="/calculators/dutching-calculator/">Dutching Calculator</a>.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Common accumulator mistakes</h2>
+
+    <h3>Adding too many selections</h3>
+    <p>
+      Adding more selections increases the potential return, but it also makes the bet much harder to win. Every added leg creates another way for the accumulator to fail.
+    </p>
+
+    <h3>Focusing only on the potential return</h3>
+    <p>
+      Big returns can look exciting, but the combined implied probability may be low. The accumulator calculator shows both the return and the implied probability.
+    </p>
+
+    <h3>Assuming short odds are safe</h3>
+    <p>
+      Short-priced selections can still lose. Combining several short-priced favourites can create an accumulator that looks safe but still has a meaningful chance of failing.
+    </p>
+
+    <h3>Ignoring bookmaker margin</h3>
+    <p>
+      Each leg in an accumulator comes from a market that may already include bookmaker margin. When several selections are combined, those margins can matter.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Related betting calculators</h2>
+    <p>
+      Accumulators are closely linked to odds conversion, implied probability and bookmaker margin.
+    </p>
+
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/odds-converter/">
+        <h3>Odds Converter</h3>
+        <p>Convert decimal, fractional and American odds.</p>
+      </a>
+      <a class="related-card" href="/calculators/overround-calculator/">
+        <h3>Overround Calculator</h3>
+        <p>Calculate book percentage and bookmaker margin.</p>
+      </a>
+      <a class="related-card" href="/calculators/dutching-calculator/">
+        <h3>Dutching Calculator</h3>
+        <p>Split a total stake across multiple selections.</p>
+      </a>
+      <a class="related-card" href="/glossary/betting-jargon-explained/">
+        <h3>Betting Jargon Explained</h3>
+        <p>Learn acca, double, treble, stake, return and other terms.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Accumulator calculator FAQs</h2>
+
+    <h3>What does an accumulator calculator do?</h3>
+    <p>
+      An accumulator calculator multiplies the odds from each selection and shows the combined odds, potential return, profit and implied probability.
+    </p>
+
+    <h3>How many selections do I need for an accumulator?</h3>
+    <p>
+      Technically, two selections make a double and three selections make a treble. Many people use “accumulator” or “acca” more generally for multiple-selection bets. This calculator works with two or more selections.
+    </p>
+
+    <h3>How do you calculate accumulator odds?</h3>
+    <p>
+      With decimal odds, multiply all the odds together. For example, 2.00 × 1.80 × 2.50 = 9.00.
+    </p>
+
+    <h3>Does the return include my stake?</h3>
+    <p>
+      Yes. Decimal odds show the total return including the original stake. Profit is the total return minus your stake.
+    </p>
+
+    <h3>Are accumulators good value?</h3>
+    <p>
+      Not automatically. Accumulators can offer larger returns, but every selection must win. They can also combine bookmaker margin across several markets.
+    </p>
+
+    <div class="callout">
+      <strong>Responsible note:</strong> Accumulators can look tempting because of the large potential returns, but they are difficult to win. Only bet what you can afford to lose.
+    </div>
+  </section>
+
+  <style>
+    .calculator-panel {
+      margin-top: 1.5rem;
+      padding: 1.25rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      background: #ffffff;
+    }
+
+    .calculator-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .calculator-header h2 {
+      margin: 0;
+    }
+
+    .calculator-header p {
+      margin: 0.25rem 0 0;
+      color: var(--color-muted);
+    }
+
+    .small-button {
+      padding: 0.55rem 0.75rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .stake-box {
+      display: block;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+      max-width: 360px;
+    }
+
+    .stake-box > span {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: var(--color-navy);
+      font-weight: 800;
+    }
+
+    .stake-input-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      background: white;
+    }
+
+    .stake-input-wrap span {
+      color: var(--color-muted);
+      font-weight: 800;
+    }
+
+    .stake-input-wrap input {
+      width: 100%;
+      border: 0;
+      padding: 0.5rem 0;
+      font: inherit;
+      font-size: 1.1rem;
+      color: var(--color-text);
+      background: transparent;
+    }
+
+    .stake-input-wrap input:focus {
+      outline: 0;
+    }
+
+    .stake-box small {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--color-muted);
+    }
+
+    .market-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+    }
+
+    .market-table,
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+
+    .market-table th,
+    .market-table td,
+    .example-table th,
+    .example-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .market-table th,
+    .example-table th {
+      color: var(--color-navy);
+      background: #f4f7fa;
+      font-size: 0.9rem;
+    }
+
+    .market-table tr:last-child td,
+    .example-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .market-table input {
+      width: 100%;
+      min-width: 110px;
+      padding: 0.65rem;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      color: var(--color-text);
+      font: inherit;
+    }
+
+    .market-table input:focus {
+      outline: 2px solid rgba(31, 138, 91, 0.22);
+      border-color: var(--color-green);
+    }
+
+    .probability-cell {
+      font-weight: 800;
+      color: var(--color-navy);
+      white-space: nowrap;
+    }
+
+    .remove-row {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      background: white;
+      color: var(--color-muted);
+      font-size: 1.2rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .remove-row:hover {
+      color: #b42318;
+      border-color: #f3b7b2;
+      background: #fff1f0;
+    }
+
+    .calculator-actions {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .result-card {
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .result-card span {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: var(--color-muted);
+      font-size: 0.9rem;
+    }
+
+    .result-card strong {
+      display: block;
+      color: var(--color-navy);
+      font-size: 1.3rem;
+      line-height: 1.2;
+      word-break: break-word;
+    }
+
+    .result-note {
+      margin: 1rem 0 0;
+      padding: 1rem;
+      border-radius: 12px;
+      background: #eef8f3;
+      color: var(--color-green-dark);
+      font-weight: 700;
+    }
+
+    .result-note.error {
+      background: #fff1f0;
+      color: #b42318;
+    }
+
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .formula-box {
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+
+    .formula-box p {
+      margin: 0.4rem 0;
+      font-weight: 700;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .related-card {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .related-card:hover {
+      border-color: rgba(31, 138, 91, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .related-card h3 {
+      margin-bottom: 0.35rem;
+    }
+
+    .related-card p {
+      margin: 0;
+      color: var(--color-muted);
+    }
+
+    .article-section a,
+    .callout a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 1120px) {
+      .results-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .calculator-header {
+        flex-direction: column;
+      }
+
+      .results-grid,
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <script>
+    const tableBody = document.getElementById("acca-rows");
+    const totalStakeInput = document.getElementById("total-stake");
+    const addButton = document.getElementById("add-selection");
+    const resetButton = document.getElementById("reset-acca");
+
+    const selectionCountResult = document.getElementById("selection-count-result");
+    const combinedOddsResult = document.getElementById("combined-odds-result");
+    const returnResult = document.getElementById("return-result");
+    const profitResult = document.getElementById("profit-result");
+    const probabilityResult = document.getElementById("probability-result");
+    const resultNote = document.getElementById("result-note");
+
+    const exampleRows = [
+      { name: "Selection 1", odds: "2.00" },
+      { name: "Selection 2", odds: "1.80" },
+      { name: "Selection 3", odds: "2.50" }
+    ];
+
+    function formatMoney(value) {
+      return new Intl.NumberFormat("en-GB", {
+        style: "currency",
+        currency: "GBP",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }).format(value);
+    }
+
+    function formatOdds(value) {
+      return value.toFixed(2);
+    }
+
+    function formatPercent(value) {
+      return `${value.toFixed(2)}%`;
+    }
+
+    function createRow(name = "Selection", odds = "") {
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+        <td>
+          <input type="text" value="${name}" aria-label="Selection name" />
+        </td>
+        <td>
+          <input type="number" value="${odds}" min="1.01" step="0.01" aria-label="Decimal odds" />
+        </td>
+        <td class="probability-cell">—</td>
+        <td>
+          <button class="remove-row" type="button" aria-label="Remove selection">×</button>
+        </td>
+      `;
+
+      return row;
+    }
+
+    function setError(message) {
+      selectionCountResult.textContent = "—";
+      combinedOddsResult.textContent = "—";
+      returnResult.textContent = "—";
+      profitResult.textContent = "—";
+      probabilityResult.textContent = "—";
+      resultNote.textContent = message;
+      resultNote.className = "result-note error";
+
+      tableBody.querySelectorAll("tr").forEach((row) => {
+        row.querySelector(".probability-cell").textContent = "—";
+      });
+    }
+
+    function calculateAccumulator() {
+      const totalStake = Number(totalStakeInput.value);
+      const rows = Array.from(tableBody.querySelectorAll("tr"));
+
+      if (!Number.isFinite(totalStake) || totalStake <= 0) {
+        setError("Please enter a stake greater than £0.");
+        return;
+      }
+
+      let combinedOdds = 1;
+      let hasInvalidOdds = false;
+      let validSelections = 0;
+
+      rows.forEach((row) => {
+        const oddsInput = row.querySelector('input[type="number"]');
+        const probabilityCell = row.querySelector(".probability-cell");
+        const odds = Number(oddsInput.value);
+
+        if (!oddsInput.value || !Number.isFinite(odds) || odds <= 1) {
+          probabilityCell.textContent = "Invalid";
+          hasInvalidOdds = true;
+          return;
+        }
+
+        combinedOdds *= odds;
+        validSelections += 1;
+        probabilityCell.textContent = formatPercent((1 / odds) * 100);
+      });
+
+      if (hasInvalidOdds || validSelections < 2) {
+        setError("Please enter valid decimal odds greater than 1.00 for at least two selections.");
+        return;
+      }
+
+      const totalReturn = totalStake * combinedOdds;
+      const profit = totalReturn - totalStake;
+      const impliedProbability = (1 / combinedOdds) * 100;
+
+      selectionCountResult.textContent = String(validSelections);
+      combinedOddsResult.textContent = formatOdds(combinedOdds);
+      returnResult.textContent = formatMoney(totalReturn);
+      profitResult.textContent = formatMoney(profit);
+      probabilityResult.textContent = formatPercent(impliedProbability);
+
+      resultNote.textContent = `A ${formatMoney(totalStake)} stake at combined odds of ${formatOdds(combinedOdds)} would return ${formatMoney(totalReturn)}, including ${formatMoney(profit)} profit.`;
+      resultNote.className = "result-note";
+    }
+
+    function attachEvents() {
+      tableBody.querySelectorAll("input").forEach((input) => {
+        input.addEventListener("input", calculateAccumulator);
+      });
+
+      tableBody.querySelectorAll(".remove-row").forEach((button) => {
+        button.addEventListener("click", () => {
+          const rows = tableBody.querySelectorAll("tr");
+
+          if (rows.length <= 2) {
+            resultNote.textContent = "An accumulator calculation needs at least two selections.";
+            resultNote.className = "result-note error";
+            return;
+          }
+
+          button.closest("tr").remove();
+          calculateAccumulator();
+        });
+      });
+    }
+
+    function renderRows(rows) {
+      tableBody.innerHTML = "";
+      rows.forEach((row) => {
+        tableBody.appendChild(createRow(row.name, row.odds));
+      });
+      attachEvents();
+      calculateAccumulator();
+    }
+
+    totalStakeInput.addEventListener("input", calculateAccumulator);
+
+    addButton.addEventListener("click", () => {
+      const nextNumber = tableBody.querySelectorAll("tr").length + 1;
+      tableBody.appendChild(createRow(`Selection ${nextNumber}`, ""));
+      attachEvents();
+      calculateAccumulator();
+    });
+
+    resetButton.addEventListener("click", () => {
+      totalStakeInput.value = "10";
+      renderRows(exampleRows);
+    });
+
+    attachEvents();
+    calculateAccumulator();
+  </script>
+</MainLayout>
