@@ -46,13 +46,13 @@ import CalculatorCard from "../components/CalculatorCard.astro";
       <a class="start-card" href="/guides/">
         <span>Guide hub</span>
         <h3>Learn the concepts</h3>
-        <p>Read plain-English guides to implied probability, bookmaker margin, overround, dutching, hedging, cash out and arbitrage.</p>
+        <p>Read plain-English guides to implied probability, bookmaker margin, free bets, matched betting, overround, dutching, hedging, cash out and arbitrage.</p>
       </a>
 
       <a class="start-card" href="/glossary/betting-jargon-explained/">
         <span>Glossary</span>
         <h3>Look up betting terms</h3>
-        <p>Search common betting jargon including acca, lay bet, liability, vig, juice, each-way, value, underround and more.</p>
+        <p>Search common betting jargon including acca, lay bet, liability, vig, juice, free bet, stake not returned, each-way, value, underround and more.</p>
       </a>
     </div>
   </section>
@@ -134,7 +134,7 @@ import CalculatorCard from "../components/CalculatorCard.astro";
   <section class="content-card article-section">
     <h2>Learn the key betting maths concepts</h2>
     <p>
-      Start with these guides if you want to understand how odds are priced, how bookmaker margin works, how staking methods differ, and why betting systems should be treated carefully.
+      Start with these guides if you want to understand how odds are priced, how bookmaker margin works, how free bets are calculated, how staking methods differ, and why betting systems should be treated carefully.
     </p>
 
     <div class="guide-grid">
@@ -148,6 +148,24 @@ import CalculatorCard from "../components/CalculatorCard.astro";
         <span>Core guide</span>
         <h3>Bookmaker Margin Explained</h3>
         <p>Understand bookmaker margin, overround, book percentage and why markets usually add up to more than 100%.</p>
+      </a>
+
+      <a class="guide-card featured-guide" href="/guides/what-is-a-free-bet/">
+        <span>Core guide</span>
+        <h3>What Is a Free Bet?</h3>
+        <p>Learn how free bets, stake not returned, lay stakes and offer value work.</p>
+      </a>
+
+      <a class="guide-card" href="/guides/what-is-matched-betting/">
+        <span>Guide</span>
+        <h3>What Is Matched Betting?</h3>
+        <p>Understand qualifying bets, free bets, back bets, lay bets and exchange liability.</p>
+      </a>
+
+      <a class="guide-card" href="/guides/stake-returned-vs-stake-not-returned/">
+        <span>Guide</span>
+        <h3>Stake Returned vs Stake Not Returned</h3>
+        <p>Learn the difference between cash-style returns and stake-not-returned free bets.</p>
       </a>
 
       <a class="guide-card" href="/guides/what-is-overround/">
@@ -201,7 +219,7 @@ import CalculatorCard from "../components/CalculatorCard.astro";
   <section class="content-card article-section">
     <h2>Betting jargon explained</h2>
     <p>
-      Betting can be full of confusing terms: acca, overround, lay bet, liability, vig, juice, dutching, hedging, free bet, matched betting, back/lay, each-way, value betting, underround and more.
+      Betting can be full of confusing terms: acca, overround, lay bet, liability, vig, juice, dutching, hedging, free bet, matched betting, stake not returned, back/lay, each-way, value betting, underround and more.
     </p>
     <p>
       Our betting glossary explains common betting terms in plain English and links important maths terms to the right calculator.
@@ -210,6 +228,38 @@ import CalculatorCard from "../components/CalculatorCard.astro";
     <div class="button-row">
       <a class="button primary" href="/glossary/betting-jargon-explained/">Open the Betting Jargon Glossary</a>
     </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Free bet example</h2>
+    <p>
+      Many bookmaker free bets are stake not returned. That means a £50 free bet at odds of 6.00 usually pays £250 profit if it wins, not a £300 return.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Free bet stake</th>
+          <th>Back odds</th>
+          <th>Lay odds</th>
+          <th>Commission</th>
+          <th>Estimated profit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>£50</td>
+          <td>6.00</td>
+          <td>5.50</td>
+          <td>2%</td>
+          <td>About £44.71</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      The <a href="/calculators/free-bet-calculator/">Free Bet Calculator</a> works out lay stake, liability, conversion rate and possible profit from a free bet. The <a href="/guides/what-is-a-free-bet/">What Is a Free Bet?</a> guide explains the terms in plain English.
+    </p>
   </section>
 
   <section class="content-card article-section">
@@ -280,38 +330,6 @@ import CalculatorCard from "../components/CalculatorCard.astro";
 
     <p>
       These two outcomes add up to 95.24%, which is an underround. The <a href="/calculators/arbitrage-calculator/">Arbitrage Calculator</a> can show the stake split and estimated profit.
-    </p>
-  </section>
-
-  <section class="content-card article-section">
-    <h2>Free bet example</h2>
-    <p>
-      Many bookmaker free bets are stake not returned. That means a £50 free bet at odds of 6.00 usually pays £250 profit if it wins, not a £300 return.
-    </p>
-
-    <table class="example-table">
-      <thead>
-        <tr>
-          <th>Free bet stake</th>
-          <th>Back odds</th>
-          <th>Lay odds</th>
-          <th>Commission</th>
-          <th>Estimated profit</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>£50</td>
-          <td>6.00</td>
-          <td>5.50</td>
-          <td>2%</td>
-          <td>About £44.71</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p>
-      The <a href="/calculators/free-bet-calculator/">Free Bet Calculator</a> works out lay stake, liability, conversion rate and possible profit from a free bet.
     </p>
   </section>
 
