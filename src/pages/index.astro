@@ -14,7 +14,8 @@ import CalculatorCard from "../components/CalculatorCard.astro";
       Betting Maths helps you understand odds, stakes, overround, dutching, hedging, back/lay betting, accumulators, each-way bets, lay liability, bookmaker margin and common betting jargon with simple calculators and practical examples.
     </p>
     <div class="button-row">
-      <a class="button primary" href="/calculators/overround-calculator/">Start with the Overround Calculator</a>
+      <a class="button primary" href="/calculators/">Browse All Calculators</a>
+      <a class="button secondary" href="/guides/">Read Betting Maths Guides</a>
       <a class="button secondary" href="/glossary/betting-jargon-explained/">Explore the Betting Glossary</a>
     </div>
   </section>
@@ -27,6 +28,33 @@ import CalculatorCard from "../components/CalculatorCard.astro";
     <p>
       The aim is not to provide betting tips or guaranteed profit systems. The aim is to help you understand the numbers behind betting markets so you can read odds, calculate outcomes and understand risk more clearly.
     </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Choose where to start</h2>
+    <p>
+      If you are new to the site, these three starting points cover the main ways to use Betting Maths.
+    </p>
+
+    <div class="start-grid">
+      <a class="start-card" href="/calculators/">
+        <span>Calculator hub</span>
+        <h3>Use the calculators</h3>
+        <p>Find tools for odds, overround, accumulators, each-way bets, dutching, hedging, back/lay betting and lay liability.</p>
+      </a>
+
+      <a class="start-card" href="/guides/">
+        <span>Guide hub</span>
+        <h3>Learn the concepts</h3>
+        <p>Read plain-English guides to implied probability, bookmaker margin, overround, dutching, hedging and cash out.</p>
+      </a>
+
+      <a class="start-card" href="/glossary/betting-jargon-explained/">
+        <span>Glossary</span>
+        <h3>Look up betting terms</h3>
+        <p>Search common betting jargon including acca, lay bet, liability, vig, juice, each-way, value, underround and more.</p>
+      </a>
+    </div>
   </section>
 
   <h2>Popular betting calculators</h2>
@@ -133,6 +161,10 @@ import CalculatorCard from "../components/CalculatorCard.astro";
         <h3>Can You Always Beat the Bookie?</h3>
         <p>Learn why guaranteed betting systems are risky and what maths can actually show.</p>
       </a>
+    </div>
+
+    <div class="button-row hub-button-row">
+      <a class="button primary" href="/guides/">View All Guides</a>
     </div>
   </section>
 
@@ -329,6 +361,46 @@ import CalculatorCard from "../components/CalculatorCard.astro";
       margin-top: 1.25rem;
     }
 
+    .start-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .start-card {
+      display: block;
+      padding: 1.15rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .start-card:hover {
+      border-color: rgba(31, 138, 91, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .start-card span {
+      display: inline-flex;
+      margin-bottom: 0.5rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: #eef8f3;
+      color: var(--color-green-dark);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .start-card h3 {
+      margin-bottom: 0.35rem;
+    }
+
+    .start-card p {
+      margin: 0;
+      color: var(--color-muted);
+    }
+
     .guide-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -378,6 +450,10 @@ import CalculatorCard from "../components/CalculatorCard.astro";
       color: var(--color-muted);
     }
 
+    .hub-button-row {
+      margin-top: 1.2rem;
+    }
+
     .example-table {
       width: 100%;
       border-collapse: collapse;
@@ -414,12 +490,14 @@ import CalculatorCard from "../components/CalculatorCard.astro";
     }
 
     @media (max-width: 1100px) {
+      .start-grid,
       .guide-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
     @media (max-width: 760px) {
+      .start-grid,
       .guide-grid {
         grid-template-columns: 1fr;
       }
