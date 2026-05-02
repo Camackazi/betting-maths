@@ -1,0 +1,525 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="Matched Betting Calculator"
+  description="Use this free matched betting calculator to calculate qualifying bet loss, free bet profit, lay stake, lay liability and estimated overall result."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting calculator</p>
+    <h1>Matched Betting Calculator</h1>
+    <p class="lead">
+      Use this matched betting calculator to estimate the qualifying bet result, free bet lay stake, free bet profit and possible overall result.
+    </p>
+
+    <div class="callout">
+      <strong>Quick explanation:</strong> Matched betting normally combines a qualifying bet with a later free bet. The aim is to reduce risk using an exchange lay bet, but terms, odds, limits and commission matter.
+    </div>
+
+    <div class="calculator-panel">
+      <div class="calculator-header">
+        <div>
+          <h2>Enter the qualifying bet and free bet</h2>
+          <p>This calculator assumes a normal qualifying back bet and a stake-not-returned free bet.</p>
+        </div>
+        <button class="button secondary small-button" type="button" id="reset-matched">Reset example</button>
+      </div>
+
+      <h3>Qualifying bet</h3>
+      <div class="input-grid">
+        <label class="input-group">
+          <span>Qualifying stake</span>
+          <div class="money-input-wrap">
+            <span>£</span>
+            <input id="qual-stake" type="number" min="0.01" step="0.01" value="10" />
+          </div>
+          <small>The stake used to qualify for the offer.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Qualifying back odds</span>
+          <input id="qual-back-odds" type="number" min="1.01" step="0.01" value="2.00" />
+          <small>The bookmaker odds for the qualifying bet.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Qualifying lay odds</span>
+          <input id="qual-lay-odds" type="number" min="1.01" step="0.01" value="2.02" />
+          <small>The exchange lay odds for the qualifying bet.</small>
+        </label>
+      </div>
+
+      <h3>Free bet</h3>
+      <div class="input-grid">
+        <label class="input-group">
+          <span>Free bet stake</span>
+          <div class="money-input-wrap">
+            <span>£</span>
+            <input id="free-stake" type="number" min="0.01" step="0.01" value="30" />
+          </div>
+          <small>Assumes a stake-not-returned free bet.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Free bet back odds</span>
+          <input id="free-back-odds" type="number" min="1.01" step="0.01" value="5.00" />
+          <small>The bookmaker odds for the free bet.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Free bet lay odds</span>
+          <input id="free-lay-odds" type="number" min="1.01" step="0.01" value="5.20" />
+          <small>The exchange lay odds for the free bet.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Exchange commission</span>
+          <div class="percent-input-wrap">
+            <input id="commission" type="number" min="0" max="99" step="0.1" value="2" />
+            <span>%</span>
+          </div>
+          <small>Commission charged on exchange winnings.</small>
+        </label>
+      </div>
+
+      <div class="results-grid">
+        <div class="result-card">
+          <span>Qualifying lay stake</span>
+          <strong id="qual-lay-stake-result">£9.90</strong>
+        </div>
+        <div class="result-card">
+          <span>Qualifying result</span>
+          <strong id="qual-result">-£0.10</strong>
+        </div>
+        <div class="result-card">
+          <span>Free bet lay stake</span>
+          <strong id="free-lay-stake-result">£23.17</strong>
+        </div>
+        <div class="result-card">
+          <span>Free bet result</span>
+          <strong id="free-result">£22.70</strong>
+        </div>
+        <div class="result-card">
+          <span>Estimated overall result</span>
+          <strong id="overall-result">£22.60</strong>
+        </div>
+      </div>
+
+      <p class="result-note" id="result-note">
+        This offer produces an estimated overall result of about £22.60 after the qualifying result and free bet conversion.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What does a matched betting calculator do?</h2>
+    <p>
+      A matched betting calculator estimates the outcome of a bookmaker offer by combining a qualifying bet and a free bet. It calculates the lay stakes needed on an exchange and shows the estimated result after commission.
+    </p>
+    <p>
+      Matched betting calculations depend heavily on the offer terms. Minimum odds, qualifying rules, stake limits, expiry dates and market restrictions can all affect the real result.
+    </p>
+
+    <h2>How the calculation works</h2>
+    <div class="formula-box">
+      <p><strong>Qualifying lay stake</strong> = qualifying stake × back odds ÷ (lay odds − commission)</p>
+      <p><strong>Free bet lay stake</strong> = free bet stake × (back odds − 1) ÷ (lay odds − commission)</p>
+      <p><strong>Overall result</strong> = qualifying result + free bet result</p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Important matched betting risks</h2>
+    <ul class="standard-list">
+      <li>Odds can move before the lay bet is matched.</li>
+      <li>Exchange liquidity may not be enough at the required price.</li>
+      <li>Free bet terms may require minimum odds or specific markets.</li>
+      <li>Some free bets are stake not returned, while others work differently.</li>
+      <li>Bookmakers can restrict accounts or exclude customers from promotions.</li>
+      <li>Human error can turn a low-risk calculation into a loss.</li>
+    </ul>
+
+    <div class="callout">
+      <strong>Important:</strong> This calculator is for education and estimation only. Always check the exact offer terms before placing any bet.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Related calculators</h2>
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/free-bet-calculator/">
+        <h3>Free Bet Calculator</h3>
+        <p>Calculate stake-not-returned free bet conversion.</p>
+      </a>
+      <a class="related-card" href="/calculators/back-lay-calculator/">
+        <h3>Back/Lay Calculator</h3>
+        <p>Calculate lay stake, liability and back/lay outcomes.</p>
+      </a>
+      <a class="related-card" href="/calculators/lay-liability-calculator/">
+        <h3>Lay Liability Calculator</h3>
+        <p>Check the real exposure behind a lay bet.</p>
+      </a>
+    </div>
+  </section>
+
+  <style>
+    .calculator-panel {
+      margin-top: 1.5rem;
+      padding: 1.25rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      background: #ffffff;
+    }
+
+    .calculator-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .calculator-header h2 {
+      margin: 0;
+    }
+
+    .calculator-header p {
+      margin: 0.25rem 0 0;
+      color: var(--color-muted);
+    }
+
+    .calculator-panel h3 {
+      margin: 1.2rem 0 0.75rem;
+    }
+
+    .small-button {
+      padding: 0.55rem 0.75rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .input-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .input-group {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .input-group > span {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: var(--color-navy);
+      font-weight: 800;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      color: var(--color-text);
+      font: inherit;
+      font-size: 1.05rem;
+      background: white;
+    }
+
+    .input-group small {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--color-muted);
+    }
+
+    .money-input-wrap,
+    .percent-input-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      background: white;
+    }
+
+    .money-input-wrap span,
+    .percent-input-wrap span {
+      color: var(--color-muted);
+      font-weight: 800;
+    }
+
+    .money-input-wrap input,
+    .percent-input-wrap input {
+      border: 0;
+      padding: 0.5rem 0;
+      background: transparent;
+    }
+
+    .money-input-wrap input:focus,
+    .percent-input-wrap input:focus {
+      outline: 0;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .result-card {
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .result-card span {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: var(--color-muted);
+      font-size: 0.9rem;
+    }
+
+    .result-card strong {
+      display: block;
+      color: var(--color-navy);
+      font-size: 1.25rem;
+      line-height: 1.2;
+    }
+
+    .result-card strong.positive {
+      color: var(--color-green-dark);
+    }
+
+    .result-card strong.negative {
+      color: #b42318;
+    }
+
+    .result-note {
+      margin: 1rem 0 0;
+      padding: 1rem;
+      border-radius: 12px;
+      background: #eef8f3;
+      color: var(--color-green-dark);
+      font-weight: 700;
+    }
+
+    .result-note.warning {
+      background: #fff7e6;
+      color: #8a5a00;
+    }
+
+    .result-note.error {
+      background: #fff1f0;
+      color: #b42318;
+    }
+
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .formula-box {
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+
+    .formula-box p {
+      margin: 0.4rem 0;
+      font-weight: 700;
+    }
+
+    .standard-list {
+      padding-left: 1.3rem;
+    }
+
+    .standard-list li {
+      margin: 0.45rem 0;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .related-card {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .related-card p {
+      margin: 0;
+      color: var(--color-muted);
+    }
+
+    .callout a,
+    .article-section a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 1120px) {
+      .input-grid,
+      .results-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .calculator-header {
+        flex-direction: column;
+      }
+
+      .input-grid,
+      .results-grid,
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <script>
+    const qualStakeInput = document.getElementById("qual-stake");
+    const qualBackOddsInput = document.getElementById("qual-back-odds");
+    const qualLayOddsInput = document.getElementById("qual-lay-odds");
+    const freeStakeInput = document.getElementById("free-stake");
+    const freeBackOddsInput = document.getElementById("free-back-odds");
+    const freeLayOddsInput = document.getElementById("free-lay-odds");
+    const commissionInput = document.getElementById("commission");
+    const resetButton = document.getElementById("reset-matched");
+
+    const qualLayStakeResult = document.getElementById("qual-lay-stake-result");
+    const qualResult = document.getElementById("qual-result");
+    const freeLayStakeResult = document.getElementById("free-lay-stake-result");
+    const freeResult = document.getElementById("free-result");
+    const overallResult = document.getElementById("overall-result");
+    const resultNote = document.getElementById("result-note");
+
+    function formatMoney(value) {
+      return new Intl.NumberFormat("en-GB", {
+        style: "currency",
+        currency: "GBP",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }).format(value);
+    }
+
+    function setResultClass(element, value) {
+      element.className = value >= 0 ? "positive" : "negative";
+    }
+
+    function showError(message) {
+      qualLayStakeResult.textContent = "—";
+      qualResult.textContent = "—";
+      freeLayStakeResult.textContent = "—";
+      freeResult.textContent = "—";
+      overallResult.textContent = "—";
+      qualResult.className = "";
+      freeResult.className = "";
+      overallResult.className = "";
+      resultNote.textContent = message;
+      resultNote.className = "result-note error";
+    }
+
+    function calculateMatchedBetting() {
+      const qualStake = Number(qualStakeInput.value);
+      const qualBackOdds = Number(qualBackOddsInput.value);
+      const qualLayOdds = Number(qualLayOddsInput.value);
+      const freeStake = Number(freeStakeInput.value);
+      const freeBackOdds = Number(freeBackOddsInput.value);
+      const freeLayOdds = Number(freeLayOddsInput.value);
+      const commissionPercent = Number(commissionInput.value);
+      const commission = commissionPercent / 100;
+
+      const inputs = [qualStake, qualBackOdds, qualLayOdds, freeStake, freeBackOdds, freeLayOdds, commissionPercent];
+
+      if (inputs.some((value) => !Number.isFinite(value))) {
+        showError("Please enter valid numbers in every field.");
+        return;
+      }
+
+      if (qualStake <= 0 || freeStake <= 0) {
+        showError("Please enter stakes greater than £0.");
+        return;
+      }
+
+      if (qualBackOdds <= 1 || qualLayOdds <= 1 || freeBackOdds <= 1 || freeLayOdds <= 1) {
+        showError("Please enter decimal odds greater than 1.00.");
+        return;
+      }
+
+      if (commissionPercent < 0 || commissionPercent >= 100) {
+        showError("Please enter a commission percentage between 0 and 99.");
+        return;
+      }
+
+      const qualLayStake = (qualStake * qualBackOdds) / (qualLayOdds - commission);
+      const qualLiability = qualLayStake * (qualLayOdds - 1);
+      const qualBackWins = (qualStake * (qualBackOdds - 1)) - qualLiability;
+      const qualBackLoses = (qualLayStake * (1 - commission)) - qualStake;
+      const qualAverage = (qualBackWins + qualBackLoses) / 2;
+
+      const freeLayStake = (freeStake * (freeBackOdds - 1)) / (freeLayOdds - commission);
+      const freeLiability = freeLayStake * (freeLayOdds - 1);
+      const freeBetWins = (freeStake * (freeBackOdds - 1)) - freeLiability;
+      const freeBetLoses = freeLayStake * (1 - commission);
+      const freeAverage = (freeBetWins + freeBetLoses) / 2;
+
+      const overall = qualAverage + freeAverage;
+
+      qualLayStakeResult.textContent = formatMoney(qualLayStake);
+      qualResult.textContent = formatMoney(qualAverage);
+      freeLayStakeResult.textContent = formatMoney(freeLayStake);
+      freeResult.textContent = formatMoney(freeAverage);
+      overallResult.textContent = formatMoney(overall);
+
+      setResultClass(qualResult, qualAverage);
+      setResultClass(freeResult, freeAverage);
+      setResultClass(overallResult, overall);
+
+      if (overall >= 0) {
+        resultNote.textContent = `This offer produces an estimated overall result of about ${formatMoney(overall)} after the qualifying result and free bet conversion.`;
+        resultNote.className = "result-note";
+      } else {
+        resultNote.textContent = `These inputs produce an estimated overall loss of about ${formatMoney(Math.abs(overall))}. Check the odds, commission and offer terms.`;
+        resultNote.className = "result-note warning";
+      }
+    }
+
+    [qualStakeInput, qualBackOddsInput, qualLayOddsInput, freeStakeInput, freeBackOddsInput, freeLayOddsInput, commissionInput].forEach((input) => {
+      input.addEventListener("input", calculateMatchedBetting);
+    });
+
+    resetButton.addEventListener("click", () => {
+      qualStakeInput.value = "10";
+      qualBackOddsInput.value = "2.00";
+      qualLayOddsInput.value = "2.02";
+      freeStakeInput.value = "30";
+      freeBackOddsInput.value = "5.00";
+      freeLayOddsInput.value = "5.20";
+      commissionInput.value = "2";
+      calculateMatchedBetting();
+    });
+
+    calculateMatchedBetting();
+  </script>
+</MainLayout>
