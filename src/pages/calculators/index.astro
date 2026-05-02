@@ -5,13 +5,13 @@ import CalculatorCard from "../../components/CalculatorCard.astro";
 
 <MainLayout
   title="Free Betting Calculators"
-  description="Free betting calculators for odds, overround, dutching, hedging, back lay betting, lay liability, accumulators and each-way bets."
+  description="Free betting calculators for odds, overround, arbitrage, dutching, hedging, back lay betting, lay liability, Kelly Criterion staking, accumulators, each-way bets and Rule 4 deductions."
 >
   <section class="content-card">
     <p class="eyebrow">Betting calculators</p>
     <h1>Free Betting Calculators</h1>
     <p class="lead">
-      Use these free betting calculators to work out odds, implied probability, overround, dutching stakes, hedge bets, back/lay positions, lay liability, accumulators and each-way returns.
+      Use these free betting calculators to work out odds, implied probability, overround, arbitrage stakes, dutching stakes, hedge bets, back/lay positions, lay liability, Kelly staking, accumulators, each-way returns and Rule 4 deductions.
     </p>
 
     <div class="callout">
@@ -39,15 +39,9 @@ import CalculatorCard from "../../components/CalculatorCard.astro";
       />
 
       <CalculatorCard
-        title="Accumulator Calculator"
-        description="Multiply odds across multiple selections and calculate acca returns, profit and implied probability."
-        href="/calculators/accumulator-calculator/"
-      />
-
-      <CalculatorCard
-        title="Each-Way Calculator"
-        description="Calculate total stake, place odds, win profit, place-only result and losing outcome."
-        href="/calculators/each-way-calculator/"
+        title="Arbitrage Calculator"
+        description="Check whether odds create an underround and calculate the stake split across all outcomes."
+        href="/calculators/arbitrage-calculator/"
       />
 
       <CalculatorCard
@@ -72,6 +66,30 @@ import CalculatorCard from "../../components/CalculatorCard.astro";
         title="Lay Liability Calculator"
         description="Calculate lay liability, exchange commission and profit or loss from a lay bet."
         href="/calculators/lay-liability-calculator/"
+      />
+
+      <CalculatorCard
+        title="Kelly Criterion Calculator"
+        description="Estimate stake size from bankroll, odds, your estimated probability and fractional Kelly."
+        href="/calculators/kelly-criterion-calculator/"
+      />
+
+      <CalculatorCard
+        title="Accumulator Calculator"
+        description="Multiply odds across multiple selections and calculate acca returns, profit and implied probability."
+        href="/calculators/accumulator-calculator/"
+      />
+
+      <CalculatorCard
+        title="Each-Way Calculator"
+        description="Calculate total stake, place odds, win profit, place-only result and losing outcome."
+        href="/calculators/each-way-calculator/"
+      />
+
+      <CalculatorCard
+        title="Rule 4 Calculator"
+        description="Estimate horse racing Rule 4 deductions, adjusted profit and adjusted return."
+        href="/calculators/rule-4-calculator/"
       />
     </div>
   </section>
@@ -102,14 +120,9 @@ import CalculatorCard from "../../components/CalculatorCard.astro";
           <td>Book percentage, overround and market margin.</td>
         </tr>
         <tr>
-          <td>Work out accumulator returns</td>
-          <td><a href="/calculators/accumulator-calculator/">Accumulator Calculator</a></td>
-          <td>Combined odds, return, profit and implied probability.</td>
-        </tr>
-        <tr>
-          <td>Calculate each-way returns</td>
-          <td><a href="/calculators/each-way-calculator/">Each-Way Calculator</a></td>
-          <td>Total stake, place odds, win result, place-only result and loss.</td>
+          <td>Check whether odds create an arbitrage</td>
+          <td><a href="/calculators/arbitrage-calculator/">Arbitrage Calculator</a></td>
+          <td>Underround, stake split, equal return and estimated profit.</td>
         </tr>
         <tr>
           <td>Split stakes across multiple selections</td>
@@ -131,6 +144,26 @@ import CalculatorCard from "../../components/CalculatorCard.astro";
           <td><a href="/calculators/lay-liability-calculator/">Lay Liability Calculator</a></td>
           <td>Lay liability, gross win, commission and result if the selection wins or loses.</td>
         </tr>
+        <tr>
+          <td>Estimate stake size from an edge</td>
+          <td><a href="/calculators/kelly-criterion-calculator/">Kelly Criterion Calculator</a></td>
+          <td>Full Kelly, fractional Kelly, edge and suggested stake.</td>
+        </tr>
+        <tr>
+          <td>Work out accumulator returns</td>
+          <td><a href="/calculators/accumulator-calculator/">Accumulator Calculator</a></td>
+          <td>Combined odds, return, profit and implied probability.</td>
+        </tr>
+        <tr>
+          <td>Calculate each-way returns</td>
+          <td><a href="/calculators/each-way-calculator/">Each-Way Calculator</a></td>
+          <td>Total stake, place odds, win result, place-only result and loss.</td>
+        </tr>
+        <tr>
+          <td>Estimate horse racing Rule 4 deductions</td>
+          <td><a href="/calculators/rule-4-calculator/">Rule 4 Calculator</a></td>
+          <td>Original profit, deduction amount, adjusted profit and adjusted return.</td>
+        </tr>
       </tbody>
     </table>
   </section>
@@ -138,7 +171,7 @@ import CalculatorCard from "../../components/CalculatorCard.astro";
   <section class="content-card article-section">
     <h2>Odds and market margin calculators</h2>
     <p>
-      These calculators help explain the price of a bet and the margin built into a market.
+      These calculators help explain the price of a bet, the probability implied by the odds, and the margin built into a market.
     </p>
 
     <div class="related-grid">
@@ -151,13 +184,18 @@ import CalculatorCard from "../../components/CalculatorCard.astro";
         <h3>Overround Calculator</h3>
         <p>Check book percentage, overround, underround and bookmaker margin.</p>
       </a>
+
+      <a class="related-card" href="/calculators/arbitrage-calculator/">
+        <h3>Arbitrage Calculator</h3>
+        <p>Check whether a set of prices creates an underround across all outcomes.</p>
+      </a>
     </div>
   </section>
 
   <section class="content-card article-section">
     <h2>Staking and returns calculators</h2>
     <p>
-      These calculators help work out possible returns from common bet types.
+      These calculators help work out possible returns, deductions and stake sizing from common betting situations.
     </p>
 
     <div class="related-grid">
@@ -174,6 +212,16 @@ import CalculatorCard from "../../components/CalculatorCard.astro";
       <a class="related-card" href="/calculators/dutching-calculator/">
         <h3>Dutching Calculator</h3>
         <p>Split a stake across two or more selections for balanced returns.</p>
+      </a>
+
+      <a class="related-card" href="/calculators/kelly-criterion-calculator/">
+        <h3>Kelly Criterion Calculator</h3>
+        <p>Estimate stake size based on bankroll, odds and your estimated probability.</p>
+      </a>
+
+      <a class="related-card" href="/calculators/rule-4-calculator/">
+        <h3>Rule 4 Calculator</h3>
+        <p>Estimate horse racing Rule 4 deductions from winnings.</p>
       </a>
     </div>
   </section>
@@ -222,6 +270,11 @@ import CalculatorCard from "../../components/CalculatorCard.astro";
       <a class="related-card" href="/guides/how-to-hedge-a-bet/">
         <h3>How to Hedge a Bet</h3>
         <p>Learn how back and lay hedging works.</p>
+      </a>
+
+      <a class="related-card" href="/guides/dutching-vs-arbitrage/">
+        <h3>Dutching vs Arbitrage</h3>
+        <p>Learn the difference between dutching and arbitrage.</p>
       </a>
 
       <a class="related-card" href="/glossary/betting-jargon-explained/">
