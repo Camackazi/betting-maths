@@ -1,0 +1,385 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="What Is a Free Bet?"
+  description="Learn what a free bet is, how stake-not-returned free bets work, how to calculate free bet value, and why terms, odds and lay liability matter."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting maths guide</p>
+    <h1>What Is a Free Bet?</h1>
+    <p class="lead">
+      A free bet is a bookmaker promotion where you can place a bet using bonus credit instead of your own cash. The important detail is whether the free bet stake is returned if the bet wins.
+    </p>
+
+    <div class="callout">
+      <strong>Quick answer:</strong> Many free bets are stake not returned, meaning only the profit part is paid if the free bet wins. That makes the free bet worth less than its headline amount.
+    </div>
+
+    <div class="article-link-box">
+      <a class="button primary" href="/calculators/free-bet-calculator/">Use the Free Bet Calculator</a>
+      <a class="button secondary" href="/calculators/back-lay-calculator/">Use the Back/Lay Calculator</a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What does free bet mean?</h2>
+    <p>
+      A free bet is a promotional bet offered by a bookmaker. It might be given after you sign up, place a qualifying bet, take part in an offer, or receive a retention promotion.
+    </p>
+    <p>
+      The term “free bet” can be misleading because the bet usually comes with conditions. There may be minimum odds, expiry dates, qualifying rules, market restrictions and rules about whether the stake is returned.
+    </p>
+
+    <h2>The most important free bet rule</h2>
+    <p>
+      The most important thing to check is whether the free bet is <strong>stake returned</strong> or <strong>stake not returned</strong>.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Free bet type</th>
+          <th>What happens if it wins?</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Stake not returned</td>
+          <td>Only the profit part is paid.</td>
+          <td>£10 free bet at 5.00 pays £40 profit.</td>
+        </tr>
+        <tr>
+          <td>Stake returned</td>
+          <td>The stake is included in the return.</td>
+          <td>£10 bet at 5.00 pays £50 total return.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Key point:</strong> Most bookmaker free bets are stake not returned, so a £10 free bet is not usually the same as a £10 cash bet.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Stake not returned free bet example</h2>
+    <p>
+      Suppose you have a £50 free bet and use it at decimal odds of 6.00. If it is stake not returned, only the profit part is paid.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Free bet stake</th>
+          <th>Odds</th>
+          <th>Normal cash return</th>
+          <th>Stake-not-returned payout</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>£50</td>
+          <td>6.00</td>
+          <td>£300 total return</td>
+          <td>£250 profit</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      The missing £50 is the free bet stake. The bookmaker does not usually return that part because it was promotional credit rather than cash.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Stake-not-returned payout</strong> = free bet stake × (odds − 1)</p>
+      <p>£50 × (6.00 − 1) = £250</p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>How much is a free bet really worth?</h2>
+    <p>
+      A free bet is usually worth less than its headline value because it may not return the stake and may need to be converted through a real bet.
+    </p>
+    <p>
+      For example, a £50 stake-not-returned free bet might realistically convert into around £35 to £45 depending on the odds, lay odds, commission and terms.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Free bet value</th>
+          <th>Back odds</th>
+          <th>Lay odds</th>
+          <th>Commission</th>
+          <th>Estimated profit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>£50</td>
+          <td>6.00</td>
+          <td>5.50</td>
+          <td>2%</td>
+          <td>About £44.71</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      The exact figure depends on the numbers used. The <a href="/calculators/free-bet-calculator/">Free Bet Calculator</a> works this out automatically.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Free bet lay stake</h2>
+    <p>
+      If you are using a betting exchange to reduce risk, you may back the selection with the free bet and lay the same selection on an exchange.
+    </p>
+    <p>
+      For a stake-not-returned free bet, the lay stake formula is different from a normal cash bet because the free bet stake itself is not returned if the bet wins.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Lay stake</strong> = free bet stake × (back odds − 1) ÷ (lay odds − commission)</p>
+      <p><strong>Lay liability</strong> = lay stake × (lay odds − 1)</p>
+    </div>
+
+    <p>
+      This is why free bet, back/lay and matched betting calculations are closely linked.
+    </p>
+
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/free-bet-calculator/">
+        <h3>Free Bet Calculator</h3>
+        <p>Calculate free bet lay stake, liability and conversion rate.</p>
+      </a>
+      <a class="related-card" href="/calculators/back-lay-calculator/">
+        <h3>Back/Lay Calculator</h3>
+        <p>Calculate lay stake and liability for back and lay positions.</p>
+      </a>
+      <a class="related-card" href="/calculators/lay-liability-calculator/">
+        <h3>Lay Liability Calculator</h3>
+        <p>Understand the real risk created by a lay bet.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Common free bet terms to check</h2>
+
+    <ul class="standard-list">
+      <li><strong>Minimum odds:</strong> the lowest odds allowed for the free bet to qualify.</li>
+      <li><strong>Expiry date:</strong> when the free bet must be used by.</li>
+      <li><strong>Eligible markets:</strong> which sports, races, matches or bet types are allowed.</li>
+      <li><strong>Stake returned or not returned:</strong> whether the free bet stake is included in winnings.</li>
+      <li><strong>Winnings paid as cash or bonus:</strong> whether profits can be withdrawn immediately.</li>
+      <li><strong>Qualifying bet rules:</strong> what you had to do to receive the free bet.</li>
+      <li><strong>Excluded bet types:</strong> some offers exclude each-way bets, cash out, boosted odds or certain markets.</li>
+    </ul>
+
+    <div class="callout">
+      <strong>Important:</strong> A free bet can look valuable, but the real value depends on the terms and the odds you can actually use.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Free bets and matched betting</h2>
+    <p>
+      Free bets are often discussed in matched betting because a bettor may place a qualifying bet to receive a free bet, then use a lay bet to reduce risk when converting the free bet.
+    </p>
+    <p>
+      This can be calculated, but it is not risk-free in practice. Odds can move, exchanges charge commission, markets can suspend, and mistakes can change the result.
+    </p>
+
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/matched-betting-calculator/">
+        <h3>Matched Betting Calculator</h3>
+        <p>Estimate qualifying loss, free bet conversion and overall result.</p>
+      </a>
+      <a class="related-card" href="/guides/what-is-matched-betting/">
+        <h3>What Is Matched Betting?</h3>
+        <p>Learn how matched betting works in plain English.</p>
+      </a>
+      <a class="related-card" href="/guides/stake-returned-vs-stake-not-returned/">
+        <h3>Stake Returned vs Stake Not Returned</h3>
+        <p>Understand one of the most important free bet terms.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Common free bet mistakes</h2>
+
+    <h3>Assuming a free bet is the same as cash</h3>
+    <p>
+      A £20 free bet is not usually the same as £20 cash because the stake may not be returned and terms may restrict how it can be used.
+    </p>
+
+    <h3>Ignoring the minimum odds</h3>
+    <p>
+      Some offers only count if the free bet is used at minimum odds, such as 2.00, 3.00 or higher.
+    </p>
+
+    <h3>Using the wrong calculation</h3>
+    <p>
+      Stake-not-returned free bets need a different lay stake calculation from normal cash bets.
+    </p>
+
+    <h3>Forgetting exchange commission</h3>
+    <p>
+      Commission reduces exchange winnings, which affects the correct lay stake and final profit.
+    </p>
+
+    <h3>Letting the free bet expire</h3>
+    <p>
+      Free bets often have short expiry windows. If they expire, they may become worthless.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Free bet FAQs</h2>
+
+    <h3>Is a free bet really free?</h3>
+    <p>
+      Not always. It may require a qualifying bet or have restrictions. The free bet itself may be promotional credit rather than withdrawable cash.
+    </p>
+
+    <h3>What does stake not returned mean?</h3>
+    <p>
+      It means the free bet stake is not included in the payout. Only the profit part is paid if the bet wins.
+    </p>
+
+    <h3>Can you withdraw a free bet?</h3>
+    <p>
+      Usually not directly. You normally have to place the free bet first. Whether winnings are withdrawable depends on the terms.
+    </p>
+
+    <h3>Why does lay liability matter?</h3>
+    <p>
+      If you lay the same selection on an exchange, the liability is the amount you could lose on the exchange if the selection wins.
+    </p>
+
+    <h3>Which calculator should I use?</h3>
+    <p>
+      Use the Free Bet Calculator for free bet conversion, or the Matched Betting Calculator if you want to include both the qualifying bet and the free bet.
+    </p>
+
+    <div class="callout">
+      <strong>Responsible note:</strong> Free bet calculations can help explain offers, but they do not remove betting risk. Always read the terms and never bet more than you can afford to lose.
+    </div>
+  </section>
+
+  <style>
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .article-link-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .formula-box {
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+
+    .formula-box p {
+      margin: 0.4rem 0;
+      font-weight: 700;
+    }
+
+    .standard-list {
+      padding-left: 1.3rem;
+    }
+
+    .standard-list li {
+      margin: 0.45rem 0;
+    }
+
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .example-table th,
+    .example-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .example-table th {
+      color: var(--color-navy);
+      background: #f4f7fa;
+      font-size: 0.9rem;
+    }
+
+    .example-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .related-card {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .related-card:hover {
+      border-color: rgba(31, 138, 91, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .related-card h3 {
+      margin-bottom: 0.35rem;
+    }
+
+    .related-card p {
+      margin: 0;
+      color: var(--color-muted);
+    }
+
+    .callout a,
+    .article-section a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 980px) {
+      .related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</MainLayout>
