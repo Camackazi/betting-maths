@@ -5,13 +5,13 @@ import CalculatorCard from "../../components/CalculatorCard.astro";
 
 <MainLayout
   title="Free Betting Calculators"
-  description="Free betting calculators for odds, overround, arbitrage, dutching, hedging, back lay betting, lay liability, Kelly Criterion staking, accumulators, each-way bets and Rule 4 deductions."
+  description="Free betting calculators for odds, overround, arbitrage, dutching, hedging, free bets, matched betting, back lay betting, lay liability, Kelly Criterion staking, accumulators, each-way bets, extra places and Rule 4 deductions."
 >
   <section class="content-card">
     <p class="eyebrow">Betting calculators</p>
     <h1>Free Betting Calculators</h1>
     <p class="lead">
-      Use these free betting calculators to work out odds, implied probability, overround, arbitrage stakes, dutching stakes, hedge bets, back/lay positions, lay liability, Kelly staking, accumulators, each-way returns and Rule 4 deductions.
+      Use these free betting calculators to work out odds, implied probability, overround, arbitrage stakes, dutching stakes, hedge bets, free bets, matched betting, back/lay positions, lay liability, Kelly staking, accumulators, each-way returns, extra places and Rule 4 deductions.
     </p>
 
     <div class="callout">
@@ -63,6 +63,18 @@ import CalculatorCard from "../../components/CalculatorCard.astro";
       />
 
       <CalculatorCard
+        title="Free Bet Calculator"
+        description="Calculate lay stake, lay liability, profit and conversion rate for free bet offers."
+        href="/calculators/free-bet-calculator/"
+      />
+
+      <CalculatorCard
+        title="Matched Betting Calculator"
+        description="Estimate qualifying loss, free bet profit, lay stakes and overall matched betting result."
+        href="/calculators/matched-betting-calculator/"
+      />
+
+      <CalculatorCard
         title="Lay Liability Calculator"
         description="Calculate lay liability, exchange commission and profit or loss from a lay bet."
         href="/calculators/lay-liability-calculator/"
@@ -84,6 +96,12 @@ import CalculatorCard from "../../components/CalculatorCard.astro";
         title="Each-Way Calculator"
         description="Calculate total stake, place odds, win profit, place-only result and losing outcome."
         href="/calculators/each-way-calculator/"
+      />
+
+      <CalculatorCard
+        title="Each-Way Extra Places Calculator"
+        description="Compare standard each-way results with enhanced extra places offers."
+        href="/calculators/each-way-extra-places-calculator/"
       />
 
       <CalculatorCard
@@ -140,6 +158,16 @@ import CalculatorCard from "../../components/CalculatorCard.astro";
           <td>Lay stake, lay liability, commission and balanced result.</td>
         </tr>
         <tr>
+          <td>Convert a free bet into profit</td>
+          <td><a href="/calculators/free-bet-calculator/">Free Bet Calculator</a></td>
+          <td>Lay stake, liability, conversion rate and free bet profit.</td>
+        </tr>
+        <tr>
+          <td>Estimate a matched betting offer</td>
+          <td><a href="/calculators/matched-betting-calculator/">Matched Betting Calculator</a></td>
+          <td>Qualifying result, free bet result and estimated overall profit.</td>
+        </tr>
+        <tr>
           <td>Understand the risk on a lay bet</td>
           <td><a href="/calculators/lay-liability-calculator/">Lay Liability Calculator</a></td>
           <td>Lay liability, gross win, commission and result if the selection wins or loses.</td>
@@ -158,6 +186,11 @@ import CalculatorCard from "../../components/CalculatorCard.astro";
           <td>Calculate each-way returns</td>
           <td><a href="/calculators/each-way-calculator/">Each-Way Calculator</a></td>
           <td>Total stake, place odds, win result, place-only result and loss.</td>
+        </tr>
+        <tr>
+          <td>Compare standard places with extra places</td>
+          <td><a href="/calculators/each-way-extra-places-calculator/">Each-Way Extra Places Calculator</a></td>
+          <td>Standard result, extra places result and the difference.</td>
         </tr>
         <tr>
           <td>Estimate horse racing Rule 4 deductions</td>
@@ -193,9 +226,9 @@ import CalculatorCard from "../../components/CalculatorCard.astro";
   </section>
 
   <section class="content-card article-section">
-    <h2>Staking and returns calculators</h2>
+    <h2>Staking, offers and returns calculators</h2>
     <p>
-      These calculators help work out possible returns, deductions and stake sizing from common betting situations.
+      These calculators help work out possible returns, deductions, offer value and stake sizing from common betting situations.
     </p>
 
     <div class="related-grid">
@@ -209,9 +242,24 @@ import CalculatorCard from "../../components/CalculatorCard.astro";
         <p>Calculate win, place-only and losing outcomes for each-way bets.</p>
       </a>
 
+      <a class="related-card" href="/calculators/each-way-extra-places-calculator/">
+        <h3>Each-Way Extra Places Calculator</h3>
+        <p>Compare standard place terms with enhanced extra places offers.</p>
+      </a>
+
       <a class="related-card" href="/calculators/dutching-calculator/">
         <h3>Dutching Calculator</h3>
         <p>Split a stake across two or more selections for balanced returns.</p>
+      </a>
+
+      <a class="related-card" href="/calculators/free-bet-calculator/">
+        <h3>Free Bet Calculator</h3>
+        <p>Calculate free bet lay stakes, liability and conversion rate.</p>
+      </a>
+
+      <a class="related-card" href="/calculators/matched-betting-calculator/">
+        <h3>Matched Betting Calculator</h3>
+        <p>Estimate qualifying bet loss, free bet conversion and overall result.</p>
       </a>
 
       <a class="related-card" href="/calculators/kelly-criterion-calculator/">
