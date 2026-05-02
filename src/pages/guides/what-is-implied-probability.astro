@@ -1,0 +1,607 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="What Is Implied Probability in Betting?"
+  description="Learn what implied probability means in betting, how to convert odds into percentage chance, and how implied probability links to overround, bookmaker margin and betting value."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting maths guide</p>
+    <h1>What Is Implied Probability in Betting?</h1>
+    <p class="lead">
+      Implied probability converts betting odds into a percentage chance. It helps show what the odds are suggesting before you decide whether a price looks fair, short or generous.
+    </p>
+
+    <div class="callout">
+      <strong>Quick answer:</strong> With decimal odds, implied probability is calculated as 1 divided by the odds, multiplied by 100. Decimal odds of 2.00 imply a 50% chance.
+    </div>
+
+    <div class="article-link-box">
+      <a class="button primary" href="/calculators/odds-converter/">Use the Odds Converter</a>
+      <a class="button secondary" href="/calculators/overround-calculator/">Check Market Overround</a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What does implied probability mean?</h2>
+    <p>
+      Implied probability is the percentage chance suggested by a set of betting odds. It does not mean the outcome will happen. It simply translates the price into probability language.
+    </p>
+    <p>
+      For example, decimal odds of 4.00 imply a 25% chance. That means the odds suggest the outcome would happen once in every four similar situations before considering bookmaker margin.
+    </p>
+
+    <h2>Decimal odds implied probability formula</h2>
+    <p>
+      The easiest version is for decimal odds:
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Implied probability</strong> = 1 ÷ decimal odds × 100</p>
+    </div>
+
+    <p>
+      So if the decimal odds are 2.50:
+    </p>
+
+    <div class="formula-box">
+      <p>1 ÷ 2.50 × 100 = 40%</p>
+    </div>
+
+    <p>
+      That means odds of 2.50 imply a 40% chance.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Simple implied probability examples</h2>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Decimal odds</th>
+          <th>Implied probability</th>
+          <th>Plain-English meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1.50</td>
+          <td>66.67%</td>
+          <td>The odds suggest the outcome is more likely than not.</td>
+        </tr>
+        <tr>
+          <td>2.00</td>
+          <td>50.00%</td>
+          <td>The odds suggest an even chance before margin.</td>
+        </tr>
+        <tr>
+          <td>3.00</td>
+          <td>33.33%</td>
+          <td>The odds suggest a one-in-three chance.</td>
+        </tr>
+        <tr>
+          <td>5.00</td>
+          <td>20.00%</td>
+          <td>The odds suggest a one-in-five chance.</td>
+        </tr>
+        <tr>
+          <td>10.00</td>
+          <td>10.00%</td>
+          <td>The odds suggest a one-in-ten chance.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Try it yourself:</strong> The <a href="/calculators/odds-converter/">Odds Converter</a> converts decimal, fractional and American odds into implied probability automatically.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Fractional odds implied probability</h2>
+    <p>
+      Fractional odds show profit relative to stake. For example, odds of 4/1 mean you win £4 profit for every £1 staked.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Implied probability</strong> = denominator ÷ (numerator + denominator) × 100</p>
+    </div>
+
+    <p>
+      For example, fractional odds of 4/1:
+    </p>
+
+    <div class="formula-box">
+      <p>1 ÷ (4 + 1) × 100 = 20%</p>
+    </div>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Fractional odds</th>
+          <th>Decimal odds</th>
+          <th>Implied probability</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1/2</td>
+          <td>1.50</td>
+          <td>66.67%</td>
+        </tr>
+        <tr>
+          <td>1/1</td>
+          <td>2.00</td>
+          <td>50.00%</td>
+        </tr>
+        <tr>
+          <td>2/1</td>
+          <td>3.00</td>
+          <td>33.33%</td>
+        </tr>
+        <tr>
+          <td>4/1</td>
+          <td>5.00</td>
+          <td>20.00%</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>American odds implied probability</h2>
+    <p>
+      American odds use positive and negative numbers. Positive odds show how much profit you would make from a 100 stake. Negative odds show how much you need to stake to make 100 profit.
+    </p>
+
+    <h3>Positive American odds</h3>
+    <div class="formula-box">
+      <p><strong>Implied probability</strong> = 100 ÷ (American odds + 100) × 100</p>
+    </div>
+
+    <p>
+      For example, American odds of +300:
+    </p>
+
+    <div class="formula-box">
+      <p>100 ÷ (300 + 100) × 100 = 25%</p>
+    </div>
+
+    <h3>Negative American odds</h3>
+    <div class="formula-box">
+      <p><strong>Implied probability</strong> = absolute odds ÷ (absolute odds + 100) × 100</p>
+    </div>
+
+    <p>
+      For example, American odds of -200:
+    </p>
+
+    <div class="formula-box">
+      <p>200 ÷ (200 + 100) × 100 = 66.67%</p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Implied probability and bookmaker margin</h2>
+    <p>
+      Implied probability becomes especially useful when you add every outcome in a market together. In a fair theoretical market, all outcomes would add up to exactly 100%.
+    </p>
+    <p>
+      In most bookmaker markets, the total is above 100%. This extra amount is called the overround and represents the bookmaker’s built-in margin.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Outcome</th>
+          <th>Decimal odds</th>
+          <th>Implied probability</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Home win</td>
+          <td>2.10</td>
+          <td>47.62%</td>
+        </tr>
+        <tr>
+          <td>Draw</td>
+          <td>3.40</td>
+          <td>29.41%</td>
+        </tr>
+        <tr>
+          <td>Away win</td>
+          <td>3.60</td>
+          <td>27.78%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="formula-box">
+      <p>47.62% + 29.41% + 27.78% = 104.81%</p>
+    </div>
+
+    <p>
+      This market has a book percentage of 104.81%, so the overround is 4.81%.
+    </p>
+
+    <div class="callout">
+      <strong>Useful tool:</strong> Use the <a href="/calculators/overround-calculator/">Overround Calculator</a> to add market probabilities and calculate bookmaker margin.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Implied probability does not mean true probability</h2>
+    <p>
+      This is one of the most important points. Implied probability tells you what the odds suggest. It does not prove the true chance of the outcome.
+    </p>
+    <p>
+      A team priced at 5.00 has an implied probability of 20%. That does not mean the team has exactly a 20% true chance. The real chance may be higher or lower depending on team news, market information, bookmaker margin, liquidity and other factors.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Implied probability</td>
+          <td>The chance suggested by the odds.</td>
+        </tr>
+        <tr>
+          <td>True probability</td>
+          <td>The real chance of the outcome, which is difficult to know.</td>
+        </tr>
+        <tr>
+          <td>Value</td>
+          <td>When the odds appear bigger than the true chance suggests they should be.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Key point:</strong> Betting value depends on comparing the odds with your view of the true probability. Implied probability alone does not tell you whether a bet is good value.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Implied probability and value betting</h2>
+    <p>
+      Value betting is based on the idea that the odds may sometimes be bigger than the true chance of the outcome.
+    </p>
+    <p>
+      For example, if odds of 3.00 imply a 33.33% chance, but you believe the true chance is closer to 40%, you might consider that price to be value.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Odds</th>
+          <th>Implied probability</th>
+          <th>Your estimated chance</th>
+          <th>Possible interpretation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>3.00</td>
+          <td>33.33%</td>
+          <td>40%</td>
+          <td>May be value if your estimate is accurate.</td>
+        </tr>
+        <tr>
+          <td>3.00</td>
+          <td>33.33%</td>
+          <td>25%</td>
+          <td>May be poor value if your estimate is accurate.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      The difficult part is estimating the true probability accurately. That is why betting is uncertain even when the maths is clear.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Implied probability and accumulators</h2>
+    <p>
+      Accumulators multiply odds together, which means the combined implied probability can fall quickly as more selections are added.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Selections</th>
+          <th>Combined decimal odds</th>
+          <th>Implied probability</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2.00 × 2.00</td>
+          <td>4.00</td>
+          <td>25.00%</td>
+        </tr>
+        <tr>
+          <td>2.00 × 2.00 × 2.00</td>
+          <td>8.00</td>
+          <td>12.50%</td>
+        </tr>
+        <tr>
+          <td>2.00 × 2.00 × 2.00 × 2.00</td>
+          <td>16.00</td>
+          <td>6.25%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      This is why accumulators can offer big returns but become harder to land as more legs are added.
+    </p>
+
+    <div class="callout">
+      <strong>Related calculator:</strong> Use the <a href="/calculators/accumulator-calculator/">Accumulator Calculator</a> to calculate combined odds, return, profit and implied probability.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Implied probability and dutching</h2>
+    <p>
+      Dutching uses implied probability to split a stake across multiple selections. The calculator adds the implied probabilities of the selections you want to cover, then works out the stake needed on each one.
+    </p>
+    <p>
+      If the selections you cover add up to less than 100%, the dutched position may produce an equalised profit. If they add up to more than 100%, the equalised result may be a loss.
+    </p>
+
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/dutching-calculator/">
+        <h3>Dutching Calculator</h3>
+        <p>Split stakes across multiple selections.</p>
+      </a>
+      <a class="related-card" href="/guides/what-is-dutching/">
+        <h3>What Is Dutching?</h3>
+        <p>Learn how dutching works in betting.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Implied probability and hedging</h2>
+    <p>
+      Hedging and back/lay calculations also depend on odds and probability. If a selection’s odds shorten after you have backed it, the implied probability has increased. That may create an opportunity to lay the selection and balance the result.
+    </p>
+    <p>
+      For example, if you backed a selection at 6.00, the implied probability was 16.67%. If the price later shortens to 2.00, the implied probability has moved to 50%.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Stage</th>
+          <th>Decimal odds</th>
+          <th>Implied probability</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Original back price</td>
+          <td>6.00</td>
+          <td>16.67%</td>
+        </tr>
+        <tr>
+          <td>Later lay price</td>
+          <td>2.00</td>
+          <td>50.00%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      This kind of odds movement is why implied probability is useful for understanding hedging and trading.
+    </p>
+
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/hedge-bet-calculator/">
+        <h3>Hedge Bet Calculator</h3>
+        <p>Calculate back-first and lay-first hedge positions.</p>
+      </a>
+      <a class="related-card" href="/calculators/back-lay-calculator/">
+        <h3>Back/Lay Calculator</h3>
+        <p>Calculate lay stake, liability and commission.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Common implied probability mistakes</h2>
+
+    <h3>Thinking implied probability is a prediction</h3>
+    <p>
+      Implied probability is based on odds. It is not a guaranteed prediction of what will happen.
+    </p>
+
+    <h3>Ignoring bookmaker margin</h3>
+    <p>
+      In bookmaker markets, the implied probabilities usually add up to more than 100%. That margin affects how the market should be interpreted.
+    </p>
+
+    <h3>Comparing one price without looking at the market</h3>
+    <p>
+      A single price can be useful, but looking at the full market gives more context. This is where overround and book percentage matter.
+    </p>
+
+    <h3>Assuming bigger odds always mean better value</h3>
+    <p>
+      Bigger odds mean a lower implied probability and a higher potential return. They are only better value if the true chance is higher than the odds suggest.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Related betting calculators</h2>
+
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/odds-converter/">
+        <h3>Odds Converter</h3>
+        <p>Convert odds and calculate implied probability.</p>
+      </a>
+      <a class="related-card" href="/calculators/overround-calculator/">
+        <h3>Overround Calculator</h3>
+        <p>Calculate book percentage and bookmaker margin.</p>
+      </a>
+      <a class="related-card" href="/calculators/accumulator-calculator/">
+        <h3>Accumulator Calculator</h3>
+        <p>Calculate combined odds and implied probability.</p>
+      </a>
+      <a class="related-card" href="/calculators/dutching-calculator/">
+        <h3>Dutching Calculator</h3>
+        <p>Use implied probability to split stakes.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Implied probability FAQs</h2>
+
+    <h3>What is implied probability in simple terms?</h3>
+    <p>
+      Implied probability is the percentage chance suggested by betting odds. It turns odds into a probability figure.
+    </p>
+
+    <h3>How do you calculate implied probability from decimal odds?</h3>
+    <p>
+      Divide 1 by the decimal odds, then multiply by 100. For example, 1 ÷ 2.00 × 100 = 50%.
+    </p>
+
+    <h3>Do odds show the true chance of an outcome?</h3>
+    <p>
+      Not necessarily. Odds show the price being offered. The true chance may be higher or lower than the implied probability.
+    </p>
+
+    <h3>Why do all probabilities in a bookmaker market add up to more than 100%?</h3>
+    <p>
+      Because bookmakers usually build margin into their odds. The amount above 100% is called the overround.
+    </p>
+
+    <h3>Is lower implied probability better?</h3>
+    <p>
+      Not automatically. Lower implied probability usually means bigger odds and a less likely outcome. Whether it is good value depends on the true chance.
+    </p>
+
+    <h3>How does implied probability help with accumulators?</h3>
+    <p>
+      It shows how unlikely a combined set of selections may be according to the combined odds. As accumulator odds increase, the implied probability falls.
+    </p>
+
+    <div class="callout">
+      <strong>Responsible note:</strong> Understanding implied probability can help you read odds more clearly, but it does not guarantee profit or remove betting risk.
+    </div>
+  </section>
+
+  <style>
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .article-link-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .formula-box {
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+
+    .formula-box p {
+      margin: 0.4rem 0;
+      font-weight: 700;
+    }
+
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .example-table th,
+    .example-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .example-table th {
+      color: var(--color-navy);
+      background: #f4f7fa;
+      font-size: 0.9rem;
+    }
+
+    .example-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .related-card {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .related-card:hover {
+      border-color: rgba(31, 138, 91, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .related-card h3 {
+      margin-bottom: 0.35rem;
+    }
+
+    .related-card p {
+      margin: 0;
+      color: var(--color-muted);
+    }
+
+    .callout a,
+    .article-section a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 980px) {
+      .related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</MainLayout>
