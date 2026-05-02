@@ -5,7 +5,7 @@ import CalculatorCard from "../components/CalculatorCard.astro";
 
 <MainLayout
   title="Free Betting Calculators and Betting Maths Guides"
-  description="Free betting calculators and plain-English guides to help you understand odds, overround, arbitrage, dutching, hedging, free bets, matched betting, back lay betting, accumulators, each-way bets, lay liability, bookmaker margin and betting jargon."
+  description="Free betting calculators and plain-English guides to help you understand odds, overround, arbitrage, dutching, hedging, free bets, matched betting, back lay betting, accumulators, each-way bets, extra places, Rule 4, lay liability, bookmaker margin and betting jargon."
 >
   <section class="hero">
     <p class="eyebrow">Betting calculators and plain-English guides</p>
@@ -46,13 +46,13 @@ import CalculatorCard from "../components/CalculatorCard.astro";
       <a class="start-card" href="/guides/">
         <span>Guide hub</span>
         <h3>Learn the concepts</h3>
-        <p>Read plain-English guides to implied probability, bookmaker margin, free bets, matched betting, overround, dutching, hedging, cash out and arbitrage.</p>
+        <p>Read plain-English guides to implied probability, bookmaker margin, free bets, matched betting, each-way terms, Rule 4, overround, dutching and hedging.</p>
       </a>
 
       <a class="start-card" href="/glossary/betting-jargon-explained/">
         <span>Glossary</span>
         <h3>Look up betting terms</h3>
-        <p>Search common betting jargon including acca, lay bet, liability, vig, juice, free bet, stake not returned, each-way, value, underround and more.</p>
+        <p>Search common betting jargon including acca, lay bet, liability, vig, juice, free bet, stake not returned, each-way, Rule 4, value, underround and more.</p>
       </a>
     </div>
   </section>
@@ -134,7 +134,7 @@ import CalculatorCard from "../components/CalculatorCard.astro";
   <section class="content-card article-section">
     <h2>Learn the key betting maths concepts</h2>
     <p>
-      Start with these guides if you want to understand how odds are priced, how bookmaker margin works, how free bets are calculated, how staking methods differ, and why betting systems should be treated carefully.
+      Start with these guides if you want to understand how odds are priced, how bookmaker margin works, how free bets are calculated, how each-way terms work, how staking methods differ, and why betting systems should be treated carefully.
     </p>
 
     <div class="guide-grid">
@@ -166,6 +166,24 @@ import CalculatorCard from "../components/CalculatorCard.astro";
         <span>Guide</span>
         <h3>Stake Returned vs Stake Not Returned</h3>
         <p>Learn the difference between cash-style returns and stake-not-returned free bets.</p>
+      </a>
+
+      <a class="guide-card" href="/guides/what-is-rule-4-in-horse-racing/">
+        <span>Guide</span>
+        <h3>What Is Rule 4 in Horse Racing?</h3>
+        <p>Learn how non-runners can reduce winnings and how Rule 4 deductions are estimated.</p>
+      </a>
+
+      <a class="guide-card" href="/guides/what-are-extra-places-in-each-way-betting/">
+        <span>Guide</span>
+        <h3>What Are Extra Places?</h3>
+        <p>Understand enhanced each-way place offers and how they compare with standard terms.</p>
+      </a>
+
+      <a class="guide-card" href="/guides/each-way-betting-terms-explained/">
+        <span>Guide</span>
+        <h3>Each-Way Betting Terms Explained</h3>
+        <p>Learn win part, place part, place terms, extra places, non-runners and Rule 4.</p>
       </a>
 
       <a class="guide-card" href="/guides/what-is-overround/">
@@ -219,7 +237,7 @@ import CalculatorCard from "../components/CalculatorCard.astro";
   <section class="content-card article-section">
     <h2>Betting jargon explained</h2>
     <p>
-      Betting can be full of confusing terms: acca, overround, lay bet, liability, vig, juice, dutching, hedging, free bet, matched betting, stake not returned, back/lay, each-way, value betting, underround and more.
+      Betting can be full of confusing terms: acca, overround, lay bet, liability, vig, juice, dutching, hedging, free bet, matched betting, stake not returned, Rule 4, non-runner, back/lay, each-way, value betting, underround and more.
     </p>
     <p>
       Our betting glossary explains common betting terms in plain English and links important maths terms to the right calculator.
@@ -259,6 +277,44 @@ import CalculatorCard from "../components/CalculatorCard.astro";
 
     <p>
       The <a href="/calculators/free-bet-calculator/">Free Bet Calculator</a> works out lay stake, liability, conversion rate and possible profit from a free bet. The <a href="/guides/what-is-a-free-bet/">What Is a Free Bet?</a> guide explains the terms in plain English.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Each-way and Rule 4 example</h2>
+    <p>
+      A £10 each-way bet usually costs £20 because it has a win part and a place part. If non-runners affect the market, Rule 4 deductions can also reduce winnings.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Example</th>
+          <th>What matters</th>
+          <th>Useful tool</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>£10 each-way at 9.00</td>
+          <td>Total stake, place odds and place terms</td>
+          <td>Each-Way Calculator</td>
+        </tr>
+        <tr>
+          <td>Extra 5 places instead of standard 3</td>
+          <td>Whether the finishing position is inside the enhanced place terms</td>
+          <td>Each-Way Extra Places Calculator</td>
+        </tr>
+        <tr>
+          <td>20p Rule 4 deduction</td>
+          <td>Deduction from the profit part of the winning bet</td>
+          <td>Rule 4 Calculator</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      Read <a href="/guides/each-way-betting-terms-explained/">Each-Way Betting Terms Explained</a>, <a href="/guides/what-are-extra-places-in-each-way-betting/">What Are Extra Places?</a>, and <a href="/guides/what-is-rule-4-in-horse-racing/">What Is Rule 4?</a> for the plain-English explanations.
     </p>
   </section>
 
@@ -428,36 +484,6 @@ import CalculatorCard from "../components/CalculatorCard.astro";
 
     <p>
       The <a href="/calculators/lay-liability-calculator/">Lay Liability Calculator</a> helps show the real exposure behind a lay bet.
-    </p>
-  </section>
-
-  <section class="content-card article-section">
-    <h2>Each-way example</h2>
-    <p>
-      A £10 each-way bet usually costs £20 in total because it is really two bets: £10 on the win part and £10 on the place part.
-    </p>
-
-    <table class="example-table">
-      <thead>
-        <tr>
-          <th>Stake</th>
-          <th>Win odds</th>
-          <th>Place terms</th>
-          <th>Total stake</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>£10 each-way</td>
-          <td>9.00</td>
-          <td>1/5 odds</td>
-          <td>£20</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p>
-      The <a href="/calculators/each-way-calculator/">Each-Way Calculator</a> works out the total stake, place odds, win profit, place-only result and losing result. The <a href="/calculators/each-way-extra-places-calculator/">Each-Way Extra Places Calculator</a> compares normal place terms with enhanced extra places offers.
     </p>
   </section>
 
