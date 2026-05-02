@@ -1,0 +1,585 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="Each-Way Extra Places Calculator"
+  description="Use this free each-way extra places calculator to compare standard each-way returns with extra places offers in horse racing and golf."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting calculator</p>
+    <h1>Each-Way Extra Places Calculator</h1>
+    <p class="lead">
+      Use this each-way extra places calculator to compare a standard each-way bet with an extra places offer.
+    </p>
+
+    <div class="callout">
+      <strong>Quick explanation:</strong> Extra places can matter when a selection finishes outside the standard place terms but inside the bookmaker’s enhanced place offer.
+    </div>
+
+    <div class="calculator-panel">
+      <div class="calculator-header">
+        <div>
+          <h2>Enter the each-way terms</h2>
+          <p>Compare the result under normal place terms and enhanced extra place terms.</p>
+        </div>
+        <button class="button secondary small-button" type="button" id="reset-extra">Reset example</button>
+      </div>
+
+      <div class="input-grid">
+        <label class="input-group">
+          <span>Each-way stake</span>
+          <div class="money-input-wrap">
+            <span>£</span>
+            <input id="ew-stake" type="number" min="0.01" step="0.01" value="10" />
+          </div>
+          <small>This is the stake per part. Total stake is double.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Win odds</span>
+          <input id="win-odds" type="number" min="1.01" step="0.01" value="9.00" />
+          <small>Decimal odds for the selection.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Place terms</span>
+          <select id="place-terms">
+            <option value="0.2" selected>1/5 odds</option>
+            <option value="0.25">1/4 odds</option>
+            <option value="0.3333333333">1/3 odds</option>
+            <option value="0.5">1/2 odds</option>
+          </select>
+          <small>The fraction of win odds paid on the place part.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Standard places</span>
+          <input id="standard-places" type="number" min="1" step="1" value="3" />
+          <small>Normal number of places paid.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Extra places offer</span>
+          <input id="extra-places" type="number" min="1" step="1" value="5" />
+          <small>Enhanced number of places paid by the offer.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Finishing position</span>
+          <input id="finish-position" type="number" min="1" step="1" value="4" />
+          <small>The finishing position you want to compare.</small>
+        </label>
+      </div>
+
+      <div class="results-grid">
+        <div class="result-card">
+          <span>Total stake</span>
+          <strong id="total-stake-result">£20.00</strong>
+        </div>
+        <div class="result-card">
+          <span>Place odds</span>
+          <strong id="place-odds-result">2.60</strong>
+        </div>
+        <div class="result-card">
+          <span>Standard result</span>
+          <strong id="standard-result">-£20.00</strong>
+        </div>
+        <div class="result-card">
+          <span>Extra places result</span>
+          <strong id="extra-result">£6.00</strong>
+        </div>
+        <div class="result-card">
+          <span>Extra places difference</span>
+          <strong id="difference-result">£26.00</strong>
+        </div>
+      </div>
+
+      <p class="result-note" id="result-note">
+        Finishing 4th would lose under standard 3-place terms, but would return £6.00 profit under a 5-place offer.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What are extra places?</h2>
+    <p>
+      Extra places are enhanced each-way terms where a bookmaker pays more places than the standard market. They are common in horse racing, golf and large-field outright markets.
+    </p>
+    <p>
+      For example, a race may normally pay three places, but a bookmaker might offer five places. If your selection finishes fourth, the standard each-way bet would lose, but the extra places offer may pay the place part.
+    </p>
+
+    <h2>How the calculation works</h2>
+    <div class="formula-box">
+      <p><strong>Total stake</strong> = each-way stake × 2</p>
+      <p><strong>Place odds</strong> = 1 + ((win odds − 1) × place fraction)</p>
+      <p><strong>Place-only profit</strong> = place return − total stake</p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Extra places example</h2>
+    <p>
+      Suppose you place £10 each-way at odds of 9.00 with 1/5 place terms. Standard terms pay three places, but the bookmaker offers five places.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Finishing position</th>
+          <th>Standard 3 places</th>
+          <th>Extra 5 places</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1st</td>
+          <td>Win and place paid</td>
+          <td>Win and place paid</td>
+        </tr>
+        <tr>
+          <td>2nd or 3rd</td>
+          <td>Place paid</td>
+          <td>Place paid</td>
+        </tr>
+        <tr>
+          <td>4th or 5th</td>
+          <td>Loses</td>
+          <td>Place paid</td>
+        </tr>
+        <tr>
+          <td>6th or worse</td>
+          <td>Loses</td>
+          <td>Loses</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Important:</strong> Extra place terms can vary by bookmaker. Always check place terms, number of places, dead heat rules, Rule 4 deductions and non-runner rules.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Related calculators</h2>
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/each-way-calculator/">
+        <h3>Each-Way Calculator</h3>
+        <p>Calculate normal each-way win, place and losing outcomes.</p>
+      </a>
+      <a class="related-card" href="/calculators/rule-4-calculator/">
+        <h3>Rule 4 Calculator</h3>
+        <p>Estimate deductions from horse racing winnings.</p>
+      </a>
+      <a class="related-card" href="/glossary/betting-jargon-explained/">
+        <h3>Betting Jargon Explained</h3>
+        <p>Learn each-way, place terms, extra places and racing jargon.</p>
+      </a>
+    </div>
+  </section>
+
+  <style>
+    .calculator-panel {
+      margin-top: 1.5rem;
+      padding: 1.25rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      background: #ffffff;
+    }
+
+    .calculator-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .calculator-header h2 {
+      margin: 0;
+    }
+
+    .calculator-header p {
+      margin: 0.25rem 0 0;
+      color: var(--color-muted);
+    }
+
+    .small-button {
+      padding: 0.55rem 0.75rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .input-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .input-group {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .input-group > span {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: var(--color-navy);
+      font-weight: 800;
+    }
+
+    .input-group input,
+    .input-group select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      color: var(--color-text);
+      font: inherit;
+      font-size: 1.05rem;
+      background: white;
+    }
+
+    .input-group small {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--color-muted);
+    }
+
+    .money-input-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      background: white;
+    }
+
+    .money-input-wrap span {
+      color: var(--color-muted);
+      font-weight: 800;
+    }
+
+    .money-input-wrap input {
+      border: 0;
+      padding: 0.5rem 0;
+      background: transparent;
+    }
+
+    .money-input-wrap input:focus {
+      outline: 0;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .result-card {
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .result-card span {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: var(--color-muted);
+      font-size: 0.9rem;
+    }
+
+    .result-card strong {
+      display: block;
+      color: var(--color-navy);
+      font-size: 1.25rem;
+      line-height: 1.2;
+    }
+
+    .result-card strong.positive {
+      color: var(--color-green-dark);
+    }
+
+    .result-card strong.negative {
+      color: #b42318;
+    }
+
+    .result-note {
+      margin: 1rem 0 0;
+      padding: 1rem;
+      border-radius: 12px;
+      background: #eef8f3;
+      color: var(--color-green-dark);
+      font-weight: 700;
+    }
+
+    .result-note.warning {
+      background: #fff7e6;
+      color: #8a5a00;
+    }
+
+    .result-note.error {
+      background: #fff1f0;
+      color: #b42318;
+    }
+
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .formula-box {
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+
+    .formula-box p {
+      margin: 0.4rem 0;
+      font-weight: 700;
+    }
+
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .example-table th,
+    .example-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .example-table th {
+      color: var(--color-navy);
+      background: #f4f7fa;
+      font-size: 0.9rem;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .related-card {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .related-card p {
+      margin: 0;
+      color: var(--color-muted);
+    }
+
+    .callout a,
+    .article-section a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 1120px) {
+      .input-grid,
+      .results-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .calculator-header {
+        flex-direction: column;
+      }
+
+      .input-grid,
+      .results-grid,
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <script>
+    const stakeInput = document.getElementById("ew-stake");
+    const winOddsInput = document.getElementById("win-odds");
+    const placeTermsInput = document.getElementById("place-terms");
+    const standardPlacesInput = document.getElementById("standard-places");
+    const extraPlacesInput = document.getElementById("extra-places");
+    const finishPositionInput = document.getElementById("finish-position");
+    const resetButton = document.getElementById("reset-extra");
+
+    const totalStakeResult = document.getElementById("total-stake-result");
+    const placeOddsResult = document.getElementById("place-odds-result");
+    const standardResult = document.getElementById("standard-result");
+    const extraResult = document.getElementById("extra-result");
+    const differenceResult = document.getElementById("difference-result");
+    const resultNote = document.getElementById("result-note");
+
+    function formatMoney(value) {
+      return new Intl.NumberFormat("en-GB", {
+        style: "currency",
+        currency: "GBP",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }).format(value);
+    }
+
+    function formatOdds(value) {
+      return value.toFixed(2);
+    }
+
+    function setResultClass(element, value) {
+      element.className = value >= 0 ? "positive" : "negative";
+    }
+
+    function showError(message) {
+      totalStakeResult.textContent = "—";
+      placeOddsResult.textContent = "—";
+      standardResult.textContent = "—";
+      extraResult.textContent = "—";
+      differenceResult.textContent = "—";
+      standardResult.className = "";
+      extraResult.className = "";
+      differenceResult.className = "";
+      resultNote.textContent = message;
+      resultNote.className = "result-note error";
+    }
+
+    function calculateExtraPlaces() {
+      const stake = Number(stakeInput.value);
+      const winOdds = Number(winOddsInput.value);
+      const placeFraction = Number(placeTermsInput.value);
+      const standardPlaces = Number(standardPlacesInput.value);
+      const extraPlaces = Number(extraPlacesInput.value);
+      const finishPosition = Number(finishPositionInput.value);
+
+      if (!Number.isFinite(stake) || stake <= 0) {
+        showError("Please enter an each-way stake greater than £0.");
+        return;
+      }
+
+      if (!Number.isFinite(winOdds) || winOdds <= 1) {
+        showError("Please enter decimal win odds greater than 1.00.");
+        return;
+      }
+
+      if (!Number.isFinite(standardPlaces) || standardPlaces < 1 || !Number.isInteger(standardPlaces)) {
+        showError("Please enter a valid number of standard places.");
+        return;
+      }
+
+      if (!Number.isFinite(extraPlaces) || extraPlaces < 1 || !Number.isInteger(extraPlaces)) {
+        showError("Please enter a valid number of extra places.");
+        return;
+      }
+
+      if (extraPlaces < standardPlaces) {
+        showError("The extra places offer should be equal to or greater than the standard number of places.");
+        return;
+      }
+
+      if (!Number.isFinite(finishPosition) || finishPosition < 1 || !Number.isInteger(finishPosition)) {
+        showError("Please enter a valid finishing position.");
+        return;
+      }
+
+      const totalStake = stake * 2;
+      const placeOdds = 1 + ((winOdds - 1) * placeFraction);
+
+      const winProfit = (stake * winOdds) + (stake * placeOdds) - totalStake;
+      const placeOnlyProfit = (stake * placeOdds) - totalStake;
+      const loseProfit = -totalStake;
+
+      let standardProfit;
+      let extraProfit;
+
+      if (finishPosition === 1) {
+        standardProfit = winProfit;
+        extraProfit = winProfit;
+      } else if (finishPosition <= standardPlaces) {
+        standardProfit = placeOnlyProfit;
+        extraProfit = placeOnlyProfit;
+      } else if (finishPosition <= extraPlaces) {
+        standardProfit = loseProfit;
+        extraProfit = placeOnlyProfit;
+      } else {
+        standardProfit = loseProfit;
+        extraProfit = loseProfit;
+      }
+
+      const difference = extraProfit - standardProfit;
+
+      totalStakeResult.textContent = formatMoney(totalStake);
+      placeOddsResult.textContent = formatOdds(placeOdds);
+      standardResult.textContent = formatMoney(standardProfit);
+      extraResult.textContent = formatMoney(extraProfit);
+      differenceResult.textContent = formatMoney(difference);
+
+      setResultClass(standardResult, standardProfit);
+      setResultClass(extraResult, extraProfit);
+      setResultClass(differenceResult, difference);
+
+      if (finishPosition === 1) {
+        resultNote.textContent = `Finishing 1st pays the win and place parts under both standard and extra place terms.`;
+        resultNote.className = "result-note";
+      } else if (finishPosition <= standardPlaces) {
+        resultNote.textContent = `Finishing ${finishPosition}${getSuffix(finishPosition)} pays the place part under both standard and extra place terms.`;
+        resultNote.className = "result-note";
+      } else if (finishPosition <= extraPlaces) {
+        resultNote.textContent = `Finishing ${finishPosition}${getSuffix(finishPosition)} would lose under standard ${standardPlaces}-place terms, but would return ${formatMoney(extraProfit)} profit under a ${extraPlaces}-place offer.`;
+        resultNote.className = "result-note";
+      } else {
+        resultNote.textContent = `Finishing ${finishPosition}${getSuffix(finishPosition)} is outside both standard and extra place terms, so both parts lose.`;
+        resultNote.className = "result-note warning";
+      }
+    }
+
+    function getSuffix(number) {
+      if (number % 100 >= 11 && number % 100 <= 13) return "th";
+      if (number % 10 === 1) return "st";
+      if (number % 10 === 2) return "nd";
+      if (number % 10 === 3) return "rd";
+      return "th";
+    }
+
+    [stakeInput, winOddsInput, placeTermsInput, standardPlacesInput, extraPlacesInput, finishPositionInput].forEach((input) => {
+      input.addEventListener("input", calculateExtraPlaces);
+      input.addEventListener("change", calculateExtraPlaces);
+    });
+
+    resetButton.addEventListener("click", () => {
+      stakeInput.value = "10";
+      winOddsInput.value = "9.00";
+      placeTermsInput.value = "0.2";
+      standardPlacesInput.value = "3";
+      extraPlacesInput.value = "5";
+      finishPositionInput.value = "4";
+      calculateExtraPlaces();
+    });
+
+    calculateExtraPlaces();
+  </script>
+</MainLayout>
