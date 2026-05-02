@@ -5,13 +5,13 @@ import CalculatorCard from "../components/CalculatorCard.astro";
 
 <MainLayout
   title="Free Betting Calculators and Betting Maths Guides"
-  description="Free betting calculators and plain-English guides to help you understand odds, overround, dutching, hedging, accumulators, each-way bets, lay liability, bookmaker margin and betting jargon."
+  description="Free betting calculators and plain-English guides to help you understand odds, overround, dutching, hedging, back lay betting, accumulators, each-way bets, lay liability, bookmaker margin and betting jargon."
 >
   <section class="hero">
     <p class="eyebrow">Betting calculators and plain-English guides</p>
     <h1>Understand the odds. Use the maths. Bet smarter.</h1>
     <p class="lead">
-      Betting Maths helps you understand odds, stakes, overround, dutching, hedging, accumulators, each-way bets, back and lay betting, lay liability, bookmaker margin and common betting jargon with simple calculators and practical examples.
+      Betting Maths helps you understand odds, stakes, overround, dutching, hedging, back/lay betting, accumulators, each-way bets, lay liability, bookmaker margin and common betting jargon with simple calculators and practical examples.
     </p>
     <div class="button-row">
       <a class="button primary" href="/calculators/overround-calculator/">Start with the Overround Calculator</a>
@@ -22,7 +22,7 @@ import CalculatorCard from "../components/CalculatorCard.astro";
   <section class="content-card intro-panel">
     <h2>What is Betting Maths?</h2>
     <p>
-      Betting Maths is a free betting education and calculator site. It is designed to explain how odds, implied probability, overround, dutching, hedging, accumulators, each-way bets, lay liability and bookmaker margins work in plain English.
+      Betting Maths is a free betting education and calculator site. It is designed to explain how odds, implied probability, overround, dutching, hedging, back/lay betting, accumulators, each-way bets, lay liability and bookmaker margins work in plain English.
     </p>
     <p>
       The aim is not to provide betting tips or guaranteed profit systems. The aim is to help you understand the numbers behind betting markets so you can read odds, calculate outcomes and understand risk more clearly.
@@ -48,8 +48,13 @@ import CalculatorCard from "../components/CalculatorCard.astro";
     />
     <CalculatorCard
       title="Hedge Bet Calculator"
-      description="Calculate back and lay hedge stakes, lay liability, commission and possible profit or loss."
+      description="Calculate back-first and lay-first hedge stakes, lay liability, commission and possible profit or loss."
       href="/calculators/hedge-bet-calculator/"
+    />
+    <CalculatorCard
+      title="Back/Lay Calculator"
+      description="Calculate lay stake, lay liability and profit across standard back bets and free bet examples."
+      href="/calculators/back-lay-calculator/"
     />
     <CalculatorCard
       title="Lay Liability Calculator"
@@ -110,7 +115,7 @@ import CalculatorCard from "../components/CalculatorCard.astro";
   <section class="content-card article-section">
     <h2>Betting jargon explained</h2>
     <p>
-      Betting can be full of confusing terms: acca, overround, lay bet, liability, vig, juice, dutching, hedging, each-way, value betting, underround and more.
+      Betting can be full of confusing terms: acca, overround, lay bet, liability, vig, juice, dutching, hedging, back/lay, each-way, value betting, underround and more.
     </p>
     <p>
       Our betting glossary explains common betting terms in plain English and links important maths terms to the right calculator.
@@ -156,6 +161,38 @@ import CalculatorCard from "../components/CalculatorCard.astro";
 
     <p>
       That means the market has a 4.81% overround. This is one simple example of how betting maths helps explain bookmaker margin.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Back/lay example</h2>
+    <p>
+      A back/lay calculation is useful when you back a selection first and then lay the same selection on an exchange. For example, backing £100 at 3.00 and laying at 2.00 with 2% commission creates a balanced hedge.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Back stake</th>
+          <th>Back odds</th>
+          <th>Lay odds</th>
+          <th>Commission</th>
+          <th>Lay stake</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>£100</td>
+          <td>3.00</td>
+          <td>2.00</td>
+          <td>2%</td>
+          <td>£151.52</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      The <a href="/calculators/back-lay-calculator/">Back/Lay Calculator</a> works out the lay stake, lay liability and profit if the selection wins or loses. For lay-first positions, use the <a href="/calculators/hedge-bet-calculator/">Hedge Bet Calculator</a>.
     </p>
   </section>
 
@@ -221,7 +258,7 @@ import CalculatorCard from "../components/CalculatorCard.astro";
     </table>
 
     <p>
-      The <a href="/calculators/lay-liability-calculator/">Lay Liability Calculator</a> helps show the real exposure behind a lay bet, while the <a href="/calculators/hedge-bet-calculator/">Hedge Bet Calculator</a> can calculate back and lay hedge positions.
+      The <a href="/calculators/lay-liability-calculator/">Lay Liability Calculator</a> helps show the real exposure behind a lay bet.
     </p>
   </section>
 
