@@ -5,13 +5,13 @@ import CalculatorCard from "../components/CalculatorCard.astro";
 
 <MainLayout
   title="Free Betting Calculators and Betting Maths Guides"
-  description="Free betting calculators and plain-English guides to help you understand odds, overround, dutching, hedging, back lay betting, accumulators, each-way bets, lay liability, bookmaker margin and betting jargon."
+  description="Free betting calculators and plain-English guides to help you understand odds, overround, arbitrage, dutching, hedging, back lay betting, accumulators, each-way bets, lay liability, bookmaker margin and betting jargon."
 >
   <section class="hero">
     <p class="eyebrow">Betting calculators and plain-English guides</p>
     <h1>Understand the odds. Use the maths. Bet smarter.</h1>
     <p class="lead">
-      Betting Maths helps you understand odds, stakes, overround, dutching, hedging, back/lay betting, accumulators, each-way bets, lay liability, bookmaker margin and common betting jargon with simple calculators and practical examples.
+      Betting Maths helps you understand odds, stakes, overround, arbitrage, dutching, hedging, back/lay betting, accumulators, each-way bets, Kelly staking, Rule 4 deductions, lay liability, bookmaker margin and common betting jargon with simple calculators and practical examples.
     </p>
     <div class="button-row">
       <a class="button primary" href="/calculators/">Browse All Calculators</a>
@@ -23,7 +23,7 @@ import CalculatorCard from "../components/CalculatorCard.astro";
   <section class="content-card intro-panel">
     <h2>What is Betting Maths?</h2>
     <p>
-      Betting Maths is a free betting education and calculator site. It is designed to explain how odds, implied probability, overround, dutching, hedging, back/lay betting, accumulators, each-way bets, lay liability and bookmaker margins work in plain English.
+      Betting Maths is a free betting education and calculator site. It is designed to explain how odds, implied probability, overround, arbitrage, dutching, hedging, back/lay betting, accumulators, each-way bets, Kelly staking, Rule 4 deductions, lay liability and bookmaker margins work in plain English.
     </p>
     <p>
       The aim is not to provide betting tips or guaranteed profit systems. The aim is to help you understand the numbers behind betting markets so you can read odds, calculate outcomes and understand risk more clearly.
@@ -40,13 +40,13 @@ import CalculatorCard from "../components/CalculatorCard.astro";
       <a class="start-card" href="/calculators/">
         <span>Calculator hub</span>
         <h3>Use the calculators</h3>
-        <p>Find tools for odds, overround, accumulators, each-way bets, dutching, hedging, back/lay betting and lay liability.</p>
+        <p>Find tools for odds, overround, arbitrage, accumulators, each-way bets, dutching, hedging, back/lay betting, Kelly staking and lay liability.</p>
       </a>
 
       <a class="start-card" href="/guides/">
         <span>Guide hub</span>
         <h3>Learn the concepts</h3>
-        <p>Read plain-English guides to implied probability, bookmaker margin, overround, dutching, hedging and cash out.</p>
+        <p>Read plain-English guides to implied probability, bookmaker margin, overround, dutching, hedging, cash out and arbitrage.</p>
       </a>
 
       <a class="start-card" href="/glossary/betting-jargon-explained/">
@@ -60,14 +60,19 @@ import CalculatorCard from "../components/CalculatorCard.astro";
   <h2>Popular betting calculators</h2>
   <div class="grid calculator-grid">
     <CalculatorCard
+      title="Odds Converter"
+      description="Convert decimal, fractional and American odds, and calculate implied probability."
+      href="/calculators/odds-converter/"
+    />
+    <CalculatorCard
       title="Overround Calculator"
       description="Work out the total book percentage and bookmaker margin built into a betting market."
       href="/calculators/overround-calculator/"
     />
     <CalculatorCard
-      title="Odds Converter"
-      description="Convert decimal, fractional and American odds, and calculate implied probability."
-      href="/calculators/odds-converter/"
+      title="Arbitrage Calculator"
+      description="Check whether odds create an underround and calculate stake splits across all outcomes."
+      href="/calculators/arbitrage-calculator/"
     />
     <CalculatorCard
       title="Dutching Calculator"
@@ -90,6 +95,11 @@ import CalculatorCard from "../components/CalculatorCard.astro";
       href="/calculators/lay-liability-calculator/"
     />
     <CalculatorCard
+      title="Kelly Criterion Calculator"
+      description="Estimate stake size from bankroll, decimal odds, your estimated probability and fractional Kelly."
+      href="/calculators/kelly-criterion-calculator/"
+    />
+    <CalculatorCard
       title="Accumulator Calculator"
       description="Multiply odds across multiple selections and calculate acca returns, profit and implied probability."
       href="/calculators/accumulator-calculator/"
@@ -98,6 +108,11 @@ import CalculatorCard from "../components/CalculatorCard.astro";
       title="Each-Way Calculator"
       description="Calculate total stake, place odds, win return, place return and each-way profit or loss."
       href="/calculators/each-way-calculator/"
+    />
+    <CalculatorCard
+      title="Rule 4 Calculator"
+      description="Estimate horse racing Rule 4 deductions, adjusted profit and adjusted return."
+      href="/calculators/rule-4-calculator/"
     />
   </div>
 
@@ -217,6 +232,39 @@ import CalculatorCard from "../components/CalculatorCard.astro";
 
     <p>
       That means the market has a 4.81% overround. This is one simple example of how betting maths helps explain bookmaker margin.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Arbitrage example</h2>
+    <p>
+      Arbitrage can exist in theory when all possible outcomes in a market add up to less than 100% implied probability.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Outcome</th>
+          <th>Decimal odds</th>
+          <th>Implied probability</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Outcome A</td>
+          <td>2.10</td>
+          <td>47.62%</td>
+        </tr>
+        <tr>
+          <td>Outcome B</td>
+          <td>2.10</td>
+          <td>47.62%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      These two outcomes add up to 95.24%, which is an underround. The <a href="/calculators/arbitrage-calculator/">Arbitrage Calculator</a> can show the stake split and estimated profit.
     </p>
   </section>
 
