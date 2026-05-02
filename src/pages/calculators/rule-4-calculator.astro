@@ -1,0 +1,463 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="Rule 4 Calculator"
+  description="Use this free Rule 4 calculator to estimate horse racing Rule 4 deductions from winnings, adjusted returns and adjusted profit."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting calculator</p>
+    <h1>Rule 4 Calculator</h1>
+    <p class="lead">
+      Use this Rule 4 calculator to estimate how a deduction affects your horse racing winnings, adjusted return and adjusted profit.
+    </p>
+
+    <div class="callout">
+      <strong>Quick explanation:</strong> Rule 4 deductions are normally applied to the profit part of a winning bet, not the returned stake.
+    </div>
+
+    <div class="calculator-panel">
+      <div class="calculator-header">
+        <div>
+          <h2>Enter stake, odds and deduction</h2>
+          <p>The calculator applies the deduction to the winnings and then adds the original stake back to show adjusted return.</p>
+        </div>
+        <button class="button secondary small-button" type="button" id="reset-rule4">Reset example</button>
+      </div>
+
+      <div class="input-grid">
+        <label class="input-group">
+          <span>Stake</span>
+          <div class="money-input-wrap">
+            <span>£</span>
+            <input id="stake" type="number" min="0.01" step="0.01" value="10" />
+          </div>
+          <small>Your original stake.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Decimal odds</span>
+          <input id="odds" type="number" min="1.01" step="0.01" value="6.00" />
+          <small>The odds taken before the deduction.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Rule 4 deduction</span>
+          <div class="percent-input-wrap">
+            <input id="deduction" type="number" min="0" max="100" step="1" value="20" />
+            <span>p in £</span>
+          </div>
+          <small>Example: 20 means a 20p deduction in the pound.</small>
+        </label>
+      </div>
+
+      <div class="results-grid">
+        <div class="result-card">
+          <span>Original profit</span>
+          <strong id="original-profit-result">£50.00</strong>
+        </div>
+        <div class="result-card">
+          <span>Deduction amount</span>
+          <strong id="deduction-result">£10.00</strong>
+        </div>
+        <div class="result-card">
+          <span>Adjusted profit</span>
+          <strong id="adjusted-profit-result">£40.00</strong>
+        </div>
+        <div class="result-card">
+          <span>Adjusted return</span>
+          <strong id="adjusted-return-result">£50.00</strong>
+        </div>
+      </div>
+
+      <p class="result-note" id="result-note">
+        A £10.00 winning bet at odds of 6.00 has £50.00 profit before deduction. A 20p Rule 4 deduction removes £10.00 from the winnings, leaving £40.00 adjusted profit.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What is Rule 4?</h2>
+    <p>
+      Rule 4 is a horse racing deduction applied when a horse is withdrawn after bets have already been placed. The deduction reduces winnings to reflect the changed market after the non-runner is removed.
+    </p>
+    <p>
+      The deduction is usually expressed as pence in the pound. For example, a 20p Rule 4 deduction means 20% is deducted from the winnings.
+    </p>
+
+    <h2>Rule 4 formula</h2>
+    <div class="formula-box">
+      <p><strong>Original profit</strong> = stake × (decimal odds − 1)</p>
+      <p><strong>Deduction amount</strong> = original profit × deduction percentage</p>
+      <p><strong>Adjusted profit</strong> = original profit − deduction amount</p>
+      <p><strong>Adjusted return</strong> = adjusted profit + stake</p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Rule 4 example</h2>
+    <p>
+      Suppose you place £10 at decimal odds of 6.00. The original profit would be £50. If a 20p Rule 4 deduction applies, 20% of the profit is deducted.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Calculation</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Original profit</td>
+          <td>£50.00</td>
+        </tr>
+        <tr>
+          <td>20% deduction</td>
+          <td>£10.00</td>
+        </tr>
+        <tr>
+          <td>Adjusted profit</td>
+          <td>£40.00</td>
+        </tr>
+        <tr>
+          <td>Adjusted return including stake</td>
+          <td>£50.00</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Important:</strong> Rule 4 rules and deductions can vary by bookmaker, race timing and terms. Always check the official settlement from your bookmaker.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/odds-converter/">
+        <h3>Odds Converter</h3>
+        <p>Convert decimal, fractional and American odds.</p>
+      </a>
+      <a class="related-card" href="/calculators/each-way-calculator/">
+        <h3>Each-Way Calculator</h3>
+        <p>Calculate win and place returns for each-way bets.</p>
+      </a>
+      <a class="related-card" href="/glossary/betting-jargon-explained/">
+        <h3>Betting Jargon Explained</h3>
+        <p>Look up Rule 4, non-runner, stake, return and racing terms.</p>
+      </a>
+    </div>
+  </section>
+
+  <style>
+    .calculator-panel {
+      margin-top: 1.5rem;
+      padding: 1.25rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      background: #ffffff;
+    }
+
+    .calculator-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .calculator-header h2 {
+      margin: 0;
+    }
+
+    .calculator-header p {
+      margin: 0.25rem 0 0;
+      color: var(--color-muted);
+    }
+
+    .small-button {
+      padding: 0.55rem 0.75rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .input-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .input-group {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .input-group > span {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: var(--color-navy);
+      font-weight: 800;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      color: var(--color-text);
+      font: inherit;
+      font-size: 1.05rem;
+      background: white;
+    }
+
+    .input-group small {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--color-muted);
+    }
+
+    .money-input-wrap,
+    .percent-input-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      background: white;
+    }
+
+    .money-input-wrap span,
+    .percent-input-wrap span {
+      color: var(--color-muted);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .money-input-wrap input,
+    .percent-input-wrap input {
+      border: 0;
+      padding: 0.5rem 0;
+      background: transparent;
+    }
+
+    .money-input-wrap input:focus,
+    .percent-input-wrap input:focus {
+      outline: 0;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .result-card {
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .result-card span {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: var(--color-muted);
+      font-size: 0.9rem;
+    }
+
+    .result-card strong {
+      display: block;
+      color: var(--color-navy);
+      font-size: 1.3rem;
+      line-height: 1.2;
+    }
+
+    .result-note {
+      margin: 1rem 0 0;
+      padding: 1rem;
+      border-radius: 12px;
+      background: #eef8f3;
+      color: var(--color-green-dark);
+      font-weight: 700;
+    }
+
+    .result-note.error {
+      background: #fff1f0;
+      color: #b42318;
+    }
+
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .formula-box {
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+
+    .formula-box p {
+      margin: 0.4rem 0;
+      font-weight: 700;
+    }
+
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .example-table th,
+    .example-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .example-table th {
+      color: var(--color-navy);
+      background: #f4f7fa;
+      font-size: 0.9rem;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .related-card {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .related-card p {
+      margin: 0;
+      color: var(--color-muted);
+    }
+
+    .callout a,
+    .article-section a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 980px) {
+      .input-grid,
+      .results-grid,
+      .related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .calculator-header {
+        flex-direction: column;
+      }
+
+      .input-grid,
+      .results-grid,
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <script>
+    const stakeInput = document.getElementById("stake");
+    const oddsInput = document.getElementById("odds");
+    const deductionInput = document.getElementById("deduction");
+    const resetButton = document.getElementById("reset-rule4");
+
+    const originalProfitResult = document.getElementById("original-profit-result");
+    const deductionResult = document.getElementById("deduction-result");
+    const adjustedProfitResult = document.getElementById("adjusted-profit-result");
+    const adjustedReturnResult = document.getElementById("adjusted-return-result");
+    const resultNote = document.getElementById("result-note");
+
+    function formatMoney(value) {
+      return new Intl.NumberFormat("en-GB", {
+        style: "currency",
+        currency: "GBP",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }).format(value);
+    }
+
+    function showError(message) {
+      originalProfitResult.textContent = "—";
+      deductionResult.textContent = "—";
+      adjustedProfitResult.textContent = "—";
+      adjustedReturnResult.textContent = "—";
+      resultNote.textContent = message;
+      resultNote.className = "result-note error";
+    }
+
+    function calculateRule4() {
+      const stake = Number(stakeInput.value);
+      const odds = Number(oddsInput.value);
+      const deductionPence = Number(deductionInput.value);
+
+      if (!Number.isFinite(stake) || stake <= 0) {
+        showError("Please enter a stake greater than £0.");
+        return;
+      }
+
+      if (!Number.isFinite(odds) || odds <= 1) {
+        showError("Please enter decimal odds greater than 1.00.");
+        return;
+      }
+
+      if (!Number.isFinite(deductionPence) || deductionPence < 0 || deductionPence > 100) {
+        showError("Please enter a Rule 4 deduction between 0 and 100.");
+        return;
+      }
+
+      const originalProfit = stake * (odds - 1);
+      const deductionRate = deductionPence / 100;
+      const deductionAmount = originalProfit * deductionRate;
+      const adjustedProfit = originalProfit - deductionAmount;
+      const adjustedReturn = adjustedProfit + stake;
+
+      originalProfitResult.textContent = formatMoney(originalProfit);
+      deductionResult.textContent = formatMoney(deductionAmount);
+      adjustedProfitResult.textContent = formatMoney(adjustedProfit);
+      adjustedReturnResult.textContent = formatMoney(adjustedReturn);
+
+      resultNote.textContent = `A ${formatMoney(stake)} winning bet at odds of ${odds.toFixed(2)} has ${formatMoney(originalProfit)} profit before deduction. A ${deductionPence}p Rule 4 deduction removes ${formatMoney(deductionAmount)} from the winnings, leaving ${formatMoney(adjustedProfit)} adjusted profit.`;
+      resultNote.className = "result-note";
+    }
+
+    [stakeInput, oddsInput, deductionInput].forEach((input) => {
+      input.addEventListener("input", calculateRule4);
+    });
+
+    resetButton.addEventListener("click", () => {
+      stakeInput.value = "10";
+      oddsInput.value = "6.00";
+      deductionInput.value = "20";
+      calculateRule4();
+    });
+
+    calculateRule4();
+  </script>
+</MainLayout>
