@@ -5,13 +5,13 @@ import CalculatorCard from "../components/CalculatorCard.astro";
 
 <MainLayout
   title="Free Betting Calculators and Betting Maths Guides"
-  description="Free betting calculators and plain-English guides to help you understand odds, overround, dutching, hedging, accumulators, bookmaker margin and betting jargon."
+  description="Free betting calculators and plain-English guides to help you understand odds, overround, dutching, hedging, accumulators, each-way bets, lay liability, bookmaker margin and betting jargon."
 >
   <section class="hero">
     <p class="eyebrow">Betting calculators and plain-English guides</p>
     <h1>Understand the odds. Use the maths. Bet smarter.</h1>
     <p class="lead">
-      Betting Maths helps you understand odds, stakes, overround, dutching, hedging, accumulators, back and lay betting, bookmaker margin and common betting jargon with simple calculators and practical examples.
+      Betting Maths helps you understand odds, stakes, overround, dutching, hedging, accumulators, each-way bets, back and lay betting, lay liability, bookmaker margin and common betting jargon with simple calculators and practical examples.
     </p>
     <div class="button-row">
       <a class="button primary" href="/calculators/overround-calculator/">Start with the Overround Calculator</a>
@@ -22,7 +22,7 @@ import CalculatorCard from "../components/CalculatorCard.astro";
   <section class="content-card intro-panel">
     <h2>What is Betting Maths?</h2>
     <p>
-      Betting Maths is a free betting education and calculator site. It is designed to explain how odds, implied probability, overround, dutching, hedging, accumulators and bookmaker margins work in plain English.
+      Betting Maths is a free betting education and calculator site. It is designed to explain how odds, implied probability, overround, dutching, hedging, accumulators, each-way bets, lay liability and bookmaker margins work in plain English.
     </p>
     <p>
       The aim is not to provide betting tips or guaranteed profit systems. The aim is to help you understand the numbers behind betting markets so you can read odds, calculate outcomes and understand risk more clearly.
@@ -30,7 +30,7 @@ import CalculatorCard from "../components/CalculatorCard.astro";
   </section>
 
   <h2>Popular betting calculators</h2>
-  <div class="grid">
+  <div class="grid calculator-grid">
     <CalculatorCard
       title="Overround Calculator"
       description="Work out the total book percentage and bookmaker margin built into a betting market."
@@ -52,9 +52,19 @@ import CalculatorCard from "../components/CalculatorCard.astro";
       href="/calculators/hedge-bet-calculator/"
     />
     <CalculatorCard
+      title="Lay Liability Calculator"
+      description="Calculate lay liability, exchange commission and profit or loss from a lay bet."
+      href="/calculators/lay-liability-calculator/"
+    />
+    <CalculatorCard
       title="Accumulator Calculator"
       description="Multiply odds across multiple selections and calculate acca returns, profit and implied probability."
       href="/calculators/accumulator-calculator/"
+    />
+    <CalculatorCard
+      title="Each-Way Calculator"
+      description="Calculate total stake, place odds, win return, place return and each-way profit or loss."
+      href="/calculators/each-way-calculator/"
     />
   </div>
 
@@ -100,7 +110,7 @@ import CalculatorCard from "../components/CalculatorCard.astro";
   <section class="content-card article-section">
     <h2>Betting jargon explained</h2>
     <p>
-      Betting can be full of confusing terms: acca, overround, lay bet, liability, vig, juice, dutching, hedging, value betting, underround and more.
+      Betting can be full of confusing terms: acca, overround, lay bet, liability, vig, juice, dutching, hedging, each-way, value betting, underround and more.
     </p>
     <p>
       Our betting glossary explains common betting terms in plain English and links important maths terms to the right calculator.
@@ -112,7 +122,7 @@ import CalculatorCard from "../components/CalculatorCard.astro";
   </section>
 
   <section class="content-card article-section">
-    <h2>Start with a simple example</h2>
+    <h2>Start with a simple bookmaker margin example</h2>
     <p>
       A football match might have odds of 2.10 for the home win, 3.40 for the draw and 3.60 for the away win. Converted into implied probability, those prices add up to 104.81%.
     </p>
@@ -180,6 +190,68 @@ import CalculatorCard from "../components/CalculatorCard.astro";
 
     <p>
       A £10 stake at combined odds of 9.00 would return £90, including £80 profit. The <a href="/calculators/accumulator-calculator/">Accumulator Calculator</a> works this out automatically and also shows the implied probability.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Back, lay and liability example</h2>
+    <p>
+      Lay betting is different from normal backing because your risk is based on liability. If you lay £100 at odds of 3.00, your liability is £200.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Lay stake</th>
+          <th>Lay odds</th>
+          <th>Liability</th>
+          <th>If selection loses</th>
+          <th>If selection wins</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>£100</td>
+          <td>3.00</td>
+          <td>£200</td>
+          <td>Lay bet wins</td>
+          <td>Lay bet loses</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      The <a href="/calculators/lay-liability-calculator/">Lay Liability Calculator</a> helps show the real exposure behind a lay bet, while the <a href="/calculators/hedge-bet-calculator/">Hedge Bet Calculator</a> can calculate back and lay hedge positions.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Each-way example</h2>
+    <p>
+      A £10 each-way bet usually costs £20 in total because it is really two bets: £10 on the win part and £10 on the place part.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Stake</th>
+          <th>Win odds</th>
+          <th>Place terms</th>
+          <th>Total stake</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>£10 each-way</td>
+          <td>9.00</td>
+          <td>1/5 odds</td>
+          <td>£20</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      The <a href="/calculators/each-way-calculator/">Each-Way Calculator</a> works out the total stake, place odds, win profit, place-only result and losing result.
     </p>
   </section>
 
