@@ -1,0 +1,464 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="Kelly Criterion Calculator"
+  description="Use this free Kelly Criterion calculator to estimate optimal betting stake size based on bankroll, odds, estimated probability and fractional Kelly staking."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting calculator</p>
+    <h1>Kelly Criterion Calculator</h1>
+    <p class="lead">
+      Use this Kelly Criterion calculator to estimate a stake size based on your bankroll, the odds, your estimated probability and a fractional Kelly setting.
+    </p>
+
+    <div class="callout">
+      <strong>Quick explanation:</strong> Kelly staking uses your estimated edge to suggest a stake as a percentage of bankroll. If your probability estimate is wrong, the suggested stake can be too aggressive.
+    </div>
+
+    <div class="calculator-panel">
+      <div class="calculator-header">
+        <div>
+          <h2>Enter your bankroll, odds and estimated chance</h2>
+          <p>The calculator estimates the full Kelly stake and lets you reduce it using fractional Kelly.</p>
+        </div>
+        <button class="button secondary small-button" type="button" id="reset-kelly">Reset example</button>
+      </div>
+
+      <div class="input-grid">
+        <label class="input-group">
+          <span>Bankroll</span>
+          <div class="money-input-wrap">
+            <span>£</span>
+            <input id="bankroll" type="number" min="0.01" step="0.01" value="1000" />
+          </div>
+          <small>Total bankroll you are calculating stake size from.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Decimal odds</span>
+          <input id="decimal-odds" type="number" min="1.01" step="0.01" value="3.00" />
+          <small>The odds available for the selection.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Your estimated chance</span>
+          <div class="percent-input-wrap">
+            <input id="estimated-probability" type="number" min="0.01" max="99.99" step="0.1" value="40" />
+            <span>%</span>
+          </div>
+          <small>Your own estimated probability of the bet winning.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Kelly fraction</span>
+          <select id="kelly-fraction">
+            <option value="1">Full Kelly</option>
+            <option value="0.5" selected>Half Kelly</option>
+            <option value="0.25">Quarter Kelly</option>
+            <option value="0.1">One-tenth Kelly</option>
+          </select>
+          <small>Fractional Kelly reduces stake size and volatility.</small>
+        </label>
+      </div>
+
+      <div class="results-grid">
+        <div class="result-card">
+          <span>Implied probability</span>
+          <strong id="implied-result">33.33%</strong>
+        </div>
+        <div class="result-card">
+          <span>Estimated edge</span>
+          <strong id="edge-result">20.00%</strong>
+        </div>
+        <div class="result-card">
+          <span>Full Kelly stake</span>
+          <strong id="full-kelly-result">10.00%</strong>
+        </div>
+        <div class="result-card">
+          <span>Recommended stake</span>
+          <strong id="recommended-stake-result">£50.00</strong>
+        </div>
+      </div>
+
+      <p class="result-note" id="result-note">
+        Half Kelly suggests staking £50.00, which is 5.00% of a £1,000.00 bankroll.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What is the Kelly Criterion?</h2>
+    <p>
+      The Kelly Criterion is a staking formula that estimates how much of your bankroll to risk when you believe you have an edge. It compares the odds with your estimated probability of winning.
+    </p>
+    <p>
+      If the odds imply a lower probability than your own estimate, Kelly may suggest a stake. If there is no estimated edge, Kelly suggests no bet.
+    </p>
+
+    <h2>Kelly Criterion formula</h2>
+    <div class="formula-box">
+      <p><strong>Kelly fraction</strong> = (b × p − q) ÷ b</p>
+      <p><strong>b</strong> = decimal odds − 1</p>
+      <p><strong>p</strong> = your estimated probability</p>
+      <p><strong>q</strong> = 1 − p</p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Why fractional Kelly is common</h2>
+    <p>
+      Full Kelly can be aggressive because it assumes your probability estimate is accurate. In real betting, estimates can be wrong, odds can move and outcomes are uncertain.
+    </p>
+    <p>
+      Many bettors use half Kelly, quarter Kelly or smaller fractions to reduce volatility.
+    </p>
+
+    <div class="callout">
+      <strong>Important:</strong> Kelly staking does not create an edge. It only sizes a stake based on an edge you believe already exists.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/odds-converter/">
+        <h3>Odds Converter</h3>
+        <p>Convert odds into implied probability.</p>
+      </a>
+      <a class="related-card" href="/guides/what-is-implied-probability/">
+        <h3>What Is Implied Probability?</h3>
+        <p>Learn how odds translate into percentage chance.</p>
+      </a>
+      <a class="related-card" href="/guides/can-you-always-beat-the-bookie/">
+        <h3>Can You Always Beat the Bookie?</h3>
+        <p>Understand why betting maths cannot guarantee profit.</p>
+      </a>
+    </div>
+  </section>
+
+  <style>
+    .calculator-panel {
+      margin-top: 1.5rem;
+      padding: 1.25rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      background: #ffffff;
+    }
+
+    .calculator-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .calculator-header h2 {
+      margin: 0;
+    }
+
+    .calculator-header p {
+      margin: 0.25rem 0 0;
+      color: var(--color-muted);
+    }
+
+    .small-button {
+      padding: 0.55rem 0.75rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .input-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .input-group {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .input-group > span {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: var(--color-navy);
+      font-weight: 800;
+    }
+
+    .input-group input,
+    .input-group select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      color: var(--color-text);
+      font: inherit;
+      font-size: 1.05rem;
+      background: white;
+    }
+
+    .input-group small {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--color-muted);
+    }
+
+    .money-input-wrap,
+    .percent-input-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      background: white;
+    }
+
+    .money-input-wrap span,
+    .percent-input-wrap span {
+      color: var(--color-muted);
+      font-weight: 800;
+    }
+
+    .money-input-wrap input,
+    .percent-input-wrap input {
+      border: 0;
+      padding: 0.5rem 0;
+      background: transparent;
+    }
+
+    .money-input-wrap input:focus,
+    .percent-input-wrap input:focus {
+      outline: 0;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .result-card {
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .result-card span {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: var(--color-muted);
+      font-size: 0.9rem;
+    }
+
+    .result-card strong {
+      display: block;
+      color: var(--color-navy);
+      font-size: 1.3rem;
+      line-height: 1.2;
+    }
+
+    .result-card strong.positive {
+      color: var(--color-green-dark);
+    }
+
+    .result-card strong.negative {
+      color: #b42318;
+    }
+
+    .result-note {
+      margin: 1rem 0 0;
+      padding: 1rem;
+      border-radius: 12px;
+      background: #eef8f3;
+      color: var(--color-green-dark);
+      font-weight: 700;
+    }
+
+    .result-note.warning {
+      background: #fff7e6;
+      color: #8a5a00;
+    }
+
+    .result-note.error {
+      background: #fff1f0;
+      color: #b42318;
+    }
+
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .formula-box {
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+
+    .formula-box p {
+      margin: 0.4rem 0;
+      font-weight: 700;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .related-card {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .related-card p {
+      margin: 0;
+      color: var(--color-muted);
+    }
+
+    .callout a,
+    .article-section a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 980px) {
+      .input-grid,
+      .results-grid,
+      .related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .calculator-header {
+        flex-direction: column;
+      }
+
+      .input-grid,
+      .results-grid,
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <script>
+    const bankrollInput = document.getElementById("bankroll");
+    const oddsInput = document.getElementById("decimal-odds");
+    const probabilityInput = document.getElementById("estimated-probability");
+    const fractionInput = document.getElementById("kelly-fraction");
+    const resetButton = document.getElementById("reset-kelly");
+
+    const impliedResult = document.getElementById("implied-result");
+    const edgeResult = document.getElementById("edge-result");
+    const fullKellyResult = document.getElementById("full-kelly-result");
+    const recommendedStakeResult = document.getElementById("recommended-stake-result");
+    const resultNote = document.getElementById("result-note");
+
+    function formatMoney(value) {
+      return new Intl.NumberFormat("en-GB", {
+        style: "currency",
+        currency: "GBP",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }).format(value);
+    }
+
+    function formatPercent(value) {
+      return `${value.toFixed(2)}%`;
+    }
+
+    function showError(message) {
+      impliedResult.textContent = "—";
+      edgeResult.textContent = "—";
+      fullKellyResult.textContent = "—";
+      recommendedStakeResult.textContent = "—";
+      edgeResult.className = "";
+      fullKellyResult.className = "";
+      recommendedStakeResult.className = "";
+      resultNote.textContent = message;
+      resultNote.className = "result-note error";
+    }
+
+    function calculateKelly() {
+      const bankroll = Number(bankrollInput.value);
+      const odds = Number(oddsInput.value);
+      const probabilityPercent = Number(probabilityInput.value);
+      const kellyFraction = Number(fractionInput.value);
+
+      if (!Number.isFinite(bankroll) || bankroll <= 0) {
+        showError("Please enter a bankroll greater than £0.");
+        return;
+      }
+
+      if (!Number.isFinite(odds) || odds <= 1) {
+        showError("Please enter decimal odds greater than 1.00.");
+        return;
+      }
+
+      if (!Number.isFinite(probabilityPercent) || probabilityPercent <= 0 || probabilityPercent >= 100) {
+        showError("Please enter an estimated probability between 0 and 100.");
+        return;
+      }
+
+      const p = probabilityPercent / 100;
+      const q = 1 - p;
+      const b = odds - 1;
+      const impliedProbability = (1 / odds) * 100;
+      const edge = (p * odds) - 1;
+      const fullKelly = ((b * p) - q) / b;
+      const positiveKelly = Math.max(0, fullKelly);
+      const recommendedFraction = positiveKelly * kellyFraction;
+      const recommendedStake = bankroll * recommendedFraction;
+
+      impliedResult.textContent = formatPercent(impliedProbability);
+      edgeResult.textContent = formatPercent(edge * 100);
+      fullKellyResult.textContent = formatPercent(fullKelly * 100);
+      recommendedStakeResult.textContent = formatMoney(recommendedStake);
+
+      edgeResult.className = edge > 0 ? "positive" : "negative";
+      fullKellyResult.className = fullKelly > 0 ? "positive" : "negative";
+      recommendedStakeResult.className = recommendedStake > 0 ? "positive" : "";
+
+      if (fullKelly <= 0) {
+        resultNote.textContent = "Based on these inputs, Kelly does not suggest a positive stake. That usually means your estimated chance is not high enough compared with the odds.";
+        resultNote.className = "result-note warning";
+      } else {
+        const fractionLabel = fractionInput.options[fractionInput.selectedIndex].text;
+        resultNote.textContent = `${fractionLabel} suggests staking ${formatMoney(recommendedStake)}, which is ${formatPercent(recommendedFraction * 100)} of a ${formatMoney(bankroll)} bankroll.`;
+        resultNote.className = "result-note";
+      }
+    }
+
+    [bankrollInput, oddsInput, probabilityInput, fractionInput].forEach((input) => {
+      input.addEventListener("input", calculateKelly);
+      input.addEventListener("change", calculateKelly);
+    });
+
+    resetButton.addEventListener("click", () => {
+      bankrollInput.value = "1000";
+      oddsInput.value = "3.00";
+      probabilityInput.value = "40";
+      fractionInput.value = "0.5";
+      calculateKelly();
+    });
+
+    calculateKelly();
+  </script>
+</MainLayout>
