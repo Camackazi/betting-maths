@@ -5,13 +5,13 @@ import CalculatorCard from "../components/CalculatorCard.astro";
 
 <MainLayout
   title="Free Betting Calculators and Betting Maths Guides"
-  description="Free betting calculators and plain-English guides to help you understand odds, overround, arbitrage, dutching, hedging, back lay betting, accumulators, each-way bets, lay liability, bookmaker margin and betting jargon."
+  description="Free betting calculators and plain-English guides to help you understand odds, overround, arbitrage, dutching, hedging, free bets, matched betting, back lay betting, accumulators, each-way bets, lay liability, bookmaker margin and betting jargon."
 >
   <section class="hero">
     <p class="eyebrow">Betting calculators and plain-English guides</p>
     <h1>Understand the odds. Use the maths. Bet smarter.</h1>
     <p class="lead">
-      Betting Maths helps you understand odds, stakes, overround, arbitrage, dutching, hedging, back/lay betting, accumulators, each-way bets, Kelly staking, Rule 4 deductions, lay liability, bookmaker margin and common betting jargon with simple calculators and practical examples.
+      Betting Maths helps you understand odds, stakes, overround, arbitrage, dutching, hedging, free bets, matched betting, back/lay betting, accumulators, each-way bets, extra places, Kelly staking, Rule 4 deductions, lay liability, bookmaker margin and common betting jargon with simple calculators and practical examples.
     </p>
     <div class="button-row">
       <a class="button primary" href="/calculators/">Browse All Calculators</a>
@@ -23,7 +23,7 @@ import CalculatorCard from "../components/CalculatorCard.astro";
   <section class="content-card intro-panel">
     <h2>What is Betting Maths?</h2>
     <p>
-      Betting Maths is a free betting education and calculator site. It is designed to explain how odds, implied probability, overround, arbitrage, dutching, hedging, back/lay betting, accumulators, each-way bets, Kelly staking, Rule 4 deductions, lay liability and bookmaker margins work in plain English.
+      Betting Maths is a free betting education and calculator site. It is designed to explain how odds, implied probability, overround, arbitrage, dutching, hedging, free bets, matched betting, back/lay betting, accumulators, each-way bets, extra places, Kelly staking, Rule 4 deductions, lay liability and bookmaker margins work in plain English.
     </p>
     <p>
       The aim is not to provide betting tips or guaranteed profit systems. The aim is to help you understand the numbers behind betting markets so you can read odds, calculate outcomes and understand risk more clearly.
@@ -40,7 +40,7 @@ import CalculatorCard from "../components/CalculatorCard.astro";
       <a class="start-card" href="/calculators/">
         <span>Calculator hub</span>
         <h3>Use the calculators</h3>
-        <p>Find tools for odds, overround, arbitrage, accumulators, each-way bets, dutching, hedging, back/lay betting, Kelly staking and lay liability.</p>
+        <p>Find tools for odds, overround, arbitrage, free bets, matched betting, accumulators, each-way bets, dutching, hedging, back/lay betting, Kelly staking and lay liability.</p>
       </a>
 
       <a class="start-card" href="/guides/">
@@ -90,6 +90,16 @@ import CalculatorCard from "../components/CalculatorCard.astro";
       href="/calculators/back-lay-calculator/"
     />
     <CalculatorCard
+      title="Free Bet Calculator"
+      description="Calculate free bet lay stake, liability, conversion rate and possible profit."
+      href="/calculators/free-bet-calculator/"
+    />
+    <CalculatorCard
+      title="Matched Betting Calculator"
+      description="Estimate qualifying bet result, free bet profit, lay stakes and overall matched betting result."
+      href="/calculators/matched-betting-calculator/"
+    />
+    <CalculatorCard
       title="Lay Liability Calculator"
       description="Calculate lay liability, exchange commission and profit or loss from a lay bet."
       href="/calculators/lay-liability-calculator/"
@@ -108,6 +118,11 @@ import CalculatorCard from "../components/CalculatorCard.astro";
       title="Each-Way Calculator"
       description="Calculate total stake, place odds, win return, place return and each-way profit or loss."
       href="/calculators/each-way-calculator/"
+    />
+    <CalculatorCard
+      title="Each-Way Extra Places Calculator"
+      description="Compare standard each-way place terms with enhanced extra places offers."
+      href="/calculators/each-way-extra-places-calculator/"
     />
     <CalculatorCard
       title="Rule 4 Calculator"
@@ -186,7 +201,7 @@ import CalculatorCard from "../components/CalculatorCard.astro";
   <section class="content-card article-section">
     <h2>Betting jargon explained</h2>
     <p>
-      Betting can be full of confusing terms: acca, overround, lay bet, liability, vig, juice, dutching, hedging, back/lay, each-way, value betting, underround and more.
+      Betting can be full of confusing terms: acca, overround, lay bet, liability, vig, juice, dutching, hedging, free bet, matched betting, back/lay, each-way, value betting, underround and more.
     </p>
     <p>
       Our betting glossary explains common betting terms in plain English and links important maths terms to the right calculator.
@@ -265,6 +280,38 @@ import CalculatorCard from "../components/CalculatorCard.astro";
 
     <p>
       These two outcomes add up to 95.24%, which is an underround. The <a href="/calculators/arbitrage-calculator/">Arbitrage Calculator</a> can show the stake split and estimated profit.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Free bet example</h2>
+    <p>
+      Many bookmaker free bets are stake not returned. That means a £50 free bet at odds of 6.00 usually pays £250 profit if it wins, not a £300 return.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Free bet stake</th>
+          <th>Back odds</th>
+          <th>Lay odds</th>
+          <th>Commission</th>
+          <th>Estimated profit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>£50</td>
+          <td>6.00</td>
+          <td>5.50</td>
+          <td>2%</td>
+          <td>About £44.71</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      The <a href="/calculators/free-bet-calculator/">Free Bet Calculator</a> works out lay stake, liability, conversion rate and possible profit from a free bet.
     </p>
   </section>
 
@@ -392,7 +439,7 @@ import CalculatorCard from "../components/CalculatorCard.astro";
     </table>
 
     <p>
-      The <a href="/calculators/each-way-calculator/">Each-Way Calculator</a> works out the total stake, place odds, win profit, place-only result and losing result.
+      The <a href="/calculators/each-way-calculator/">Each-Way Calculator</a> works out the total stake, place odds, win profit, place-only result and losing result. The <a href="/calculators/each-way-extra-places-calculator/">Each-Way Extra Places Calculator</a> compares normal place terms with enhanced extra places offers.
     </p>
   </section>
 
