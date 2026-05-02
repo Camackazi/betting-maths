@@ -1,0 +1,532 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="Hedging vs Cash Out"
+  description="Learn the difference between hedging a bet and using cash out, how to compare a cash out offer, and why back and lay calculations can help explain your options."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting maths guide</p>
+    <h1>Hedging vs Cash Out</h1>
+    <p class="lead">
+      Hedging and cash out are both ways to settle or reduce risk on a betting position before the final result is known. The difference is that cash out is an offer from the bookmaker, while hedging is a calculation you can make yourself.
+    </p>
+
+    <div class="callout">
+      <strong>Quick answer:</strong> Cash out is convenient, but the offer may include a margin. Hedging lets you calculate your own back or lay position and compare the numbers.
+    </div>
+
+    <div class="article-link-box">
+      <a class="button primary" href="/calculators/hedge-bet-calculator/">Use the Hedge Bet Calculator</a>
+      <a class="button secondary" href="/calculators/back-lay-calculator/">Use the Back/Lay Calculator</a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What is cash out?</h2>
+    <p>
+      Cash out is an offer from a bookmaker or betting exchange to settle your bet before the event has finished. Instead of waiting for the final result, you accept a value now.
+    </p>
+    <p>
+      A cash out offer might lock in profit, reduce a possible loss, or return some of your stake. The amount offered depends on the current odds, the original bet, the state of the event, and the margin built into the cash out price.
+    </p>
+
+    <h2>What is hedging?</h2>
+    <p>
+      Hedging means placing another bet to reduce risk, balance outcomes, or lock in profit. In betting exchange terms, this often means backing first and laying later, or laying first and backing later.
+    </p>
+    <p>
+      Instead of accepting the bookmaker’s cash out offer, you calculate what a second bet would do to the position.
+    </p>
+
+    <div class="callout">
+      <strong>Key difference:</strong> Cash out is offered to you. Hedging is calculated by you.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Simple example: cash out vs hedge</h2>
+    <p>
+      Imagine you backed a selection with £100 at odds of 3.00. If it wins, your total return is £300, including £200 profit.
+    </p>
+    <p>
+      Later, the odds shorten to 2.00. The bookmaker may offer a cash out amount, or you could lay the same selection on an exchange to hedge the bet yourself.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Original bet</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Back stake</td>
+          <td>£100</td>
+        </tr>
+        <tr>
+          <td>Back odds</td>
+          <td>3.00</td>
+        </tr>
+        <tr>
+          <td>Possible return if it wins</td>
+          <td>£300</td>
+        </tr>
+        <tr>
+          <td>Possible profit if it wins</td>
+          <td>£200</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      If the lay odds are now 2.00 and exchange commission is 2%, the hedge calculation might show a lay stake of around £151.52. That would balance the result at about £48.48 profit whether the selection wins or loses.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Lay stake</strong> = back stake × back odds ÷ (lay odds − commission)</p>
+      <p>£100 × 3.00 ÷ (2.00 − 0.02) = £151.52</p>
+    </div>
+
+    <div class="callout">
+      <strong>Try it:</strong> Enter this example into the <a href="/calculators/hedge-bet-calculator/">Hedge Bet Calculator</a> or <a href="/calculators/back-lay-calculator/">Back/Lay Calculator</a>.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Why cash out may be lower than a hedge calculation</h2>
+    <p>
+      Cash out is convenient, but convenience may come at a cost. A bookmaker’s cash out offer may be lower than the value you could create by hedging manually, especially if the cash out price includes an additional margin.
+    </p>
+    <p>
+      That does not mean cash out is always bad. It means you should understand what you are being offered.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Who controls it?</th>
+          <th>Main issue</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Cash out</td>
+          <td>The bookmaker or exchange offers a settlement amount.</td>
+          <td>Convenient, but may include margin.</td>
+        </tr>
+        <tr>
+          <td>Manual hedge</td>
+          <td>You calculate and place another bet yourself.</td>
+          <td>More control, but requires accurate odds and commission.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      Comparing the two can help you decide whether the cash out offer is reasonable.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>How to compare a cash out offer</h2>
+    <p>
+      The basic idea is simple: calculate what your own hedge would produce, then compare that figure with the cash out offer.
+    </p>
+
+    <ol class="numbered-list">
+      <li>Write down your original stake and odds.</li>
+      <li>Check the current lay odds or opposite market price.</li>
+      <li>Add the exchange commission if using an exchange.</li>
+      <li>Calculate the hedge stake.</li>
+      <li>Compare the balanced result with the cash out offer.</li>
+    </ol>
+
+    <p>
+      If your calculated hedge produces a better result than the cash out offer, the cash out may be poor value. If the cash out is close to or better than the hedge, it may be reasonable.
+    </p>
+
+    <div class="callout">
+      <strong>Important:</strong> A calculated hedge is only useful if you can actually place the hedge bet at the odds used in the calculation.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Cash out example table</h2>
+    <p>
+      Here is a simplified example showing how a bettor might compare options.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Option</th>
+          <th>Result if accepted or placed</th>
+          <th>Comment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Let the bet run</td>
+          <td>Win £200 profit or lose £100 stake</td>
+          <td>Highest upside, but still full downside.</td>
+        </tr>
+        <tr>
+          <td>Cash out offer</td>
+          <td>Accept bookmaker settlement</td>
+          <td>Convenient, but may include margin.</td>
+        </tr>
+        <tr>
+          <td>Manual hedge</td>
+          <td>Balance profit or reduce loss using another bet</td>
+          <td>Requires calculation, liquidity and accurate odds.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      Betting Maths does not tell you which option to choose. It helps you understand the numbers behind each option.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>When cash out can make sense</h2>
+    <p>
+      Cash out can be useful in some situations. It is simple, quick, and does not require you to use an exchange or calculate a separate hedge bet.
+    </p>
+
+    <ul class="standard-list">
+      <li>You want to reduce risk quickly.</li>
+      <li>You do not have access to a suitable exchange market.</li>
+      <li>The cash out offer is close to your own hedge calculation.</li>
+      <li>You want a simple settlement without placing another bet.</li>
+      <li>The market is moving quickly and you prefer certainty.</li>
+    </ul>
+
+    <p>
+      The trade-off is that you may accept less value than a manual hedge could offer.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>When hedging can make sense</h2>
+    <p>
+      Hedging can make sense when you want more control over the position and you can place the second bet at the odds used in your calculation.
+    </p>
+
+    <ul class="standard-list">
+      <li>You backed at higher odds and can lay at lower odds.</li>
+      <li>You laid at lower odds and can back at higher odds.</li>
+      <li>You want to compare your own calculation with a cash out offer.</li>
+      <li>You understand lay liability and exchange commission.</li>
+      <li>There is enough exchange liquidity to place the hedge.</li>
+    </ul>
+
+    <p>
+      Hedging is not automatically better than cash out. It depends on the odds, commission, available liquidity and your goal.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Hedging after odds move in your favour</h2>
+    <p>
+      The clearest hedge opportunity usually appears when the odds move in your favour.
+    </p>
+    <p>
+      If you backed at 6.00 and the selection shortens to 2.00, the market now sees the outcome as much more likely than before. That price movement may allow you to lay the selection and lock in or balance profit.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Stage</th>
+          <th>Odds</th>
+          <th>Implied probability</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Original back price</td>
+          <td>6.00</td>
+          <td>16.67%</td>
+        </tr>
+        <tr>
+          <td>Later lay price</td>
+          <td>2.00</td>
+          <td>50.00%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      This is why implied probability and odds movement are useful concepts for hedge bettors.
+    </p>
+
+    <div class="callout">
+      <strong>Related guide:</strong> Read <a href="/guides/what-is-implied-probability/">What Is Implied Probability?</a> to understand how odds translate into percentage chance.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Can hedging lock in profit?</h2>
+    <p>
+      Yes, hedging can sometimes lock in profit if the odds have moved favourably. But it does not always happen.
+    </p>
+    <p>
+      If the odds move against you, hedging may reduce a loss rather than create a profit. If commission or poor liquidity affects the price, the hedge may be worse than expected.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Odds movement</th>
+          <th>Possible hedge result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Backed high, later lay lower</td>
+          <td>May allow a profitable hedge.</td>
+        </tr>
+        <tr>
+          <td>Backed low, later lay higher</td>
+          <td>May lock in a loss or reduce risk.</td>
+        </tr>
+        <tr>
+          <td>No meaningful price movement</td>
+          <td>May be close to break-even after commission.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Key point:</strong> Hedging is a risk-management calculation, not a guaranteed profit system.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Cash out and bookmaker margin</h2>
+    <p>
+      Cash out offers are not usually neutral mathematical gifts. They are commercial settlement offers. The bookmaker can price the offer in a way that protects its own margin.
+    </p>
+    <p>
+      This is similar to how odds themselves include bookmaker margin. Understanding overround and implied probability can help you see why a cash out offer may not equal the pure fair value of the bet.
+    </p>
+
+    <div class="related-grid">
+      <a class="related-card" href="/guides/bookmaker-margin-explained/">
+        <h3>Bookmaker Margin Explained</h3>
+        <p>Learn how margin is built into betting markets.</p>
+      </a>
+      <a class="related-card" href="/calculators/overround-calculator/">
+        <h3>Overround Calculator</h3>
+        <p>Calculate book percentage and bookmaker margin.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Common cash out mistakes</h2>
+
+    <h3>Assuming cash out is always fair</h3>
+    <p>
+      Cash out may be convenient, but the offer can include margin. It is worth comparing the offer against your own hedge calculation where possible.
+    </p>
+
+    <h3>Only looking at profit</h3>
+    <p>
+      A cash out profit can feel safe, but you should also consider what you are giving up if the bet wins.
+    </p>
+
+    <h3>Waiting too long</h3>
+    <p>
+      Cash out values can change quickly. A goal, red card, injury, suspension or price movement can change the offer immediately.
+    </p>
+
+    <h3>Ignoring commission when comparing to a hedge</h3>
+    <p>
+      If you compare cash out with an exchange hedge, include commission. Otherwise the hedge may look better than it really is.
+    </p>
+
+    <h3>Chasing losses through cash out decisions</h3>
+    <p>
+      Cashing out or refusing to cash out because of emotion can lead to poor decisions. Betting positions should be understood calmly before more money is risked.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Related betting calculators</h2>
+
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/hedge-bet-calculator/">
+        <h3>Hedge Bet Calculator</h3>
+        <p>Calculate back-first and lay-first hedge positions.</p>
+      </a>
+      <a class="related-card" href="/calculators/back-lay-calculator/">
+        <h3>Back/Lay Calculator</h3>
+        <p>Calculate lay stake, liability and commission.</p>
+      </a>
+      <a class="related-card" href="/calculators/lay-liability-calculator/">
+        <h3>Lay Liability Calculator</h3>
+        <p>Understand the exposure on a lay bet.</p>
+      </a>
+      <a class="related-card" href="/calculators/odds-converter/">
+        <h3>Odds Converter</h3>
+        <p>Convert odds into implied probability.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Hedging vs cash out FAQs</h2>
+
+    <h3>Is hedging better than cash out?</h3>
+    <p>
+      Not always. Hedging can sometimes produce a better result, but cash out is simpler. The best option depends on the odds, commission, liquidity and the cash out offer.
+    </p>
+
+    <h3>Why is my cash out offer lower than expected?</h3>
+    <p>
+      Cash out offers can include margin and may be affected by current odds, market movement, risk, suspension, liquidity and bookmaker pricing.
+    </p>
+
+    <h3>Can I calculate my own cash out value?</h3>
+    <p>
+      You can estimate an alternative by calculating a hedge position using current odds. This lets you compare your own numbers with the bookmaker’s offer.
+    </p>
+
+    <h3>Does hedging guarantee profit?</h3>
+    <p>
+      No. Hedging can lock in profit if the odds move favourably, but it can also reduce a loss or lower your maximum profit.
+    </p>
+
+    <h3>What calculator should I use?</h3>
+    <p>
+      Use the Hedge Bet Calculator for back-first or lay-first hedge positions. Use the Back/Lay Calculator if you backed first and want to calculate the lay stake needed to balance the bet.
+    </p>
+
+    <h3>Should I always cash out if I am in profit?</h3>
+    <p>
+      Not necessarily. Cashing out secures a result, but it may give up value. You should understand the numbers before deciding.
+    </p>
+
+    <div class="callout">
+      <strong>Responsible note:</strong> Cash out and hedging can reduce risk, but they cannot remove betting risk completely. Never chase losses or bet more than you can afford to lose.
+    </div>
+  </section>
+
+  <style>
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .article-link-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .formula-box {
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+
+    .formula-box p {
+      margin: 0.4rem 0;
+      font-weight: 700;
+    }
+
+    .numbered-list,
+    .standard-list {
+      padding-left: 1.3rem;
+    }
+
+    .numbered-list li,
+    .standard-list li {
+      margin: 0.45rem 0;
+    }
+
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .example-table th,
+    .example-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .example-table th {
+      color: var(--color-navy);
+      background: #f4f7fa;
+      font-size: 0.9rem;
+    }
+
+    .example-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .related-card {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .related-card:hover {
+      border-color: rgba(31, 138, 91, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .related-card h3 {
+      margin-bottom: 0.35rem;
+    }
+
+    .related-card p {
+      margin: 0;
+      color: var(--color-muted);
+    }
+
+    .callout a,
+    .article-section a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 980px) {
+      .related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</MainLayout>
