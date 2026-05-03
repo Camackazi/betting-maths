@@ -1,0 +1,250 @@
+---
+const pathname = Astro.url.pathname.endsWith("/")
+  ? Astro.url.pathname
+  : `${Astro.url.pathname}/`;
+
+const isDetailPage =
+  (pathname.startsWith("/calculators/") && pathname !== "/calculators/") ||
+  (pathname.startsWith("/guides/") && pathname !== "/guides/");
+
+const item = (title, href, description, tag = "Related") => ({
+  title,
+  href,
+  description,
+  tag
+});
+
+const oddsAndMarginItems = [
+  item("Odds Converter", "/calculators/odds-converter/", "Convert decimal, fractional and American odds, and calculate implied probability.", "Calculator"),
+  item("Overround Calculator", "/calculators/overround-calculator/", "Calculate book percentage, overround and bookmaker margin.", "Calculator"),
+  item("Arbitrage Calculator", "/calculators/arbitrage-calculator/", "Check whether odds create an underround across all outcomes.", "Calculator"),
+  item("What Is Implied Probability?", "/guides/what-is-implied-probability/", "Learn how odds convert into percentage chance.", "Guide"),
+  item("Bookmaker Margin Explained", "/guides/bookmaker-margin-explained/", "Understand bookmaker margin, overround and book percentage.", "Guide"),
+  item("What Is Overround?", "/guides/what-is-overround/", "Learn why betting markets usually add up to more than 100%.", "Guide")
+];
+
+const freeBetItems = [
+  item("Free Bet Calculator", "/calculators/free-bet-calculator/", "Calculate lay stake, liability, conversion rate and free bet profit.", "Calculator"),
+  item("Matched Betting Calculator", "/calculators/matched-betting-calculator/", "Estimate qualifying loss, free bet profit and overall matched betting result.", "Calculator"),
+  item("Back/Lay Calculator", "/calculators/back-lay-calculator/", "Calculate lay stake, lay liability and back/lay outcomes.", "Calculator"),
+  item("Lay Liability Calculator", "/calculators/lay-liability-calculator/", "Understand the real exposure created by a lay bet.", "Calculator"),
+  item("What Is a Free Bet?", "/guides/what-is-a-free-bet/", "Learn how free bets, stake not returned and offer value work.", "Guide"),
+  item("What Is Matched Betting?", "/guides/what-is-matched-betting/", "Understand qualifying bets, free bets, back bets and lay bets.", "Guide"),
+  item("Stake Returned vs Stake Not Returned", "/guides/stake-returned-vs-stake-not-returned/", "Learn one of the most important free bet terms.", "Guide")
+];
+
+const exchangeAndHedgingItems = [
+  item("Hedge Bet Calculator", "/calculators/hedge-bet-calculator/", "Calculate hedge stakes for back-first and lay-first positions.", "Calculator"),
+  item("Back/Lay Calculator", "/calculators/back-lay-calculator/", "Calculate lay stake, liability, commission and balanced outcomes.", "Calculator"),
+  item("Lay Liability Calculator", "/calculators/lay-liability-calculator/", "Calculate lay liability and lay bet profit or loss.", "Calculator"),
+  item("Free Bet Calculator", "/calculators/free-bet-calculator/", "Calculate free bet lay stakes and conversion value.", "Calculator"),
+  item("How to Hedge a Bet", "/guides/how-to-hedge-a-bet/", "Learn how back and lay hedging works.", "Guide"),
+  item("Hedging vs Cash Out", "/guides/hedging-vs-cash-out/", "Compare bookmaker cash out with manual hedging.", "Guide")
+];
+
+const stakingItems = [
+  item("Dutching Calculator", "/calculators/dutching-calculator/", "Split a total stake across two or more selections.", "Calculator"),
+  item("Arbitrage Calculator", "/calculators/arbitrage-calculator/", "Check whether odds create an underround.", "Calculator"),
+  item("Accumulator Calculator", "/calculators/accumulator-calculator/", "Calculate combined acca odds, returns and implied probability.", "Calculator"),
+  item("Kelly Criterion Calculator", "/calculators/kelly-criterion-calculator/", "Estimate stake size from bankroll, odds and estimated probability.", "Calculator"),
+  item("What Is Dutching?", "/guides/what-is-dutching/", "Learn how dutching splits stakes across multiple selections.", "Guide"),
+  item("Dutching vs Arbitrage", "/guides/dutching-vs-arbitrage/", "Understand the difference between dutching and arbitrage.", "Guide")
+];
+
+const racingItems = [
+  item("Each-Way Calculator", "/calculators/each-way-calculator/", "Calculate win, place-only and losing each-way outcomes.", "Calculator"),
+  item("Each-Way Extra Places Calculator", "/calculators/each-way-extra-places-calculator/", "Compare standard place terms with enhanced extra places offers.", "Calculator"),
+  item("Rule 4 Calculator", "/calculators/rule-4-calculator/", "Estimate horse racing Rule 4 deductions and adjusted returns.", "Calculator"),
+  item("Each-Way Betting Terms Explained", "/guides/each-way-betting-terms-explained/", "Learn win part, place part, place terms, non-runners and Rule 4.", "Guide"),
+  item("What Are Extra Places?", "/guides/what-are-extra-places-in-each-way-betting/", "Understand enhanced each-way place offers.", "Guide"),
+  item("What Is Rule 4 in Horse Racing?", "/guides/what-is-rule-4-in-horse-racing/", "Learn how non-runners can reduce winnings.", "Guide")
+];
+
+const fallbackItems = [
+  item("All Betting Calculators", "/calculators/", "Browse every Betting Maths calculator in one place.", "Hub"),
+  item("All Betting Guides", "/guides/", "Read plain-English guides to betting maths concepts.", "Hub"),
+  item("Betting Jargon Explained", "/glossary/betting-jargon-explained/", "Look up common betting terms and maths phrases.", "Glossary")
+];
+
+const clusters = [
+  {
+    title: "More on odds, probability and bookmaker margin",
+    intro: "These pages help explain how odds convert into probability and how bookmaker margin is built into betting markets.",
+    match: [
+      "/calculators/odds-converter/",
+      "/calculators/overround-calculator/",
+      "/calculators/arbitrage-calculator/",
+      "/guides/what-is-implied-probability/",
+      "/guides/bookmaker-margin-explained/",
+      "/guides/what-is-overround/",
+      "/guides/how-bookmakers-make-money/",
+      "/guides/can-you-always-beat-the-bookie/"
+    ],
+    items: oddsAndMarginItems
+  },
+  {
+    title: "More on free bets and matched betting",
+    intro: "These pages connect free bet value, stake-not-returned offers, qualifying bets, lay stakes and exchange liability.",
+    match: [
+      "/calculators/free-bet-calculator/",
+      "/calculators/matched-betting-calculator/",
+      "/guides/what-is-a-free-bet/",
+      "/guides/what-is-matched-betting/",
+      "/guides/stake-returned-vs-stake-not-returned/"
+    ],
+    items: freeBetItems
+  },
+  {
+    title: "More on back, lay, liability and hedging",
+    intro: "These pages explain how exchange betting, lay liability, commission, cash out and manual hedging calculations connect.",
+    match: [
+      "/calculators/hedge-bet-calculator/",
+      "/calculators/back-lay-calculator/",
+      "/calculators/lay-liability-calculator/",
+      "/guides/how-to-hedge-a-bet/",
+      "/guides/hedging-vs-cash-out/"
+    ],
+    items: exchangeAndHedgingItems
+  },
+  {
+    title: "More on staking methods and returns",
+    intro: "These pages cover stake splitting, accumulator returns, Kelly staking, dutching and arbitrage-style calculations.",
+    match: [
+      "/calculators/dutching-calculator/",
+      "/calculators/kelly-criterion-calculator/",
+      "/calculators/accumulator-calculator/",
+      "/guides/what-is-dutching/",
+      "/guides/dutching-vs-arbitrage/"
+    ],
+    items: stakingItems
+  },
+  {
+    title: "More on each-way betting and horse racing terms",
+    intro: "These pages explain each-way returns, extra places, Rule 4 deductions, non-runners and racing settlement terms.",
+    match: [
+      "/calculators/each-way-calculator/",
+      "/calculators/each-way-extra-places-calculator/",
+      "/calculators/rule-4-calculator/",
+      "/guides/each-way-betting-terms-explained/",
+      "/guides/what-are-extra-places-in-each-way-betting/",
+      "/guides/what-is-rule-4-in-horse-racing/"
+    ],
+    items: racingItems
+  }
+];
+
+const activeCluster = clusters.find((cluster) => cluster.match.includes(pathname));
+
+const relatedTitle = activeCluster?.title ?? "Keep exploring Betting Maths";
+const relatedIntro =
+  activeCluster?.intro ??
+  "Use these links to continue exploring related betting calculators, guides and glossary terms.";
+
+const sourceItems = activeCluster?.items ?? fallbackItems;
+
+const seen = new Set();
+const relatedItems = sourceItems
+  .filter((relatedItem) => relatedItem.href !== pathname)
+  .filter((relatedItem) => {
+    if (seen.has(relatedItem.href)) return false;
+    seen.add(relatedItem.href);
+    return true;
+  })
+  .slice(0, 6);
+---
+
+{isDetailPage && relatedItems.length > 0 && (
+  <section class="content-card related-content-section" aria-labelledby="related-content-heading">
+    <p class="eyebrow">Related content</p>
+    <h2 id="related-content-heading">{relatedTitle}</h2>
+    <p>{relatedIntro}</p>
+
+    <div class="related-content-grid">
+      {relatedItems.map((relatedItem) => (
+        <a class="related-content-card" href={relatedItem.href}>
+          <span>{relatedItem.tag}</span>
+          <h3>{relatedItem.title}</h3>
+          <p>{relatedItem.description}</p>
+        </a>
+      ))}
+    </div>
+
+    <div class="related-content-footer">
+      <a href="/calculators/">All calculators</a>
+      <a href="/guides/">All guides</a>
+      <a href="/glossary/betting-jargon-explained/">Betting glossary</a>
+    </div>
+  </section>
+)}
+
+<style>
+  .related-content-section {
+    margin-top: 1.25rem;
+  }
+
+  .related-content-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .related-content-card {
+    display: block;
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    background: var(--color-bg);
+  }
+
+  .related-content-card:hover {
+    border-color: rgba(31, 138, 91, 0.45);
+    transform: translateY(-2px);
+  }
+
+  .related-content-card span {
+    display: inline-flex;
+    margin-bottom: 0.5rem;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    background: #eef8f3;
+    color: var(--color-green-dark);
+    font-size: 0.78rem;
+    font-weight: 800;
+  }
+
+  .related-content-card h3 {
+    margin-bottom: 0.35rem;
+  }
+
+  .related-content-card p {
+    margin: 0;
+    color: var(--color-muted);
+  }
+
+  .related-content-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 1.15rem;
+  }
+
+  .related-content-footer a {
+    color: var(--color-green-dark);
+    font-weight: 800;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 980px) {
+    .related-content-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 760px) {
+    .related-content-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
