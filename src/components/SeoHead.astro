@@ -1,0 +1,48 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+
+const siteName = "Betting Maths";
+const siteUrl = "https://www.bettingmaths.co.uk";
+
+const pageTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
+
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteName,
+  url: siteUrl,
+  description:
+    "Free betting calculators and plain-English betting maths guides covering odds, implied probability, overround, bookmaker margin, free bets, matched betting, each-way betting, Rule 4, hedging, dutching and more.",
+  publisher: {
+    "@type": "Organization",
+    name: siteName,
+    url: siteUrl
+  }
+};
+---
+
+<title>{pageTitle}</title>
+<meta name="description" content={description} />
+
+<link rel="canonical" href={canonicalUrl} />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content={pageTitle} />
+<meta name="twitter:description" content={description} />
+
+<meta name="theme-color" content="#1f8a5b" />
+
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
