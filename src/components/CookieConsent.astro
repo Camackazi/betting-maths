@@ -1,0 +1,269 @@
+<div class="cookie-banner" data-cookie-banner hidden role="dialog" aria-label="Cookie notice">
+  <div class="cookie-banner-content">
+    <div>
+      <p class="cookie-title">Cookies and analytics</p>
+      <p class="cookie-text">
+        Betting Maths uses Google Analytics to understand how visitors use the site. You can accept analytics cookies or reject non-essential cookies.
+      </p>
+      <p class="cookie-small">
+        You can change your choice later using the Cookie settings button.
+      </p>
+    </div>
+
+    <div class="cookie-actions">
+      <button class="cookie-button secondary" type="button" data-cookie-reject>
+        Reject non-essential
+      </button>
+      <button class="cookie-button primary" type="button" data-cookie-accept>
+        Accept analytics
+      </button>
+    </div>
+  </div>
+</div>
+
+<button class="cookie-settings-button" type="button" data-cookie-settings hidden>
+  Cookie settings
+</button>
+
+<script is:inline>
+  const CONSENT_KEY = "bettingMathsCookieConsent";
+  const ANALYTICS_ID = "G-FFL84ZKLKK";
+
+  const banner = document.querySelector("[data-cookie-banner]");
+  const acceptButton = document.querySelector("[data-cookie-accept]");
+  const rejectButton = document.querySelector("[data-cookie-reject]");
+  const settingsButton = document.querySelector("[data-cookie-settings]");
+
+  function getConsentChoice() {
+    try {
+      return localStorage.getItem(CONSENT_KEY);
+    } catch {
+      return null;
+    }
+  }
+
+  function saveConsentChoice(choice) {
+    try {
+      localStorage.setItem(CONSENT_KEY, choice);
+    } catch {
+      // If localStorage is unavailable, still respect the user's choice for this page view.
+    }
+  }
+
+  function deleteCookie(name) {
+    const hostname = window.location.hostname;
+    const rootDomainParts = hostname.split(".").slice(-2);
+    const rootDomain = rootDomainParts.length === 2 ? rootDomainParts.join(".") : hostname;
+
+    document.cookie = `${name}=; Max-Age=0; path=/`;
+    document.cookie = `${name}=; Max-Age=0; path=/; domain=${hostname}`;
+    document.cookie = `${name}=; Max-Age=0; path=/; domain=.${rootDomain}`;
+  }
+
+  function clearAnalyticsCookies() {
+    document.cookie
+      .split(";")
+      .map((cookie) => cookie.split("=")[0].trim())
+      .filter((name) =>
+        name === "_ga" ||
+        name === "_gid" ||
+        name === "_gat" ||
+        name.startsWith("_ga_") ||
+        name.startsWith("_gat_")
+      )
+      .forEach(deleteCookie);
+  }
+
+  function loadAnalytics() {
+    if (window.__bettingMathsAnalyticsLoaded) return;
+
+    window.__bettingMathsAnalyticsLoaded = true;
+    window.dataLayer = window.dataLayer || [];
+
+    window.gtag = window.gtag || function gtag() {
+      window.dataLayer.push(arguments);
+    };
+
+    const analyticsScript = document.createElement("script");
+    analyticsScript.async = true;
+    analyticsScript.src = `https://www.googletagmanager.com/gtag/js?id=${ANALYTICS_ID}`;
+
+    analyticsScript.addEventListener("load", () => {
+      window.gtag("js", new Date());
+      window.gtag("config", ANALYTICS_ID);
+    });
+
+    document.head.appendChild(analyticsScript);
+  }
+
+  function hideBanner() {
+    if (banner) banner.hidden = true;
+  }
+
+  function showBanner() {
+    if (banner) banner.hidden = false;
+  }
+
+  function showSettingsButton() {
+    if (settingsButton) settingsButton.hidden = false;
+  }
+
+  function applySavedConsent() {
+    const choice = getConsentChoice();
+
+    if (choice === "accepted") {
+      loadAnalytics();
+      hideBanner();
+      showSettingsButton();
+      return;
+    }
+
+    if (choice === "rejected") {
+      clearAnalyticsCookies();
+      hideBanner();
+      showSettingsButton();
+      return;
+    }
+
+    showBanner();
+  }
+
+  acceptButton?.addEventListener("click", () => {
+    saveConsentChoice("accepted");
+    loadAnalytics();
+    hideBanner();
+    showSettingsButton();
+  });
+
+  rejectButton?.addEventListener("click", () => {
+    saveConsentChoice("rejected");
+    clearAnalyticsCookies();
+    hideBanner();
+    showSettingsButton();
+  });
+
+  settingsButton?.addEventListener("click", () => {
+    showBanner();
+  });
+
+  applySavedConsent();
+</script>
+
+<style>
+  .cookie-banner {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+    z-index: 100;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
+  }
+
+  .cookie-banner-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .cookie-title {
+    margin: 0 0 0.3rem;
+    color: var(--color-navy);
+    font-weight: 900;
+  }
+
+  .cookie-text {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .cookie-small {
+    margin: 0.35rem 0 0;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+  }
+
+  .cookie-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    justify-content: flex-end;
+  }
+
+  .cookie-button,
+  .cookie-settings-button {
+    border-radius: 999px;
+    padding: 0.7rem 0.95rem;
+    border: 1px solid transparent;
+    font: inherit;
+    font-weight: 900;
+    cursor: pointer;
+  }
+
+  .cookie-button.primary {
+    background: var(--color-green);
+    color: #ffffff;
+  }
+
+  .cookie-button.primary:hover {
+    background: var(--color-green-dark);
+  }
+
+  .cookie-button.secondary {
+    background: #ffffff;
+    color: var(--color-green-dark);
+    border-color: rgba(31, 138, 91, 0.28);
+  }
+
+  .cookie-button.secondary:hover {
+    background: var(--color-green-light);
+    border-color: rgba(31, 138, 91, 0.55);
+  }
+
+  .cookie-settings-button {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 95;
+    background: #ffffff;
+    color: var(--color-green-dark);
+    border: 1px solid rgba(31, 138, 91, 0.28);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+    font-size: 0.88rem;
+  }
+
+  .cookie-settings-button:hover {
+    background: var(--color-green-light);
+  }
+
+  @media (max-width: 760px) {
+    .cookie-banner {
+      right: 0.75rem;
+      bottom: 0.75rem;
+      left: 0.75rem;
+    }
+
+    .cookie-banner-content {
+      grid-template-columns: 1fr;
+    }
+
+    .cookie-actions {
+      justify-content: stretch;
+    }
+
+    .cookie-button {
+      width: 100%;
+    }
+
+    .cookie-settings-button {
+      right: 0.75rem;
+      bottom: 0.75rem;
+    }
+  }
+</style>
