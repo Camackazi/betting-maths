@@ -4,17 +4,17 @@ import MainLayout from "../../layouts/MainLayout.astro";
 
 <MainLayout
   title="Betting Maths Guides"
-  description="Plain-English betting maths guides explaining implied probability, overround, bookmaker margin, free bets, matched betting, each-way betting, Rule 4, extra places, hedging, dutching, cash out and arbitrage."
+  description="Plain-English betting maths guides explaining implied probability, overround, bookmaker margin, free bets, matched betting, each-way betting, Rule 4, lay liability, exchange commission, Kelly staking, hedging, dutching, cash out and arbitrage."
 >
   <section class="content-card">
     <p class="eyebrow">Betting guides</p>
     <h1>Betting Maths Guides</h1>
     <p class="lead">
-      Learn the key betting maths concepts behind odds, implied probability, overround, bookmaker margin, free bets, matched betting, each-way betting, Rule 4, extra places, hedging, dutching, arbitrage, cash out and back/lay betting.
+      Learn the key betting maths concepts behind odds, implied probability, overround, bookmaker margin, free bets, matched betting, lay liability, exchange commission, Kelly staking, each-way betting, Rule 4, extra places, hedging, dutching, arbitrage and cash out.
     </p>
 
     <div class="callout">
-      <strong>Quick guide:</strong> Start with implied probability if you are new to betting maths, then move on to overround, bookmaker margin, free bets, each-way terms, dutching and hedging.
+      <strong>Quick guide:</strong> Start with implied probability if you are new to betting maths, then move on to bookmaker margin, free bets, lay liability, each-way terms, Kelly staking, dutching and hedging.
     </div>
   </section>
 
@@ -37,10 +37,10 @@ import MainLayout from "../../layouts/MainLayout.astro";
         <p>Understand bookmaker margin, overround, book percentage and how market prices are built.</p>
       </a>
 
-      <a class="guide-card featured-guide" href="/guides/what-is-a-free-bet/">
+      <a class="guide-card featured-guide" href="/guides/what-is-lay-liability/">
         <span>Core guide</span>
-        <h3>What Is a Free Bet?</h3>
-        <p>Learn how free bets work, why stake not returned matters, and how offer value is calculated.</p>
+        <h3>What Is Lay Liability?</h3>
+        <p>Learn the exchange betting risk behind lay bets, hedging and free bet conversion.</p>
       </a>
     </div>
   </section>
@@ -80,6 +80,24 @@ import MainLayout from "../../layouts/MainLayout.astro";
         <span>Risk</span>
         <h3>Can You Always Beat the Bookie?</h3>
         <p>Learn why guaranteed betting systems are risky and what maths can actually show.</p>
+      </a>
+
+      <a class="guide-card" href="/guides/what-is-the-kelly-criterion/">
+        <span>Staking</span>
+        <h3>What Is the Kelly Criterion?</h3>
+        <p>Learn how Kelly staking uses odds, bankroll and estimated probability.</p>
+      </a>
+
+      <a class="guide-card" href="/guides/what-is-lay-liability/">
+        <span>Exchange betting</span>
+        <h3>What Is Lay Liability?</h3>
+        <p>Understand how lay liability is calculated and why it matters on exchanges.</p>
+      </a>
+
+      <a class="guide-card" href="/guides/what-is-exchange-commission/">
+        <span>Exchange betting</span>
+        <h3>What Is Exchange Commission?</h3>
+        <p>Learn how commission affects lay bets, hedging, free bets and matched betting.</p>
       </a>
 
       <a class="guide-card" href="/guides/what-is-a-free-bet/">
@@ -170,9 +188,19 @@ import MainLayout from "../../layouts/MainLayout.astro";
           <td><a href="/calculators/overround-calculator/">Overround Calculator</a></td>
         </tr>
         <tr>
-          <td>Why betting markets add up to more than 100%</td>
-          <td><a href="/guides/what-is-overround/">What Is Overround?</a></td>
-          <td><a href="/calculators/overround-calculator/">Overround Calculator</a></td>
+          <td>How Kelly staking works</td>
+          <td><a href="/guides/what-is-the-kelly-criterion/">What Is the Kelly Criterion?</a></td>
+          <td><a href="/calculators/kelly-criterion-calculator/">Kelly Criterion Calculator</a></td>
+        </tr>
+        <tr>
+          <td>What lay liability means</td>
+          <td><a href="/guides/what-is-lay-liability/">What Is Lay Liability?</a></td>
+          <td><a href="/calculators/lay-liability-calculator/">Lay Liability Calculator</a></td>
+        </tr>
+        <tr>
+          <td>How exchange commission affects winnings</td>
+          <td><a href="/guides/what-is-exchange-commission/">What Is Exchange Commission?</a></td>
+          <td><a href="/calculators/back-lay-calculator/">Back/Lay Calculator</a></td>
         </tr>
         <tr>
           <td>How free bets work</td>
@@ -205,11 +233,6 @@ import MainLayout from "../../layouts/MainLayout.astro";
           <td><a href="/calculators/each-way-calculator/">Each-Way Calculator</a></td>
         </tr>
         <tr>
-          <td>How bookmakers manage risk</td>
-          <td><a href="/guides/how-bookmakers-make-money/">How Bookmakers Make Money</a></td>
-          <td><a href="/calculators/overround-calculator/">Overround Calculator</a></td>
-        </tr>
-        <tr>
           <td>How to split a stake across selections</td>
           <td><a href="/guides/what-is-dutching/">What Is Dutching?</a></td>
           <td><a href="/calculators/dutching-calculator/">Dutching Calculator</a></td>
@@ -228,11 +251,6 @@ import MainLayout from "../../layouts/MainLayout.astro";
           <td>Whether cash out is better than hedging</td>
           <td><a href="/guides/hedging-vs-cash-out/">Hedging vs Cash Out</a></td>
           <td><a href="/calculators/back-lay-calculator/">Back/Lay Calculator</a></td>
-        </tr>
-        <tr>
-          <td>Why guaranteed betting claims are risky</td>
-          <td><a href="/guides/can-you-always-beat-the-bookie/">Can You Always Beat the Bookie?</a></td>
-          <td><a href="/glossary/betting-jargon-explained/">Betting Glossary</a></td>
         </tr>
       </tbody>
     </table>
@@ -261,6 +279,25 @@ import MainLayout from "../../layouts/MainLayout.astro";
       </div>
 
       <div class="topic-card">
+        <h3>Value and staking</h3>
+        <ul>
+          <li><a href="/guides/what-is-the-kelly-criterion/">What Is the Kelly Criterion?</a></li>
+          <li><a href="/guides/what-is-dutching/">What Is Dutching?</a></li>
+          <li><a href="/guides/dutching-vs-arbitrage/">Dutching vs Arbitrage</a></li>
+        </ul>
+      </div>
+
+      <div class="topic-card">
+        <h3>Exchange and hedging</h3>
+        <ul>
+          <li><a href="/guides/what-is-lay-liability/">What Is Lay Liability?</a></li>
+          <li><a href="/guides/what-is-exchange-commission/">What Is Exchange Commission?</a></li>
+          <li><a href="/guides/how-to-hedge-a-bet/">How to Hedge a Bet</a></li>
+          <li><a href="/guides/hedging-vs-cash-out/">Hedging vs Cash Out</a></li>
+        </ul>
+      </div>
+
+      <div class="topic-card">
         <h3>Free bets and offers</h3>
         <ul>
           <li><a href="/guides/what-is-a-free-bet/">What Is a Free Bet?</a></li>
@@ -275,24 +312,6 @@ import MainLayout from "../../layouts/MainLayout.astro";
           <li><a href="/guides/each-way-betting-terms-explained/">Each-Way Betting Terms Explained</a></li>
           <li><a href="/guides/what-are-extra-places-in-each-way-betting/">What Are Extra Places?</a></li>
           <li><a href="/guides/what-is-rule-4-in-horse-racing/">What Is Rule 4 in Horse Racing?</a></li>
-        </ul>
-      </div>
-
-      <div class="topic-card">
-        <h3>Staking methods</h3>
-        <ul>
-          <li><a href="/guides/what-is-dutching/">What Is Dutching?</a></li>
-          <li><a href="/guides/dutching-vs-arbitrage/">Dutching vs Arbitrage</a></li>
-          <li><a href="/calculators/accumulator-calculator/">Accumulator Calculator</a></li>
-        </ul>
-      </div>
-
-      <div class="topic-card">
-        <h3>Hedging and exchanges</h3>
-        <ul>
-          <li><a href="/guides/how-to-hedge-a-bet/">How to Hedge a Bet</a></li>
-          <li><a href="/guides/hedging-vs-cash-out/">Hedging vs Cash Out</a></li>
-          <li><a href="/calculators/back-lay-calculator/">Back/Lay Calculator</a></li>
         </ul>
       </div>
     </div>
