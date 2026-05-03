@@ -1,0 +1,472 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="What Is Lay Liability?"
+  description="Learn what lay liability means, how to calculate lay liability, why it matters on betting exchanges, and how liability affects back/lay, hedging and free bet calculations."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting maths guide</p>
+    <h1>What Is Lay Liability?</h1>
+    <p class="lead">
+      Lay liability is the amount you risk when you lay a selection on a betting exchange. It is one of the most important concepts in exchange betting.
+    </p>
+
+    <div class="callout">
+      <strong>Quick answer:</strong> Lay liability is calculated as lay stake × (lay odds − 1). It is the amount you could lose if the selection you lay goes on to win.
+    </div>
+
+    <div class="article-link-box">
+      <a class="button primary" href="/calculators/lay-liability-calculator/">Use the Lay Liability Calculator</a>
+      <a class="button secondary" href="/calculators/back-lay-calculator/">Use the Back/Lay Calculator</a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What does lay liability mean?</h2>
+    <p>
+      A lay bet is a bet against something happening. If you lay a horse, team or selection, you are effectively acting like the bookmaker for that bet.
+    </p>
+    <p>
+      If the selection loses, your lay bet wins and you keep the lay stake from the other side of the bet. If the selection wins, your lay bet loses and you must pay out based on the odds.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Lay liability</strong> = lay stake × (lay odds − 1)</p>
+    </div>
+
+    <p>
+      The liability is the amount you need available on the exchange to cover the possible loss.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Simple lay liability example</h2>
+    <p>
+      Suppose you lay a selection for £100 at decimal odds of 3.00.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Lay stake</th>
+          <th>Lay odds</th>
+          <th>Liability</th>
+          <th>If selection loses</th>
+          <th>If selection wins</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>£100</td>
+          <td>3.00</td>
+          <td>£200</td>
+          <td>You win the lay stake</td>
+          <td>You lose the liability</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="formula-box">
+      <p>Lay liability = £100 × (3.00 − 1)</p>
+      <p>Lay liability = £100 × 2</p>
+      <p>Lay liability = £200</p>
+    </div>
+
+    <div class="callout">
+      <strong>Key point:</strong> The lay stake is not the amount at risk. The liability is the amount at risk if the selection wins.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Lay stake vs lay liability</h2>
+    <p>
+      Lay stake and lay liability are related, but they are not the same.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Term</th>
+          <th>Meaning</th>
+          <th>Example at lay odds of 3.00</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Lay stake</td>
+          <td>The amount you can win before commission if the selection loses.</td>
+          <td>£100</td>
+        </tr>
+        <tr>
+          <td>Lay liability</td>
+          <td>The amount you can lose if the selection wins.</td>
+          <td>£200</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      The higher the lay odds, the larger the liability for the same lay stake.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>How odds affect liability</h2>
+    <p>
+      Liability rises as lay odds increase. Laying £100 at odds of 2.00 is very different from laying £100 at odds of 10.00.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Lay stake</th>
+          <th>Lay odds</th>
+          <th>Liability</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>£100</td>
+          <td>2.00</td>
+          <td>£100</td>
+        </tr>
+        <tr>
+          <td>£100</td>
+          <td>3.00</td>
+          <td>£200</td>
+        </tr>
+        <tr>
+          <td>£100</td>
+          <td>5.00</td>
+          <td>£400</td>
+        </tr>
+        <tr>
+          <td>£100</td>
+          <td>10.00</td>
+          <td>£900</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      This is why lay bets at bigger odds can require much more exchange balance than expected.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Lay liability and exchange commission</h2>
+    <p>
+      Exchange commission affects winnings, not usually liability. If your lay bet wins, commission may be deducted from the lay stake you win. If your lay bet loses, you pay the liability.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Outcome</th>
+          <th>What happens?</th>
+          <th>Commission effect</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Selection loses</td>
+          <td>Your lay bet wins.</td>
+          <td>Commission may reduce your winnings.</td>
+        </tr>
+        <tr>
+          <td>Selection wins</td>
+          <td>Your lay bet loses.</td>
+          <td>You pay the liability.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="related-grid">
+      <a class="related-card" href="/guides/what-is-exchange-commission/">
+        <h3>What Is Exchange Commission?</h3>
+        <p>Learn how commission affects exchange winnings.</p>
+      </a>
+
+      <a class="related-card" href="/calculators/lay-liability-calculator/">
+        <h3>Lay Liability Calculator</h3>
+        <p>Calculate liability, commission and lay bet results.</p>
+      </a>
+
+      <a class="related-card" href="/calculators/back-lay-calculator/">
+        <h3>Back/Lay Calculator</h3>
+        <p>Calculate back/lay outcomes and lay liability.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Lay liability in back/lay betting</h2>
+    <p>
+      Back/lay betting usually involves backing a selection first and then laying the same selection on an exchange, or using a lay bet to hedge a position.
+    </p>
+    <p>
+      The lay stake may be chosen to balance the profit or loss across outcomes, but the lay liability still matters because it is the amount required on the exchange if the backed selection wins.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Back bet</th>
+          <th>Lay bet</th>
+          <th>Why liability matters</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Back £100 at 3.00</td>
+          <td>Lay at 2.00</td>
+          <td>Liability is needed if the selection wins and the lay bet loses.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/back-lay-calculator/">
+        <h3>Back/Lay Calculator</h3>
+        <p>Calculate lay stake, liability and balanced outcomes.</p>
+      </a>
+
+      <a class="related-card" href="/guides/how-to-hedge-a-bet/">
+        <h3>How to Hedge a Bet</h3>
+        <p>Learn how back and lay positions can balance outcomes.</p>
+      </a>
+
+      <a class="related-card" href="/calculators/hedge-bet-calculator/">
+        <h3>Hedge Bet Calculator</h3>
+        <p>Calculate back-first and lay-first hedge positions.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Lay liability and free bets</h2>
+    <p>
+      Free bet conversion often uses a bookmaker free bet and an exchange lay bet. The lay bet can reduce risk, but it creates liability.
+    </p>
+    <p>
+      If the bookmaker free bet wins, the exchange lay bet loses and the liability is paid. If the bookmaker free bet loses, the exchange lay bet wins and commission may be deducted from the lay winnings.
+    </p>
+
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/free-bet-calculator/">
+        <h3>Free Bet Calculator</h3>
+        <p>Calculate free bet lay stake, liability and conversion rate.</p>
+      </a>
+
+      <a class="related-card" href="/guides/what-is-a-free-bet/">
+        <h3>What Is a Free Bet?</h3>
+        <p>Learn how free bet offers and stake not returned work.</p>
+      </a>
+
+      <a class="related-card" href="/calculators/matched-betting-calculator/">
+        <h3>Matched Betting Calculator</h3>
+        <p>Estimate qualifying bets, free bets and exchange liability.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Lay liability and matched betting</h2>
+    <p>
+      In matched betting, lay liability is one of the most important practical checks. Even if a calculator shows an estimated profit, you still need enough exchange balance to cover the liability.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Matched betting stage</th>
+          <th>Why liability matters</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Qualifying bet</td>
+          <td>The exchange lay bet may require liability before the offer is unlocked.</td>
+        </tr>
+        <tr>
+          <td>Free bet conversion</td>
+          <td>The free bet lay stake can create significant liability at higher odds.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Important:</strong> A matched betting example may look profitable but still require a larger exchange balance than expected because of lay liability.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Common lay liability mistakes</h2>
+
+    <h3>Thinking the lay stake is the risk</h3>
+    <p>
+      The lay stake is what you can win before commission if the selection loses. Liability is what you can lose if the selection wins.
+    </p>
+
+    <h3>Ignoring high lay odds</h3>
+    <p>
+      Liability increases quickly at higher odds. Laying at 10.00 creates much more liability than laying at 2.00.
+    </p>
+
+    <h3>Forgetting commission</h3>
+    <p>
+      Commission may reduce winnings if the lay bet wins, which affects final profit.
+    </p>
+
+    <h3>Not having enough exchange balance</h3>
+    <p>
+      Exchanges usually require enough available balance to cover the liability before the lay bet can be placed.
+    </p>
+
+    <h3>Using the wrong calculator</h3>
+    <p>
+      For a simple lay bet, use a lay liability calculator. For a back/lay hedge or free bet conversion, use a calculator designed for that situation.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Lay liability FAQs</h2>
+
+    <h3>What is lay liability in simple terms?</h3>
+    <p>
+      Lay liability is the amount you could lose if the selection you lay goes on to win.
+    </p>
+
+    <h3>How do you calculate lay liability?</h3>
+    <p>
+      Lay liability is calculated as lay stake multiplied by lay odds minus one.
+    </p>
+
+    <h3>Is lay liability the same as lay stake?</h3>
+    <p>
+      No. Lay stake is what you can win before commission if the selection loses. Liability is what you can lose if the selection wins.
+    </p>
+
+    <h3>Does commission affect liability?</h3>
+    <p>
+      Usually no. Commission affects exchange winnings if the lay bet wins. Liability is based on stake and odds.
+    </p>
+
+    <h3>Which calculator should I use?</h3>
+    <p>
+      Use the Lay Liability Calculator for a simple lay bet. Use the Back/Lay Calculator, Hedge Bet Calculator or Free Bet Calculator for more specific back/lay situations.
+    </p>
+
+    <div class="callout">
+      <strong>Responsible note:</strong> Lay betting can involve large liabilities. Always understand the amount at risk before placing a lay bet.
+    </div>
+  </section>
+
+  <style>
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .article-link-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .formula-box {
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+
+    .formula-box p {
+      margin: 0.4rem 0;
+      font-weight: 700;
+    }
+
+    .standard-list {
+      padding-left: 1.3rem;
+    }
+
+    .standard-list li {
+      margin: 0.45rem 0;
+    }
+
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .example-table th,
+    .example-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .example-table th {
+      color: var(--color-navy);
+      background: #f4f7fa;
+      font-size: 0.9rem;
+    }
+
+    .example-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .related-card {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .related-card:hover {
+      border-color: rgba(31, 138, 91, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .related-card p {
+      margin: 0;
+      color: var(--color-muted);
+    }
+
+    .article-section a,
+    .callout a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 980px) {
+      .related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</MainLayout>
