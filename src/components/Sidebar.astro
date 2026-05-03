@@ -1,52 +1,119 @@
 ---
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname.endsWith("/")
+  ? Astro.url.pathname
+  : `${Astro.url.pathname}/`;
 
 const sections = [
   {
     title: "Calculators",
-    links: [
-      { href: "/calculators/", label: "All Calculators" },
-      { href: "/calculators/odds-converter/", label: "Odds Converter" },
-      { href: "/calculators/overround-calculator/", label: "Overround Calculator" },
-      { href: "/calculators/arbitrage-calculator/", label: "Arbitrage Calculator" },
-      { href: "/calculators/dutching-calculator/", label: "Dutching Calculator" },
-      { href: "/calculators/hedge-bet-calculator/", label: "Hedge Bet Calculator" },
-      { href: "/calculators/back-lay-calculator/", label: "Back/Lay Calculator" },
-      { href: "/calculators/free-bet-calculator/", label: "Free Bet Calculator" },
-      { href: "/calculators/matched-betting-calculator/", label: "Matched Betting Calculator" },
-      { href: "/calculators/lay-liability-calculator/", label: "Lay Liability Calculator" },
-      { href: "/calculators/kelly-criterion-calculator/", label: "Kelly Criterion Calculator" },
-      { href: "/calculators/accumulator-calculator/", label: "Accumulator Calculator" },
-      { href: "/calculators/each-way-calculator/", label: "Each-Way Calculator" },
-      { href: "/calculators/each-way-extra-places-calculator/", label: "Each-Way Extra Places Calculator" },
-      { href: "/calculators/rule-4-calculator/", label: "Rule 4 Calculator" }
+    groups: [
+      {
+        title: "Start here",
+        links: [
+          { href: "/calculators/", label: "All Calculators" }
+        ]
+      },
+      {
+        title: "Odds & margin",
+        links: [
+          { href: "/calculators/odds-converter/", label: "Odds Converter" },
+          { href: "/calculators/overround-calculator/", label: "Overround Calculator" },
+          { href: "/calculators/arbitrage-calculator/", label: "Arbitrage Calculator" }
+        ]
+      },
+      {
+        title: "Staking & returns",
+        links: [
+          { href: "/calculators/dutching-calculator/", label: "Dutching Calculator" },
+          { href: "/calculators/kelly-criterion-calculator/", label: "Kelly Criterion Calculator" },
+          { href: "/calculators/accumulator-calculator/", label: "Accumulator Calculator" }
+        ]
+      },
+      {
+        title: "Exchange & hedging",
+        links: [
+          { href: "/calculators/hedge-bet-calculator/", label: "Hedge Bet Calculator" },
+          { href: "/calculators/back-lay-calculator/", label: "Back/Lay Calculator" },
+          { href: "/calculators/lay-liability-calculator/", label: "Lay Liability Calculator" }
+        ]
+      },
+      {
+        title: "Free bets & offers",
+        links: [
+          { href: "/calculators/free-bet-calculator/", label: "Free Bet Calculator" },
+          { href: "/calculators/matched-betting-calculator/", label: "Matched Betting Calculator" }
+        ]
+      },
+      {
+        title: "Racing & each-way",
+        links: [
+          { href: "/calculators/each-way-calculator/", label: "Each-Way Calculator" },
+          { href: "/calculators/each-way-extra-places-calculator/", label: "Each-Way Extra Places Calculator" },
+          { href: "/calculators/rule-4-calculator/", label: "Rule 4 Calculator" }
+        ]
+      }
     ]
   },
   {
     title: "Guides",
-    links: [
-      { href: "/guides/", label: "All Guides" },
-      { href: "/guides/what-is-implied-probability/", label: "What Is Implied Probability?" },
-      { href: "/guides/bookmaker-margin-explained/", label: "Bookmaker Margin Explained" },
-      { href: "/guides/what-is-a-free-bet/", label: "What Is a Free Bet?" },
-      { href: "/guides/what-is-matched-betting/", label: "What Is Matched Betting?" },
-      { href: "/guides/stake-returned-vs-stake-not-returned/", label: "Stake Returned vs Stake Not Returned" },
-      { href: "/guides/what-is-rule-4-in-horse-racing/", label: "What Is Rule 4 in Horse Racing?" },
-      { href: "/guides/what-are-extra-places-in-each-way-betting/", label: "What Are Extra Places?" },
-      { href: "/guides/each-way-betting-terms-explained/", label: "Each-Way Betting Terms Explained" },
-      { href: "/guides/hedging-vs-cash-out/", label: "Hedging vs Cash Out" },
-      { href: "/guides/dutching-vs-arbitrage/", label: "Dutching vs Arbitrage" },
-      { href: "/guides/what-is-overround/", label: "What Is Overround?" },
-      { href: "/guides/how-to-hedge-a-bet/", label: "How to Hedge a Bet" },
-      { href: "/guides/what-is-dutching/", label: "What Is Dutching?" },
-      { href: "/guides/how-bookmakers-make-money/", label: "How Bookmakers Make Money" },
-      { href: "/guides/can-you-always-beat-the-bookie/", label: "Can You Always Beat the Bookie?" }
+    groups: [
+      {
+        title: "Start here",
+        links: [
+          { href: "/guides/", label: "All Guides" }
+        ]
+      },
+      {
+        title: "Core betting maths",
+        links: [
+          { href: "/guides/what-is-implied-probability/", label: "What Is Implied Probability?" },
+          { href: "/guides/bookmaker-margin-explained/", label: "Bookmaker Margin Explained" },
+          { href: "/guides/what-is-overround/", label: "What Is Overround?" },
+          { href: "/guides/how-bookmakers-make-money/", label: "How Bookmakers Make Money" },
+          { href: "/guides/can-you-always-beat-the-bookie/", label: "Can You Always Beat the Bookie?" }
+        ]
+      },
+      {
+        title: "Free bets & offers",
+        links: [
+          { href: "/guides/what-is-a-free-bet/", label: "What Is a Free Bet?" },
+          { href: "/guides/what-is-matched-betting/", label: "What Is Matched Betting?" },
+          { href: "/guides/stake-returned-vs-stake-not-returned/", label: "Stake Returned vs Stake Not Returned" }
+        ]
+      },
+      {
+        title: "Exchange & hedging",
+        links: [
+          { href: "/guides/how-to-hedge-a-bet/", label: "How to Hedge a Bet" },
+          { href: "/guides/hedging-vs-cash-out/", label: "Hedging vs Cash Out" }
+        ]
+      },
+      {
+        title: "Dutching & arbitrage",
+        links: [
+          { href: "/guides/what-is-dutching/", label: "What Is Dutching?" },
+          { href: "/guides/dutching-vs-arbitrage/", label: "Dutching vs Arbitrage" }
+        ]
+      },
+      {
+        title: "Racing & each-way",
+        links: [
+          { href: "/guides/each-way-betting-terms-explained/", label: "Each-Way Betting Terms Explained" },
+          { href: "/guides/what-are-extra-places-in-each-way-betting/", label: "What Are Extra Places?" },
+          { href: "/guides/what-is-rule-4-in-horse-racing/", label: "What Is Rule 4 in Horse Racing?" }
+        ]
+      }
     ]
   },
   {
     title: "Glossary",
-    links: [
-      { href: "/glossary/betting-jargon-explained/", label: "Betting Jargon Explained" }
+    groups: [
+      {
+        title: "Definitions",
+        links: [
+          { href: "/glossary/betting-jargon-explained/", label: "Betting Jargon Explained" }
+        ]
+      }
     ]
   }
 ];
@@ -59,14 +126,58 @@ const sections = [
     {sections.map((section) => (
       <div class="nav-section">
         <h2>{section.title}</h2>
-        <ul>
-          {section.links.map((link) => (
-            <li>
-              <a class={currentPath === link.href ? "active" : ""} href={link.href}>{link.label}</a>
-            </li>
-          ))}
-        </ul>
+
+        {section.groups.map((group) => {
+          const groupHasActiveLink = group.links.some((link) => link.href === currentPath);
+
+          return (
+            <div class={`nav-group ${groupHasActiveLink ? "has-active-link" : ""}`}>
+              <p class="nav-group-title">{group.title}</p>
+              <ul>
+                {group.links.map((link) => (
+                  <li>
+                    <a class={currentPath === link.href ? "active" : ""} href={link.href}>
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })}
       </div>
     ))}
   </nav>
 </aside>
+
+<style>
+  .nav-group {
+    margin-bottom: 0.85rem;
+  }
+
+  .nav-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .nav-group-title {
+    margin: 0.65rem 0 0.35rem;
+    padding: 0 0.65rem;
+    color: var(--color-muted);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .nav-group.has-active-link .nav-group-title {
+    color: var(--color-green-dark);
+  }
+
+  .nav-section + .nav-section {
+    margin-top: 1.1rem;
+  }
+
+  .nav-section ul {
+    margin-bottom: 0;
+  }
+</style>
