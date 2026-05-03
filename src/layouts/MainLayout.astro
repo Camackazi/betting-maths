@@ -10,6 +10,9 @@ const {
   title = "Betting Maths",
   description = "Free betting calculators and plain-English guides to help you understand odds, stakes and bookmaker margins."
 } = Astro.props;
+
+const pathname = Astro.url.pathname;
+const showAutoToc = pathname.startsWith("/guides/") && pathname !== "/guides/";
 ---
 
 <!doctype html>
@@ -39,6 +42,13 @@ const {
       <Sidebar />
 
       <main class="main-content">
+        {showAutoToc && (
+          <nav class="auto-toc" data-auto-toc hidden aria-label="On this page">
+            <p class="auto-toc-title">On this page</p>
+            <ol data-auto-toc-list></ol>
+          </nav>
+        )}
+
         <slot />
 
         <AdSlot position="page-end" />
@@ -54,5 +64,106 @@ const {
         sidebar?.classList.toggle("open");
       });
     </script>
+
+    <script is:inline>
+      const toc = document.querySelector("[data-auto-toc]");
+      const tocList = document.querySelector("[data-auto-toc-list]");
+      const main = document.querySelector(".main-content");
+
+      function createSlug(text) {
+        return text
+          .toLowerCase()
+          .trim()
+          .replace(/&/g, "and")
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/^-+|-+$/g, "");
+      }
+
+      if (toc && tocList && main) {
+        const headings = Array.from(main.querySelectorAll("h2"))
+          .filter((heading) => !heading.closest("[data-auto-toc]"))
+          .filter((heading) => heading.textContent && heading.textContent.trim().length > 0);
+
+        if (headings.length >= 3) {
+          const usedIds = new Set();
+
+          headings.forEach((heading) => {
+            const headingText = heading.textContent.trim();
+            let baseId = heading.id || createSlug(headingText) || "section";
+            let finalId = baseId;
+            let counter = 2;
+
+            while (usedIds.has(finalId) || document.getElementById(finalId)) {
+              finalId = `${baseId}-${counter}`;
+              counter += 1;
+            }
+
+            usedIds.add(finalId);
+            heading.id = finalId;
+
+            const item = document.createElement("li");
+            const link = document.createElement("a");
+
+            link.href = `#${finalId}`;
+            link.textContent = headingText;
+
+            item.appendChild(link);
+            tocList.appendChild(item);
+          });
+
+          const firstContentCard = main.querySelector(".content-card");
+
+          if (firstContentCard) {
+            firstContentCard.insertAdjacentElement("afterend", toc);
+          }
+
+          toc.hidden = false;
+        }
+      }
+    </script>
+
+    <style>
+      .auto-toc {
+        margin: 1.25rem 0;
+        padding: 1rem 1.15rem;
+        border: 1px solid var(--color-border);
+        border-left: 5px solid var(--color-green);
+        border-radius: 14px;
+        background: #ffffff;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+      }
+
+      .auto-toc-title {
+        margin: 0 0 0.65rem;
+        color: var(--color-navy);
+        font-weight: 900;
+      }
+
+      .auto-toc ol {
+        display: grid;
+        gap: 0.35rem;
+        margin: 0;
+        padding-left: 1.25rem;
+      }
+
+      .auto-toc li {
+        color: var(--color-muted);
+      }
+
+      .auto-toc a {
+        color: var(--color-green-dark);
+        font-weight: 800;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .auto-toc a:hover {
+        color: var(--color-green);
+      }
+
+      h2[id] {
+        scroll-margin-top: 1rem;
+      }
+    </style>
   </body>
 </html>
