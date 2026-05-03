@@ -1,0 +1,459 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="What Is Exchange Commission?"
+  description="Learn what exchange commission is, how commission affects back bets, lay bets, free bets, hedging and matched betting calculations."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting maths guide</p>
+    <h1>What Is Exchange Commission?</h1>
+    <p class="lead">
+      Exchange commission is the fee a betting exchange charges on winning bets. It affects back bets, lay bets, hedging, free bet conversion and matched betting calculations.
+    </p>
+
+    <div class="callout">
+      <strong>Quick answer:</strong> Exchange commission is usually charged on net winnings in a market, not on your stake. If the exchange side loses, there is usually no commission to pay on that losing bet.
+    </div>
+
+    <div class="article-link-box">
+      <a class="button primary" href="/calculators/back-lay-calculator/">Use the Back/Lay Calculator</a>
+      <a class="button secondary" href="/calculators/lay-liability-calculator/">Use the Lay Liability Calculator</a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What does exchange commission mean?</h2>
+    <p>
+      A betting exchange lets users back or lay selections against each other. The exchange usually earns money by charging commission on winning positions.
+    </p>
+    <p>
+      For example, if you win £100 on an exchange and the commission rate is 2%, the commission is £2 and your net win is £98.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Gross exchange win</th>
+          <th>Commission rate</th>
+          <th>Commission</th>
+          <th>Net win</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>£100</td>
+          <td>2%</td>
+          <td>£2</td>
+          <td>£98</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="formula-box">
+      <p><strong>Commission</strong> = gross exchange win × commission rate</p>
+      <p><strong>Net win</strong> = gross exchange win − commission</p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Why commission matters</h2>
+    <p>
+      Commission reduces the amount you keep from a winning exchange bet. That means it affects calculations involving:
+    </p>
+
+    <ul class="standard-list">
+      <li>Back bets placed on an exchange</li>
+      <li>Lay bets</li>
+      <li>Lay liability</li>
+      <li>Hedging and greening up</li>
+      <li>Free bet conversion</li>
+      <li>Matched betting</li>
+      <li>Arbitrage-style calculations involving an exchange</li>
+    </ul>
+
+    <p>
+      Ignoring commission can make a calculation look more profitable than it really is.
+    </p>
+
+    <div class="callout">
+      <strong>Key point:</strong> A small commission percentage can still change the correct lay stake, hedge stake and final profit.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Commission on an exchange back bet</h2>
+    <p>
+      If you back a selection on an exchange and it wins, commission is usually charged on the profit.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Back stake</th>
+          <th>Exchange odds</th>
+          <th>Gross profit</th>
+          <th>Commission</th>
+          <th>Net profit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>£50</td>
+          <td>3.00</td>
+          <td>£100</td>
+          <td>£2 at 2%</td>
+          <td>£98</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="formula-box">
+      <p><strong>Gross profit</strong> = stake × (odds − 1)</p>
+      <p><strong>Commission</strong> = gross profit × commission rate</p>
+      <p><strong>Net profit</strong> = gross profit − commission</p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Commission on a lay bet</h2>
+    <p>
+      If you lay a selection and that selection loses, your lay bet wins. The exchange may charge commission on the lay stake you win.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Lay stake</th>
+          <th>Lay odds</th>
+          <th>Commission rate</th>
+          <th>If selection loses</th>
+          <th>Net exchange win</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>£100</td>
+          <td>3.00</td>
+          <td>2%</td>
+          <td>Lay bet wins £100 gross</td>
+          <td>£98</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      If the selection wins, the lay bet loses and you pay the liability. In that case, commission is usually not charged on the losing lay bet.
+    </p>
+
+    <div class="related-grid">
+      <a class="related-card" href="/guides/what-is-lay-liability/">
+        <h3>What Is Lay Liability?</h3>
+        <p>Learn how lay risk is calculated.</p>
+      </a>
+
+      <a class="related-card" href="/calculators/lay-liability-calculator/">
+        <h3>Lay Liability Calculator</h3>
+        <p>Calculate liability, commission and lay bet outcomes.</p>
+      </a>
+
+      <a class="related-card" href="/calculators/back-lay-calculator/">
+        <h3>Back/Lay Calculator</h3>
+        <p>Calculate lay stake, liability and balanced results.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Exchange commission and lay liability</h2>
+    <p>
+      Commission does not usually increase lay liability. Liability is based on the lay odds and lay stake.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Lay liability</strong> = lay stake × (lay odds − 1)</p>
+    </div>
+
+    <p>
+      Commission affects the amount you keep if the lay bet wins. Liability affects the amount you risk if the lay bet loses.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>What it affects</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Lay liability</td>
+          <td>The amount you could lose if the selection wins.</td>
+        </tr>
+        <tr>
+          <td>Exchange commission</td>
+          <td>The amount deducted from exchange winnings.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Commission and hedging</h2>
+    <p>
+      Hedging calculations often use a lay bet to balance outcomes after an earlier back bet, or a back bet to balance outcomes after an earlier lay bet.
+    </p>
+    <p>
+      Commission matters because the exchange-winning side may be reduced by the commission rate. This changes the stake needed to balance the position.
+    </p>
+
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/hedge-bet-calculator/">
+        <h3>Hedge Bet Calculator</h3>
+        <p>Calculate back-first and lay-first hedge stakes.</p>
+      </a>
+
+      <a class="related-card" href="/guides/how-to-hedge-a-bet/">
+        <h3>How to Hedge a Bet</h3>
+        <p>Understand manual hedging and greening up.</p>
+      </a>
+
+      <a class="related-card" href="/guides/hedging-vs-cash-out/">
+        <h3>Hedging vs Cash Out</h3>
+        <p>Compare cash out offers with manual hedge calculations.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Commission and free bets</h2>
+    <p>
+      Free bet calculations often involve placing a free bet with a bookmaker and laying the same selection on an exchange.
+    </p>
+    <p>
+      If the bookmaker free bet loses, the exchange lay bet usually wins. Commission then reduces the exchange winnings. That is why free bet lay stake formulas include commission.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Free bet result</th>
+          <th>Exchange lay result</th>
+          <th>Commission effect</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Free bet wins</td>
+          <td>Lay bet loses</td>
+          <td>Liability is paid on the exchange.</td>
+        </tr>
+        <tr>
+          <td>Free bet loses</td>
+          <td>Lay bet wins</td>
+          <td>Commission reduces the lay winnings.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/free-bet-calculator/">
+        <h3>Free Bet Calculator</h3>
+        <p>Calculate free bet lay stake, liability and conversion rate.</p>
+      </a>
+
+      <a class="related-card" href="/guides/what-is-a-free-bet/">
+        <h3>What Is a Free Bet?</h3>
+        <p>Learn how free bets and stake-not-returned offers work.</p>
+      </a>
+
+      <a class="related-card" href="/guides/stake-returned-vs-stake-not-returned/">
+        <h3>Stake Returned vs Stake Not Returned</h3>
+        <p>Understand the key free bet payout difference.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Commission and matched betting</h2>
+    <p>
+      Matched betting calculations usually include both a qualifying bet and a free bet. Both parts may involve an exchange lay bet.
+    </p>
+    <p>
+      The commission rate can affect the qualifying loss, free bet conversion value and final estimated result.
+    </p>
+
+    <div class="callout">
+      <strong>Try it:</strong> Use the <a href="/calculators/matched-betting-calculator/">Matched Betting Calculator</a> to see how commission changes the overall matched betting result.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Common exchange commission mistakes</h2>
+
+    <h3>Forgetting to include commission</h3>
+    <p>
+      Ignoring commission can make a back/lay, free bet or hedge calculation look better than it really is.
+    </p>
+
+    <h3>Applying commission to the wrong side</h3>
+    <p>
+      Commission is usually charged on exchange winnings, not on every stake or every liability.
+    </p>
+
+    <h3>Confusing commission with liability</h3>
+    <p>
+      Liability is the amount at risk on a lay bet. Commission is a fee deducted from winnings.
+    </p>
+
+    <h3>Assuming every exchange charges the same rate</h3>
+    <p>
+      Commission rates can vary by exchange, account, country, market or promotion. Always check the exact rate being used.
+    </p>
+
+    <h3>Using rounded figures too early</h3>
+    <p>
+      Rounding intermediate lay stakes or commissions can slightly change the final result.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Exchange commission FAQs</h2>
+
+    <h3>What is exchange commission in simple terms?</h3>
+    <p>
+      Exchange commission is a fee deducted from winning exchange bets.
+    </p>
+
+    <h3>Is commission charged on losing bets?</h3>
+    <p>
+      Usually no. Commission is generally charged on exchange winnings, not on losing bets.
+    </p>
+
+    <h3>Does commission increase lay liability?</h3>
+    <p>
+      Usually no. Lay liability is based on lay stake and lay odds. Commission affects the winnings if the lay bet wins.
+    </p>
+
+    <h3>Why does commission matter for free bets?</h3>
+    <p>
+      Free bet conversion often uses a lay bet. If the lay bet wins, commission reduces the exchange winnings and changes the correct lay stake.
+    </p>
+
+    <h3>Which calculators include commission?</h3>
+    <p>
+      The Back/Lay Calculator, Hedge Bet Calculator, Free Bet Calculator, Matched Betting Calculator and Lay Liability Calculator all use commission in relevant calculations.
+    </p>
+
+    <div class="callout">
+      <strong>Responsible note:</strong> Commission is only one part of the calculation. Betting still involves risk, odds movement, rules and possible mistakes.
+    </div>
+  </section>
+
+  <style>
+    .article-section {
+      margin-top: 1.25rem;
+    }
+
+    .article-link-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .formula-box {
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+
+    .formula-box p {
+      margin: 0.4rem 0;
+      font-weight: 700;
+    }
+
+    .standard-list {
+      padding-left: 1.3rem;
+    }
+
+    .standard-list li {
+      margin: 0.45rem 0;
+    }
+
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .example-table th,
+    .example-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .example-table th {
+      color: var(--color-navy);
+      background: #f4f7fa;
+      font-size: 0.9rem;
+    }
+
+    .example-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .related-card {
+      display: block;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-bg);
+    }
+
+    .related-card:hover {
+      border-color: rgba(31, 138, 91, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .related-card p {
+      margin: 0;
+      color: var(--color-muted);
+    }
+
+    .article-section a,
+    .callout a {
+      color: var(--color-green-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 980px) {
+      .related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</MainLayout>
