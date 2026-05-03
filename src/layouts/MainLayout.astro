@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro";
 import AdSlot from "../components/AdSlot.astro";
 import SeoHead from "../components/SeoHead.astro";
 import RelatedContent from "../components/RelatedContent.astro";
+import CookieConsent from "../components/CookieConsent.astro";
 import "../styles/global.css";
 
 const {
@@ -25,16 +26,6 @@ const showAutoToc = pathname.startsWith("/guides/") && pathname !== "/guides/";
     <SeoHead title={title} description={description} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FFL84ZKLKK"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-FFL84ZKLKK');
-    </script>
   </head>
   <body>
     <Header />
@@ -59,6 +50,8 @@ const showAutoToc = pathname.startsWith("/guides/") && pathname !== "/guides/";
     </div>
 
     <Footer />
+
+    <CookieConsent />
 
     <script>
       const toggle = document.querySelector("[data-menu-toggle]");
