@@ -27,10 +27,11 @@ const freeBetItems = [
   item("Free Bet Calculator", "/calculators/free-bet-calculator/", "Calculate lay stake, liability, conversion rate and free bet profit.", "Calculator"),
   item("Matched Betting Calculator", "/calculators/matched-betting-calculator/", "Estimate qualifying loss, free bet profit and overall matched betting result.", "Calculator"),
   item("Back/Lay Calculator", "/calculators/back-lay-calculator/", "Calculate lay stake, lay liability and back/lay outcomes.", "Calculator"),
-  item("Lay Liability Calculator", "/calculators/lay-liability-calculator/", "Understand the real exposure created by a lay bet.", "Calculator"),
   item("What Is a Free Bet?", "/guides/what-is-a-free-bet/", "Learn how free bets, stake not returned and offer value work.", "Guide"),
   item("What Is Matched Betting?", "/guides/what-is-matched-betting/", "Understand qualifying bets, free bets, back bets and lay bets.", "Guide"),
-  item("Stake Returned vs Stake Not Returned", "/guides/stake-returned-vs-stake-not-returned/", "Learn one of the most important free bet terms.", "Guide")
+  item("Stake Returned vs Stake Not Returned", "/guides/stake-returned-vs-stake-not-returned/", "Learn one of the most important free bet terms.", "Guide"),
+  item("What Is Lay Liability?", "/guides/what-is-lay-liability/", "Understand the exchange risk created by a lay bet.", "Guide"),
+  item("What Is Exchange Commission?", "/guides/what-is-exchange-commission/", "Learn how exchange commission affects free bet and lay calculations.", "Guide")
 ];
 
 const exchangeAndHedgingItems = [
@@ -38,6 +39,8 @@ const exchangeAndHedgingItems = [
   item("Back/Lay Calculator", "/calculators/back-lay-calculator/", "Calculate lay stake, liability, commission and balanced outcomes.", "Calculator"),
   item("Lay Liability Calculator", "/calculators/lay-liability-calculator/", "Calculate lay liability and lay bet profit or loss.", "Calculator"),
   item("Free Bet Calculator", "/calculators/free-bet-calculator/", "Calculate free bet lay stakes and conversion value.", "Calculator"),
+  item("What Is Lay Liability?", "/guides/what-is-lay-liability/", "Learn how lay liability is calculated and why it matters.", "Guide"),
+  item("What Is Exchange Commission?", "/guides/what-is-exchange-commission/", "Understand how commission affects exchange winnings.", "Guide"),
   item("How to Hedge a Bet", "/guides/how-to-hedge-a-bet/", "Learn how back and lay hedging works.", "Guide"),
   item("Hedging vs Cash Out", "/guides/hedging-vs-cash-out/", "Compare bookmaker cash out with manual hedging.", "Guide")
 ];
@@ -47,6 +50,8 @@ const stakingItems = [
   item("Arbitrage Calculator", "/calculators/arbitrage-calculator/", "Check whether odds create an underround.", "Calculator"),
   item("Accumulator Calculator", "/calculators/accumulator-calculator/", "Calculate combined acca odds, returns and implied probability.", "Calculator"),
   item("Kelly Criterion Calculator", "/calculators/kelly-criterion-calculator/", "Estimate stake size from bankroll, odds and estimated probability.", "Calculator"),
+  item("What Is the Kelly Criterion?", "/guides/what-is-the-kelly-criterion/", "Learn how Kelly staking uses odds, bankroll and estimated probability.", "Guide"),
+  item("What Is Implied Probability?", "/guides/what-is-implied-probability/", "Understand the probability suggested by betting odds.", "Guide"),
   item("What Is Dutching?", "/guides/what-is-dutching/", "Learn how dutching splits stakes across multiple selections.", "Guide"),
   item("Dutching vs Arbitrage", "/guides/dutching-vs-arbitrage/", "Understand the difference between dutching and arbitrage.", "Guide")
 ];
@@ -84,7 +89,7 @@ const clusters = [
   },
   {
     title: "More on free bets and matched betting",
-    intro: "These pages connect free bet value, stake-not-returned offers, qualifying bets, lay stakes and exchange liability.",
+    intro: "These pages connect free bet value, stake-not-returned offers, qualifying bets, lay stakes, exchange commission and lay liability.",
     match: [
       "/calculators/free-bet-calculator/",
       "/calculators/matched-betting-calculator/",
@@ -102,17 +107,20 @@ const clusters = [
       "/calculators/back-lay-calculator/",
       "/calculators/lay-liability-calculator/",
       "/guides/how-to-hedge-a-bet/",
-      "/guides/hedging-vs-cash-out/"
+      "/guides/hedging-vs-cash-out/",
+      "/guides/what-is-lay-liability/",
+      "/guides/what-is-exchange-commission/"
     ],
     items: exchangeAndHedgingItems
   },
   {
-    title: "More on staking methods and returns",
-    intro: "These pages cover stake splitting, accumulator returns, Kelly staking, dutching and arbitrage-style calculations.",
+    title: "More on staking methods, value and returns",
+    intro: "These pages cover stake sizing, accumulator returns, Kelly staking, dutching and arbitrage-style calculations.",
     match: [
       "/calculators/dutching-calculator/",
       "/calculators/kelly-criterion-calculator/",
       "/calculators/accumulator-calculator/",
+      "/guides/what-is-the-kelly-criterion/",
       "/guides/what-is-dutching/",
       "/guides/dutching-vs-arbitrage/"
     ],
