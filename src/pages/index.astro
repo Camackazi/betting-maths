@@ -5,13 +5,13 @@ import CalculatorCard from "../components/CalculatorCard.astro";
 
 <MainLayout
   title="Free Betting Calculators and Betting Maths Guides"
-  description="Free betting calculators and plain-English guides to help you understand odds, overround, arbitrage, dutching, hedging, free bets, matched betting, back lay betting, accumulators, each-way bets, extra places, Rule 4, lay liability, bookmaker margin and betting jargon."
+  description="Free betting calculators and plain-English guides to help you understand odds, overround, arbitrage, dutching, hedging, free bets, matched betting, back lay betting, accumulators, each-way bets, extra places, Rule 4, Kelly staking, lay liability, exchange commission, bookmaker margin and betting jargon."
 >
   <section class="hero">
     <p class="eyebrow">Betting calculators and plain-English guides</p>
     <h1>Understand the odds. Use the maths. Bet smarter.</h1>
     <p class="lead">
-      Betting Maths helps you understand odds, stakes, overround, arbitrage, dutching, hedging, free bets, matched betting, back/lay betting, accumulators, each-way bets, extra places, Kelly staking, Rule 4 deductions, lay liability, bookmaker margin and common betting jargon with simple calculators and practical examples.
+      Betting Maths helps you understand odds, stakes, overround, arbitrage, dutching, hedging, free bets, matched betting, back/lay betting, accumulators, each-way bets, extra places, Kelly staking, Rule 4 deductions, lay liability, exchange commission, bookmaker margin and common betting jargon with simple calculators and practical examples.
     </p>
     <div class="button-row">
       <a class="button primary" href="/calculators/">Browse All Calculators</a>
@@ -23,7 +23,7 @@ import CalculatorCard from "../components/CalculatorCard.astro";
   <section class="content-card intro-panel">
     <h2>What is Betting Maths?</h2>
     <p>
-      Betting Maths is a free betting education and calculator site. It is designed to explain how odds, implied probability, overround, arbitrage, dutching, hedging, free bets, matched betting, back/lay betting, accumulators, each-way bets, extra places, Kelly staking, Rule 4 deductions, lay liability and bookmaker margins work in plain English.
+      Betting Maths is a free betting education and calculator site. It explains how odds, implied probability, overround, arbitrage, dutching, hedging, free bets, matched betting, back/lay betting, accumulators, each-way bets, extra places, Kelly staking, Rule 4 deductions, lay liability, exchange commission and bookmaker margins work in plain English.
     </p>
     <p>
       The aim is not to provide betting tips or guaranteed profit systems. The aim is to help you understand the numbers behind betting markets so you can read odds, calculate outcomes and understand risk more clearly.
@@ -46,13 +46,13 @@ import CalculatorCard from "../components/CalculatorCard.astro";
       <a class="start-card" href="/guides/">
         <span>Guide hub</span>
         <h3>Learn the concepts</h3>
-        <p>Read plain-English guides to implied probability, bookmaker margin, free bets, matched betting, each-way terms, Rule 4, overround, dutching and hedging.</p>
+        <p>Read plain-English guides to implied probability, bookmaker margin, free bets, matched betting, lay liability, exchange commission, Kelly staking, each-way terms, Rule 4, dutching and hedging.</p>
       </a>
 
       <a class="start-card" href="/glossary/betting-jargon-explained/">
         <span>Glossary</span>
         <h3>Look up betting terms</h3>
-        <p>Search common betting jargon including acca, lay bet, liability, vig, juice, free bet, stake not returned, each-way, Rule 4, value, underround and more.</p>
+        <p>Search common betting jargon including acca, lay bet, liability, commission, vig, juice, free bet, each-way, Rule 4, value, underround and more.</p>
       </a>
     </div>
   </section>
@@ -134,7 +134,7 @@ import CalculatorCard from "../components/CalculatorCard.astro";
   <section class="content-card article-section">
     <h2>Learn the key betting maths concepts</h2>
     <p>
-      Start with these guides if you want to understand how odds are priced, how bookmaker margin works, how free bets are calculated, how each-way terms work, how staking methods differ, and why betting systems should be treated carefully.
+      Start with these guides if you want to understand how odds are priced, how bookmaker margin works, how free bets are calculated, how exchange betting works, how each-way terms work, how staking methods differ, and why betting systems should be treated carefully.
     </p>
 
     <div class="guide-grid">
@@ -150,8 +150,26 @@ import CalculatorCard from "../components/CalculatorCard.astro";
         <p>Understand bookmaker margin, overround, book percentage and why markets usually add up to more than 100%.</p>
       </a>
 
-      <a class="guide-card featured-guide" href="/guides/what-is-a-free-bet/">
+      <a class="guide-card featured-guide" href="/guides/what-is-lay-liability/">
         <span>Core guide</span>
+        <h3>What Is Lay Liability?</h3>
+        <p>Learn how lay liability works and why exchange bets can risk more than the lay stake.</p>
+      </a>
+
+      <a class="guide-card" href="/guides/what-is-the-kelly-criterion/">
+        <span>Guide</span>
+        <h3>What Is the Kelly Criterion?</h3>
+        <p>Understand Kelly staking, fractional Kelly and why estimated probability matters.</p>
+      </a>
+
+      <a class="guide-card" href="/guides/what-is-exchange-commission/">
+        <span>Guide</span>
+        <h3>What Is Exchange Commission?</h3>
+        <p>Learn how commission affects lay bets, hedging, free bets and matched betting.</p>
+      </a>
+
+      <a class="guide-card" href="/guides/what-is-a-free-bet/">
+        <span>Guide</span>
         <h3>What Is a Free Bet?</h3>
         <p>Learn how free bets, stake not returned, lay stakes and offer value work.</p>
       </a>
@@ -237,7 +255,7 @@ import CalculatorCard from "../components/CalculatorCard.astro";
   <section class="content-card article-section">
     <h2>Betting jargon explained</h2>
     <p>
-      Betting can be full of confusing terms: acca, overround, lay bet, liability, vig, juice, dutching, hedging, free bet, matched betting, stake not returned, Rule 4, non-runner, back/lay, each-way, value betting, underround and more.
+      Betting can be full of confusing terms: acca, overround, lay bet, liability, commission, vig, juice, dutching, hedging, free bet, matched betting, stake not returned, Rule 4, non-runner, back/lay, each-way, value betting, underround and more.
     </p>
     <p>
       Our betting glossary explains common betting terms in plain English and links important maths terms to the right calculator.
@@ -277,6 +295,68 @@ import CalculatorCard from "../components/CalculatorCard.astro";
 
     <p>
       The <a href="/calculators/free-bet-calculator/">Free Bet Calculator</a> works out lay stake, liability, conversion rate and possible profit from a free bet. The <a href="/guides/what-is-a-free-bet/">What Is a Free Bet?</a> guide explains the terms in plain English.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Lay liability and commission example</h2>
+    <p>
+      Lay betting is different from normal backing because the amount at risk is based on liability. If you lay £100 at odds of 3.00, your liability is £200.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Lay stake</th>
+          <th>Lay odds</th>
+          <th>Liability</th>
+          <th>Commission</th>
+          <th>If selection loses</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>£100</td>
+          <td>3.00</td>
+          <td>£200</td>
+          <td>2%</td>
+          <td>£98 net exchange win</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      Read <a href="/guides/what-is-lay-liability/">What Is Lay Liability?</a> and <a href="/guides/what-is-exchange-commission/">What Is Exchange Commission?</a> to understand the difference between amount at risk and commission on winnings.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Kelly staking example</h2>
+    <p>
+      The Kelly Criterion estimates stake size using bankroll, odds and your estimated probability. For example, decimal odds of 3.00 imply 33.33%, but if you estimate the true chance is 40%, Kelly staking may suggest a positive stake.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Bankroll</th>
+          <th>Decimal odds</th>
+          <th>Your estimate</th>
+          <th>Full Kelly stake</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>£1,000</td>
+          <td>3.00</td>
+          <td>40%</td>
+          <td>£100</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      The <a href="/calculators/kelly-criterion-calculator/">Kelly Criterion Calculator</a> lets you test full Kelly and fractional Kelly stake sizes. The <a href="/guides/what-is-the-kelly-criterion/">What Is the Kelly Criterion?</a> guide explains the formula and risks.
     </p>
   </section>
 
@@ -390,38 +470,6 @@ import CalculatorCard from "../components/CalculatorCard.astro";
   </section>
 
   <section class="content-card article-section">
-    <h2>Back/lay example</h2>
-    <p>
-      A back/lay calculation is useful when you back a selection first and then lay the same selection on an exchange. For example, backing £100 at 3.00 and laying at 2.00 with 2% commission creates a balanced hedge.
-    </p>
-
-    <table class="example-table">
-      <thead>
-        <tr>
-          <th>Back stake</th>
-          <th>Back odds</th>
-          <th>Lay odds</th>
-          <th>Commission</th>
-          <th>Lay stake</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>£100</td>
-          <td>3.00</td>
-          <td>2.00</td>
-          <td>2%</td>
-          <td>£151.52</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p>
-      The <a href="/calculators/back-lay-calculator/">Back/Lay Calculator</a> works out the lay stake, lay liability and profit if the selection wins or loses. For lay-first positions, use the <a href="/calculators/hedge-bet-calculator/">Hedge Bet Calculator</a>.
-    </p>
-  </section>
-
-  <section class="content-card article-section">
     <h2>Accumulator example</h2>
     <p>
       Accumulators multiply odds together. For example, decimal odds of 2.00, 1.80 and 2.50 combine to make accumulator odds of 9.00.
@@ -452,38 +500,6 @@ import CalculatorCard from "../components/CalculatorCard.astro";
 
     <p>
       A £10 stake at combined odds of 9.00 would return £90, including £80 profit. The <a href="/calculators/accumulator-calculator/">Accumulator Calculator</a> works this out automatically and also shows the implied probability.
-    </p>
-  </section>
-
-  <section class="content-card article-section">
-    <h2>Back, lay and liability example</h2>
-    <p>
-      Lay betting is different from normal backing because your risk is based on liability. If you lay £100 at odds of 3.00, your liability is £200.
-    </p>
-
-    <table class="example-table">
-      <thead>
-        <tr>
-          <th>Lay stake</th>
-          <th>Lay odds</th>
-          <th>Liability</th>
-          <th>If selection loses</th>
-          <th>If selection wins</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>£100</td>
-          <td>3.00</td>
-          <td>£200</td>
-          <td>Lay bet wins</td>
-          <td>Lay bet loses</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p>
-      The <a href="/calculators/lay-liability-calculator/">Lay Liability Calculator</a> helps show the real exposure behind a lay bet.
     </p>
   </section>
 
