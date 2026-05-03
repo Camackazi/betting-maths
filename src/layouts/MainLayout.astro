@@ -4,6 +4,7 @@ import Sidebar from "../components/Sidebar.astro";
 import Footer from "../components/Footer.astro";
 import AdSlot from "../components/AdSlot.astro";
 import SeoHead from "../components/SeoHead.astro";
+import RelatedContent from "../components/RelatedContent.astro";
 import "../styles/global.css";
 
 const {
@@ -51,6 +52,8 @@ const showAutoToc = pathname.startsWith("/guides/") && pathname !== "/guides/";
 
         <slot />
 
+        <RelatedContent />
+
         <AdSlot position="page-end" />
       </main>
     </div>
@@ -82,6 +85,7 @@ const showAutoToc = pathname.startsWith("/guides/") && pathname !== "/guides/";
       if (toc && tocList && main) {
         const headings = Array.from(main.querySelectorAll("h2"))
           .filter((heading) => !heading.closest("[data-auto-toc]"))
+          .filter((heading) => !heading.closest(".related-content-section"))
           .filter((heading) => heading.textContent && heading.textContent.trim().length > 0);
 
         if (headings.length >= 3) {
