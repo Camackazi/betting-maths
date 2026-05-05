@@ -1,0 +1,130 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="What Is a Dead Heat in Betting?"
+  description="Learn how dead heat rules work in betting, how returns are adjusted, and how to estimate dead heat payouts with a simple calculator."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting rules guide</p>
+    <h1>What Is a Dead Heat in Betting?</h1>
+    <p class="lead">
+      A dead heat happens when two or more participants tie for a position that affects settlement. Dead heat rules usually split the stake into a winning part and a losing part.
+    </p>
+
+    <div class="callout">
+      <strong>Useful tool:</strong> Use the <a href="/calculators/dead-heat-calculator/">Dead Heat Calculator</a> to estimate adjusted returns from stake, odds, tied participants and places available.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What a dead heat means</h2>
+    <p>
+      In betting, a dead heat means there is a tie that affects which selections count as winners. It can happen in racing, golf, top finish markets, place markets and other tied outcomes.
+    </p>
+    <p>
+      The exact rule depends on the bookmaker and the market, so users should always check the terms that apply to the bet.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>How dead heat rules usually work</h2>
+    <p>
+      A common simplified approach is to split the stake by the number of tied participants and available places. The winning part is paid at the odds, while the rest is treated as losing.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Winning fraction</strong> = places available / number of tied participants</p>
+      <p><strong>Winning stake portion</strong> = stake x winning fraction</p>
+      <p><strong>Losing stake portion</strong> = stake - winning stake portion</p>
+      <p><strong>Adjusted return</strong> = winning stake portion x decimal odds</p>
+      <p><strong>Adjusted profit/loss</strong> = adjusted return - stake</p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Worked example</h2>
+    <p>
+      Suppose you stake £10 at decimal odds of 5.00. Two participants tie for one available place.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Step</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Winning fraction</td><td>1 / 2 = 50%</td></tr>
+        <tr><td>Winning stake portion</td><td>£5</td></tr>
+        <tr><td>Losing stake portion</td><td>£5</td></tr>
+        <tr><td>Adjusted return</td><td>£5 x 5.00 = £25</td></tr>
+        <tr><td>Adjusted profit</td><td>£25 - £10 = £15</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Another example</h2>
+    <p>
+      If three participants tie for two available places, the winning fraction is 2 / 3. A £12 stake would have £8 treated as the winning stake portion and £4 treated as the losing portion.
+    </p>
+    <p>
+      This is why both numbers matter: the number of tied participants and the number of places available decide how much of the stake is paid as winning.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Win dead heats and place dead heats</h2>
+    <p>
+      A win dead heat usually involves tied participants for first place. A place dead heat can happen when several participants tie around the final paid place in a place or each-way market.
+    </p>
+    <p>
+      Place terms, extra places, each-way rules and bookmaker-specific settlement rules can affect the final result.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>When to use the calculator</h2>
+    <p>
+      Use the Dead Heat Calculator when you want a simplified educational estimate of an adjusted return after a tie. It is not a substitute for checking the exact bookmaker rules for the market.
+    </p>
+
+    <div class="button-row">
+      <a class="button primary" href="/calculators/dead-heat-calculator/">Open the Dead Heat Calculator</a>
+      <a class="button secondary" href="/calculators/each-way-calculator/">Open the Each-Way Calculator</a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Related pages</h2>
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/each-way-extra-places-calculator/"><h3>Each-Way Extra Places Calculator</h3><p>Compare standard place terms with extra places offers.</p></a>
+      <a class="related-card" href="/calculators/rule-4-calculator/"><h3>Rule 4 Calculator</h3><p>Estimate Rule 4 deductions from winnings.</p></a>
+      <a class="related-card" href="/guides/each-way-betting-terms-explained/"><h3>Each-Way Betting Terms Explained</h3><p>Learn win part, place part, place terms and non-runners.</p></a>
+    </div>
+  </section>
+
+  <div class="callout">
+    <strong>Responsible note:</strong> This guide and calculator give a simplified educational estimate. Bookmaker rules can vary, and betting always involves risk.
+  </div>
+
+  <style>
+    .article-section { margin-top: 1.25rem; }
+    .formula-box { padding: 1rem 1.15rem; border-radius: 14px; background: var(--color-bg); border: 1px solid var(--color-border); }
+    .formula-box p { margin: 0.4rem 0; }
+    .example-table { width: 100%; border-collapse: collapse; background: white; border: 1px solid var(--color-border); border-radius: 14px; overflow: hidden; margin: 1rem 0; }
+    .example-table th, .example-table td { padding: 0.75rem; border-bottom: 1px solid var(--color-border); text-align: left; vertical-align: middle; }
+    .example-table th { color: var(--color-navy); background: #f4f7fa; font-size: 0.9rem; }
+    .example-table tr:last-child td { border-bottom: 0; }
+    .article-section a, .callout a { color: var(--color-green-dark); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .related-card { display: block; padding: 1rem; border: 1px solid var(--color-border); border-radius: 14px; background: var(--color-bg); }
+    .related-card:hover { border-color: rgba(31, 138, 91, 0.45); transform: translateY(-2px); }
+    .related-card p { margin: 0; color: var(--color-muted); }
+    @media (max-width: 980px) { .related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
+  </style>
+</MainLayout>
