@@ -1,0 +1,213 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="Dead Heat Calculator"
+  description="Use this dead heat calculator to estimate adjusted returns, profit or loss, and equivalent odds when a selection is affected by a dead heat."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting calculator</p>
+    <h1>Dead Heat Calculator</h1>
+    <p class="lead">
+      Estimate the adjusted return when a selection is affected by a dead heat and only part of the stake is settled as winning.
+    </p>
+
+    <div class="callout">
+      <strong>Quick explanation:</strong> Dead heat rules can vary by bookmaker and market. This calculator gives a simplified educational estimate, so always check the exact settlement rules that apply.
+    </div>
+
+    <div class="calculator-panel" id="dead-heat-calculator">
+      <div class="calculator-header">
+        <div>
+          <h2>Enter stake, odds and dead heat details</h2>
+          <p>The winning fraction is based on places available divided by tied participants.</p>
+        </div>
+        <button class="button secondary small-button" type="button" id="reset-dead-heat">Reset example</button>
+      </div>
+
+      <div class="input-grid">
+        <label class="input-group">
+          <span>Stake</span>
+          <input id="dead-heat-stake" type="number" min="0.01" step="0.01" value="10" />
+          <small>Total stake on the selection.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Decimal odds</span>
+          <input id="dead-heat-odds" type="number" min="1.01" step="0.01" value="5.00" />
+          <small>Example: 5.00.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Tied participants</span>
+          <input id="tied-participants" type="number" min="2" step="1" value="2" />
+          <small>Must be at least 2.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Places available</span>
+          <input id="places-available" type="number" min="1" step="1" value="1" />
+          <small>Cannot be greater than tied participants.</small>
+        </label>
+      </div>
+
+      <div class="results-grid">
+        <div class="result-card">
+          <span>Winning stake portion</span>
+          <strong id="winning-portion">£5.00</strong>
+        </div>
+        <div class="result-card">
+          <span>Losing stake portion</span>
+          <strong id="losing-portion">£5.00</strong>
+        </div>
+        <div class="result-card">
+          <span>Adjusted return</span>
+          <strong id="adjusted-return">£25.00</strong>
+        </div>
+        <div class="result-card">
+          <span>Adjusted profit / loss</span>
+          <strong id="adjusted-profit">£15.00</strong>
+        </div>
+        <div class="result-card">
+          <span>Equivalent adjusted odds</span>
+          <strong id="equivalent-odds">2.50</strong>
+        </div>
+      </div>
+
+      <p class="result-note" id="dead-heat-note">Half of the stake is settled as winning in this example.</p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Dead heat formula</h2>
+    <p>
+      In a simplified dead heat calculation, part of the stake is treated as winning and the rest is treated as losing.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Winning fraction</strong> = places available / tied participants</p>
+      <p><strong>Winning stake portion</strong> = stake x winning fraction</p>
+      <p><strong>Losing stake portion</strong> = stake - winning stake portion</p>
+      <p><strong>Adjusted return</strong> = winning stake portion x decimal odds</p>
+      <p><strong>Adjusted profit/loss</strong> = adjusted return - stake</p>
+      <p><strong>Equivalent adjusted odds</strong> = adjusted return / stake</p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Worked example</h2>
+    <p>
+      If you stake £10 at decimal odds of 5.00 and two participants dead heat for one place, half the stake is treated as winning. The winning portion is £5 and the losing portion is £5. The adjusted return is £25, so the adjusted profit is £15.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Responsible use</h2>
+    <p>
+      This is a simplified educational calculator. Bookmaker dead heat terms can vary, and markets may have special rules. Check the rules for your bookmaker and market before relying on any estimate. This page does not provide betting advice.
+    </p>
+  </section>
+
+  <style>
+    .calculator-panel { margin-top: 1.5rem; padding: 1.25rem; border: 1px solid var(--color-border); border-radius: var(--radius); background: #ffffff; }
+    .calculator-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+    .calculator-header h2 { margin: 0; }
+    .calculator-header p { margin: 0.25rem 0 0; color: var(--color-muted); }
+    .small-button { padding: 0.55rem 0.75rem; font-size: 0.9rem; cursor: pointer; }
+    .input-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+    .results-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1.25rem; }
+    .input-group, .result-card { display: block; padding: 1rem; border: 1px solid var(--color-border); border-radius: 14px; background: var(--color-bg); }
+    .input-group span, .result-card span { display: block; margin-bottom: 0.4rem; color: var(--color-navy); font-weight: 800; }
+    .input-group input { width: 100%; padding: 0.75rem; border: 1px solid var(--color-border); border-radius: 10px; color: var(--color-text); font: inherit; font-size: 1.05rem; background: white; }
+    .input-group small { display: block; margin-top: 0.45rem; color: var(--color-muted); }
+    .result-card span { color: var(--color-muted); font-size: 0.9rem; }
+    .result-card strong { display: block; color: var(--color-navy); font-size: 1.35rem; line-height: 1.2; word-break: break-word; }
+    .result-note { margin: 1rem 0 0; padding: 1rem; border-radius: 12px; background: #eef8f3; color: var(--color-green-dark); font-weight: 700; }
+    .result-note.error { background: #fff1f0; color: #b42318; }
+    .article-section { margin-top: 1.25rem; }
+    .formula-box { padding: 1rem 1.15rem; border-radius: 14px; background: var(--color-bg); border: 1px solid var(--color-border); }
+    .formula-box p { margin: 0.4rem 0; }
+    @media (max-width: 1100px) { .input-grid, .results-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 760px) { .input-grid, .results-grid { grid-template-columns: 1fr; } .calculator-header { flex-direction: column; } }
+  </style>
+
+  <script>
+    const stakeInput = document.getElementById("dead-heat-stake");
+    const oddsInput = document.getElementById("dead-heat-odds");
+    const tiedInput = document.getElementById("tied-participants");
+    const placesInput = document.getElementById("places-available");
+    const resetButton = document.getElementById("reset-dead-heat");
+    const winningPortion = document.getElementById("winning-portion");
+    const losingPortion = document.getElementById("losing-portion");
+    const adjustedReturn = document.getElementById("adjusted-return");
+    const adjustedProfit = document.getElementById("adjusted-profit");
+    const equivalentOdds = document.getElementById("equivalent-odds");
+    const note = document.getElementById("dead-heat-note");
+
+    function money(value) {
+      return `${value < 0 ? "-" : ""}£${Math.abs(value).toFixed(2)}`;
+    }
+
+    function showError(message) {
+      [winningPortion, losingPortion, adjustedReturn, adjustedProfit, equivalentOdds].forEach((element) => {
+        element.textContent = "—";
+      });
+      note.textContent = message;
+      note.className = "result-note error";
+    }
+
+    function updateDeadHeat() {
+      const stake = Number(stakeInput.value);
+      const odds = Number(oddsInput.value);
+      const tied = Number(tiedInput.value);
+      const places = Number(placesInput.value);
+
+      if (!Number.isFinite(stake) || stake <= 0) {
+        showError("Stake must be greater than 0.");
+        return;
+      }
+
+      if (!Number.isFinite(odds) || odds <= 1) {
+        showError("Decimal odds must be greater than 1.00.");
+        return;
+      }
+
+      if (!Number.isInteger(tied) || tied < 2) {
+        showError("Tied participants must be a whole number of at least 2.");
+        return;
+      }
+
+      if (!Number.isInteger(places) || places < 1 || places > tied) {
+        showError("Places available must be at least 1 and no greater than tied participants.");
+        return;
+      }
+
+      const winningFraction = places / tied;
+      const winningStake = stake * winningFraction;
+      const losingStake = stake - winningStake;
+      const returnValue = winningStake * odds;
+      const profitValue = returnValue - stake;
+      const adjustedOddsValue = returnValue / stake;
+
+      winningPortion.textContent = money(winningStake);
+      losingPortion.textContent = money(losingStake);
+      adjustedReturn.textContent = money(returnValue);
+      adjustedProfit.textContent = money(profitValue);
+      equivalentOdds.textContent = adjustedOddsValue.toFixed(2);
+      note.textContent = `${(winningFraction * 100).toFixed(2)}% of the stake is settled as winning in this estimate.`;
+      note.className = "result-note";
+    }
+
+    [stakeInput, oddsInput, tiedInput, placesInput].forEach((input) => input.addEventListener("input", updateDeadHeat));
+    resetButton.addEventListener("click", () => {
+      stakeInput.value = "10";
+      oddsInput.value = "5.00";
+      tiedInput.value = "2";
+      placesInput.value = "1";
+      updateDeadHeat();
+    });
+
+    updateDeadHeat();
+  </script>
+</MainLayout>
