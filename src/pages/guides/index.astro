@@ -1,328 +1,121 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+
+const featuredGuides = [
+  {
+    href: "/guides/what-is-implied-probability/",
+    tag: "Core guide",
+    title: "What Is Implied Probability?",
+    description: "Learn how betting odds convert into percentage chance and why implied probability matters."
+  },
+  {
+    href: "/guides/bookmaker-margin-explained/",
+    tag: "Core guide",
+    title: "Bookmaker Margin Explained",
+    description: "Understand bookmaker margin, overround, book percentage and how market prices are built."
+  },
+  {
+    href: "/guides/what-is-lay-liability/",
+    tag: "Core guide",
+    title: "What Is Lay Liability?",
+    description: "Learn the exchange betting risk behind lay bets, hedging and free bet conversion."
+  }
+];
+
+const guideGroups = [
+  {
+    title: "Odds, probability and margin",
+    guides: [
+      { href: "/guides/what-is-implied-probability/", tag: "Odds", title: "What Is Implied Probability?", description: "Convert odds into percentage chance and understand what a price is suggesting." },
+      { href: "/guides/no-vig-fair-odds/", tag: "Fair odds", title: "What Are No-Vig Fair Odds?", description: "Learn how bookmaker margin can be removed from a simple two-outcome market." },
+      { href: "/guides/expected-value-betting/", tag: "Expected value", title: "What Is Expected Value in Betting?", description: "Learn how EV is calculated and why it depends on estimated probability." },
+      { href: "/guides/bookmaker-margin-explained/", tag: "Bookmaker margin", title: "Bookmaker Margin Explained", description: "Learn how bookmaker margin, overround and book percentage are connected." },
+      { href: "/guides/what-is-overround/", tag: "Overround", title: "What Is Overround in Betting?", description: "Understand how betting markets can add up to more than 100%." },
+      { href: "/guides/how-bookmakers-make-money/", tag: "Bookmakers", title: "How Bookmakers Make Money", description: "Learn about overround, odds movement, liability management and weight of money." },
+      { href: "/guides/can-you-always-beat-the-bookie/", tag: "Risk", title: "Can You Always Beat the Bookie?", description: "Learn why guaranteed betting systems are risky and what maths can actually show." }
+    ]
+  },
+  {
+    title: "Value, staking and stake splitting",
+    guides: [
+      { href: "/guides/what-is-the-kelly-criterion/", tag: "Staking", title: "What Is the Kelly Criterion?", description: "Learn how Kelly staking uses odds, bankroll and estimated probability." },
+      { href: "/guides/what-is-dutching/", tag: "Dutching", title: "What Is Dutching in Betting?", description: "Learn how dutching splits stakes across multiple selections." },
+      { href: "/guides/dutching-vs-arbitrage/", tag: "Arbitrage", title: "Dutching vs Arbitrage", description: "Understand the difference between stake splitting and covering all outcomes." }
+    ]
+  },
+  {
+    title: "Exchange, hedging and offers",
+    guides: [
+      { href: "/guides/what-is-lay-liability/", tag: "Exchange betting", title: "What Is Lay Liability?", description: "Understand how lay liability is calculated and why it matters on exchanges." },
+      { href: "/guides/what-is-exchange-commission/", tag: "Exchange betting", title: "What Is Exchange Commission?", description: "Learn how commission affects lay bets, hedging, free bets and matched betting." },
+      { href: "/guides/how-to-hedge-a-bet/", tag: "Hedging", title: "How to Hedge a Bet", description: "Understand back and lay hedging, lay liability, commission and greening up." },
+      { href: "/guides/hedging-vs-cash-out/", tag: "Cash out", title: "Hedging vs Cash Out", description: "Compare bookmaker cash out offers with manual hedge calculations." },
+      { href: "/guides/what-is-a-free-bet/", tag: "Free bets", title: "What Is a Free Bet?", description: "Understand free bet value, stake not returned, free bet lay stakes and offer terms." },
+      { href: "/guides/what-is-matched-betting/", tag: "Matched betting", title: "What Is Matched Betting?", description: "Learn how qualifying bets, free bets, back bets and lay bets work together." },
+      { href: "/guides/stake-returned-vs-stake-not-returned/", tag: "Free bet terms", title: "Stake Returned vs Stake Not Returned", description: "Learn the difference between cash-style returns and stake-not-returned free bets." }
+    ]
+  },
+  {
+    title: "Racing and each-way terms",
+    guides: [
+      { href: "/guides/each-way-betting-terms-explained/", tag: "Each-way", title: "Each-Way Betting Terms Explained", description: "Learn win part, place part, place terms, extra places, non-runners and Rule 4." },
+      { href: "/guides/dead-heat-rules-betting/", tag: "Dead heat", title: "What Is a Dead Heat in Betting?", description: "Learn how dead heat rules can split stakes and adjust returns." },
+      { href: "/guides/what-are-extra-places-in-each-way-betting/", tag: "Extra places", title: "What Are Extra Places in Each-Way Betting?", description: "Understand enhanced place offers and how they compare with standard each-way terms." },
+      { href: "/guides/what-is-rule-4-in-horse-racing/", tag: "Horse racing", title: "What Is Rule 4 in Horse Racing?", description: "Learn why deductions happen after non-runners and how Rule 4 affects winnings." }
+    ]
+  }
+];
 ---
 
 <MainLayout
   title="Betting Maths Guides"
-  description="Plain-English betting maths guides explaining implied probability, overround, bookmaker margin, free bets, matched betting, each-way betting, Rule 4, lay liability, exchange commission, Kelly staking, hedging, dutching, cash out and arbitrage."
+  description="Plain-English betting maths guides explaining implied probability, overround, bookmaker margin, expected value, no-vig fair odds, free bets, matched betting, each-way betting, dead heats, Rule 4, lay liability, exchange commission, Kelly staking, hedging, dutching, cash out and arbitrage."
 >
   <section class="content-card">
     <p class="eyebrow">Betting guides</p>
     <h1>Betting Maths Guides</h1>
     <p class="lead">
-      Learn the key betting maths concepts behind odds, implied probability, overround, bookmaker margin, free bets, matched betting, lay liability, exchange commission, Kelly staking, each-way betting, Rule 4, extra places, hedging, dutching, arbitrage and cash out.
+      Learn the key betting maths concepts behind odds, implied probability, overround, bookmaker margin, expected value, no-vig fair odds, free bets, matched betting, lay liability, exchange commission, Kelly staking, each-way betting, dead heats, Rule 4, extra places, hedging, dutching, arbitrage and cash out.
     </p>
 
     <div class="callout">
-      <strong>Quick guide:</strong> Start with implied probability if you are new to betting maths, then move on to bookmaker margin, free bets, lay liability, each-way terms, Kelly staking, dutching and hedging.
+      <strong>Quick guide:</strong> Start with implied probability if you are new to betting maths, then move on to bookmaker margin, expected value, no-vig fair odds, lay liability, each-way terms, Kelly staking, dutching and hedging.
     </div>
   </section>
 
   <section class="content-card article-section">
     <h2>Start here</h2>
-    <p>
-      These core guides explain the most important concepts behind the calculators on Betting Maths.
-    </p>
+    <p>These core guides explain the most important concepts behind the calculators on Betting Maths.</p>
 
     <div class="guide-grid">
-      <a class="guide-card featured-guide" href="/guides/what-is-implied-probability/">
-        <span>Core guide</span>
-        <h3>What Is Implied Probability?</h3>
-        <p>Learn how betting odds convert into percentage chance and why implied probability matters.</p>
-      </a>
-
-      <a class="guide-card featured-guide" href="/guides/bookmaker-margin-explained/">
-        <span>Core guide</span>
-        <h3>Bookmaker Margin Explained</h3>
-        <p>Understand bookmaker margin, overround, book percentage and how market prices are built.</p>
-      </a>
-
-      <a class="guide-card featured-guide" href="/guides/what-is-lay-liability/">
-        <span>Core guide</span>
-        <h3>What Is Lay Liability?</h3>
-        <p>Learn the exchange betting risk behind lay bets, hedging and free bet conversion.</p>
-      </a>
+      {featuredGuides.map((guide) => (
+        <a class="guide-card featured-guide" href={guide.href}>
+          <span>{guide.tag}</span>
+          <h3>{guide.title}</h3>
+          <p>{guide.description}</p>
+        </a>
+      ))}
     </div>
   </section>
 
-  <section class="content-card article-section">
-    <h2>All betting guides</h2>
-    <p>
-      Browse all current Betting Maths guides below.
-    </p>
-
-    <div class="guide-grid">
-      <a class="guide-card" href="/guides/what-is-implied-probability/">
-        <span>Odds</span>
-        <h3>What Is Implied Probability?</h3>
-        <p>Convert odds into percentage chance and understand what a price is suggesting.</p>
-      </a>
-
-      <a class="guide-card" href="/guides/bookmaker-margin-explained/">
-        <span>Bookmaker margin</span>
-        <h3>Bookmaker Margin Explained</h3>
-        <p>Learn how bookmaker margin, overround and book percentage are connected.</p>
-      </a>
-
-      <a class="guide-card" href="/guides/what-is-overround/">
-        <span>Overround</span>
-        <h3>What Is Overround in Betting?</h3>
-        <p>Understand how betting markets can add up to more than 100%.</p>
-      </a>
-
-      <a class="guide-card" href="/guides/how-bookmakers-make-money/">
-        <span>Bookmakers</span>
-        <h3>How Bookmakers Make Money</h3>
-        <p>Learn about overround, odds movement, liability management and weight of money.</p>
-      </a>
-
-      <a class="guide-card" href="/guides/can-you-always-beat-the-bookie/">
-        <span>Risk</span>
-        <h3>Can You Always Beat the Bookie?</h3>
-        <p>Learn why guaranteed betting systems are risky and what maths can actually show.</p>
-      </a>
-
-      <a class="guide-card" href="/guides/what-is-the-kelly-criterion/">
-        <span>Staking</span>
-        <h3>What Is the Kelly Criterion?</h3>
-        <p>Learn how Kelly staking uses odds, bankroll and estimated probability.</p>
-      </a>
-
-      <a class="guide-card" href="/guides/what-is-lay-liability/">
-        <span>Exchange betting</span>
-        <h3>What Is Lay Liability?</h3>
-        <p>Understand how lay liability is calculated and why it matters on exchanges.</p>
-      </a>
-
-      <a class="guide-card" href="/guides/what-is-exchange-commission/">
-        <span>Exchange betting</span>
-        <h3>What Is Exchange Commission?</h3>
-        <p>Learn how commission affects lay bets, hedging, free bets and matched betting.</p>
-      </a>
-
-      <a class="guide-card" href="/guides/what-is-a-free-bet/">
-        <span>Free bets</span>
-        <h3>What Is a Free Bet?</h3>
-        <p>Understand free bet value, stake not returned, free bet lay stakes and offer terms.</p>
-      </a>
-
-      <a class="guide-card" href="/guides/what-is-matched-betting/">
-        <span>Matched betting</span>
-        <h3>What Is Matched Betting?</h3>
-        <p>Learn how qualifying bets, free bets, back bets and lay bets work together.</p>
-      </a>
-
-      <a class="guide-card" href="/guides/stake-returned-vs-stake-not-returned/">
-        <span>Free bet terms</span>
-        <h3>Stake Returned vs Stake Not Returned</h3>
-        <p>Learn the difference between cash-style returns and stake-not-returned free bets.</p>
-      </a>
-
-      <a class="guide-card" href="/guides/what-is-rule-4-in-horse-racing/">
-        <span>Horse racing</span>
-        <h3>What Is Rule 4 in Horse Racing?</h3>
-        <p>Learn why deductions happen after non-runners and how Rule 4 affects winnings.</p>
-      </a>
-
-      <a class="guide-card" href="/guides/what-are-extra-places-in-each-way-betting/">
-        <span>Extra places</span>
-        <h3>What Are Extra Places in Each-Way Betting?</h3>
-        <p>Understand enhanced place offers and how they compare with standard each-way terms.</p>
-      </a>
-
-      <a class="guide-card" href="/guides/each-way-betting-terms-explained/">
-        <span>Each-way</span>
-        <h3>Each-Way Betting Terms Explained</h3>
-        <p>Learn win part, place part, place terms, extra places, non-runners and Rule 4.</p>
-      </a>
-
-      <a class="guide-card" href="/guides/how-to-hedge-a-bet/">
-        <span>Hedging</span>
-        <h3>How to Hedge a Bet</h3>
-        <p>Understand back and lay hedging, lay liability, commission and greening up.</p>
-      </a>
-
-      <a class="guide-card" href="/guides/hedging-vs-cash-out/">
-        <span>Cash out</span>
-        <h3>Hedging vs Cash Out</h3>
-        <p>Compare bookmaker cash out offers with manual hedge calculations.</p>
-      </a>
-
-      <a class="guide-card" href="/guides/what-is-dutching/">
-        <span>Dutching</span>
-        <h3>What Is Dutching in Betting?</h3>
-        <p>Learn how dutching splits stakes across multiple selections.</p>
-      </a>
-
-      <a class="guide-card" href="/guides/dutching-vs-arbitrage/">
-        <span>Arbitrage</span>
-        <h3>Dutching vs Arbitrage</h3>
-        <p>Understand the difference between stake splitting and covering all outcomes.</p>
-      </a>
-    </div>
-  </section>
-
-  <section class="content-card article-section">
-    <h2>Which guide should I read first?</h2>
-    <p>
-      If you are not sure where to start, use this table.
-    </p>
-
-    <table class="example-table">
-      <thead>
-        <tr>
-          <th>What you want to understand</th>
-          <th>Best guide</th>
-          <th>Useful calculator</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>What odds mean as a percentage chance</td>
-          <td><a href="/guides/what-is-implied-probability/">What Is Implied Probability?</a></td>
-          <td><a href="/calculators/odds-converter/">Odds Converter</a></td>
-        </tr>
-        <tr>
-          <td>How bookmaker margin is built into prices</td>
-          <td><a href="/guides/bookmaker-margin-explained/">Bookmaker Margin Explained</a></td>
-          <td><a href="/calculators/overround-calculator/">Overround Calculator</a></td>
-        </tr>
-        <tr>
-          <td>How Kelly staking works</td>
-          <td><a href="/guides/what-is-the-kelly-criterion/">What Is the Kelly Criterion?</a></td>
-          <td><a href="/calculators/kelly-criterion-calculator/">Kelly Criterion Calculator</a></td>
-        </tr>
-        <tr>
-          <td>What lay liability means</td>
-          <td><a href="/guides/what-is-lay-liability/">What Is Lay Liability?</a></td>
-          <td><a href="/calculators/lay-liability-calculator/">Lay Liability Calculator</a></td>
-        </tr>
-        <tr>
-          <td>How exchange commission affects winnings</td>
-          <td><a href="/guides/what-is-exchange-commission/">What Is Exchange Commission?</a></td>
-          <td><a href="/calculators/back-lay-calculator/">Back/Lay Calculator</a></td>
-        </tr>
-        <tr>
-          <td>How free bets work</td>
-          <td><a href="/guides/what-is-a-free-bet/">What Is a Free Bet?</a></td>
-          <td><a href="/calculators/free-bet-calculator/">Free Bet Calculator</a></td>
-        </tr>
-        <tr>
-          <td>The difference between stake returned and stake not returned</td>
-          <td><a href="/guides/stake-returned-vs-stake-not-returned/">Stake Returned vs Stake Not Returned</a></td>
-          <td><a href="/calculators/free-bet-calculator/">Free Bet Calculator</a></td>
-        </tr>
-        <tr>
-          <td>How matched betting works</td>
-          <td><a href="/guides/what-is-matched-betting/">What Is Matched Betting?</a></td>
-          <td><a href="/calculators/matched-betting-calculator/">Matched Betting Calculator</a></td>
-        </tr>
-        <tr>
-          <td>How Rule 4 deductions work</td>
-          <td><a href="/guides/what-is-rule-4-in-horse-racing/">What Is Rule 4 in Horse Racing?</a></td>
-          <td><a href="/calculators/rule-4-calculator/">Rule 4 Calculator</a></td>
-        </tr>
-        <tr>
-          <td>How extra places work</td>
-          <td><a href="/guides/what-are-extra-places-in-each-way-betting/">What Are Extra Places?</a></td>
-          <td><a href="/calculators/each-way-extra-places-calculator/">Each-Way Extra Places Calculator</a></td>
-        </tr>
-        <tr>
-          <td>Each-way betting terminology</td>
-          <td><a href="/guides/each-way-betting-terms-explained/">Each-Way Betting Terms Explained</a></td>
-          <td><a href="/calculators/each-way-calculator/">Each-Way Calculator</a></td>
-        </tr>
-        <tr>
-          <td>How to split a stake across selections</td>
-          <td><a href="/guides/what-is-dutching/">What Is Dutching?</a></td>
-          <td><a href="/calculators/dutching-calculator/">Dutching Calculator</a></td>
-        </tr>
-        <tr>
-          <td>How to compare dutching and arbitrage</td>
-          <td><a href="/guides/dutching-vs-arbitrage/">Dutching vs Arbitrage</a></td>
-          <td><a href="/calculators/arbitrage-calculator/">Arbitrage Calculator</a></td>
-        </tr>
-        <tr>
-          <td>How to lock in or reduce risk on a position</td>
-          <td><a href="/guides/how-to-hedge-a-bet/">How to Hedge a Bet</a></td>
-          <td><a href="/calculators/hedge-bet-calculator/">Hedge Bet Calculator</a></td>
-        </tr>
-        <tr>
-          <td>Whether cash out is better than hedging</td>
-          <td><a href="/guides/hedging-vs-cash-out/">Hedging vs Cash Out</a></td>
-          <td><a href="/calculators/back-lay-calculator/">Back/Lay Calculator</a></td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section class="content-card article-section">
-    <h2>Guides by topic</h2>
-
-    <div class="topic-grid">
-      <div class="topic-card">
-        <h3>Odds and probability</h3>
-        <ul>
-          <li><a href="/guides/what-is-implied-probability/">What Is Implied Probability?</a></li>
-          <li><a href="/guides/what-is-overround/">What Is Overround?</a></li>
-          <li><a href="/guides/bookmaker-margin-explained/">Bookmaker Margin Explained</a></li>
-        </ul>
+  {guideGroups.map((group) => (
+    <section class="content-card article-section">
+      <h2>{group.title}</h2>
+      <div class="guide-grid">
+        {group.guides.map((guide) => (
+          <a class="guide-card" href={guide.href}>
+            <span>{guide.tag}</span>
+            <h3>{guide.title}</h3>
+            <p>{guide.description}</p>
+          </a>
+        ))}
       </div>
-
-      <div class="topic-card">
-        <h3>Bookmakers and margin</h3>
-        <ul>
-          <li><a href="/guides/how-bookmakers-make-money/">How Bookmakers Make Money</a></li>
-          <li><a href="/guides/bookmaker-margin-explained/">Bookmaker Margin Explained</a></li>
-          <li><a href="/guides/can-you-always-beat-the-bookie/">Can You Always Beat the Bookie?</a></li>
-        </ul>
-      </div>
-
-      <div class="topic-card">
-        <h3>Value and staking</h3>
-        <ul>
-          <li><a href="/guides/what-is-the-kelly-criterion/">What Is the Kelly Criterion?</a></li>
-          <li><a href="/guides/what-is-dutching/">What Is Dutching?</a></li>
-          <li><a href="/guides/dutching-vs-arbitrage/">Dutching vs Arbitrage</a></li>
-        </ul>
-      </div>
-
-      <div class="topic-card">
-        <h3>Exchange and hedging</h3>
-        <ul>
-          <li><a href="/guides/what-is-lay-liability/">What Is Lay Liability?</a></li>
-          <li><a href="/guides/what-is-exchange-commission/">What Is Exchange Commission?</a></li>
-          <li><a href="/guides/how-to-hedge-a-bet/">How to Hedge a Bet</a></li>
-          <li><a href="/guides/hedging-vs-cash-out/">Hedging vs Cash Out</a></li>
-        </ul>
-      </div>
-
-      <div class="topic-card">
-        <h3>Free bets and offers</h3>
-        <ul>
-          <li><a href="/guides/what-is-a-free-bet/">What Is a Free Bet?</a></li>
-          <li><a href="/guides/stake-returned-vs-stake-not-returned/">Stake Returned vs Stake Not Returned</a></li>
-          <li><a href="/guides/what-is-matched-betting/">What Is Matched Betting?</a></li>
-        </ul>
-      </div>
-
-      <div class="topic-card">
-        <h3>Horse racing and each-way</h3>
-        <ul>
-          <li><a href="/guides/each-way-betting-terms-explained/">Each-Way Betting Terms Explained</a></li>
-          <li><a href="/guides/what-are-extra-places-in-each-way-betting/">What Are Extra Places?</a></li>
-          <li><a href="/guides/what-is-rule-4-in-horse-racing/">What Is Rule 4 in Horse Racing?</a></li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    </section>
+  ))}
 
   <section class="content-card article-section">
     <h2>Related calculator hub</h2>
-    <p>
-      If you want to use the tools directly, visit the full calculator hub.
-    </p>
-
+    <p>If you want to use the tools directly, visit the full calculator hub.</p>
     <div class="button-row">
       <a class="button primary" href="/calculators/">Open All Betting Calculators</a>
       <a class="button secondary" href="/glossary/betting-jargon-explained/">Open Betting Glossary</a>
@@ -334,139 +127,16 @@ import MainLayout from "../../layouts/MainLayout.astro";
   </div>
 
   <style>
-    .article-section {
-      margin-top: 1.25rem;
-    }
-
-    .guide-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .guide-card {
-      display: block;
-      padding: 1.15rem;
-      border: 1px solid var(--color-border);
-      border-radius: 14px;
-      background: var(--color-bg);
-    }
-
-    .guide-card:hover {
-      border-color: rgba(31, 138, 91, 0.45);
-      transform: translateY(-2px);
-    }
-
-    .guide-card span {
-      display: inline-flex;
-      margin-bottom: 0.5rem;
-      padding: 0.15rem 0.55rem;
-      border-radius: 999px;
-      background: #eef8f3;
-      color: var(--color-green-dark);
-      font-size: 0.78rem;
-      font-weight: 800;
-    }
-
-    .guide-card.featured-guide {
-      background: #eef8f3;
-      border-color: rgba(31, 138, 91, 0.28);
-    }
-
-    .guide-card.featured-guide span {
-      background: white;
-    }
-
-    .guide-card h3 {
-      margin-bottom: 0.35rem;
-    }
-
-    .guide-card p {
-      margin: 0;
-      color: var(--color-muted);
-    }
-
-    .example-table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-      border: 1px solid var(--color-border);
-      border-radius: 14px;
-      overflow: hidden;
-      margin: 1rem 0;
-    }
-
-    .example-table th,
-    .example-table td {
-      padding: 0.75rem;
-      border-bottom: 1px solid var(--color-border);
-      text-align: left;
-      vertical-align: middle;
-    }
-
-    .example-table th {
-      color: var(--color-navy);
-      background: #f4f7fa;
-      font-size: 0.9rem;
-    }
-
-    .example-table tr:last-child td {
-      border-bottom: 0;
-    }
-
-    .example-table a {
-      color: var(--color-green-dark);
-      font-weight: 800;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    .topic-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .topic-card {
-      padding: 1rem;
-      border: 1px solid var(--color-border);
-      border-radius: 14px;
-      background: var(--color-bg);
-    }
-
-    .topic-card h3 {
-      margin-bottom: 0.65rem;
-    }
-
-    .topic-card ul {
-      margin: 0;
-      padding-left: 1.2rem;
-    }
-
-    .topic-card li {
-      margin: 0.35rem 0;
-    }
-
-    .topic-card a {
-      color: var(--color-green-dark);
-      font-weight: 800;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    @media (max-width: 1100px) {
-      .guide-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 760px) {
-      .guide-grid,
-      .topic-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    .article-section { margin-top: 1.25rem; }
+    .guide-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .guide-card { display: block; padding: 1.15rem; border: 1px solid var(--color-border); border-radius: 14px; background: var(--color-bg); }
+    .guide-card:hover { border-color: rgba(31, 138, 91, 0.45); transform: translateY(-2px); }
+    .guide-card span { display: inline-flex; margin-bottom: 0.5rem; padding: 0.15rem 0.55rem; border-radius: 999px; background: #eef8f3; color: var(--color-green-dark); font-size: 0.78rem; font-weight: 800; }
+    .guide-card.featured-guide { background: #eef8f3; border-color: rgba(31, 138, 91, 0.28); }
+    .guide-card.featured-guide span { background: white; }
+    .guide-card h3 { margin-bottom: 0.35rem; }
+    .guide-card p { margin: 0; color: var(--color-muted); }
+    @media (max-width: 1100px) { .guide-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 760px) { .guide-grid { grid-template-columns: 1fr; } }
   </style>
 </MainLayout>

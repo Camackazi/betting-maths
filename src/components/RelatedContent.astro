@@ -7,22 +7,18 @@ const isDetailPage =
   (pathname.startsWith("/calculators/") && pathname !== "/calculators/") ||
   (pathname.startsWith("/guides/") && pathname !== "/guides/");
 
-const item = (title, href, description, tag = "Related") => ({
-  title,
-  href,
-  description,
-  tag
-});
+const item = (title, href, description, tag = "Related") => ({ title, href, description, tag });
 
 const oddsAndMarginItems = [
   item("Odds Converter", "/calculators/odds-converter/", "Convert decimal, fractional and American odds, and calculate implied probability.", "Calculator"),
   item("Overround Calculator", "/calculators/overround-calculator/", "Calculate book percentage, overround and bookmaker margin.", "Calculator"),
   item("No-Vig Fair Odds Calculator", "/calculators/no-vig-fair-odds-calculator/", "Remove margin from a simple two-outcome market.", "Calculator"),
   item("Expected Value Calculator", "/calculators/expected-value-calculator/", "Estimate EV from stake, odds and your probability estimate.", "Calculator"),
-  item("Arbitrage Calculator", "/calculators/arbitrage-calculator/", "Check whether odds create an underround across all outcomes.", "Calculator"),
+  item("What Are No-Vig Fair Odds?", "/guides/no-vig-fair-odds/", "Learn how margin can be removed from a simple two-outcome market.", "Guide"),
+  item("What Is Expected Value?", "/guides/expected-value-betting/", "Learn what EV means and why it depends on estimated probability.", "Guide"),
   item("What Is Implied Probability?", "/guides/what-is-implied-probability/", "Learn how odds convert into percentage chance.", "Guide"),
   item("Bookmaker Margin Explained", "/guides/bookmaker-margin-explained/", "Understand bookmaker margin, overround and book percentage.", "Guide"),
-  item("What Is Overround?", "/guides/what-is-overround/", "Learn why betting markets usually add up to more than 100%.", "Guide")
+  item("Arbitrage Calculator", "/calculators/arbitrage-calculator/", "Check whether odds create an underround across all outcomes.", "Calculator")
 ];
 
 const freeBetItems = [
@@ -31,16 +27,13 @@ const freeBetItems = [
   item("Back/Lay Calculator", "/calculators/back-lay-calculator/", "Calculate lay stake, lay liability and back/lay outcomes.", "Calculator"),
   item("What Is a Free Bet?", "/guides/what-is-a-free-bet/", "Learn how free bets, stake not returned and offer value work.", "Guide"),
   item("What Is Matched Betting?", "/guides/what-is-matched-betting/", "Understand qualifying bets, free bets, back bets and lay bets.", "Guide"),
-  item("Stake Returned vs Stake Not Returned", "/guides/stake-returned-vs-stake-not-returned/", "Learn one of the most important free bet terms.", "Guide"),
-  item("What Is Lay Liability?", "/guides/what-is-lay-liability/", "Understand the exchange risk created by a lay bet.", "Guide"),
-  item("What Is Exchange Commission?", "/guides/what-is-exchange-commission/", "Learn how exchange commission affects free bet and lay calculations.", "Guide")
+  item("Stake Returned vs Stake Not Returned", "/guides/stake-returned-vs-stake-not-returned/", "Learn one of the most important free bet terms.", "Guide")
 ];
 
 const exchangeAndHedgingItems = [
   item("Hedge Bet Calculator", "/calculators/hedge-bet-calculator/", "Calculate hedge stakes for back-first and lay-first positions.", "Calculator"),
   item("Back/Lay Calculator", "/calculators/back-lay-calculator/", "Calculate lay stake, liability, commission and balanced outcomes.", "Calculator"),
   item("Lay Liability Calculator", "/calculators/lay-liability-calculator/", "Calculate lay liability and lay bet profit or loss.", "Calculator"),
-  item("Free Bet Calculator", "/calculators/free-bet-calculator/", "Calculate free bet lay stakes and conversion value.", "Calculator"),
   item("What Is Lay Liability?", "/guides/what-is-lay-liability/", "Learn how lay liability is calculated and why it matters.", "Guide"),
   item("What Is Exchange Commission?", "/guides/what-is-exchange-commission/", "Understand how commission affects exchange winnings.", "Guide"),
   item("How to Hedge a Bet", "/guides/how-to-hedge-a-bet/", "Learn how back and lay hedging works.", "Guide"),
@@ -49,20 +42,20 @@ const exchangeAndHedgingItems = [
 
 const stakingItems = [
   item("Expected Value Calculator", "/calculators/expected-value-calculator/", "Estimate EV and expected ROI from odds and probability.", "Calculator"),
-  item("Dutching Calculator", "/calculators/dutching-calculator/", "Split a total stake across two or more selections.", "Calculator"),
-  item("Arbitrage Calculator", "/calculators/arbitrage-calculator/", "Check whether odds create an underround.", "Calculator"),
-  item("Accumulator Calculator", "/calculators/accumulator-calculator/", "Calculate combined acca odds, returns and implied probability.", "Calculator"),
+  item("What Is Expected Value?", "/guides/expected-value-betting/", "Learn why EV depends on estimated probability and sample size.", "Guide"),
   item("Kelly Criterion Calculator", "/calculators/kelly-criterion-calculator/", "Estimate stake size from bankroll, odds and estimated probability.", "Calculator"),
   item("What Is the Kelly Criterion?", "/guides/what-is-the-kelly-criterion/", "Learn how Kelly staking uses odds, bankroll and estimated probability.", "Guide"),
-  item("What Is Implied Probability?", "/guides/what-is-implied-probability/", "Understand the probability suggested by betting odds.", "Guide"),
+  item("Dutching Calculator", "/calculators/dutching-calculator/", "Split a total stake across two or more selections.", "Calculator"),
+  item("Accumulator Calculator", "/calculators/accumulator-calculator/", "Calculate combined acca odds, returns and implied probability.", "Calculator"),
   item("What Is Dutching?", "/guides/what-is-dutching/", "Learn how dutching splits stakes across multiple selections.", "Guide"),
   item("Dutching vs Arbitrage", "/guides/dutching-vs-arbitrage/", "Understand the difference between dutching and arbitrage.", "Guide")
 ];
 
 const racingItems = [
   item("Each-Way Calculator", "/calculators/each-way-calculator/", "Calculate win, place-only and losing each-way outcomes.", "Calculator"),
+  item("Dead Heat Calculator", "/calculators/dead-heat-calculator/", "Estimate adjusted returns after a dead heat.", "Calculator"),
+  item("What Is a Dead Heat?", "/guides/dead-heat-rules-betting/", "Learn how dead heat settlement can split the stake.", "Guide"),
   item("Each-Way Extra Places Calculator", "/calculators/each-way-extra-places-calculator/", "Compare standard place terms with enhanced extra places offers.", "Calculator"),
-  item("Dead Heat Calculator", "/calculators/dead-heat-calculator/", "Estimate adjusted returns when a selection is affected by a dead heat.", "Calculator"),
   item("Rule 4 Calculator", "/calculators/rule-4-calculator/", "Estimate horse racing Rule 4 deductions and adjusted returns.", "Calculator"),
   item("Each-Way Betting Terms Explained", "/guides/each-way-betting-terms-explained/", "Learn win part, place part, place terms, non-runners and Rule 4.", "Guide"),
   item("What Are Extra Places?", "/guides/what-are-extra-places-in-each-way-betting/", "Understand enhanced each-way place offers.", "Guide"),
@@ -85,6 +78,8 @@ const clusters = [
       "/calculators/no-vig-fair-odds-calculator/",
       "/calculators/expected-value-calculator/",
       "/calculators/arbitrage-calculator/",
+      "/guides/no-vig-fair-odds/",
+      "/guides/expected-value-betting/",
       "/guides/what-is-implied-probability/",
       "/guides/bookmaker-margin-explained/",
       "/guides/what-is-overround/",
@@ -127,6 +122,7 @@ const clusters = [
       "/calculators/dutching-calculator/",
       "/calculators/kelly-criterion-calculator/",
       "/calculators/accumulator-calculator/",
+      "/guides/expected-value-betting/",
       "/guides/what-is-the-kelly-criterion/",
       "/guides/what-is-dutching/",
       "/guides/dutching-vs-arbitrage/"
@@ -138,9 +134,10 @@ const clusters = [
     intro: "These pages explain each-way returns, extra places, dead heats, Rule 4 deductions, non-runners and racing settlement terms.",
     match: [
       "/calculators/each-way-calculator/",
-      "/calculators/each-way-extra-places-calculator/",
       "/calculators/dead-heat-calculator/",
+      "/calculators/each-way-extra-places-calculator/",
       "/calculators/rule-4-calculator/",
+      "/guides/dead-heat-rules-betting/",
       "/guides/each-way-betting-terms-explained/",
       "/guides/what-are-extra-places-in-each-way-betting/",
       "/guides/what-is-rule-4-in-horse-racing/"
@@ -150,14 +147,9 @@ const clusters = [
 ];
 
 const activeCluster = clusters.find((cluster) => cluster.match.includes(pathname));
-
 const relatedTitle = activeCluster?.title ?? "Keep exploring Betting Maths";
-const relatedIntro =
-  activeCluster?.intro ??
-  "Use these links to continue exploring related betting calculators, guides and glossary terms.";
-
+const relatedIntro = activeCluster?.intro ?? "Use these links to continue exploring related betting calculators, guides and glossary terms.";
 const sourceItems = activeCluster?.items ?? fallbackItems;
-
 const seen = new Set();
 const relatedItems = sourceItems
   .filter((relatedItem) => relatedItem.href !== pathname)

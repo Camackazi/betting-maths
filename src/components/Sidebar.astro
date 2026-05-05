@@ -18,9 +18,9 @@ const sections = [
         links: [
           { href: "/calculators/odds-converter/", label: "Odds Converter" },
           { href: "/calculators/overround-calculator/", label: "Overround Calculator" },
-          { href: "/calculators/arbitrage-calculator/", label: "Arbitrage Calculator" },
           { href: "/calculators/no-vig-fair-odds-calculator/", label: "No-Vig Fair Odds Calculator" },
-          { href: "/calculators/expected-value-calculator/", label: "Expected Value Calculator" }
+          { href: "/calculators/expected-value-calculator/", label: "Expected Value Calculator" },
+          { href: "/calculators/arbitrage-calculator/", label: "Arbitrage Calculator" }
         ]
       },
       {
@@ -50,9 +50,9 @@ const sections = [
         title: "Racing & each-way",
         links: [
           { href: "/calculators/each-way-calculator/", label: "Each-Way Calculator" },
+          { href: "/calculators/dead-heat-calculator/", label: "Dead Heat Calculator" },
           { href: "/calculators/each-way-extra-places-calculator/", label: "Each-Way Extra Places Calculator" },
-          { href: "/calculators/rule-4-calculator/", label: "Rule 4 Calculator" },
-          { href: "/calculators/dead-heat-calculator/", label: "Dead Heat Calculator" }
+          { href: "/calculators/rule-4-calculator/", label: "Rule 4 Calculator" }
         ]
       }
     ]
@@ -72,6 +72,8 @@ const sections = [
           { href: "/guides/what-is-implied-probability/", label: "What Is Implied Probability?" },
           { href: "/guides/bookmaker-margin-explained/", label: "Bookmaker Margin Explained" },
           { href: "/guides/what-is-overround/", label: "What Is Overround?" },
+          { href: "/guides/no-vig-fair-odds/", label: "What Are No-Vig Fair Odds?" },
+          { href: "/guides/expected-value-betting/", label: "What Is Expected Value?" },
           { href: "/guides/how-bookmakers-make-money/", label: "How Bookmakers Make Money" },
           { href: "/guides/can-you-always-beat-the-bookie/", label: "Can You Always Beat the Bookie?" }
         ]
@@ -105,6 +107,7 @@ const sections = [
         title: "Racing & each-way",
         links: [
           { href: "/guides/each-way-betting-terms-explained/", label: "Each-Way Betting Terms Explained" },
+          { href: "/guides/dead-heat-rules-betting/", label: "What Is a Dead Heat?" },
           { href: "/guides/what-are-extra-places-in-each-way-betting/", label: "What Are Extra Places?" },
           { href: "/guides/what-is-rule-4-in-horse-racing/", label: "What Is Rule 4 in Horse Racing?" }
         ]
@@ -157,33 +160,10 @@ const sections = [
 </aside>
 
 <style>
-  .nav-group {
-    margin-bottom: 0.85rem;
-  }
-
-  .nav-group:last-child {
-    margin-bottom: 0;
-  }
-
-  .nav-group-title {
-    margin: 0.65rem 0 0.35rem;
-    padding: 0 0.65rem;
-    color: var(--color-muted);
-    font-size: 0.72rem;
-    font-weight: 900;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .nav-group.has-active-link .nav-group-title {
-    color: var(--color-green-dark);
-  }
-
-  .nav-section + .nav-section {
-    margin-top: 1.1rem;
-  }
-
-  .nav-section ul {
-    margin-bottom: 0;
-  }
+  .nav-group { margin-bottom: 0.85rem; }
+  .nav-group:last-child { margin-bottom: 0; }
+  .nav-group-title { margin: 0.65rem 0 0.35rem; padding: 0 0.65rem; color: var(--color-muted); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
+  .nav-group.has-active-link .nav-group-title { color: var(--color-green-dark); }
+  .nav-section + .nav-section { margin-top: 1.1rem; }
+  .nav-section ul { margin-bottom: 0; }
 </style>

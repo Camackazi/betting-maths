@@ -1,0 +1,135 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="What Are No-Vig Fair Odds?"
+  description="Learn what no-vig fair odds are, how bookmaker margin affects prices, and how to remove overround from a simple two-outcome market."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting maths guide</p>
+    <h1>What Are No-Vig Fair Odds?</h1>
+    <p class="lead">
+      No-vig fair odds are an estimate of what the odds might look like after removing bookmaker margin from a market. They help explain prices, but they do not automatically show that a bet is good value.
+    </p>
+
+    <div class="callout">
+      <strong>Useful tool:</strong> Use the <a href="/calculators/no-vig-fair-odds-calculator/">No-Vig Fair Odds Calculator</a> to remove overround from a simple two-outcome market.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What vig means</h2>
+    <p>
+      Vig, margin, juice and overround are different ways to talk about the edge built into betting odds. In a balanced market without margin, the probabilities of all outcomes would add up to about 100%.
+    </p>
+    <p>
+      Bookmaker prices often add up to more than 100%. The amount above 100% is one way to understand the built-in margin.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Implied probability and book percentage</h2>
+    <p>
+      Decimal odds can be converted into implied probability by dividing 1 by the odds. For example, decimal odds of 2.00 imply 50% before any margin or other market factors are considered.
+    </p>
+    <p>
+      In a two-outcome market, you can add both implied probabilities together. If they add up to more than 100%, the market has an overround.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>No-vig fair odds formula</h2>
+    <p>
+      For a simple two-outcome market, no-vig fair odds scale each implied probability by the total book percentage.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Implied probability A</strong> = 1 / decimal odds A</p>
+      <p><strong>Implied probability B</strong> = 1 / decimal odds B</p>
+      <p><strong>Book percentage</strong> = implied probability A + implied probability B</p>
+      <p><strong>Fair probability A</strong> = implied probability A / book percentage</p>
+      <p><strong>Fair probability B</strong> = implied probability B / book percentage</p>
+      <p><strong>Fair odds</strong> = 1 / fair probability</p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Worked example</h2>
+    <p>
+      Suppose both outcomes are priced at decimal odds of 1.91. Each side has an implied probability of about 52.36%, so the book percentage is about 104.71%.
+    </p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Outcome</th>
+          <th>Decimal odds</th>
+          <th>Implied probability</th>
+          <th>No-vig fair probability</th>
+          <th>No-vig fair odds</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>A</td><td>1.91</td><td>52.36%</td><td>50.00%</td><td>2.00</td></tr>
+        <tr><td>B</td><td>1.91</td><td>52.36%</td><td>50.00%</td><td>2.00</td></tr>
+      </tbody>
+    </table>
+
+    <p>
+      This example shows how the margin is removed in a simple two-outcome market. It does not prove that either side is a good bet.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>No-vig odds and value betting</h2>
+    <p>
+      No-vig odds are not the same as value betting. They estimate fair probabilities from the market prices you enter. Value betting also depends on whether your own probability estimate is better than the available price.
+    </p>
+    <p>
+      Real markets can include commission, exchange liquidity, void rules, dead heat rules, each-way terms, deductions and other conditions. Those details can change the practical result.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>When to use the calculator</h2>
+    <p>
+      Use the No-Vig Fair Odds Calculator when you want to understand the margin in a simple two-outcome market and estimate the fair probabilities after removing overround.
+    </p>
+
+    <div class="button-row">
+      <a class="button primary" href="/calculators/no-vig-fair-odds-calculator/">Open the No-Vig Fair Odds Calculator</a>
+      <a class="button secondary" href="/calculators/overround-calculator/">Open the Overround Calculator</a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Related pages</h2>
+    <div class="related-grid">
+      <a class="related-card" href="/guides/bookmaker-margin-explained/"><h3>Bookmaker Margin Explained</h3><p>Understand bookmaker margin, overround and book percentage.</p></a>
+      <a class="related-card" href="/guides/what-is-implied-probability/"><h3>What Is Implied Probability?</h3><p>Learn how odds convert into percentage chance.</p></a>
+      <a class="related-card" href="/calculators/expected-value-calculator/"><h3>Expected Value Calculator</h3><p>Estimate EV from stake, odds and probability.</p></a>
+    </div>
+  </section>
+
+  <div class="callout">
+    <strong>Responsible note:</strong> No-vig fair odds are an educational estimate. They do not automatically identify profit and do not remove betting risk.
+  </div>
+
+  <style>
+    .article-section { margin-top: 1.25rem; }
+    .formula-box { padding: 1rem 1.15rem; border-radius: 14px; background: var(--color-bg); border: 1px solid var(--color-border); }
+    .formula-box p { margin: 0.4rem 0; }
+    .example-table { width: 100%; border-collapse: collapse; background: white; border: 1px solid var(--color-border); border-radius: 14px; overflow: hidden; margin: 1rem 0; }
+    .example-table th, .example-table td { padding: 0.75rem; border-bottom: 1px solid var(--color-border); text-align: left; vertical-align: middle; }
+    .example-table th { color: var(--color-navy); background: #f4f7fa; font-size: 0.9rem; }
+    .example-table tr:last-child td { border-bottom: 0; }
+    .article-section a, .callout a { color: var(--color-green-dark); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .related-card { display: block; padding: 1rem; border: 1px solid var(--color-border); border-radius: 14px; background: var(--color-bg); }
+    .related-card:hover { border-color: rgba(31, 138, 91, 0.45); transform: translateY(-2px); }
+    .related-card p { margin: 0; color: var(--color-muted); }
+    @media (max-width: 980px) { .related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
+  </style>
+</MainLayout>
