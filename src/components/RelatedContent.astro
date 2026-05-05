@@ -17,6 +17,8 @@ const item = (title, href, description, tag = "Related") => ({
 const oddsAndMarginItems = [
   item("Odds Converter", "/calculators/odds-converter/", "Convert decimal, fractional and American odds, and calculate implied probability.", "Calculator"),
   item("Overround Calculator", "/calculators/overround-calculator/", "Calculate book percentage, overround and bookmaker margin.", "Calculator"),
+  item("No-Vig Fair Odds Calculator", "/calculators/no-vig-fair-odds-calculator/", "Remove margin from a simple two-outcome market.", "Calculator"),
+  item("Expected Value Calculator", "/calculators/expected-value-calculator/", "Estimate EV from stake, odds and your probability estimate.", "Calculator"),
   item("Arbitrage Calculator", "/calculators/arbitrage-calculator/", "Check whether odds create an underround across all outcomes.", "Calculator"),
   item("What Is Implied Probability?", "/guides/what-is-implied-probability/", "Learn how odds convert into percentage chance.", "Guide"),
   item("Bookmaker Margin Explained", "/guides/bookmaker-margin-explained/", "Understand bookmaker margin, overround and book percentage.", "Guide"),
@@ -46,6 +48,7 @@ const exchangeAndHedgingItems = [
 ];
 
 const stakingItems = [
+  item("Expected Value Calculator", "/calculators/expected-value-calculator/", "Estimate EV and expected ROI from odds and probability.", "Calculator"),
   item("Dutching Calculator", "/calculators/dutching-calculator/", "Split a total stake across two or more selections.", "Calculator"),
   item("Arbitrage Calculator", "/calculators/arbitrage-calculator/", "Check whether odds create an underround.", "Calculator"),
   item("Accumulator Calculator", "/calculators/accumulator-calculator/", "Calculate combined acca odds, returns and implied probability.", "Calculator"),
@@ -59,6 +62,7 @@ const stakingItems = [
 const racingItems = [
   item("Each-Way Calculator", "/calculators/each-way-calculator/", "Calculate win, place-only and losing each-way outcomes.", "Calculator"),
   item("Each-Way Extra Places Calculator", "/calculators/each-way-extra-places-calculator/", "Compare standard place terms with enhanced extra places offers.", "Calculator"),
+  item("Dead Heat Calculator", "/calculators/dead-heat-calculator/", "Estimate adjusted returns when a selection is affected by a dead heat.", "Calculator"),
   item("Rule 4 Calculator", "/calculators/rule-4-calculator/", "Estimate horse racing Rule 4 deductions and adjusted returns.", "Calculator"),
   item("Each-Way Betting Terms Explained", "/guides/each-way-betting-terms-explained/", "Learn win part, place part, place terms, non-runners and Rule 4.", "Guide"),
   item("What Are Extra Places?", "/guides/what-are-extra-places-in-each-way-betting/", "Understand enhanced each-way place offers.", "Guide"),
@@ -78,6 +82,8 @@ const clusters = [
     match: [
       "/calculators/odds-converter/",
       "/calculators/overround-calculator/",
+      "/calculators/no-vig-fair-odds-calculator/",
+      "/calculators/expected-value-calculator/",
       "/calculators/arbitrage-calculator/",
       "/guides/what-is-implied-probability/",
       "/guides/bookmaker-margin-explained/",
@@ -115,8 +121,9 @@ const clusters = [
   },
   {
     title: "More on staking methods, value and returns",
-    intro: "These pages cover stake sizing, accumulator returns, Kelly staking, dutching and arbitrage-style calculations.",
+    intro: "These pages cover stake sizing, accumulator returns, expected value, Kelly staking, dutching and arbitrage-style calculations.",
     match: [
+      "/calculators/expected-value-calculator/",
       "/calculators/dutching-calculator/",
       "/calculators/kelly-criterion-calculator/",
       "/calculators/accumulator-calculator/",
@@ -128,10 +135,11 @@ const clusters = [
   },
   {
     title: "More on each-way betting and horse racing terms",
-    intro: "These pages explain each-way returns, extra places, Rule 4 deductions, non-runners and racing settlement terms.",
+    intro: "These pages explain each-way returns, extra places, dead heats, Rule 4 deductions, non-runners and racing settlement terms.",
     match: [
       "/calculators/each-way-calculator/",
       "/calculators/each-way-extra-places-calculator/",
+      "/calculators/dead-heat-calculator/",
       "/calculators/rule-4-calculator/",
       "/guides/each-way-betting-terms-explained/",
       "/guides/what-are-extra-places-in-each-way-betting/",
@@ -186,73 +194,15 @@ const relatedItems = sourceItems
 )}
 
 <style>
-  .related-content-section {
-    margin-top: 1.25rem;
-  }
-
-  .related-content-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-
-  .related-content-card {
-    display: block;
-    padding: 1rem;
-    border: 1px solid var(--color-border);
-    border-radius: 14px;
-    background: var(--color-bg);
-  }
-
-  .related-content-card:hover {
-    border-color: rgba(31, 138, 91, 0.45);
-    transform: translateY(-2px);
-  }
-
-  .related-content-card span {
-    display: inline-flex;
-    margin-bottom: 0.5rem;
-    padding: 0.15rem 0.55rem;
-    border-radius: 999px;
-    background: #eef8f3;
-    color: var(--color-green-dark);
-    font-size: 0.78rem;
-    font-weight: 800;
-  }
-
-  .related-content-card h3 {
-    margin-bottom: 0.35rem;
-  }
-
-  .related-content-card p {
-    margin: 0;
-    color: var(--color-muted);
-  }
-
-  .related-content-footer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.85rem;
-    margin-top: 1.15rem;
-  }
-
-  .related-content-footer a {
-    color: var(--color-green-dark);
-    font-weight: 800;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-
-  @media (max-width: 980px) {
-    .related-content-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (max-width: 760px) {
-    .related-content-grid {
-      grid-template-columns: 1fr;
-    }
-  }
+  .related-content-section { margin-top: 1.25rem; }
+  .related-content-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1rem; }
+  .related-content-card { display: block; padding: 1rem; border: 1px solid var(--color-border); border-radius: 14px; background: var(--color-bg); }
+  .related-content-card:hover { border-color: rgba(31, 138, 91, 0.45); transform: translateY(-2px); }
+  .related-content-card span { display: inline-flex; margin-bottom: 0.5rem; padding: 0.15rem 0.55rem; border-radius: 999px; background: #eef8f3; color: var(--color-green-dark); font-size: 0.78rem; font-weight: 800; }
+  .related-content-card h3 { margin-bottom: 0.35rem; }
+  .related-content-card p { margin: 0; color: var(--color-muted); }
+  .related-content-footer { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 1.15rem; }
+  .related-content-footer a { color: var(--color-green-dark); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+  @media (max-width: 980px) { .related-content-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 760px) { .related-content-grid { grid-template-columns: 1fr; } }
 </style>
