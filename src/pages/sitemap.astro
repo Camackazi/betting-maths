@@ -30,6 +30,8 @@ const calculators = [
 
 const guides = [
   { href: "/guides/what-is-implied-probability/", title: "What Is Implied Probability?", description: "Learn how odds convert into percentage chance." },
+  { href: "/guides/no-vig-fair-odds/", title: "What Are No-Vig Fair Odds?", description: "Learn how bookmaker margin affects prices and how no-vig odds are estimated." },
+  { href: "/guides/expected-value-betting/", title: "What Is Expected Value in Betting?", description: "Learn how EV is calculated and why positive EV does not guarantee profit." },
   { href: "/guides/bookmaker-margin-explained/", title: "Bookmaker Margin Explained", description: "Understand bookmaker margin, overround and book percentage." },
   { href: "/guides/what-is-overround/", title: "What Is Overround?", description: "Learn why betting markets usually add up to more than 100%." },
   { href: "/guides/how-bookmakers-make-money/", title: "How Bookmakers Make Money", description: "Understand margin, odds movement, weight of money and liability management." },
@@ -40,9 +42,10 @@ const guides = [
   { href: "/guides/what-is-a-free-bet/", title: "What Is a Free Bet?", description: "Learn how free bets, stake not returned and free bet conversion work." },
   { href: "/guides/what-is-matched-betting/", title: "What Is Matched Betting?", description: "Understand qualifying bets, free bets, back bets and lay bets." },
   { href: "/guides/stake-returned-vs-stake-not-returned/", title: "Stake Returned vs Stake Not Returned", description: "Learn one of the most important free bet and matched betting terms." },
-  { href: "/guides/what-is-rule-4-in-horse-racing/", title: "What Is Rule 4 in Horse Racing?", description: "Learn how non-runners can lead to deductions from horse racing winnings." },
-  { href: "/guides/what-are-extra-places-in-each-way-betting/", title: "What Are Extra Places in Each-Way Betting?", description: "Understand enhanced place offers and how extra places affect each-way bets." },
   { href: "/guides/each-way-betting-terms-explained/", title: "Each-Way Betting Terms Explained", description: "Learn win part, place part, place terms, extra places, non-runners and Rule 4." },
+  { href: "/guides/dead-heat-rules-betting/", title: "What Is a Dead Heat in Betting?", description: "Learn how dead heat rules can split stakes and adjust returns." },
+  { href: "/guides/what-are-extra-places-in-each-way-betting/", title: "What Are Extra Places in Each-Way Betting?", description: "Understand enhanced place offers and how extra places affect each-way bets." },
+  { href: "/guides/what-is-rule-4-in-horse-racing/", title: "What Is Rule 4 in Horse Racing?", description: "Learn how non-runners can lead to deductions from horse racing winnings." },
   { href: "/guides/how-to-hedge-a-bet/", title: "How to Hedge a Bet", description: "Understand back and lay hedging, lay liability and commission." },
   { href: "/guides/hedging-vs-cash-out/", title: "Hedging vs Cash Out", description: "Compare bookmaker cash out offers with manual hedging calculations." },
   { href: "/guides/what-is-dutching/", title: "What Is Dutching?", description: "Learn how dutching splits stakes across multiple selections." },
@@ -66,41 +69,25 @@ const siteInfo = [
   <section class="content-card">
     <p class="eyebrow">Site navigation</p>
     <h1>Sitemap</h1>
-    <p class="lead">
-      Use this sitemap to find all the main Betting Maths calculators, guides, glossary pages and site information pages.
-    </p>
-
-    <div class="callout">
-      <strong>Looking for the XML sitemap?</strong> Search engines can use the technical sitemap at <a href="/sitemap-index.xml">sitemap-index.xml</a>.
-    </div>
+    <p class="lead">Use this sitemap to find all the main Betting Maths calculators, guides, glossary pages and site information pages.</p>
+    <div class="callout"><strong>Looking for the XML sitemap?</strong> Search engines can use the technical sitemap at <a href="/sitemap-index.xml">sitemap-index.xml</a>.</div>
   </section>
 
   <section class="content-card sitemap-section">
     <h2>Main pages</h2>
     <div class="sitemap-grid">
       {mainPages.map((page) => (
-        <a class="sitemap-card" href={page.href}>
-          <span>{page.tag}</span>
-          <h3>{page.title}</h3>
-          <p>{page.description}</p>
-        </a>
+        <a class="sitemap-card" href={page.href}><span>{page.tag}</span><h3>{page.title}</h3><p>{page.description}</p></a>
       ))}
     </div>
   </section>
 
   <section class="content-card sitemap-section">
     <h2>Betting calculators</h2>
-    <p>
-      These calculators help explain odds, stakes, returns, bookmaker margin, expected value, exchange liability, hedging, dead heats and common betting calculations.
-    </p>
-
+    <p>These calculators help explain odds, stakes, returns, bookmaker margin, expected value, exchange liability, hedging, dead heats and common betting calculations.</p>
     <div class="sitemap-grid">
       {calculators.map((calculator) => (
-        <a class="sitemap-card" href={calculator.href}>
-          <span>Calculator</span>
-          <h3>{calculator.title}</h3>
-          <p>{calculator.description}</p>
-        </a>
+        <a class="sitemap-card" href={calculator.href}><span>Calculator</span><h3>{calculator.title}</h3><p>{calculator.description}</p></a>
       ))}
     </div>
   </section>
@@ -108,14 +95,9 @@ const siteInfo = [
   <section class="content-card sitemap-section">
     <h2>Betting maths guides</h2>
     <p>These guides explain the concepts behind the calculators in plain English.</p>
-
     <div class="sitemap-grid">
       {guides.map((guide) => (
-        <a class="sitemap-card" href={guide.href}>
-          <span>Guide</span>
-          <h3>{guide.title}</h3>
-          <p>{guide.description}</p>
-        </a>
+        <a class="sitemap-card" href={guide.href}><span>Guide</span><h3>{guide.title}</h3><p>{guide.description}</p></a>
       ))}
     </div>
   </section>
@@ -124,18 +106,12 @@ const siteInfo = [
     <h2>Site information</h2>
     <div class="sitemap-grid">
       {siteInfo.map((page) => (
-        <a class="sitemap-card" href={page.href}>
-          <span>{page.tag}</span>
-          <h3>{page.title}</h3>
-          <p>{page.description}</p>
-        </a>
+        <a class="sitemap-card" href={page.href}><span>{page.tag}</span><h3>{page.title}</h3><p>{page.description}</p></a>
       ))}
     </div>
   </section>
 
-  <div class="callout">
-    <strong>Responsible note:</strong> Betting Maths is an educational site. It does not provide betting tips, predictions, financial advice or guaranteed profit strategies.
-  </div>
+  <div class="callout"><strong>Responsible note:</strong> Betting Maths is an educational site. It does not provide betting tips, predictions, financial advice or guaranteed profit strategies.</div>
 
   <style>
     .sitemap-section { margin-top: 1.25rem; }
