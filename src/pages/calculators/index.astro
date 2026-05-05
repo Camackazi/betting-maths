@@ -5,17 +5,17 @@ import CalculatorCard from "../../components/CalculatorCard.astro";
 
 <MainLayout
   title="Free Betting Calculators"
-  description="Free betting calculators for odds, overround, arbitrage, dutching, hedging, free bets, matched betting, back lay betting, lay liability, Kelly Criterion staking, accumulators, each-way bets, extra places and Rule 4 deductions."
+  description="Free betting calculators for odds, overround, no-vig fair odds, expected value, arbitrage, dutching, hedging, free bets, matched betting, back lay betting, lay liability, Kelly Criterion staking, accumulators, each-way bets, dead heats, extra places and Rule 4 deductions."
 >
   <section class="content-card">
     <p class="eyebrow">Betting calculators</p>
     <h1>Free Betting Calculators</h1>
     <p class="lead">
-      Use these free betting calculators to work out odds, implied probability, overround, arbitrage stakes, dutching stakes, hedge bets, free bets, matched betting, back/lay positions, lay liability, Kelly staking, accumulators, each-way returns, extra places and Rule 4 deductions.
+      Use these free betting calculators to understand odds, implied probability, bookmaker margin, no-vig fair odds, expected value, arbitrage stakes, dutching stakes, hedge bets, free bets, matched betting, back/lay positions, lay liability, Kelly staking, accumulators, each-way returns, dead heats, extra places and Rule 4 deductions.
     </p>
 
     <div class="callout">
-      <strong>Quick guide:</strong> Start with the Odds Converter if you want to understand a price, the Overround Calculator if you want to check bookmaker margin, or the relevant staking calculator if you already know the type of bet.
+      <strong>Quick guide:</strong> Start with the Odds Converter if you want to understand a price, the Overround or No-Vig Fair Odds calculators if you want to check market margin, or the relevant staking calculator if you already know the type of bet.
     </div>
   </section>
 
@@ -26,97 +26,29 @@ import CalculatorCard from "../../components/CalculatorCard.astro";
     </p>
 
     <div class="grid calculator-grid">
-      <CalculatorCard
-        title="Odds Converter"
-        description="Convert decimal, fractional and American odds, and calculate implied probability."
-        href="/calculators/odds-converter/"
-      />
-
-      <CalculatorCard
-        title="Overround Calculator"
-        description="Calculate book percentage, overround and bookmaker margin in a betting market."
-        href="/calculators/overround-calculator/"
-      />
-
-      <CalculatorCard
-        title="Arbitrage Calculator"
-        description="Check whether odds create an underround and calculate the stake split across all outcomes."
-        href="/calculators/arbitrage-calculator/"
-      />
-
-      <CalculatorCard
-        title="Dutching Calculator"
-        description="Split a total stake across two or more selections for a balanced return."
-        href="/calculators/dutching-calculator/"
-      />
-
-      <CalculatorCard
-        title="Hedge Bet Calculator"
-        description="Calculate back-first and lay-first hedge stakes, lay liability, commission and profit or loss."
-        href="/calculators/hedge-bet-calculator/"
-      />
-
-      <CalculatorCard
-        title="Back/Lay Calculator"
-        description="Calculate lay stake, lay liability and profit across standard back bets and free bet examples."
-        href="/calculators/back-lay-calculator/"
-      />
-
-      <CalculatorCard
-        title="Free Bet Calculator"
-        description="Calculate lay stake, lay liability, profit and conversion rate for free bet offers."
-        href="/calculators/free-bet-calculator/"
-      />
-
-      <CalculatorCard
-        title="Matched Betting Calculator"
-        description="Estimate qualifying loss, free bet profit, lay stakes and overall matched betting result."
-        href="/calculators/matched-betting-calculator/"
-      />
-
-      <CalculatorCard
-        title="Lay Liability Calculator"
-        description="Calculate lay liability, exchange commission and profit or loss from a lay bet."
-        href="/calculators/lay-liability-calculator/"
-      />
-
-      <CalculatorCard
-        title="Kelly Criterion Calculator"
-        description="Estimate stake size from bankroll, odds, your estimated probability and fractional Kelly."
-        href="/calculators/kelly-criterion-calculator/"
-      />
-
-      <CalculatorCard
-        title="Accumulator Calculator"
-        description="Multiply odds across multiple selections and calculate acca returns, profit and implied probability."
-        href="/calculators/accumulator-calculator/"
-      />
-
-      <CalculatorCard
-        title="Each-Way Calculator"
-        description="Calculate total stake, place odds, win profit, place-only result and losing outcome."
-        href="/calculators/each-way-calculator/"
-      />
-
-      <CalculatorCard
-        title="Each-Way Extra Places Calculator"
-        description="Compare standard each-way results with enhanced extra places offers."
-        href="/calculators/each-way-extra-places-calculator/"
-      />
-
-      <CalculatorCard
-        title="Rule 4 Calculator"
-        description="Estimate horse racing Rule 4 deductions, adjusted profit and adjusted return."
-        href="/calculators/rule-4-calculator/"
-      />
+      <CalculatorCard title="Odds Converter" description="Convert decimal, fractional and American odds, and calculate implied probability." href="/calculators/odds-converter/" />
+      <CalculatorCard title="Overround Calculator" description="Calculate book percentage, overround and bookmaker margin in a betting market." href="/calculators/overround-calculator/" />
+      <CalculatorCard title="No-Vig Fair Odds Calculator" description="Remove margin from a simple two-outcome market and estimate fair probabilities and fair odds." href="/calculators/no-vig-fair-odds-calculator/" />
+      <CalculatorCard title="Expected Value Calculator" description="Estimate expected value and expected ROI from stake, odds and your probability estimate." href="/calculators/expected-value-calculator/" />
+      <CalculatorCard title="Arbitrage Calculator" description="Check whether odds create an underround and calculate the stake split across all outcomes." href="/calculators/arbitrage-calculator/" />
+      <CalculatorCard title="Dutching Calculator" description="Split a total stake across two or more selections for a balanced return." href="/calculators/dutching-calculator/" />
+      <CalculatorCard title="Hedge Bet Calculator" description="Calculate back-first and lay-first hedge stakes, lay liability, commission and profit or loss." href="/calculators/hedge-bet-calculator/" />
+      <CalculatorCard title="Back/Lay Calculator" description="Calculate lay stake, lay liability and profit across standard back bets and free bet examples." href="/calculators/back-lay-calculator/" />
+      <CalculatorCard title="Free Bet Calculator" description="Calculate lay stake, lay liability, profit and conversion rate for free bet offers." href="/calculators/free-bet-calculator/" />
+      <CalculatorCard title="Matched Betting Calculator" description="Estimate qualifying loss, free bet profit, lay stakes and overall matched betting result." href="/calculators/matched-betting-calculator/" />
+      <CalculatorCard title="Lay Liability Calculator" description="Calculate lay liability, exchange commission and profit or loss from a lay bet." href="/calculators/lay-liability-calculator/" />
+      <CalculatorCard title="Kelly Criterion Calculator" description="Estimate stake size from bankroll, odds, your estimated probability and fractional Kelly." href="/calculators/kelly-criterion-calculator/" />
+      <CalculatorCard title="Accumulator Calculator" description="Multiply odds across multiple selections and calculate acca returns, profit and implied probability." href="/calculators/accumulator-calculator/" />
+      <CalculatorCard title="Each-Way Calculator" description="Calculate total stake, place odds, win profit, place-only result and losing outcome." href="/calculators/each-way-calculator/" />
+      <CalculatorCard title="Dead Heat Calculator" description="Estimate adjusted returns, profit or loss and equivalent odds after a dead heat." href="/calculators/dead-heat-calculator/" />
+      <CalculatorCard title="Each-Way Extra Places Calculator" description="Compare standard each-way results with enhanced extra places offers." href="/calculators/each-way-extra-places-calculator/" />
+      <CalculatorCard title="Rule 4 Calculator" description="Estimate horse racing Rule 4 deductions, adjusted profit and adjusted return." href="/calculators/rule-4-calculator/" />
     </div>
   </section>
 
   <section class="content-card article-section">
     <h2>Which betting calculator do I need?</h2>
-    <p>
-      If you are not sure which calculator to use, this table gives a quick guide.
-    </p>
+    <p>If you are not sure which calculator to use, this table gives a quick guide.</p>
 
     <table class="example-table">
       <thead>
@@ -127,208 +59,66 @@ import CalculatorCard from "../../components/CalculatorCard.astro";
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Convert odds or calculate implied probability</td>
-          <td><a href="/calculators/odds-converter/">Odds Converter</a></td>
-          <td>Decimal, fractional, American odds and implied chance.</td>
-        </tr>
-        <tr>
-          <td>Check bookmaker margin in a market</td>
-          <td><a href="/calculators/overround-calculator/">Overround Calculator</a></td>
-          <td>Book percentage, overround and market margin.</td>
-        </tr>
-        <tr>
-          <td>Check whether odds create an arbitrage</td>
-          <td><a href="/calculators/arbitrage-calculator/">Arbitrage Calculator</a></td>
-          <td>Underround, stake split, equal return and estimated profit.</td>
-        </tr>
-        <tr>
-          <td>Split stakes across multiple selections</td>
-          <td><a href="/calculators/dutching-calculator/">Dutching Calculator</a></td>
-          <td>Stake per selection, return and equalised profit or loss.</td>
-        </tr>
-        <tr>
-          <td>Hedge an existing betting position</td>
-          <td><a href="/calculators/hedge-bet-calculator/">Hedge Bet Calculator</a></td>
-          <td>Back-first or lay-first hedge stakes and outcomes.</td>
-        </tr>
-        <tr>
-          <td>Back first, then lay on an exchange</td>
-          <td><a href="/calculators/back-lay-calculator/">Back/Lay Calculator</a></td>
-          <td>Lay stake, lay liability, commission and balanced result.</td>
-        </tr>
-        <tr>
-          <td>Convert a free bet into profit</td>
-          <td><a href="/calculators/free-bet-calculator/">Free Bet Calculator</a></td>
-          <td>Lay stake, liability, conversion rate and free bet profit.</td>
-        </tr>
-        <tr>
-          <td>Estimate a matched betting offer</td>
-          <td><a href="/calculators/matched-betting-calculator/">Matched Betting Calculator</a></td>
-          <td>Qualifying result, free bet result and estimated overall profit.</td>
-        </tr>
-        <tr>
-          <td>Understand the risk on a lay bet</td>
-          <td><a href="/calculators/lay-liability-calculator/">Lay Liability Calculator</a></td>
-          <td>Lay liability, gross win, commission and result if the selection wins or loses.</td>
-        </tr>
-        <tr>
-          <td>Estimate stake size from an edge</td>
-          <td><a href="/calculators/kelly-criterion-calculator/">Kelly Criterion Calculator</a></td>
-          <td>Full Kelly, fractional Kelly, edge and suggested stake.</td>
-        </tr>
-        <tr>
-          <td>Work out accumulator returns</td>
-          <td><a href="/calculators/accumulator-calculator/">Accumulator Calculator</a></td>
-          <td>Combined odds, return, profit and implied probability.</td>
-        </tr>
-        <tr>
-          <td>Calculate each-way returns</td>
-          <td><a href="/calculators/each-way-calculator/">Each-Way Calculator</a></td>
-          <td>Total stake, place odds, win result, place-only result and loss.</td>
-        </tr>
-        <tr>
-          <td>Compare standard places with extra places</td>
-          <td><a href="/calculators/each-way-extra-places-calculator/">Each-Way Extra Places Calculator</a></td>
-          <td>Standard result, extra places result and the difference.</td>
-        </tr>
-        <tr>
-          <td>Estimate horse racing Rule 4 deductions</td>
-          <td><a href="/calculators/rule-4-calculator/">Rule 4 Calculator</a></td>
-          <td>Original profit, deduction amount, adjusted profit and adjusted return.</td>
-        </tr>
+        <tr><td>Convert odds or calculate implied probability</td><td><a href="/calculators/odds-converter/">Odds Converter</a></td><td>Decimal, fractional, American odds and implied chance.</td></tr>
+        <tr><td>Check bookmaker margin in a market</td><td><a href="/calculators/overround-calculator/">Overround Calculator</a></td><td>Book percentage, overround and market margin.</td></tr>
+        <tr><td>Remove bookmaker margin from a two-outcome market</td><td><a href="/calculators/no-vig-fair-odds-calculator/">No-Vig Fair Odds Calculator</a></td><td>Implied probabilities, no-vig fair probabilities and fair odds.</td></tr>
+        <tr><td>Estimate expected value from stake, odds and probability</td><td><a href="/calculators/expected-value-calculator/">Expected Value Calculator</a></td><td>Profit if win, expected value, expected ROI and an EV result message.</td></tr>
+        <tr><td>Check whether odds create an arbitrage</td><td><a href="/calculators/arbitrage-calculator/">Arbitrage Calculator</a></td><td>Underround, stake split, equal return and estimated profit.</td></tr>
+        <tr><td>Split stakes across multiple selections</td><td><a href="/calculators/dutching-calculator/">Dutching Calculator</a></td><td>Stake per selection, return and equalised profit or loss.</td></tr>
+        <tr><td>Hedge an existing betting position</td><td><a href="/calculators/hedge-bet-calculator/">Hedge Bet Calculator</a></td><td>Back-first or lay-first hedge stakes and outcomes.</td></tr>
+        <tr><td>Back first, then lay on an exchange</td><td><a href="/calculators/back-lay-calculator/">Back/Lay Calculator</a></td><td>Lay stake, lay liability, commission and balanced result.</td></tr>
+        <tr><td>Convert a free bet into profit</td><td><a href="/calculators/free-bet-calculator/">Free Bet Calculator</a></td><td>Lay stake, liability, conversion rate and free bet profit.</td></tr>
+        <tr><td>Estimate a matched betting offer</td><td><a href="/calculators/matched-betting-calculator/">Matched Betting Calculator</a></td><td>Qualifying result, free bet result and estimated overall profit.</td></tr>
+        <tr><td>Understand the risk on a lay bet</td><td><a href="/calculators/lay-liability-calculator/">Lay Liability Calculator</a></td><td>Lay liability, gross win, commission and result if the selection wins or loses.</td></tr>
+        <tr><td>Estimate stake size from an edge</td><td><a href="/calculators/kelly-criterion-calculator/">Kelly Criterion Calculator</a></td><td>Full Kelly, fractional Kelly, edge and suggested stake.</td></tr>
+        <tr><td>Work out accumulator returns</td><td><a href="/calculators/accumulator-calculator/">Accumulator Calculator</a></td><td>Combined odds, return, profit and implied probability.</td></tr>
+        <tr><td>Calculate each-way returns</td><td><a href="/calculators/each-way-calculator/">Each-Way Calculator</a></td><td>Total stake, place odds, win result, place-only result and loss.</td></tr>
+        <tr><td>Calculate adjusted returns after a dead heat</td><td><a href="/calculators/dead-heat-calculator/">Dead Heat Calculator</a></td><td>Winning stake portion, losing stake portion, adjusted return and equivalent odds.</td></tr>
+        <tr><td>Compare standard places with extra places</td><td><a href="/calculators/each-way-extra-places-calculator/">Each-Way Extra Places Calculator</a></td><td>Standard result, extra places result and the difference.</td></tr>
+        <tr><td>Estimate horse racing Rule 4 deductions</td><td><a href="/calculators/rule-4-calculator/">Rule 4 Calculator</a></td><td>Original profit, deduction amount, adjusted profit and adjusted return.</td></tr>
       </tbody>
     </table>
   </section>
 
   <section class="content-card article-section">
-    <h2>Odds and market margin calculators</h2>
-    <p>
-      These calculators help explain the price of a bet, the probability implied by the odds, and the margin built into a market.
-    </p>
+    <h2>Odds, probability and market margin calculators</h2>
+    <p>These calculators help explain the price of a bet, the probability implied by the odds, the expected value of a position, and the margin built into a market.</p>
 
     <div class="related-grid">
-      <a class="related-card" href="/calculators/odds-converter/">
-        <h3>Odds Converter</h3>
-        <p>Convert decimal, fractional and American odds into implied probability.</p>
-      </a>
-
-      <a class="related-card" href="/calculators/overround-calculator/">
-        <h3>Overround Calculator</h3>
-        <p>Check book percentage, overround, underround and bookmaker margin.</p>
-      </a>
-
-      <a class="related-card" href="/calculators/arbitrage-calculator/">
-        <h3>Arbitrage Calculator</h3>
-        <p>Check whether a set of prices creates an underround across all outcomes.</p>
-      </a>
+      <a class="related-card" href="/calculators/odds-converter/"><h3>Odds Converter</h3><p>Convert decimal, fractional and American odds into implied probability.</p></a>
+      <a class="related-card" href="/calculators/overround-calculator/"><h3>Overround Calculator</h3><p>Check book percentage, overround, underround and bookmaker margin.</p></a>
+      <a class="related-card" href="/calculators/no-vig-fair-odds-calculator/"><h3>No-Vig Fair Odds Calculator</h3><p>Estimate fair probabilities and fair odds in a simple two-outcome market.</p></a>
+      <a class="related-card" href="/calculators/expected-value-calculator/"><h3>Expected Value Calculator</h3><p>Estimate EV from stake, odds and your own probability estimate.</p></a>
+      <a class="related-card" href="/calculators/arbitrage-calculator/"><h3>Arbitrage Calculator</h3><p>Check whether a set of prices creates an underround across all outcomes.</p></a>
     </div>
   </section>
 
   <section class="content-card article-section">
     <h2>Staking, offers and returns calculators</h2>
-    <p>
-      These calculators help work out possible returns, deductions, offer value and stake sizing from common betting situations.
-    </p>
+    <p>These calculators help work out possible returns, deductions, offer value and stake sizing from common betting situations.</p>
 
     <div class="related-grid">
-      <a class="related-card" href="/calculators/accumulator-calculator/">
-        <h3>Accumulator Calculator</h3>
-        <p>Calculate acca odds, returns, profit and implied probability.</p>
-      </a>
-
-      <a class="related-card" href="/calculators/each-way-calculator/">
-        <h3>Each-Way Calculator</h3>
-        <p>Calculate win, place-only and losing outcomes for each-way bets.</p>
-      </a>
-
-      <a class="related-card" href="/calculators/each-way-extra-places-calculator/">
-        <h3>Each-Way Extra Places Calculator</h3>
-        <p>Compare standard place terms with enhanced extra places offers.</p>
-      </a>
-
-      <a class="related-card" href="/calculators/dutching-calculator/">
-        <h3>Dutching Calculator</h3>
-        <p>Split a stake across two or more selections for balanced returns.</p>
-      </a>
-
-      <a class="related-card" href="/calculators/free-bet-calculator/">
-        <h3>Free Bet Calculator</h3>
-        <p>Calculate free bet lay stakes, liability and conversion rate.</p>
-      </a>
-
-      <a class="related-card" href="/calculators/matched-betting-calculator/">
-        <h3>Matched Betting Calculator</h3>
-        <p>Estimate qualifying bet loss, free bet conversion and overall result.</p>
-      </a>
-
-      <a class="related-card" href="/calculators/kelly-criterion-calculator/">
-        <h3>Kelly Criterion Calculator</h3>
-        <p>Estimate stake size based on bankroll, odds and your estimated probability.</p>
-      </a>
-
-      <a class="related-card" href="/calculators/rule-4-calculator/">
-        <h3>Rule 4 Calculator</h3>
-        <p>Estimate horse racing Rule 4 deductions from winnings.</p>
-      </a>
+      <a class="related-card" href="/calculators/expected-value-calculator/"><h3>Expected Value Calculator</h3><p>Estimate whether a bet is positive, negative or break-even based on your probability input.</p></a>
+      <a class="related-card" href="/calculators/accumulator-calculator/"><h3>Accumulator Calculator</h3><p>Calculate acca odds, returns, profit and implied probability.</p></a>
+      <a class="related-card" href="/calculators/each-way-calculator/"><h3>Each-Way Calculator</h3><p>Calculate win, place-only and losing outcomes for each-way bets.</p></a>
+      <a class="related-card" href="/calculators/dead-heat-calculator/"><h3>Dead Heat Calculator</h3><p>Estimate adjusted returns when only part of a stake is settled as winning.</p></a>
+      <a class="related-card" href="/calculators/each-way-extra-places-calculator/"><h3>Each-Way Extra Places Calculator</h3><p>Compare standard place terms with enhanced extra places offers.</p></a>
+      <a class="related-card" href="/calculators/dutching-calculator/"><h3>Dutching Calculator</h3><p>Split a stake across two or more selections for balanced returns.</p></a>
+      <a class="related-card" href="/calculators/free-bet-calculator/"><h3>Free Bet Calculator</h3><p>Calculate free bet lay stakes, liability and conversion rate.</p></a>
+      <a class="related-card" href="/calculators/matched-betting-calculator/"><h3>Matched Betting Calculator</h3><p>Estimate qualifying bet loss, free bet conversion and overall result.</p></a>
+      <a class="related-card" href="/calculators/kelly-criterion-calculator/"><h3>Kelly Criterion Calculator</h3><p>Estimate stake size based on bankroll, odds and your estimated probability.</p></a>
+      <a class="related-card" href="/calculators/rule-4-calculator/"><h3>Rule 4 Calculator</h3><p>Estimate horse racing Rule 4 deductions from winnings.</p></a>
     </div>
   </section>
 
   <section class="content-card article-section">
     <h2>Exchange and hedging calculators</h2>
-    <p>
-      These calculators help with back bets, lay bets, liability, commission and hedging.
-    </p>
+    <p>These calculators help with back bets, lay bets, liability, commission and hedging.</p>
 
     <div class="related-grid">
-      <a class="related-card" href="/calculators/hedge-bet-calculator/">
-        <h3>Hedge Bet Calculator</h3>
-        <p>Calculate hedge stakes for back-first and lay-first betting positions.</p>
-      </a>
-
-      <a class="related-card" href="/calculators/back-lay-calculator/">
-        <h3>Back/Lay Calculator</h3>
-        <p>Calculate lay stake, liability and profit across back and lay outcomes.</p>
-      </a>
-
-      <a class="related-card" href="/calculators/lay-liability-calculator/">
-        <h3>Lay Liability Calculator</h3>
-        <p>Understand the real exposure created by a lay bet.</p>
-      </a>
-    </div>
-  </section>
-
-  <section class="content-card article-section">
-    <h2>Learn the betting maths behind the calculators</h2>
-    <p>
-      If you want to understand the calculations before using the tools, these guides are a good place to start.
-    </p>
-
-    <div class="related-grid">
-      <a class="related-card" href="/guides/what-is-implied-probability/">
-        <h3>What Is Implied Probability?</h3>
-        <p>Learn how odds convert into percentage chance.</p>
-      </a>
-
-      <a class="related-card" href="/guides/bookmaker-margin-explained/">
-        <h3>Bookmaker Margin Explained</h3>
-        <p>Understand bookmaker margin, overround and book percentage.</p>
-      </a>
-
-      <a class="related-card" href="/guides/how-to-hedge-a-bet/">
-        <h3>How to Hedge a Bet</h3>
-        <p>Learn how back and lay hedging works.</p>
-      </a>
-
-      <a class="related-card" href="/guides/dutching-vs-arbitrage/">
-        <h3>Dutching vs Arbitrage</h3>
-        <p>Learn the difference between dutching and arbitrage.</p>
-      </a>
-
-      <a class="related-card" href="/glossary/betting-jargon-explained/">
-        <h3>Betting Jargon Explained</h3>
-        <p>Look up common betting terms in plain English.</p>
-      </a>
+      <a class="related-card" href="/calculators/hedge-bet-calculator/"><h3>Hedge Bet Calculator</h3><p>Calculate hedge stakes for back-first and lay-first betting positions.</p></a>
+      <a class="related-card" href="/calculators/back-lay-calculator/"><h3>Back/Lay Calculator</h3><p>Calculate lay stake, liability and profit across back and lay outcomes.</p></a>
+      <a class="related-card" href="/calculators/lay-liability-calculator/"><h3>Lay Liability Calculator</h3><p>Understand the real exposure created by a lay bet.</p></a>
     </div>
   </section>
 
@@ -337,88 +127,19 @@ import CalculatorCard from "../../components/CalculatorCard.astro";
   </div>
 
   <style>
-    .article-section {
-      margin-top: 1.25rem;
-    }
-
-    .calculator-grid {
-      margin-top: 1rem;
-    }
-
-    .example-table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-      border: 1px solid var(--color-border);
-      border-radius: 14px;
-      overflow: hidden;
-      margin: 1rem 0;
-    }
-
-    .example-table th,
-    .example-table td {
-      padding: 0.75rem;
-      border-bottom: 1px solid var(--color-border);
-      text-align: left;
-      vertical-align: middle;
-    }
-
-    .example-table th {
-      color: var(--color-navy);
-      background: #f4f7fa;
-      font-size: 0.9rem;
-    }
-
-    .example-table tr:last-child td {
-      border-bottom: 0;
-    }
-
-    .example-table a {
-      color: var(--color-green-dark);
-      font-weight: 800;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    .related-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .related-card {
-      display: block;
-      padding: 1rem;
-      border: 1px solid var(--color-border);
-      border-radius: 14px;
-      background: var(--color-bg);
-    }
-
-    .related-card:hover {
-      border-color: rgba(31, 138, 91, 0.45);
-      transform: translateY(-2px);
-    }
-
-    .related-card h3 {
-      margin-bottom: 0.35rem;
-    }
-
-    .related-card p {
-      margin: 0;
-      color: var(--color-muted);
-    }
-
-    @media (max-width: 980px) {
-      .related-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 760px) {
-      .related-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    .article-section { margin-top: 1.25rem; }
+    .calculator-grid { margin-top: 1rem; }
+    .example-table { width: 100%; border-collapse: collapse; background: white; border: 1px solid var(--color-border); border-radius: 14px; overflow: hidden; margin: 1rem 0; }
+    .example-table th, .example-table td { padding: 0.75rem; border-bottom: 1px solid var(--color-border); text-align: left; vertical-align: middle; }
+    .example-table th { color: var(--color-navy); background: #f4f7fa; font-size: 0.9rem; }
+    .example-table tr:last-child td { border-bottom: 0; }
+    .example-table a { color: var(--color-green-dark); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .related-card { display: block; padding: 1rem; border: 1px solid var(--color-border); border-radius: 14px; background: var(--color-bg); }
+    .related-card:hover { border-color: rgba(31, 138, 91, 0.45); transform: translateY(-2px); }
+    .related-card h3 { margin-bottom: 0.35rem; }
+    .related-card p { margin: 0; color: var(--color-muted); }
+    @media (max-width: 980px) { .related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
   </style>
 </MainLayout>
