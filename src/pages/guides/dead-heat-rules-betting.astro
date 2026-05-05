@@ -98,15 +98,6 @@ import MainLayout from "../../layouts/MainLayout.astro";
     </div>
   </section>
 
-  <section class="content-card article-section">
-    <h2>Related pages</h2>
-    <div class="related-grid">
-      <a class="related-card" href="/calculators/each-way-extra-places-calculator/"><h3>Each-Way Extra Places Calculator</h3><p>Compare standard place terms with extra places offers.</p></a>
-      <a class="related-card" href="/calculators/rule-4-calculator/"><h3>Rule 4 Calculator</h3><p>Estimate Rule 4 deductions from winnings.</p></a>
-      <a class="related-card" href="/guides/each-way-betting-terms-explained/"><h3>Each-Way Betting Terms Explained</h3><p>Learn win part, place part, place terms and non-runners.</p></a>
-    </div>
-  </section>
-
   <div class="callout">
     <strong>Responsible note:</strong> This guide and calculator give a simplified educational estimate. Bookmaker rules can vary, and betting always involves risk.
   </div>
@@ -120,11 +111,5 @@ import MainLayout from "../../layouts/MainLayout.astro";
     .example-table th { color: var(--color-navy); background: #f4f7fa; font-size: 0.9rem; }
     .example-table tr:last-child td { border-bottom: 0; }
     .article-section a, .callout a { color: var(--color-green-dark); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
-    .related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1rem; }
-    .related-card { display: block; padding: 1rem; border: 1px solid var(--color-border); border-radius: 14px; background: var(--color-bg); }
-    .related-card:hover { border-color: rgba(31, 138, 91, 0.45); transform: translateY(-2px); }
-    .related-card p { margin: 0; color: var(--color-muted); }
-    @media (max-width: 980px) { .related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
   </style>
 </MainLayout>
