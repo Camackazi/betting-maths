@@ -4,7 +4,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
 
 <MainLayout
   title="Expected Value Calculator"
-  description="Use this expected value calculator to estimate EV from stake, decimal odds and your own estimated win probability."
+  description="Calculate the expected value of a bet from stake, decimal odds and estimated win probability. Educational tool with EV, ROI and worked examples."
 >
   <section class="content-card">
     <p class="eyebrow">Betting calculator</p>
@@ -97,6 +97,9 @@ import MainLayout from "../../layouts/MainLayout.astro";
     <p>
       Expected value is an educational calculation, not a prediction. Variance, bookmaker limits, market rules, settlement errors, inaccurate estimates and bankroll management all matter. Betting always involves risk, and no calculator can remove that risk.
     </p>
+    <p>
+      For the plain-English explanation behind the calculation, read <a href="/guides/expected-value-betting/">What Is Expected Value in Betting?</a>.
+    </p>
   </section>
 
   <style>
@@ -117,6 +120,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
     .result-note.negative { background: #fff7e6; color: #8a5a00; }
     .result-note.error { background: #fff1f0; color: #b42318; }
     .article-section { margin-top: 1.25rem; }
+    .article-section a { color: var(--color-green-dark); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
     .formula-box { padding: 1rem 1.15rem; border-radius: 14px; background: var(--color-bg); border: 1px solid var(--color-border); }
     .formula-box p { margin: 0.4rem 0; }
     @media (max-width: 900px) { .input-grid, .results-grid { grid-template-columns: 1fr; } .calculator-header { flex-direction: column; } }
