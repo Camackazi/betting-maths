@@ -1,0 +1,198 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="Expected Value Calculator"
+  description="Use this expected value calculator to estimate EV from stake, decimal odds and your own estimated win probability."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting calculator</p>
+    <h1>Expected Value Calculator</h1>
+    <p class="lead">
+      Estimate the expected value of a bet from your stake, decimal odds and your own estimated probability of winning.
+    </p>
+
+    <div class="callout">
+      <strong>Quick explanation:</strong> Expected value depends heavily on the probability you enter. A positive EV result does not guarantee profit, because real betting outcomes still involve variance, limits, mistakes and risk.
+    </div>
+
+    <div class="calculator-panel" id="expected-value-calculator">
+      <div class="calculator-header">
+        <div>
+          <h2>Enter stake, odds and estimated chance</h2>
+          <p>Use decimal odds and your own win probability estimate as a percentage.</p>
+        </div>
+        <button class="button secondary small-button" type="button" id="reset-ev">Reset example</button>
+      </div>
+
+      <div class="input-grid">
+        <label class="input-group">
+          <span>Stake</span>
+          <input id="ev-stake" type="number" min="0.01" step="0.01" value="10" />
+          <small>Amount risked on the bet.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Decimal odds</span>
+          <input id="ev-odds" type="number" min="1.01" step="0.01" value="2.50" />
+          <small>Example: 2.50.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Estimated win probability</span>
+          <input id="ev-probability" type="number" min="0" max="100" step="0.1" value="45" />
+          <small>Your estimate as a percentage.</small>
+        </label>
+      </div>
+
+      <div class="results-grid">
+        <div class="result-card">
+          <span>Profit if win</span>
+          <strong id="ev-profit">£15.00</strong>
+        </div>
+        <div class="result-card">
+          <span>Expected value</span>
+          <strong id="ev-value">£1.25</strong>
+        </div>
+        <div class="result-card">
+          <span>Expected ROI</span>
+          <strong id="ev-roi">12.50%</strong>
+        </div>
+      </div>
+
+      <p class="result-note" id="ev-note">This example is positive EV based on your probability estimate.</p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Expected value formula</h2>
+    <p>
+      Expected value compares the possible profit if the bet wins with the possible loss if it loses, weighted by your estimated probability.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Profit if win</strong> = stake x (decimal odds - 1)</p>
+      <p><strong>Expected value</strong> = (probability x profit if win) - ((1 - probability) x stake)</p>
+      <p><strong>EV ROI %</strong> = expected value / stake x 100</p>
+    </div>
+
+    <p>
+      The probability input is the important part. If your estimate is too optimistic, the result can look better than the real situation.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Worked example</h2>
+    <p>
+      Suppose you stake £10 at decimal odds of 2.50 and estimate the true chance of winning as 45%. The profit if the bet wins is £15. The expected value is £1.25, which is an expected ROI of 12.50%.
+    </p>
+    <p>
+      That does not mean the bet will win or that profit is guaranteed. It only shows what the calculation says if the probability estimate is accurate.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Responsible use</h2>
+    <p>
+      Expected value is an educational calculation, not a prediction. Variance, bookmaker limits, market rules, settlement errors, inaccurate estimates and bankroll management all matter. Betting always involves risk, and no calculator can remove that risk.
+    </p>
+  </section>
+
+  <style>
+    .calculator-panel { margin-top: 1.5rem; padding: 1.25rem; border: 1px solid var(--color-border); border-radius: var(--radius); background: #ffffff; }
+    .calculator-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+    .calculator-header h2 { margin: 0; }
+    .calculator-header p { margin: 0.25rem 0 0; color: var(--color-muted); }
+    .small-button { padding: 0.55rem 0.75rem; font-size: 0.9rem; cursor: pointer; }
+    .input-grid, .results-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+    .input-group, .result-card { display: block; padding: 1rem; border: 1px solid var(--color-border); border-radius: 14px; background: var(--color-bg); }
+    .input-group span, .result-card span { display: block; margin-bottom: 0.4rem; color: var(--color-navy); font-weight: 800; }
+    .input-group input { width: 100%; padding: 0.75rem; border: 1px solid var(--color-border); border-radius: 10px; color: var(--color-text); font: inherit; font-size: 1.05rem; background: white; }
+    .input-group small { display: block; margin-top: 0.45rem; color: var(--color-muted); }
+    .results-grid { margin-top: 1.25rem; }
+    .result-card span { color: var(--color-muted); font-size: 0.9rem; }
+    .result-card strong { display: block; color: var(--color-navy); font-size: 1.35rem; line-height: 1.2; word-break: break-word; }
+    .result-note { margin: 1rem 0 0; padding: 1rem; border-radius: 12px; background: #eef8f3; color: var(--color-green-dark); font-weight: 700; }
+    .result-note.negative { background: #fff7e6; color: #8a5a00; }
+    .result-note.error { background: #fff1f0; color: #b42318; }
+    .article-section { margin-top: 1.25rem; }
+    .formula-box { padding: 1rem 1.15rem; border-radius: 14px; background: var(--color-bg); border: 1px solid var(--color-border); }
+    .formula-box p { margin: 0.4rem 0; }
+    @media (max-width: 900px) { .input-grid, .results-grid { grid-template-columns: 1fr; } .calculator-header { flex-direction: column; } }
+  </style>
+
+  <script>
+    const stakeInput = document.getElementById("ev-stake");
+    const oddsInput = document.getElementById("ev-odds");
+    const probabilityInput = document.getElementById("ev-probability");
+    const resetButton = document.getElementById("reset-ev");
+    const profitResult = document.getElementById("ev-profit");
+    const valueResult = document.getElementById("ev-value");
+    const roiResult = document.getElementById("ev-roi");
+    const note = document.getElementById("ev-note");
+
+    function money(value) {
+      return `${value < 0 ? "-" : ""}£${Math.abs(value).toFixed(2)}`;
+    }
+
+    function showError(message) {
+      profitResult.textContent = "—";
+      valueResult.textContent = "—";
+      roiResult.textContent = "—";
+      note.textContent = message;
+      note.className = "result-note error";
+    }
+
+    function updateExpectedValue() {
+      const stake = Number(stakeInput.value);
+      const odds = Number(oddsInput.value);
+      const probabilityPercent = Number(probabilityInput.value);
+
+      if (!Number.isFinite(stake) || stake <= 0) {
+        showError("Stake must be greater than 0.");
+        return;
+      }
+
+      if (!Number.isFinite(odds) || odds <= 1) {
+        showError("Decimal odds must be greater than 1.00.");
+        return;
+      }
+
+      if (!Number.isFinite(probabilityPercent) || probabilityPercent < 0 || probabilityPercent > 100) {
+        showError("Estimated win probability must be between 0 and 100%.");
+        return;
+      }
+
+      const probability = probabilityPercent / 100;
+      const profitIfWin = stake * (odds - 1);
+      const expectedValue = probability * profitIfWin - (1 - probability) * stake;
+      const roi = expectedValue / stake * 100;
+
+      profitResult.textContent = money(profitIfWin);
+      valueResult.textContent = money(expectedValue);
+      roiResult.textContent = `${roi.toFixed(2)}%`;
+
+      if (Math.abs(expectedValue) < 0.005) {
+        note.textContent = "This is approximately break-even based on your probability estimate.";
+        note.className = "result-note";
+      } else if (expectedValue > 0) {
+        note.textContent = "This is positive EV based on your probability estimate, but it does not guarantee profit.";
+        note.className = "result-note";
+      } else {
+        note.textContent = "This is negative EV based on your probability estimate.";
+        note.className = "result-note negative";
+      }
+    }
+
+    [stakeInput, oddsInput, probabilityInput].forEach((input) => input.addEventListener("input", updateExpectedValue));
+    resetButton.addEventListener("click", () => {
+      stakeInput.value = "10";
+      oddsInput.value = "2.50";
+      probabilityInput.value = "45";
+      updateExpectedValue();
+    });
+
+    updateExpectedValue();
+  </script>
+</MainLayout>

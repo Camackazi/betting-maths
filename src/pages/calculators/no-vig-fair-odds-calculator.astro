@@ -1,0 +1,224 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="No-Vig Fair Odds Calculator"
+  description="Use this no-vig fair odds calculator to remove overround from a simple two-outcome market and estimate fair probabilities and decimal odds."
+>
+  <section class="content-card">
+    <p class="eyebrow">Betting calculator</p>
+    <h1>No-Vig Fair Odds Calculator</h1>
+    <p class="lead">
+      Remove bookmaker margin from a simple two-outcome market and estimate the no-vig fair probabilities and fair decimal odds.
+    </p>
+
+    <div class="callout">
+      <strong>Quick explanation:</strong> This calculator is for simple two-outcome markets only. No-vig odds help explain market margin, but they do not automatically identify value or remove betting risk.
+    </div>
+
+    <div class="calculator-panel" id="no-vig-calculator">
+      <div class="calculator-header">
+        <div>
+          <h2>Enter two decimal prices</h2>
+          <p>Optional labels make the results easier to read.</p>
+        </div>
+        <button class="button secondary small-button" type="button" id="reset-no-vig">Reset example</button>
+      </div>
+
+      <div class="input-grid">
+        <label class="input-group">
+          <span>Outcome A label</span>
+          <input id="label-a" type="text" value="Outcome A" />
+          <small>Optional.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Outcome A decimal odds</span>
+          <input id="odds-a" type="number" min="1.01" step="0.01" value="1.91" />
+          <small>Example: 1.91.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Outcome B label</span>
+          <input id="label-b" type="text" value="Outcome B" />
+          <small>Optional.</small>
+        </label>
+
+        <label class="input-group">
+          <span>Outcome B decimal odds</span>
+          <input id="odds-b" type="number" min="1.01" step="0.01" value="1.91" />
+          <small>Example: 1.91.</small>
+        </label>
+      </div>
+
+      <div class="market-results">
+        <div class="result-card">
+          <span>Book percentage</span>
+          <strong id="book-percentage">104.71%</strong>
+        </div>
+        <div class="result-card">
+          <span>Overround / margin</span>
+          <strong id="overround-result">4.71%</strong>
+        </div>
+      </div>
+
+      <div class="comparison-table-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Outcome</th>
+              <th>Implied probability</th>
+              <th>No-vig fair probability</th>
+              <th>No-vig fair odds</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="name-a">Outcome A</td>
+              <td id="implied-a">52.36%</td>
+              <td id="fair-probability-a">50.00%</td>
+              <td id="fair-odds-a">2.00</td>
+            </tr>
+            <tr>
+              <td id="name-b">Outcome B</td>
+              <td id="implied-b">52.36%</td>
+              <td id="fair-probability-b">50.00%</td>
+              <td id="fair-odds-b">2.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="result-note" id="no-vig-note">The margin is removed by scaling each implied probability by the total book percentage.</p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>No-vig fair odds formula</h2>
+    <p>
+      The calculator first converts each price into implied probability, then divides each implied probability by the total book percentage.
+    </p>
+
+    <div class="formula-box">
+      <p><strong>Implied probability</strong> = 1 / decimal odds</p>
+      <p><strong>Book percentage</strong> = implied probability A + implied probability B</p>
+      <p><strong>Overround</strong> = book percentage - 1</p>
+      <p><strong>Fair probability</strong> = implied probability / book percentage</p>
+      <p><strong>Fair odds</strong> = 1 / fair probability</p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Worked example</h2>
+    <p>
+      If both outcomes are priced at 1.91, each side has an implied probability of about 52.36%. Together they add up to 104.71%, which is a 4.71% overround. After removing the margin, each side is estimated at 50.00%, which is fair odds of 2.00.
+    </p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Responsible use</h2>
+    <p>
+      No-vig odds are an educational estimate. Real markets may include commission, void rules, liquidity, each-way terms, changing prices or other conditions. No-vig odds do not prove that a bet is good value and do not guarantee profit.
+    </p>
+  </section>
+
+  <style>
+    .calculator-panel { margin-top: 1.5rem; padding: 1.25rem; border: 1px solid var(--color-border); border-radius: var(--radius); background: #ffffff; }
+    .calculator-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+    .calculator-header h2 { margin: 0; }
+    .calculator-header p { margin: 0.25rem 0 0; color: var(--color-muted); }
+    .small-button { padding: 0.55rem 0.75rem; font-size: 0.9rem; cursor: pointer; }
+    .input-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+    .market-results { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1.25rem; }
+    .input-group, .result-card { display: block; padding: 1rem; border: 1px solid var(--color-border); border-radius: 14px; background: var(--color-bg); }
+    .input-group span, .result-card span { display: block; margin-bottom: 0.4rem; color: var(--color-navy); font-weight: 800; }
+    .input-group input { width: 100%; padding: 0.75rem; border: 1px solid var(--color-border); border-radius: 10px; color: var(--color-text); font: inherit; font-size: 1.05rem; background: white; }
+    .input-group small { display: block; margin-top: 0.45rem; color: var(--color-muted); }
+    .result-card span { color: var(--color-muted); font-size: 0.9rem; }
+    .result-card strong { display: block; color: var(--color-navy); font-size: 1.35rem; line-height: 1.2; word-break: break-word; }
+    .comparison-table-wrap { overflow-x: auto; margin-top: 1.25rem; }
+    .comparison-table { width: 100%; border-collapse: collapse; background: white; border: 1px solid var(--color-border); border-radius: 14px; overflow: hidden; }
+    .comparison-table th, .comparison-table td { padding: 0.75rem; border-bottom: 1px solid var(--color-border); text-align: left; }
+    .comparison-table th { color: var(--color-navy); background: #f4f7fa; font-size: 0.9rem; }
+    .comparison-table tr:last-child td { border-bottom: 0; }
+    .result-note { margin: 1rem 0 0; padding: 1rem; border-radius: 12px; background: #eef8f3; color: var(--color-green-dark); font-weight: 700; }
+    .result-note.error { background: #fff1f0; color: #b42318; }
+    .article-section { margin-top: 1.25rem; }
+    .formula-box { padding: 1rem 1.15rem; border-radius: 14px; background: var(--color-bg); border: 1px solid var(--color-border); }
+    .formula-box p { margin: 0.4rem 0; }
+    @media (max-width: 900px) { .input-grid, .market-results { grid-template-columns: 1fr; } .calculator-header { flex-direction: column; } }
+  </style>
+
+  <script>
+    const labelAInput = document.getElementById("label-a");
+    const labelBInput = document.getElementById("label-b");
+    const oddsAInput = document.getElementById("odds-a");
+    const oddsBInput = document.getElementById("odds-b");
+    const resetButton = document.getElementById("reset-no-vig");
+    const bookPercentage = document.getElementById("book-percentage");
+    const overroundResult = document.getElementById("overround-result");
+    const nameA = document.getElementById("name-a");
+    const nameB = document.getElementById("name-b");
+    const impliedA = document.getElementById("implied-a");
+    const impliedB = document.getElementById("implied-b");
+    const fairProbabilityA = document.getElementById("fair-probability-a");
+    const fairProbabilityB = document.getElementById("fair-probability-b");
+    const fairOddsA = document.getElementById("fair-odds-a");
+    const fairOddsB = document.getElementById("fair-odds-b");
+    const note = document.getElementById("no-vig-note");
+
+    function percent(value) {
+      return `${(value * 100).toFixed(2)}%`;
+    }
+
+    function showError(message) {
+      [bookPercentage, overroundResult, impliedA, impliedB, fairProbabilityA, fairProbabilityB, fairOddsA, fairOddsB].forEach((element) => {
+        element.textContent = "—";
+      });
+      note.textContent = message;
+      note.className = "result-note error";
+    }
+
+    function updateNoVig() {
+      const oddsA = Number(oddsAInput.value);
+      const oddsB = Number(oddsBInput.value);
+      nameA.textContent = labelAInput.value.trim() || "Outcome A";
+      nameB.textContent = labelBInput.value.trim() || "Outcome B";
+
+      if (!Number.isFinite(oddsA) || oddsA <= 1 || !Number.isFinite(oddsB) || oddsB <= 1) {
+        showError("Both decimal odds must be greater than 1.00.");
+        return;
+      }
+
+      const probabilityA = 1 / oddsA;
+      const probabilityB = 1 / oddsB;
+      const book = probabilityA + probabilityB;
+      const overround = book - 1;
+      const fairA = probabilityA / book;
+      const fairB = probabilityB / book;
+
+      bookPercentage.textContent = percent(book);
+      overroundResult.textContent = percent(overround);
+      impliedA.textContent = percent(probabilityA);
+      impliedB.textContent = percent(probabilityB);
+      fairProbabilityA.textContent = percent(fairA);
+      fairProbabilityB.textContent = percent(fairB);
+      fairOddsA.textContent = (1 / fairA).toFixed(2);
+      fairOddsB.textContent = (1 / fairB).toFixed(2);
+      note.textContent = "The margin is removed by scaling each implied probability by the total book percentage.";
+      note.className = "result-note";
+    }
+
+    [labelAInput, labelBInput, oddsAInput, oddsBInput].forEach((input) => input.addEventListener("input", updateNoVig));
+    resetButton.addEventListener("click", () => {
+      labelAInput.value = "Outcome A";
+      labelBInput.value = "Outcome B";
+      oddsAInput.value = "1.91";
+      oddsBInput.value = "1.91";
+      updateNoVig();
+    });
+
+    updateNoVig();
+  </script>
+</MainLayout>
