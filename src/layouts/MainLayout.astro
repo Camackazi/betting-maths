@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro";
 import AdSlot from "../components/AdSlot.astro";
 import SeoHead from "../components/SeoHead.astro";
 import RelatedContent from "../components/RelatedContent.astro";
+import NewCalculatorIntegration from "../components/NewCalculatorIntegration.astro";
 import CookieConsent from "../components/CookieConsent.astro";
 import "../styles/global.css";
 
@@ -42,6 +43,8 @@ const showAutoToc = pathname.startsWith("/guides/") && pathname !== "/guides/";
         )}
 
         <slot />
+
+        <NewCalculatorIntegration />
 
         <RelatedContent />
 
