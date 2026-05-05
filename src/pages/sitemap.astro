@@ -1,5 +1,62 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+
+const mainPages = [
+  { href: "/", tag: "Home", title: "Betting Maths", description: "The main homepage for calculators, guides and betting maths explanations." },
+  { href: "/calculators/", tag: "Hub", title: "All Calculators", description: "Browse all betting calculators in one place." },
+  { href: "/guides/", tag: "Hub", title: "All Guides", description: "Browse all betting maths guides in one place." },
+  { href: "/glossary/betting-jargon-explained/", tag: "Glossary", title: "Betting Jargon Explained", description: "A plain-English A-Z glossary of betting terms." }
+];
+
+const calculators = [
+  { href: "/calculators/odds-converter/", title: "Odds Converter", description: "Convert decimal, fractional and American odds, and calculate implied probability." },
+  { href: "/calculators/overround-calculator/", title: "Overround Calculator", description: "Calculate book percentage, overround and bookmaker margin." },
+  { href: "/calculators/no-vig-fair-odds-calculator/", title: "No-Vig Fair Odds Calculator", description: "Remove bookmaker margin from a simple two-outcome market and estimate fair odds." },
+  { href: "/calculators/expected-value-calculator/", title: "Expected Value Calculator", description: "Estimate expected value and expected ROI from stake, odds and probability." },
+  { href: "/calculators/arbitrage-calculator/", title: "Arbitrage Calculator", description: "Check underrounds and calculate arbitrage stake splits." },
+  { href: "/calculators/dutching-calculator/", title: "Dutching Calculator", description: "Split a stake across two or more selections for balanced returns." },
+  { href: "/calculators/hedge-bet-calculator/", title: "Hedge Bet Calculator", description: "Calculate back-first and lay-first hedge positions." },
+  { href: "/calculators/back-lay-calculator/", title: "Back/Lay Calculator", description: "Calculate lay stake, lay liability, commission and balanced outcomes." },
+  { href: "/calculators/free-bet-calculator/", title: "Free Bet Calculator", description: "Calculate lay stake, liability, conversion rate and free bet profit." },
+  { href: "/calculators/matched-betting-calculator/", title: "Matched Betting Calculator", description: "Estimate qualifying loss, free bet profit and overall matched betting result." },
+  { href: "/calculators/lay-liability-calculator/", title: "Lay Liability Calculator", description: "Calculate lay liability, exchange commission and lay bet results." },
+  { href: "/calculators/kelly-criterion-calculator/", title: "Kelly Criterion Calculator", description: "Estimate stake size using bankroll, odds and your estimated probability." },
+  { href: "/calculators/accumulator-calculator/", title: "Accumulator Calculator", description: "Calculate combined odds, acca returns, profit and implied probability." },
+  { href: "/calculators/each-way-calculator/", title: "Each-Way Calculator", description: "Calculate total stake, place odds, win result, place-only result and loss." },
+  { href: "/calculators/dead-heat-calculator/", title: "Dead Heat Calculator", description: "Estimate adjusted returns, profit or loss and equivalent odds after a dead heat." },
+  { href: "/calculators/each-way-extra-places-calculator/", title: "Each-Way Extra Places Calculator", description: "Compare standard place terms with enhanced extra places offers." },
+  { href: "/calculators/rule-4-calculator/", title: "Rule 4 Calculator", description: "Estimate horse racing Rule 4 deductions and adjusted returns." }
+];
+
+const guides = [
+  { href: "/guides/what-is-implied-probability/", title: "What Is Implied Probability?", description: "Learn how odds convert into percentage chance." },
+  { href: "/guides/bookmaker-margin-explained/", title: "Bookmaker Margin Explained", description: "Understand bookmaker margin, overround and book percentage." },
+  { href: "/guides/what-is-overround/", title: "What Is Overround?", description: "Learn why betting markets usually add up to more than 100%." },
+  { href: "/guides/how-bookmakers-make-money/", title: "How Bookmakers Make Money", description: "Understand margin, odds movement, weight of money and liability management." },
+  { href: "/guides/can-you-always-beat-the-bookie/", title: "Can You Always Beat the Bookie?", description: "Learn why guaranteed betting systems are risky." },
+  { href: "/guides/what-is-the-kelly-criterion/", title: "What Is the Kelly Criterion?", description: "Learn how Kelly staking uses odds, bankroll and estimated probability." },
+  { href: "/guides/what-is-lay-liability/", title: "What Is Lay Liability?", description: "Understand exchange risk, lay stakes and lay liability." },
+  { href: "/guides/what-is-exchange-commission/", title: "What Is Exchange Commission?", description: "Learn how commission affects exchange winnings, lay bets and free bet calculations." },
+  { href: "/guides/what-is-a-free-bet/", title: "What Is a Free Bet?", description: "Learn how free bets, stake not returned and free bet conversion work." },
+  { href: "/guides/what-is-matched-betting/", title: "What Is Matched Betting?", description: "Understand qualifying bets, free bets, back bets and lay bets." },
+  { href: "/guides/stake-returned-vs-stake-not-returned/", title: "Stake Returned vs Stake Not Returned", description: "Learn one of the most important free bet and matched betting terms." },
+  { href: "/guides/what-is-rule-4-in-horse-racing/", title: "What Is Rule 4 in Horse Racing?", description: "Learn how non-runners can lead to deductions from horse racing winnings." },
+  { href: "/guides/what-are-extra-places-in-each-way-betting/", title: "What Are Extra Places in Each-Way Betting?", description: "Understand enhanced place offers and how extra places affect each-way bets." },
+  { href: "/guides/each-way-betting-terms-explained/", title: "Each-Way Betting Terms Explained", description: "Learn win part, place part, place terms, extra places, non-runners and Rule 4." },
+  { href: "/guides/how-to-hedge-a-bet/", title: "How to Hedge a Bet", description: "Understand back and lay hedging, lay liability and commission." },
+  { href: "/guides/hedging-vs-cash-out/", title: "Hedging vs Cash Out", description: "Compare bookmaker cash out offers with manual hedging calculations." },
+  { href: "/guides/what-is-dutching/", title: "What Is Dutching?", description: "Learn how dutching splits stakes across multiple selections." },
+  { href: "/guides/dutching-vs-arbitrage/", title: "Dutching vs Arbitrage", description: "Understand the difference between dutching and arbitrage betting." }
+];
+
+const siteInfo = [
+  { href: "/about/", tag: "Info", title: "About", description: "Learn what Betting Maths is and what the site is for." },
+  { href: "/responsible-gambling/", tag: "Important", title: "Responsible Gambling", description: "Safer gambling reminders, support information and responsible gambling resources." },
+  { href: "/disclaimer/", tag: "Legal", title: "Disclaimer", description: "Important information about educational content, risk and no betting advice." },
+  { href: "/privacy-policy/", tag: "Legal", title: "Privacy Policy", description: "Information about privacy, analytics, cookies and future advertising or affiliate links." },
+  { href: "/cookie-policy/", tag: "Legal", title: "Cookie Policy", description: "Information about cookies, analytics consent and cookie settings." },
+  { href: "/contact/", tag: "Info", title: "Contact", description: "Current contact information and site communication notes." }
+];
 ---
 
 <MainLayout
@@ -21,281 +78,58 @@ import MainLayout from "../layouts/MainLayout.astro";
   <section class="content-card sitemap-section">
     <h2>Main pages</h2>
     <div class="sitemap-grid">
-      <a class="sitemap-card" href="/">
-        <span>Home</span>
-        <h3>Betting Maths</h3>
-        <p>The main homepage for calculators, guides and betting maths explanations.</p>
-      </a>
-
-      <a class="sitemap-card" href="/calculators/">
-        <span>Hub</span>
-        <h3>All Calculators</h3>
-        <p>Browse all betting calculators in one place.</p>
-      </a>
-
-      <a class="sitemap-card" href="/guides/">
-        <span>Hub</span>
-        <h3>All Guides</h3>
-        <p>Browse all betting maths guides in one place.</p>
-      </a>
-
-      <a class="sitemap-card" href="/glossary/betting-jargon-explained/">
-        <span>Glossary</span>
-        <h3>Betting Jargon Explained</h3>
-        <p>A plain-English A-Z glossary of betting terms.</p>
-      </a>
+      {mainPages.map((page) => (
+        <a class="sitemap-card" href={page.href}>
+          <span>{page.tag}</span>
+          <h3>{page.title}</h3>
+          <p>{page.description}</p>
+        </a>
+      ))}
     </div>
   </section>
 
   <section class="content-card sitemap-section">
     <h2>Betting calculators</h2>
     <p>
-      These calculators help explain odds, stakes, returns, bookmaker margin, exchange liability, hedging and common betting calculations.
+      These calculators help explain odds, stakes, returns, bookmaker margin, expected value, exchange liability, hedging, dead heats and common betting calculations.
     </p>
 
     <div class="sitemap-grid">
-      <a class="sitemap-card" href="/calculators/odds-converter/">
-        <span>Calculator</span>
-        <h3>Odds Converter</h3>
-        <p>Convert decimal, fractional and American odds, and calculate implied probability.</p>
-      </a>
-
-      <a class="sitemap-card" href="/calculators/overround-calculator/">
-        <span>Calculator</span>
-        <h3>Overround Calculator</h3>
-        <p>Calculate book percentage, overround and bookmaker margin.</p>
-      </a>
-
-      <a class="sitemap-card" href="/calculators/arbitrage-calculator/">
-        <span>Calculator</span>
-        <h3>Arbitrage Calculator</h3>
-        <p>Check underrounds and calculate arbitrage stake splits.</p>
-      </a>
-
-      <a class="sitemap-card" href="/calculators/dutching-calculator/">
-        <span>Calculator</span>
-        <h3>Dutching Calculator</h3>
-        <p>Split a stake across two or more selections for balanced returns.</p>
-      </a>
-
-      <a class="sitemap-card" href="/calculators/hedge-bet-calculator/">
-        <span>Calculator</span>
-        <h3>Hedge Bet Calculator</h3>
-        <p>Calculate back-first and lay-first hedge positions.</p>
-      </a>
-
-      <a class="sitemap-card" href="/calculators/back-lay-calculator/">
-        <span>Calculator</span>
-        <h3>Back/Lay Calculator</h3>
-        <p>Calculate lay stake, lay liability, commission and balanced outcomes.</p>
-      </a>
-
-      <a class="sitemap-card" href="/calculators/free-bet-calculator/">
-        <span>Calculator</span>
-        <h3>Free Bet Calculator</h3>
-        <p>Calculate lay stake, liability, conversion rate and free bet profit.</p>
-      </a>
-
-      <a class="sitemap-card" href="/calculators/matched-betting-calculator/">
-        <span>Calculator</span>
-        <h3>Matched Betting Calculator</h3>
-        <p>Estimate qualifying loss, free bet profit and overall matched betting result.</p>
-      </a>
-
-      <a class="sitemap-card" href="/calculators/lay-liability-calculator/">
-        <span>Calculator</span>
-        <h3>Lay Liability Calculator</h3>
-        <p>Calculate lay liability, exchange commission and lay bet results.</p>
-      </a>
-
-      <a class="sitemap-card" href="/calculators/kelly-criterion-calculator/">
-        <span>Calculator</span>
-        <h3>Kelly Criterion Calculator</h3>
-        <p>Estimate stake size using bankroll, odds and your estimated probability.</p>
-      </a>
-
-      <a class="sitemap-card" href="/calculators/accumulator-calculator/">
-        <span>Calculator</span>
-        <h3>Accumulator Calculator</h3>
-        <p>Calculate combined odds, acca returns, profit and implied probability.</p>
-      </a>
-
-      <a class="sitemap-card" href="/calculators/each-way-calculator/">
-        <span>Calculator</span>
-        <h3>Each-Way Calculator</h3>
-        <p>Calculate total stake, place odds, win result, place-only result and loss.</p>
-      </a>
-
-      <a class="sitemap-card" href="/calculators/each-way-extra-places-calculator/">
-        <span>Calculator</span>
-        <h3>Each-Way Extra Places Calculator</h3>
-        <p>Compare standard place terms with enhanced extra places offers.</p>
-      </a>
-
-      <a class="sitemap-card" href="/calculators/rule-4-calculator/">
-        <span>Calculator</span>
-        <h3>Rule 4 Calculator</h3>
-        <p>Estimate horse racing Rule 4 deductions and adjusted returns.</p>
-      </a>
+      {calculators.map((calculator) => (
+        <a class="sitemap-card" href={calculator.href}>
+          <span>Calculator</span>
+          <h3>{calculator.title}</h3>
+          <p>{calculator.description}</p>
+        </a>
+      ))}
     </div>
   </section>
 
   <section class="content-card sitemap-section">
     <h2>Betting maths guides</h2>
-    <p>
-      These guides explain the concepts behind the calculators in plain English.
-    </p>
+    <p>These guides explain the concepts behind the calculators in plain English.</p>
 
     <div class="sitemap-grid">
-      <a class="sitemap-card" href="/guides/what-is-implied-probability/">
-        <span>Guide</span>
-        <h3>What Is Implied Probability?</h3>
-        <p>Learn how odds convert into percentage chance.</p>
-      </a>
-
-      <a class="sitemap-card" href="/guides/bookmaker-margin-explained/">
-        <span>Guide</span>
-        <h3>Bookmaker Margin Explained</h3>
-        <p>Understand bookmaker margin, overround and book percentage.</p>
-      </a>
-
-      <a class="sitemap-card" href="/guides/what-is-overround/">
-        <span>Guide</span>
-        <h3>What Is Overround?</h3>
-        <p>Learn why betting markets usually add up to more than 100%.</p>
-      </a>
-
-      <a class="sitemap-card" href="/guides/how-bookmakers-make-money/">
-        <span>Guide</span>
-        <h3>How Bookmakers Make Money</h3>
-        <p>Understand margin, odds movement, weight of money and liability management.</p>
-      </a>
-
-      <a class="sitemap-card" href="/guides/can-you-always-beat-the-bookie/">
-        <span>Guide</span>
-        <h3>Can You Always Beat the Bookie?</h3>
-        <p>Learn why guaranteed betting systems are risky.</p>
-      </a>
-
-      <a class="sitemap-card" href="/guides/what-is-the-kelly-criterion/">
-        <span>Guide</span>
-        <h3>What Is the Kelly Criterion?</h3>
-        <p>Learn how Kelly staking uses odds, bankroll and estimated probability.</p>
-      </a>
-
-      <a class="sitemap-card" href="/guides/what-is-lay-liability/">
-        <span>Guide</span>
-        <h3>What Is Lay Liability?</h3>
-        <p>Understand exchange risk, lay stakes and lay liability.</p>
-      </a>
-
-      <a class="sitemap-card" href="/guides/what-is-exchange-commission/">
-        <span>Guide</span>
-        <h3>What Is Exchange Commission?</h3>
-        <p>Learn how commission affects exchange winnings, lay bets and free bet calculations.</p>
-      </a>
-
-      <a class="sitemap-card" href="/guides/what-is-a-free-bet/">
-        <span>Guide</span>
-        <h3>What Is a Free Bet?</h3>
-        <p>Learn how free bets, stake not returned and free bet conversion work.</p>
-      </a>
-
-      <a class="sitemap-card" href="/guides/what-is-matched-betting/">
-        <span>Guide</span>
-        <h3>What Is Matched Betting?</h3>
-        <p>Understand qualifying bets, free bets, back bets and lay bets.</p>
-      </a>
-
-      <a class="sitemap-card" href="/guides/stake-returned-vs-stake-not-returned/">
-        <span>Guide</span>
-        <h3>Stake Returned vs Stake Not Returned</h3>
-        <p>Learn one of the most important free bet and matched betting terms.</p>
-      </a>
-
-      <a class="sitemap-card" href="/guides/what-is-rule-4-in-horse-racing/">
-        <span>Guide</span>
-        <h3>What Is Rule 4 in Horse Racing?</h3>
-        <p>Learn how non-runners can lead to deductions from horse racing winnings.</p>
-      </a>
-
-      <a class="sitemap-card" href="/guides/what-are-extra-places-in-each-way-betting/">
-        <span>Guide</span>
-        <h3>What Are Extra Places in Each-Way Betting?</h3>
-        <p>Understand enhanced place offers and how extra places affect each-way bets.</p>
-      </a>
-
-      <a class="sitemap-card" href="/guides/each-way-betting-terms-explained/">
-        <span>Guide</span>
-        <h3>Each-Way Betting Terms Explained</h3>
-        <p>Learn win part, place part, place terms, extra places, non-runners and Rule 4.</p>
-      </a>
-
-      <a class="sitemap-card" href="/guides/how-to-hedge-a-bet/">
-        <span>Guide</span>
-        <h3>How to Hedge a Bet</h3>
-        <p>Understand back and lay hedging, lay liability and commission.</p>
-      </a>
-
-      <a class="sitemap-card" href="/guides/hedging-vs-cash-out/">
-        <span>Guide</span>
-        <h3>Hedging vs Cash Out</h3>
-        <p>Compare bookmaker cash out offers with manual hedging calculations.</p>
-      </a>
-
-      <a class="sitemap-card" href="/guides/what-is-dutching/">
-        <span>Guide</span>
-        <h3>What Is Dutching?</h3>
-        <p>Learn how dutching splits stakes across multiple selections.</p>
-      </a>
-
-      <a class="sitemap-card" href="/guides/dutching-vs-arbitrage/">
-        <span>Guide</span>
-        <h3>Dutching vs Arbitrage</h3>
-        <p>Understand the difference between dutching and arbitrage betting.</p>
-      </a>
+      {guides.map((guide) => (
+        <a class="sitemap-card" href={guide.href}>
+          <span>Guide</span>
+          <h3>{guide.title}</h3>
+          <p>{guide.description}</p>
+        </a>
+      ))}
     </div>
   </section>
 
   <section class="content-card sitemap-section">
     <h2>Site information</h2>
-
     <div class="sitemap-grid">
-      <a class="sitemap-card" href="/about/">
-        <span>Info</span>
-        <h3>About</h3>
-        <p>Learn what Betting Maths is and what the site is for.</p>
-      </a>
-
-      <a class="sitemap-card" href="/responsible-gambling/">
-        <span>Important</span>
-        <h3>Responsible Gambling</h3>
-        <p>Safer gambling reminders, support information and responsible gambling resources.</p>
-      </a>
-
-      <a class="sitemap-card" href="/disclaimer/">
-        <span>Legal</span>
-        <h3>Disclaimer</h3>
-        <p>Important information about educational content, risk and no betting advice.</p>
-      </a>
-
-      <a class="sitemap-card" href="/privacy-policy/">
-        <span>Legal</span>
-        <h3>Privacy Policy</h3>
-        <p>Information about privacy, analytics, cookies and future advertising or affiliate links.</p>
-      </a>
-
-      <a class="sitemap-card" href="/cookie-policy/">
-        <span>Legal</span>
-        <h3>Cookie Policy</h3>
-        <p>Information about cookies, analytics consent and cookie settings.</p>
-      </a>
-
-      <a class="sitemap-card" href="/contact/">
-        <span>Info</span>
-        <h3>Contact</h3>
-        <p>Current contact information and site communication notes.</p>
-      </a>
+      {siteInfo.map((page) => (
+        <a class="sitemap-card" href={page.href}>
+          <span>{page.tag}</span>
+          <h3>{page.title}</h3>
+          <p>{page.description}</p>
+        </a>
+      ))}
     </div>
   </section>
 
@@ -304,67 +138,15 @@ import MainLayout from "../layouts/MainLayout.astro";
   </div>
 
   <style>
-    .sitemap-section {
-      margin-top: 1.25rem;
-    }
-
-    .sitemap-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .sitemap-card {
-      display: block;
-      padding: 1.15rem;
-      border: 1px solid var(--color-border);
-      border-radius: 14px;
-      background: var(--color-bg);
-    }
-
-    .sitemap-card:hover {
-      border-color: rgba(31, 138, 91, 0.45);
-      transform: translateY(-2px);
-    }
-
-    .sitemap-card span {
-      display: inline-flex;
-      margin-bottom: 0.5rem;
-      padding: 0.15rem 0.55rem;
-      border-radius: 999px;
-      background: #eef8f3;
-      color: var(--color-green-dark);
-      font-size: 0.78rem;
-      font-weight: 800;
-    }
-
-    .sitemap-card h3 {
-      margin-bottom: 0.35rem;
-    }
-
-    .sitemap-card p {
-      margin: 0;
-      color: var(--color-muted);
-    }
-
-    .callout a {
-      color: var(--color-green-dark);
-      font-weight: 800;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    @media (max-width: 1100px) {
-      .sitemap-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 760px) {
-      .sitemap-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    .sitemap-section { margin-top: 1.25rem; }
+    .sitemap-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .sitemap-card { display: block; padding: 1.15rem; border: 1px solid var(--color-border); border-radius: 14px; background: var(--color-bg); }
+    .sitemap-card:hover { border-color: rgba(31, 138, 91, 0.45); transform: translateY(-2px); }
+    .sitemap-card span { display: inline-flex; margin-bottom: 0.5rem; padding: 0.15rem 0.55rem; border-radius: 999px; background: #eef8f3; color: var(--color-green-dark); font-size: 0.78rem; font-weight: 800; }
+    .sitemap-card h3 { margin-bottom: 0.35rem; }
+    .sitemap-card p { margin: 0; color: var(--color-muted); }
+    .callout a { color: var(--color-green-dark); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+    @media (max-width: 1100px) { .sitemap-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 760px) { .sitemap-grid { grid-template-columns: 1fr; } }
   </style>
 </MainLayout>
