@@ -4,7 +4,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
 
 <MainLayout
   title="Dead Heat Calculator"
-  description="Use this dead heat calculator to estimate adjusted returns, profit or loss, and equivalent odds when a selection is affected by a dead heat."
+  description="Estimate adjusted returns when a selection is affected by a dead heat. Includes winning stake, losing stake and adjusted profit."
 >
   <section class="content-card">
     <p class="eyebrow">Betting calculator</p>
@@ -107,6 +107,9 @@ import MainLayout from "../../layouts/MainLayout.astro";
     <p>
       This is a simplified educational calculator. Bookmaker dead heat terms can vary, and markets may have special rules. Check the rules for your bookmaker and market before relying on any estimate. This page does not provide betting advice.
     </p>
+    <p>
+      For the plain-English explanation behind the calculation, read <a href="/guides/dead-heat-rules-betting/">What Is a Dead Heat in Betting?</a>.
+    </p>
   </section>
 
   <style>
@@ -126,6 +129,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
     .result-note { margin: 1rem 0 0; padding: 1rem; border-radius: 12px; background: #eef8f3; color: var(--color-green-dark); font-weight: 700; }
     .result-note.error { background: #fff1f0; color: #b42318; }
     .article-section { margin-top: 1.25rem; }
+    .article-section a { color: var(--color-green-dark); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
     .formula-box { padding: 1rem 1.15rem; border-radius: 14px; background: var(--color-bg); border: 1px solid var(--color-border); }
     .formula-box p { margin: 0.4rem 0; }
     @media (max-width: 1100px) { .input-grid, .results-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
