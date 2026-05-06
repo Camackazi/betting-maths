@@ -1,27 +1,36 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "redirects": [
+  "routes": [
     {
-      "source": "/:path*",
+      "src": "/(.*)",
       "has": [
         {
-          "type": "host",
-          "value": "betting-maths.vercel.app"
+          "type": "header",
+          "key": "host",
+          "value": "betting-maths\\.vercel\\.app"
         }
       ],
-      "destination": "https://www.bettingmaths.co.uk/:path*",
-      "permanent": true
+      "status": 308,
+      "headers": {
+        "Location": "https://www.bettingmaths.co.uk/$1"
+      }
     },
     {
-      "source": "/:path*",
+      "src": "/(.*)",
       "has": [
         {
-          "type": "host",
-          "value": "bettingmaths.co.uk"
+          "type": "header",
+          "key": "host",
+          "value": "bettingmaths\\.co\\.uk"
         }
       ],
-      "destination": "https://www.bettingmaths.co.uk/:path*",
-      "permanent": true
+      "status": 308,
+      "headers": {
+        "Location": "https://www.bettingmaths.co.uk/$1"
+      }
+    },
+    {
+      "handle": "filesystem"
     }
   ]
 }
