@@ -1,0 +1,27 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "betting-maths.vercel.app"
+        }
+      ],
+      "destination": "https://www.bettingmaths.co.uk/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "bettingmaths.co.uk"
+        }
+      ],
+      "destination": "https://www.bettingmaths.co.uk/:path*",
+      "permanent": true
+    }
+  ]
+}
