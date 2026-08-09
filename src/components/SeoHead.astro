@@ -14,12 +14,13 @@ const pathname = Astro.url.pathname.endsWith("/")
   : `${Astro.url.pathname}/`;
 
 const canonicalUrl = new URL(pathname, siteUrl).toString();
-
 const pageTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
 
 const isHomePage = pathname === "/";
 const isGuidePage = pathname.startsWith("/guides/") && pathname !== "/guides/";
+const isAnalysisPage = pathname.startsWith("/analysis/") && pathname !== "/analysis/";
 const isCalculatorPage = pathname.startsWith("/calculators/") && pathname !== "/calculators/";
+const isArticlePage = isGuidePage || isAnalysisPage;
 
 function titleFromSlug(slug: string) {
   return slug
@@ -35,27 +36,22 @@ function titleFromSlug(slug: string) {
     .replace("Vs", "vs");
 }
 
-const pathParts = pathname
-  .split("/")
-  .filter(Boolean);
+const pathParts = pathname.split("/").filter(Boolean);
 
 const breadcrumbItems = [
-  {
-    "@type": "ListItem",
-    position: 1,
-    name: "Home",
-    item: siteUrl
-  },
+  { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
   ...pathParts.map((part, index) => {
     const href = `${siteUrl}/${pathParts.slice(0, index + 1).join("/")}/`;
-
     const nameOverrides: Record<string, string> = {
       calculators: "Calculators",
       guides: "Guides",
+      analysis: "Analysis",
       glossary: "Glossary",
       "betting-jargon-explained": "Betting Jargon Explained",
       "privacy-policy": "Privacy Policy",
-      "responsible-gambling": "Responsible Gambling"
+      "responsible-gambling": "Responsible Gambling",
+      methodology: "Calculation Methodology",
+      "editorial-standards": "Editorial Standards"
     };
 
     return {
@@ -71,7 +67,8 @@ const organizationSchema = {
   "@type": "Organization",
   "@id": `${siteUrl}/#organization`,
   name: siteName,
-  url: siteUrl
+  url: siteUrl,
+  description: "Independent educational resource explaining and analysing the mathematics behind betting markets."
 };
 
 const websiteSchema = {
@@ -79,11 +76,8 @@ const websiteSchema = {
   "@id": `${siteUrl}/#website`,
   name: siteName,
   url: siteUrl,
-  description:
-    "Free betting calculators and plain-English betting maths guides covering odds, implied probability, overround, bookmaker margin, free bets, matched betting, each-way betting, Rule 4, hedging, dutching and more.",
-  publisher: {
-    "@id": `${siteUrl}/#organization`
-  },
+  description: "Free betting calculators, plain-English guides and original mathematical analysis of odds, probability, bookmaker margin, staking and betting-market mechanics.",
+  publisher: { "@id": `${siteUrl}/#organization` },
   inLanguage: "en-GB"
 };
 
@@ -99,31 +93,22 @@ const webPageSchema = {
   url: canonicalUrl,
   name: pageTitle,
   description,
-  isPartOf: {
-    "@id": `${siteUrl}/#website`
-  },
-  breadcrumb: {
-    "@id": `${canonicalUrl}#breadcrumb`
-  },
+  isPartOf: { "@id": `${siteUrl}/#website` },
+  breadcrumb: { "@id": `${canonicalUrl}#breadcrumb` },
   inLanguage: "en-GB"
 };
 
-const guideSchema = isGuidePage
+const articleSchema = isArticlePage
   ? {
       "@type": "Article",
       "@id": `${canonicalUrl}#article`,
       headline: title,
       description,
       url: canonicalUrl,
-      mainEntityOfPage: {
-        "@id": `${canonicalUrl}#webpage`
-      },
-      publisher: {
-        "@id": `${siteUrl}/#organization`
-      },
-      author: {
-        "@id": `${siteUrl}/#organization`
-      },
+      articleSection: isAnalysisPage ? "Betting Maths Analysis" : "Betting Maths Guides",
+      mainEntityOfPage: { "@id": `${canonicalUrl}#webpage` },
+      publisher: { "@id": `${siteUrl}/#organization` },
+      author: { "@id": `${siteUrl}/#organization` },
       inLanguage: "en-GB"
     }
   : null;
@@ -138,34 +123,20 @@ const calculatorSchema = isCalculatorPage
       applicationCategory: "UtilitiesApplication",
       operatingSystem: "Any",
       isAccessibleForFree: true,
-      publisher: {
-        "@id": `${siteUrl}/#organization`
-      },
+      publisher: { "@id": `${siteUrl}/#organization` },
       inLanguage: "en-GB"
     }
   : null;
 
-const schemaGraph = [
-  organizationSchema,
-  websiteSchema,
-  breadcrumbSchema,
-  webPageSchema,
-  guideSchema,
-  calculatorSchema
-].filter(Boolean);
-
-const structuredData = {
-  "@context": "https://schema.org",
-  "@graph": schemaGraph
-};
+const schemaGraph = [organizationSchema, websiteSchema, breadcrumbSchema, webPageSchema, articleSchema, calculatorSchema].filter(Boolean);
+const structuredData = { "@context": "https://schema.org", "@graph": schemaGraph };
 ---
 
 <title>{pageTitle}</title>
 <meta name="description" content={description} />
-
 <link rel="canonical" href={canonicalUrl} />
 
-<meta property="og:type" content={isGuidePage ? "article" : "website"} />
+<meta property="og:type" content={isArticlePage ? "article" : "website"} />
 <meta property="og:site_name" content={siteName} />
 <meta property="og:title" content={pageTitle} />
 <meta property="og:description" content={description} />
@@ -175,10 +146,7 @@ const structuredData = {
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content={pageTitle} />
 <meta name="twitter:description" content={description} />
-
 <meta name="theme-color" content="#1f8a5b" />
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5364401117730951"
-     crossorigin="anonymous"></script>
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5364401117730951" crossorigin="anonymous"></script>
 <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
