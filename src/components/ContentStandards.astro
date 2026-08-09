@@ -1,0 +1,45 @@
+---
+const pathname = Astro.url.pathname.endsWith("/") ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const isGuide = pathname.startsWith("/guides/") && pathname !== "/guides/";
+const isAnalysis = pathname.startsWith("/analysis/") && pathname !== "/analysis/";
+---
+
+{(isGuide || isAnalysis) && (
+  <aside class="standards-panel" aria-label="Betting Maths editorial standards">
+    <div>
+      <strong>{isAnalysis ? "Betting Maths analysis" : "Betting Maths editorial approach"}</strong>
+      <p>
+        {isAnalysis
+          ? "This analysis states its assumptions and shows the working so the calculation can be checked. Modelled examples are not presented as observed bookmaker data."
+          : "Our guides explain the maths, distinguish estimates from known values and avoid treating calculations as betting predictions."}
+      </p>
+    </div>
+    <nav aria-label="Standards links">
+      <a href="/methodology/">Calculation methodology</a>
+      <a href="/editorial-standards/">Editorial standards</a>
+    </nav>
+  </aside>
+)}
+
+<style>
+  .standards-panel {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 1.25rem 0;
+    padding: 1rem 1.15rem;
+    border: 1px solid var(--color-border);
+    border-left: 5px solid var(--color-green);
+    border-radius: 14px;
+    background: #f8fbf9;
+  }
+  .standards-panel strong { color: var(--color-navy); }
+  .standards-panel p { margin: 0.25rem 0 0; color: var(--color-muted); }
+  .standards-panel nav { display: flex; flex-wrap: wrap; gap: 0.65rem; min-width: max-content; }
+  .standards-panel a { color: var(--color-green-dark); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+  @media (max-width: 760px) {
+    .standards-panel { flex-direction: column; }
+    .standards-panel nav { min-width: 0; }
+  }
+</style>
