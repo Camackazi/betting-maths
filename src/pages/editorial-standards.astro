@@ -1,0 +1,71 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="Editorial Standards"
+  description="The editorial principles used by Betting Maths for calculations, guides, analysis, corrections, sourcing and responsible gambling content."
+>
+  <section class="content-card">
+    <p class="eyebrow">Editorial policy</p>
+    <h1>Betting Maths Editorial Standards</h1>
+    <p class="lead">Betting Maths is an independent educational resource about the mathematics behind betting. These standards explain what we publish, how we distinguish facts from assumptions and how we handle corrections.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What we are trying to do</h2>
+    <p>Our purpose is to make betting mathematics understandable and testable. That includes explaining established concepts, building free calculators and carrying out original mathematical analysis of questions that arise from betting markets and offer structures.</p>
+    <p>We do not publish selections, tipping advice, predictions or claims of guaranteed profit. A mathematically favourable model is not presented as certainty.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Accuracy before persuasion</h2>
+    <p>We aim to explain what a calculation can show and, just as importantly, what it cannot show. If a result depends on an estimated probability, commission rate, place term or other user-supplied assumption, that dependency should be visible.</p>
+    <p>We avoid treating bookmaker implied probability as true probability and avoid describing overround as a guaranteed profit margin on a single event.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Original analysis</h2>
+    <p>Analysis pages should answer a specific question rather than simply define a term. They may use reproducible mathematical models, worked examples or collected market data.</p>
+    <ul class="standard-list">
+      <li>Modelled studies state their assumptions.</li>
+      <li>Observed-data studies state what was collected and when.</li>
+      <li>Important limitations are included alongside the findings.</li>
+      <li>Calculations should be reproducible from the method shown.</li>
+      <li>We do not invent bookmaker prices or present hypothetical data as observed market data.</li>
+    </ul>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Sourcing</h2>
+    <p>Established mathematical formulas are shown directly where useful. When an article relies on external rules, official policies, regulatory information or third-party data, we prefer primary sources such as bookmaker terms, exchange rules, regulators or original datasets.</p>
+    <p>A source does not replace explanation: where a source matters to the conclusion, the page should explain how the information is being used.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Corrections</h2>
+    <p>If a formula, example or factual statement is wrong, the priority is to correct the page rather than defend the original wording. Material corrections should be reflected in the content and, where useful to readers, explained on the page.</p>
+    <p>Site and calculation issues can be reported through the public Betting Maths GitHub repository linked from the contact page.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Commercial independence</h2>
+    <p>Advertising or future affiliate relationships should not determine the result of a calculation or the conclusion of an analysis. If a commercial relationship is relevant to a page, it should be disclosed clearly.</p>
+    <p>Betting Maths may earn revenue from the site, but its educational calculators and mathematical conclusions should remain usable without needing to place a bet.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Responsible gambling</h2>
+    <p>Understanding the maths does not remove uncertainty or gambling harm. We therefore avoid language that suggests betting is a dependable income source, and we maintain a dedicated responsible gambling page with UK support resources.</p>
+    <div class="button-row">
+      <a class="button primary" href="/methodology/">Calculation Methodology</a>
+      <a class="button secondary" href="/responsible-gambling/">Responsible Gambling</a>
+    </div>
+  </section>
+
+  <style>
+    .article-section { margin-top: 1.25rem; }
+    .standard-list { padding-left: 1.3rem; }
+    .standard-list li { margin: 0.45rem 0; }
+  </style>
+</MainLayout>
