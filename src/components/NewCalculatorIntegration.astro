@@ -2,7 +2,7 @@
 const pathname = Astro.url.pathname.endsWith("/") ? Astro.url.pathname : `${Astro.url.pathname}/`;
 const isCalculator = pathname.startsWith("/calculators/") && pathname !== "/calculators/";
 
-const analysisLinks = {
+const analysisLinks: Record<string, { href: string; title: string; text: string }> = {
   "/calculators/accumulator-calculator/": {
     href: "/analysis/how-margin-compounds-in-accumulators/",
     title: "How margin compounds in accumulators",
