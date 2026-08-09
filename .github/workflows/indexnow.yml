@@ -1,0 +1,140 @@
+name: Notify IndexNow
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  notify-indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Allow production deployment to settle
+        run: sleep 45
+
+      - name: Submit changed URLs to IndexNow
+        env:
+          INDEXNOW_KEY: 0ae5db5eba48c5cd58c2278d73f59864
+          SITE_HOST: www.bettingmaths.co.uk
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import subprocess
+          import time
+          import urllib.error
+          import urllib.request
+          import xml.etree.ElementTree as ET
+
+          host = os.environ["SITE_HOST"]
+          key = os.environ["INDEXNOW_KEY"]
+          base = f"https://{host}"
+          key_location = f"{base}/{key}.txt"
+
+          def fetch_all_urls():
+              with urllib.request.urlopen(f"{base}/sitemap-0.xml", timeout=30) as response:
+                  root = ET.fromstring(response.read())
+              ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+              return [node.text for node in root.findall("sm:url/sm:loc", ns) if node.text]
+
+          event_name = os.environ.get("EVENT_NAME", "push")
+          before = os.environ.get("BEFORE_SHA", "")
+          current = os.environ.get("CURRENT_SHA", "")
+
+          submit_all = event_name == "workflow_dispatch"
+          changed = []
+
+          if not submit_all and before and current and set(before) != {"0"}:
+              try:
+                  output = subprocess.check_output(
+                      ["git", "diff", "--name-only", before, current],
+                      text=True,
+                  )
+                  changed = [line.strip() for line in output.splitlines() if line.strip()]
+              except subprocess.CalledProcessError:
+                  submit_all = True
+          else:
+              submit_all = True
+
+          global_paths = (
+              "src/components/",
+              "src/layouts/",
+              "src/styles/",
+              ".github/workflows/indexnow.yml",
+          )
+          global_files = {
+              "astro.config.mjs",
+              "package.json",
+              "public/robots.txt",
+          }
+
+          if any(path.startswith(global_paths) or path in global_files for path in changed):
+              submit_all = True
+
+          if submit_all:
+              urls = fetch_all_urls()
+          else:
+              urls = []
+              for path in changed:
+                  if not path.startswith("src/pages/") or not path.endswith(".astro"):
+                      continue
+                  route = path[len("src/pages/"):-len(".astro")]
+                  if route == "index":
+                      url = f"{base}/"
+                  elif route.endswith("/index"):
+                      url = f"{base}/{route[:-len('/index')]}/"
+                  else:
+                      url = f"{base}/{route}/"
+                  urls.append(url)
+              urls = sorted(set(urls))
+
+          if not urls:
+              print("No indexable page URLs changed; nothing to submit.")
+              raise SystemExit(0)
+
+          payload = json.dumps({
+              "host": host,
+              "key": key,
+              "keyLocation": key_location,
+              "urlList": urls,
+          }).encode("utf-8")
+
+          request = urllib.request.Request(
+              "https://api.indexnow.org/indexnow",
+              data=payload,
+              headers={"Content-Type": "application/json; charset=utf-8"},
+              method="POST",
+          )
+
+          for attempt in range(1, 4):
+              try:
+                  with urllib.request.urlopen(request, timeout=30) as response:
+                      status = response.status
+                      print(f"IndexNow submission status: {status}")
+                      print(f"Submitted {len(urls)} URL(s).")
+                      if status in (200, 202):
+                          raise SystemExit(0)
+              except urllib.error.HTTPError as exc:
+                  print(f"IndexNow HTTP status on attempt {attempt}: {exc.code}")
+                  if exc.code in (200, 202):
+                      raise SystemExit(0)
+              except Exception as exc:
+                  print(f"IndexNow attempt {attempt} failed: {exc}")
+
+              if attempt < 3:
+                  time.sleep(30)
+
+          raise SystemExit("IndexNow submission failed after three attempts.")
+          PY
