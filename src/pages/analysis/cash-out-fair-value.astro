@@ -1,0 +1,102 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="What Is a Cash-Out Offer Worth? A Fair-Value Model"
+  description="A worked Betting Maths model for comparing a bookmaker cash-out offer with the expected value of the bet at a stated current probability."
+>
+  <section class="content-card">
+    <p class="eyebrow">Original mathematical analysis</p>
+    <h1>What Is a Cash-Out Offer Worth? A Fair-Value Model</h1>
+    <p class="lead">A cash-out figure can look attractive because it turns an uncertain bet into cash now. But how can we compare the offer with the mathematical value of the remaining bet?</p>
+    <div class="callout"><strong>Important assumption:</strong> There is no single observable “true” fair cash-out value. This model starts with a stated probability estimate so the comparison can be reproduced.</div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>The model</h2>
+    <p>Suppose a £10 bet was placed at decimal odds of 4.00. If it wins, the total return is £40. At some later point, we estimate the selection now has a 40% chance of winning.</p>
+    <p>If we ignore time value, settlement complications and other market frictions, the expected value of that £40 contingent payout is:</p>
+    <div class="formula-box"><p><strong>Fair-value benchmark</strong> = current estimated probability × possible total return</p><p>40% × £40 = <strong>£16.00</strong></p></div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Comparing a £14.50 cash-out offer</h2>
+    <p>Now suppose the available cash-out offer is £14.50.</p>
+    <table class="example-table">
+      <thead><tr><th>Measure</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>Possible return if bet wins</td><td>£40.00</td></tr>
+        <tr><td>Current probability estimate</td><td>40%</td></tr>
+        <tr><td>Model fair-value benchmark</td><td>£16.00</td></tr>
+        <tr><td>Cash-out offer</td><td>£14.50</td></tr>
+        <tr><td>Cash discount vs benchmark</td><td>£1.50</td></tr>
+        <tr><td>Discount as % of benchmark</td><td>9.38%</td></tr>
+      </tbody>
+    </table>
+    <div class="formula-box"><p>(£16.00 − £14.50) ÷ £16.00 × 100 = <strong>9.375%</strong></p></div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What does that 9.38% mean?</h2>
+    <p>Under the 40% probability assumption, accepting £14.50 means taking £1.50 less than the model's £16 expected-value benchmark in exchange for removing the remaining uncertainty immediately.</p>
+    <p>That does <strong>not</strong> automatically mean the cash-out offer is “bad”. A guaranteed £14.50 now and an uncertain future payout are different outcomes. The calculation simply makes the mathematical trade-off visible.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>How sensitive is the answer to probability?</h2>
+    <p>The benchmark moves directly with the probability estimate. Using the same potential £40 return:</p>
+    <table class="example-table">
+      <thead><tr><th>Estimated current chance</th><th>Model benchmark</th><th>£14.50 offer vs benchmark</th></tr></thead>
+      <tbody>
+        <tr><td>30%</td><td>£12.00</td><td>£2.50 above benchmark</td></tr>
+        <tr><td>35%</td><td>£14.00</td><td>£0.50 above benchmark</td></tr>
+        <tr><td>40%</td><td>£16.00</td><td>£1.50 below benchmark</td></tr>
+        <tr><td>45%</td><td>£18.00</td><td>£3.50 below benchmark</td></tr>
+        <tr><td>50%</td><td>£20.00</td><td>£5.50 below benchmark</td></tr>
+      </tbody>
+    </table>
+    <p>This is why claims about a cash-out offer being mathematically generous or poor need a probability benchmark. Without one, there is no neutral value against which to compare the offer.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Cash out versus manual hedging</h2>
+    <p>A manual hedge can provide another benchmark because current opposing odds can be used to construct a more balanced position. That comparison must also include exchange commission and the exact back and lay prices available.</p>
+    <p>The <a href="/calculators/hedge-bet-calculator/">Hedge Bet Calculator</a> is designed for that separate calculation. A cash-out offer and a hedge are not mathematically identical, but comparing both can make the cost of convenience more visible.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Limitations</h2>
+    <ul class="standard-list">
+      <li>The current probability is estimated rather than known.</li>
+      <li>Real cash-out algorithms may use prices, margin, liabilities and operational adjustments that are not visible to the user.</li>
+      <li>Markets can move between seeing an offer and acting on it.</li>
+      <li>Manual hedging may involve commission, liquidity constraints and different settlement rules.</li>
+      <li>The model values the contingent payout mathematically; it does not measure an individual's preference for certainty.</li>
+    </ul>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What the analysis tells us</h2>
+    <p>The useful question is not simply “is £14.50 a good cash out?” It is: <strong>£14.50 compared with what?</strong></p>
+    <p>Once a probability benchmark is stated, the hidden discount or premium can be quantified. The quality of that conclusion then depends on the quality of the probability estimate.</p>
+    <div class="button-row">
+      <a class="button primary" href="/calculators/hedge-bet-calculator/">Use the Hedge Bet Calculator</a>
+      <a class="button secondary" href="/guides/hedging-vs-cash-out/">Hedging vs Cash Out</a>
+      <a class="button secondary" href="/methodology/">Methodology</a>
+    </div>
+  </section>
+
+  <div class="callout"><strong>Educational use:</strong> This model explains a mathematical comparison. It is not personal financial or betting advice.</div>
+
+  <style>
+    .article-section { margin-top: 1.25rem; }
+    .article-section a { color: var(--color-green-dark); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+    .formula-box { padding: 1rem 1.15rem; border: 1px solid var(--color-border); border-radius: 14px; background: var(--color-bg); }
+    .formula-box p { margin: 0.4rem 0; }
+    .example-table { width: 100%; border-collapse: collapse; margin: 1rem 0; background: white; }
+    .example-table th, .example-table td { padding: 0.75rem; border: 1px solid var(--color-border); text-align: left; }
+    .example-table th { background: #f4f7fa; color: var(--color-navy); }
+    .standard-list { padding-left: 1.3rem; }
+  </style>
+</MainLayout>
