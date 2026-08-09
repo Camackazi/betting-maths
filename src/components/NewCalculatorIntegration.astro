@@ -1,2 +1,76 @@
 ---
+const pathname = Astro.url.pathname.endsWith("/") ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const isCalculator = pathname.startsWith("/calculators/") && pathname !== "/calculators/";
+
+const analysisLinks = {
+  "/calculators/accumulator-calculator/": {
+    href: "/analysis/how-margin-compounds-in-accumulators/",
+    title: "How margin compounds in accumulators",
+    text: "See a worked model showing how a small pricing disadvantage on each leg can compound across a multi-leg acca."
+  },
+  "/calculators/hedge-bet-calculator/": {
+    href: "/analysis/cash-out-fair-value/",
+    title: "What is a cash-out offer worth?",
+    text: "See how a cash-out offer can be compared with a stated fair-value probability benchmark."
+  },
+  "/calculators/each-way-extra-places-calculator/": {
+    href: "/analysis/extra-places-mathematical-value/",
+    title: "What does an extra place actually change?",
+    text: "See a transparent model isolating the expected-return effect of adding one extra place."
+  },
+  "/calculators/overround-calculator/": {
+    href: "/analysis/how-margin-compounds-in-accumulators/",
+    title: "From margin to accumulator pricing",
+    text: "See why repeatedly multiplying margined prices can create a much larger combined pricing gap."
+  }
+};
+
+const relatedAnalysis = analysisLinks[pathname];
 ---
+
+{isCalculator && (
+  <section class="content-card calculator-methodology-panel">
+    <p class="eyebrow">Understand the result</p>
+    <h2>How to interpret this calculator</h2>
+    <p>
+      Betting Maths calculators are designed to show the arithmetic behind the inputs you provide. A calculated return, probability, liability or expected value is not a prediction that an event will happen.
+    </p>
+    <div class="method-grid">
+      <div>
+        <h3>Check the assumptions</h3>
+        <p>Results depend on the odds, stakes, commission, place terms or probability estimates entered. If the inputs change, the result changes.</p>
+      </div>
+      <div>
+        <h3>Reproduce the maths</h3>
+        <p>Our methodology explains the core formulas, rounding approach and limitations used across the calculator library.</p>
+        <a href="/methodology/">Read the calculation methodology</a>
+      </div>
+      <div>
+        <h3>Use the result educationally</h3>
+        <p>Real settlement can also depend on bookmaker or exchange rules, non-runners, voids, liquidity, price movement and promotional terms.</p>
+      </div>
+    </div>
+
+    {relatedAnalysis && (
+      <a class="analysis-link" href={relatedAnalysis.href}>
+        <span>Related Betting Maths analysis</span>
+        <strong>{relatedAnalysis.title}</strong>
+        <p>{relatedAnalysis.text}</p>
+      </a>
+    )}
+  </section>
+)}
+
+<style>
+  .calculator-methodology-panel { margin-top: 1.25rem; }
+  .calculator-methodology-panel h2 { margin-top: 0; }
+  .method-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1rem; }
+  .method-grid > div { padding: 1rem; border: 1px solid var(--color-border); border-radius: 14px; background: var(--color-bg); }
+  .method-grid p { margin-bottom: 0; }
+  .method-grid a { display: inline-block; margin-top: 0.6rem; color: var(--color-green-dark); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+  .analysis-link { display: block; margin-top: 1rem; padding: 1rem 1.15rem; border: 1px solid rgba(31, 138, 91, 0.28); border-radius: 14px; background: #eef8f3; }
+  .analysis-link span { display: block; margin-bottom: 0.25rem; color: var(--color-green-dark); font-size: 0.78rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.06em; }
+  .analysis-link strong { color: var(--color-navy); font-size: 1.05rem; }
+  .analysis-link p { margin: 0.3rem 0 0; }
+  @media (max-width: 900px) { .method-grid { grid-template-columns: 1fr; } }
+</style>
