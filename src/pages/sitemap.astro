@@ -2,10 +2,17 @@
 import MainLayout from "../layouts/MainLayout.astro";
 
 const mainPages = [
-  { href: "/", tag: "Home", title: "Betting Maths", description: "The main homepage for calculators, guides and betting maths explanations." },
+  { href: "/", tag: "Home", title: "Betting Maths", description: "The main homepage for calculators, guides and original betting maths analysis." },
+  { href: "/analysis/", tag: "Hub", title: "Betting Maths Analysis", description: "Original worked mathematical investigations into betting prices, offers and market mechanics." },
   { href: "/calculators/", tag: "Hub", title: "All Calculators", description: "Browse all betting calculators in one place." },
   { href: "/guides/", tag: "Hub", title: "All Guides", description: "Browse all betting maths guides in one place." },
   { href: "/glossary/betting-jargon-explained/", tag: "Glossary", title: "Betting Jargon Explained", description: "A plain-English A-Z glossary of betting terms." }
+];
+
+const analyses = [
+  { href: "/analysis/how-margin-compounds-in-accumulators/", title: "How Bookmaker Margin Compounds in Accumulators", description: "A reproducible model of how repeated pricing disadvantage compounds across accumulator legs." },
+  { href: "/analysis/cash-out-fair-value/", title: "What Is a Cash-Out Offer Worth?", description: "A fair-value model for comparing a cash-out offer with a stated probability benchmark." },
+  { href: "/analysis/extra-places-mathematical-value/", title: "What Does an Extra Place Actually Change?", description: "A transparent model showing how an additional each-way place changes expected return." }
 ];
 
 const calculators = [
@@ -53,63 +60,34 @@ const guides = [
 ];
 
 const siteInfo = [
-  { href: "/about/", tag: "Info", title: "About", description: "Learn what Betting Maths is and what the site is for." },
+  { href: "/about/", tag: "Info", title: "About", description: "Why Betting Maths exists, what it publishes and how the site approaches trust." },
+  { href: "/methodology/", tag: "Standards", title: "Calculation Methodology", description: "Formulas, assumptions, rounding and checking principles used across Betting Maths." },
+  { href: "/editorial-standards/", tag: "Standards", title: "Editorial Standards", description: "How Betting Maths handles accuracy, original analysis, sourcing, corrections and commercial independence." },
   { href: "/responsible-gambling/", tag: "Important", title: "Responsible Gambling", description: "Safer gambling reminders, support information and responsible gambling resources." },
   { href: "/disclaimer/", tag: "Legal", title: "Disclaimer", description: "Important information about educational content, risk and no betting advice." },
   { href: "/privacy-policy/", tag: "Legal", title: "Privacy Policy", description: "Information about privacy, analytics, cookies and future advertising or affiliate links." },
   { href: "/cookie-policy/", tag: "Legal", title: "Cookie Policy", description: "Information about cookies, analytics consent and cookie settings." },
-  { href: "/contact/", tag: "Info", title: "Contact", description: "Current contact information and site communication notes." }
+  { href: "/contact/", tag: "Info", title: "Contact and Corrections", description: "How to report calculation errors, factual corrections and site issues." }
 ];
 ---
 
-<MainLayout
-  title="Sitemap"
-  description="Sitemap for Betting Maths, including all betting calculators, guides, glossary pages, cookie policy and site information pages."
->
+<MainLayout title="Sitemap" description="Sitemap for Betting Maths, including original analysis, calculators, guides, glossary, methodology, editorial standards and site information pages.">
   <section class="content-card">
     <p class="eyebrow">Site navigation</p>
     <h1>Sitemap</h1>
-    <p class="lead">Use this sitemap to find all the main Betting Maths calculators, guides, glossary pages and site information pages.</p>
+    <p class="lead">Find the main Betting Maths analysis, calculators, guides, glossary and publication information pages.</p>
     <div class="callout"><strong>Looking for the XML sitemap?</strong> Search engines can use the technical sitemap at <a href="/sitemap-index.xml">sitemap-index.xml</a>.</div>
   </section>
 
-  <section class="content-card sitemap-section">
-    <h2>Main pages</h2>
-    <div class="sitemap-grid">
-      {mainPages.map((page) => (
-        <a class="sitemap-card" href={page.href}><span>{page.tag}</span><h3>{page.title}</h3><p>{page.description}</p></a>
-      ))}
-    </div>
-  </section>
+  <section class="content-card sitemap-section"><h2>Main pages</h2><div class="sitemap-grid">{mainPages.map((page) => (<a class="sitemap-card" href={page.href}><span>{page.tag}</span><h3>{page.title}</h3><p>{page.description}</p></a>))}</div></section>
 
-  <section class="content-card sitemap-section">
-    <h2>Betting calculators</h2>
-    <p>These calculators help explain odds, stakes, returns, bookmaker margin, expected value, exchange liability, hedging, dead heats and common betting calculations.</p>
-    <div class="sitemap-grid">
-      {calculators.map((calculator) => (
-        <a class="sitemap-card" href={calculator.href}><span>Calculator</span><h3>{calculator.title}</h3><p>{calculator.description}</p></a>
-      ))}
-    </div>
-  </section>
+  <section class="content-card sitemap-section"><h2>Original analysis</h2><p>Worked mathematical investigations with explicit assumptions, calculations and limitations.</p><div class="sitemap-grid">{analyses.map((analysis) => (<a class="sitemap-card" href={analysis.href}><span>Analysis</span><h3>{analysis.title}</h3><p>{analysis.description}</p></a>))}</div></section>
 
-  <section class="content-card sitemap-section">
-    <h2>Betting maths guides</h2>
-    <p>These guides explain the concepts behind the calculators in plain English.</p>
-    <div class="sitemap-grid">
-      {guides.map((guide) => (
-        <a class="sitemap-card" href={guide.href}><span>Guide</span><h3>{guide.title}</h3><p>{guide.description}</p></a>
-      ))}
-    </div>
-  </section>
+  <section class="content-card sitemap-section"><h2>Betting calculators</h2><p>Tools for odds, stakes, returns, bookmaker margin, expected value, exchange liability, hedging, dead heats and other betting calculations.</p><div class="sitemap-grid">{calculators.map((calculator) => (<a class="sitemap-card" href={calculator.href}><span>Calculator</span><h3>{calculator.title}</h3><p>{calculator.description}</p></a>))}</div></section>
 
-  <section class="content-card sitemap-section">
-    <h2>Site information</h2>
-    <div class="sitemap-grid">
-      {siteInfo.map((page) => (
-        <a class="sitemap-card" href={page.href}><span>{page.tag}</span><h3>{page.title}</h3><p>{page.description}</p></a>
-      ))}
-    </div>
-  </section>
+  <section class="content-card sitemap-section"><h2>Betting maths guides</h2><p>Plain-English explanations of the concepts behind the calculators and analysis.</p><div class="sitemap-grid">{guides.map((guide) => (<a class="sitemap-card" href={guide.href}><span>Guide</span><h3>{guide.title}</h3><p>{guide.description}</p></a>))}</div></section>
+
+  <section class="content-card sitemap-section"><h2>Site information and standards</h2><div class="sitemap-grid">{siteInfo.map((page) => (<a class="sitemap-card" href={page.href}><span>{page.tag}</span><h3>{page.title}</h3><p>{page.description}</p></a>))}</div></section>
 
   <div class="callout"><strong>Responsible note:</strong> Betting Maths is an educational site. It does not provide betting tips, predictions, financial advice or guaranteed profit strategies.</div>
 
