@@ -1,0 +1,101 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="What Does an Extra Place Actually Change?"
+  description="A transparent Betting Maths model showing how an additional each-way place can change the expected return of the place part of a bet."
+>
+  <section class="content-card">
+    <p class="eyebrow">Original mathematical analysis</p>
+    <h1>What Does an Extra Place Actually Change?</h1>
+    <p class="lead">“Extra places” sounds automatically better, but the size of the mathematical improvement depends on the field, the place fraction, the odds and the runner's chance of finishing in the added position.</p>
+    <div class="callout"><strong>Model, not a racing prediction:</strong> This analysis uses an equal-runner 12-runner model to isolate the value of moving from three places to four. Real horses do not have equal finishing probabilities.</div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>The example terms</h2>
+    <p>Take a £10 each-way bet at decimal win odds of 8.00. That is £10 on the win and £10 on the place, for a £20 total stake. Assume place terms of 1/5 of the win odds.</p>
+    <div class="formula-box">
+      <p>Win profit portion at 8.00 = 7.00</p>
+      <p>Place profit portion = 7.00 × 1/5 = 1.40</p>
+      <p><strong>Place decimal odds</strong> = 1 + 1.40 = <strong>2.40</strong></p>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Three places versus four</h2>
+    <p>In a deliberately simplified field of 12 equally likely runners, each runner has the same chance of occupying any finishing position.</p>
+    <table class="example-table">
+      <thead><tr><th>Terms</th><th>Model place probability</th><th>£10 place return if placed</th><th>Expected place return</th></tr></thead>
+      <tbody>
+        <tr><td>3 places</td><td>3 ÷ 12 = 25.00%</td><td>£24.00</td><td>£6.00</td></tr>
+        <tr><td>4 places</td><td>4 ÷ 12 = 33.33%</td><td>£24.00</td><td>£8.00</td></tr>
+      </tbody>
+    </table>
+    <p>Under these assumptions, adding one place increases the expected return of the £10 place half from £6 to £8: an improvement of £2.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Where does the £2 improvement come from?</h2>
+    <p>The extra place adds one additional finishing position that now triggers the place payout. In the equal-runner model, the chance of finishing exactly fourth is 1/12, or 8.33%.</p>
+    <div class="formula-box">
+      <p>Probability of added place = 1 ÷ 12 = 8.33%</p>
+      <p>Place return if fourth now qualifies = £24</p>
+      <p>8.33% × £24 = <strong>£2.00 additional expected return</strong></p>
+    </div>
+    <p>This gives a useful general idea: the value of an extra place is driven by the probability mass being added and the payout attached to that place outcome.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>The offer can still change elsewhere</h2>
+    <p>An extra place should not be assessed in isolation if the bookmaker changes other terms. A shorter win price, a less generous place fraction or restrictions on which races qualify can offset some or all of the benefit.</p>
+    <table class="example-table">
+      <thead><tr><th>Change</th><th>Likely mathematical effect</th></tr></thead>
+      <tbody>
+        <tr><td>More qualifying places</td><td>Increases the probability that the place half returns something.</td></tr>
+        <tr><td>Lower place fraction</td><td>Reduces the payout when the place half wins.</td></tr>
+        <tr><td>Shorter win odds</td><td>Reduces both win return and the place price derived from the win odds.</td></tr>
+        <tr><td>Smaller field after non-runners</td><td>Can alter standard terms and the relative importance of each place.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Why real extra-place value is harder</h2>
+    <p>Real runners do not have equal finishing chances. A favourite may have a much greater probability of finishing in the first four than a 50/1 outsider, and the probability of finishing exactly in the newly added place can differ materially between runners.</p>
+    <p>To estimate the true expected value of a real extra-place offer, you would need a credible distribution of finishing probabilities—not just the quoted win odds. That is why this page is a structural model rather than a claim that every fourth-place concession is worth the same amount.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Limitations</h2>
+    <ul class="standard-list">
+      <li>The equal-runner assumption is intentionally unrealistic and exists only to isolate the effect of the additional place.</li>
+      <li>It assumes the same win odds and place fraction under both offers.</li>
+      <li>It ignores dead heats, Rule 4 deductions, non-runners and promotional exclusions.</li>
+      <li>It does not claim that the quoted win odds are fair odds.</li>
+    </ul>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What the analysis tells us</h2>
+    <p>An extra place has a real mathematical mechanism: it adds another set of finishing outcomes that can make the place half pay. But “more places” alone is not enough to quantify value. The payout terms and the runner's probability of occupying that added place matter too.</p>
+    <div class="button-row">
+      <a class="button primary" href="/calculators/each-way-extra-places-calculator/">Compare Extra Places</a>
+      <a class="button secondary" href="/guides/what-are-extra-places-in-each-way-betting/">Extra Places Guide</a>
+      <a class="button secondary" href="/methodology/">Methodology</a>
+    </div>
+  </section>
+
+  <div class="callout"><strong>Responsible note:</strong> Promotional terms can change. Check the current bookmaker rules before relying on any example.</div>
+
+  <style>
+    .article-section { margin-top: 1.25rem; }
+    .formula-box { padding: 1rem 1.15rem; border: 1px solid var(--color-border); border-radius: 14px; background: var(--color-bg); }
+    .formula-box p { margin: 0.4rem 0; }
+    .example-table { width: 100%; border-collapse: collapse; margin: 1rem 0; background: white; }
+    .example-table th, .example-table td { padding: 0.75rem; border: 1px solid var(--color-border); text-align: left; }
+    .example-table th { background: #f4f7fa; color: var(--color-navy); }
+    .standard-list { padding-left: 1.3rem; }
+  </style>
+</MainLayout>
