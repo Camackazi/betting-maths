@@ -5,6 +5,20 @@ const currentPath = Astro.url.pathname.endsWith("/")
 
 const sections = [
   {
+    title: "Analysis",
+    groups: [
+      {
+        title: "Original work",
+        links: [
+          { href: "/analysis/", label: "All Analysis" },
+          { href: "/analysis/how-margin-compounds-in-accumulators/", label: "Margin in Accumulators" },
+          { href: "/analysis/cash-out-fair-value/", label: "Cash-Out Fair Value" },
+          { href: "/analysis/extra-places-mathematical-value/", label: "Value of Extra Places" }
+        ]
+      }
+    ]
+  },
+  {
     title: "Calculators",
     groups: [
       {
@@ -115,12 +129,20 @@ const sections = [
     ]
   },
   {
-    title: "Glossary",
+    title: "Reference",
     groups: [
       {
-        title: "Definitions",
+        title: "Glossary",
         links: [
           { href: "/glossary/betting-jargon-explained/", label: "Betting Jargon Explained" }
+        ]
+      },
+      {
+        title: "How we work",
+        links: [
+          { href: "/methodology/", label: "Calculation Methodology" },
+          { href: "/editorial-standards/", label: "Editorial Standards" },
+          { href: "/about/", label: "About Betting Maths" }
         ]
       }
     ]

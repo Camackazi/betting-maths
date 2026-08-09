@@ -4,178 +4,89 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 <MainLayout
   title="About Betting Maths"
-  description="Learn what Betting Maths is, why the site exists, and how its calculators and guides help explain betting odds, stakes, margins and risk."
+  description="Learn why Betting Maths exists, what we publish, how our calculations and analysis are checked, and how we approach betting content responsibly."
 >
   <section class="content-card">
     <p class="eyebrow">About Betting Maths</p>
     <h1>About Betting Maths</h1>
-    <p class="lead">
-      Betting Maths is a free educational website designed to explain the numbers behind betting in plain English.
-    </p>
-
-    <div class="callout">
-      <strong>Simple aim:</strong> Betting Maths helps people understand odds, probability, bookmaker margin, staking, exchange liability, each-way terms and common betting calculations. It does not provide betting tips, predictions or guaranteed profit systems.
-    </div>
+    <p class="lead">Betting Maths is an independent educational website dedicated to explaining and investigating the mathematics behind betting markets.</p>
+    <div class="callout"><strong>Our purpose:</strong> help readers understand what betting numbers actually mean through free calculators, plain-English guides and transparent mathematical analysis. We do not provide betting tips, predictions or guaranteed profit systems.</div>
   </section>
 
   <section class="content-card article-section">
-    <h2>Why this site exists</h2>
-    <p>
-      Betting can look simple on the surface, but the maths behind it can quickly become confusing. Odds, implied probability, bookmaker margin, overround, lay liability, dutching, hedging, free bets, each-way terms and Rule 4 deductions all affect how a bet really works.
-    </p>
-    <p>
-      Betting Maths exists to make those calculations easier to understand. The goal is to provide useful calculators and plain-English explanations so users can see how the numbers work before making decisions.
-    </p>
+    <h2>Why Betting Maths exists</h2>
+    <p>Betting is full of numbers that can look more intuitive than they really are. Odds contain implied probabilities. A market can contain margin. Exchange bets create liability. Each-way terms alter the return. Accumulator prices multiply. Cash-out offers convert uncertainty into a price.</p>
+    <p>Betting Maths exists to make those mechanics visible. Rather than telling a reader what to bet on, the site aims to show the calculation, explain the assumptions and help the reader understand the trade-off.</p>
   </section>
 
   <section class="content-card article-section">
-    <h2>What Betting Maths provides</h2>
-    <p>
-      The site includes calculators and guides covering common betting maths topics, including:
-    </p>
-
-    <ul class="standard-list">
-      <li>Odds conversion and implied probability</li>
-      <li>Overround, book percentage and bookmaker margin</li>
-      <li>Dutching, hedging, back/lay betting and lay liability</li>
-      <li>Free bets, matched betting and stake-not-returned calculations</li>
-      <li>Accumulator, each-way, extra places and Rule 4 calculations</li>
-      <li>Kelly Criterion staking and bankroll-related examples</li>
-      <li>Plain-English explanations of common betting jargon</li>
-    </ul>
-
+    <h2>What we publish</h2>
     <div class="related-grid">
-      <a class="related-card" href="/calculators/">
-        <h3>Betting Calculators</h3>
-        <p>Use tools for odds, staking, margins, free bets, each-way bets and more.</p>
-      </a>
-
-      <a class="related-card" href="/guides/">
-        <h3>Betting Guides</h3>
-        <p>Read plain-English guides explaining the maths behind common betting terms.</p>
-      </a>
-
-      <a class="related-card" href="/glossary/betting-jargon-explained/">
-        <h3>Betting Glossary</h3>
-        <p>Look up common betting jargon and maths terms.</p>
-      </a>
+      <a class="related-card" href="/calculators/"><h3>Calculators</h3><p>Interactive tools for odds, margin, staking, exchange liability, each-way settlement and other betting calculations.</p></a>
+      <a class="related-card" href="/guides/"><h3>Guides</h3><p>Plain-English explanations of the concepts and formulas behind the tools.</p></a>
+      <a class="related-card" href="/analysis/"><h3>Analysis</h3><p>Original worked investigations that start with a question and use transparent mathematics to examine it.</p></a>
     </div>
+    <p>These three layers are intended to work together. A calculator gives a result, a guide explains the concept, and an analysis can explore what happens when the same mathematics is applied to a deeper question.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>How we establish trust</h2>
+    <p>Betting Maths does not ask readers to accept a calculation because of a claimed secret system or uncheckable expertise. Our preferred approach is to show enough of the working for a reader to reproduce the result.</p>
+    <ul class="standard-list">
+      <li>Important formulas are shown on calculator, guide or methodology pages.</li>
+      <li>Modelled analysis states its assumptions.</li>
+      <li>Observed data will be distinguished from hypothetical examples.</li>
+      <li>Probability estimates are labelled as estimates rather than facts.</li>
+      <li>Important limitations are included when they affect interpretation.</li>
+      <li>External rules or factual claims should use appropriate primary sources where relevant.</li>
+    </ul>
+    <div class="button-row">
+      <a class="button primary" href="/methodology/">Calculation Methodology</a>
+      <a class="button secondary" href="/editorial-standards/">Editorial Standards</a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Independence and commercial content</h2>
+    <p>Betting Maths is independently produced and maintained. The site may be funded through advertising and may consider appropriate commercial or affiliate relationships in the future.</p>
+    <p>Commercial relationships should not change a mathematical result or determine the conclusion of an analysis. Where a relationship is relevant to a page, it should be disclosed clearly.</p>
   </section>
 
   <section class="content-card article-section">
     <h2>What Betting Maths does not do</h2>
-    <p>
-      Betting Maths is not a tipping service, prediction site, bookmaker, betting exchange, financial adviser or gambling operator.
-    </p>
-
     <ul class="standard-list">
-      <li>The site does not tell users what to bet on.</li>
-      <li>The site does not guarantee profit.</li>
-      <li>The site does not provide financial advice.</li>
-      <li>The site does not accept bets or process gambling transactions.</li>
-      <li>The site does not encourage chasing losses or betting beyond personal limits.</li>
+      <li>We do not publish betting tips or selections.</li>
+      <li>We do not predict sporting outcomes.</li>
+      <li>We do not guarantee profit.</li>
+      <li>We do not accept bets or operate gambling accounts.</li>
+      <li>We do not provide personal financial advice.</li>
     </ul>
-
-    <p>
-      The calculators are designed for educational and estimation purposes. Real betting outcomes can be affected by odds movement, market rules, bookmaker terms, exchange liquidity, commission, restrictions, void bets, settlement rules and human error.
-    </p>
+    <p>Even correct mathematics cannot remove the uncertainty of an event. Real outcomes can also be affected by market rules, settlement rules, odds movement, commission, liquidity, restrictions and human error.</p>
   </section>
 
   <section class="content-card article-section">
     <h2>Responsible gambling</h2>
-    <p>
-      Betting always involves risk. Even when the maths is understood, no calculator can remove uncertainty from real-world betting.
-    </p>
-    <p>
-      If betting stops feeling controlled, affordable or enjoyable, it may be time to pause and seek support. Betting Maths includes a responsible gambling page with reminders and links to UK support services.
-    </p>
-
+    <p>Understanding odds and probability should make risk clearer, not make gambling look risk-free. Betting Maths maintains dedicated responsible gambling information and links to UK support resources.</p>
     <div class="button-row">
       <a class="button primary" href="/responsible-gambling/">Responsible Gambling</a>
-      <a class="button secondary" href="/disclaimer/">Read the Disclaimer</a>
+      <a class="button secondary" href="/disclaimer/">Disclaimer</a>
     </div>
   </section>
 
   <section class="content-card article-section">
-    <h2>How the site may develop</h2>
-    <p>
-      Betting Maths may continue to add more calculators, guides, examples, glossary terms and educational articles over time.
-    </p>
-    <p>
-      The site may also include advertising or affiliate links in the future. If that happens, relevant pages such as the privacy policy, disclaimer and any affiliate disclosure wording will be updated so users can understand how the site is funded.
-    </p>
-  </section>
-
-  <section class="content-card article-section">
-    <h2>Contact and corrections</h2>
-    <p>
-      Betting Maths is still developing. If contact details are added in the future, they will be shown on the contact page.
-    </p>
-    <p>
-      The aim is to keep explanations clear and calculations useful, but users should always check important figures, bookmaker terms and settlement rules for themselves before relying on any calculation.
-    </p>
-
-    <div class="button-row">
-      <a class="button primary" href="/contact/">Contact Information</a>
-      <a class="button secondary" href="/privacy-policy/">Privacy Policy</a>
-    </div>
+    <h2>Corrections and contact</h2>
+    <p>Calculations and explanations should be open to correction. If you spot a reproducible calculation error, broken page or factual issue, the contact page explains the current reporting route.</p>
+    <div class="button-row"><a class="button primary" href="/contact/">Contact and Corrections</a></div>
   </section>
 
   <style>
-    .article-section {
-      margin-top: 1.25rem;
-    }
-
-    .standard-list {
-      padding-left: 1.3rem;
-    }
-
-    .standard-list li {
-      margin: 0.45rem 0;
-    }
-
-    .related-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .related-card {
-      display: block;
-      padding: 1rem;
-      border: 1px solid var(--color-border);
-      border-radius: 14px;
-      background: var(--color-bg);
-    }
-
-    .related-card:hover {
-      border-color: rgba(31, 138, 91, 0.45);
-      transform: translateY(-2px);
-    }
-
-    .related-card p {
-      margin: 0;
-      color: var(--color-muted);
-    }
-
-    .article-section a {
-      color: var(--color-green-dark);
-      font-weight: 800;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    @media (max-width: 980px) {
-      .related-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 760px) {
-      .related-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    .article-section { margin-top: 1.25rem; }
+    .standard-list { padding-left: 1.3rem; }
+    .standard-list li { margin: 0.45rem 0; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .related-card { display: block; padding: 1rem; border: 1px solid var(--color-border); border-radius: 14px; background: var(--color-bg); }
+    .related-card:hover { border-color: rgba(31, 138, 91, 0.45); transform: translateY(-2px); }
+    .related-card p { margin: 0; }
+    @media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
   </style>
 </MainLayout>

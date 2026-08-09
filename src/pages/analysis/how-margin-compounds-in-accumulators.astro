@@ -1,0 +1,108 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="How Bookmaker Margin Compounds in Accumulators"
+  description="A Betting Maths worked analysis showing how a small pricing disadvantage on each accumulator leg can compound across multiple selections."
+>
+  <section class="content-card">
+    <p class="eyebrow">Original mathematical analysis</p>
+    <h1>How Bookmaker Margin Compounds in Accumulators</h1>
+    <p class="lead">Accumulator odds get bigger as more selections are added. But the pricing disadvantage built into each leg can compound too. This worked model shows how quickly that effect can grow.</p>
+    <div class="callout"><strong>Model, not market data:</strong> To isolate the maths, this analysis uses identical theoretical 50/50 selections offered at decimal odds of 1.90. Real markets are not this uniform.</div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>The question</h2>
+    <p>Suppose an outcome has a true probability of 50%. Its fair decimal price is 2.00. If the available price is 1.90 instead, the bettor is receiving 95% of the fair decimal return for that one selection.</p>
+    <p>What happens if five or eight identically priced selections are multiplied into an accumulator?</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Single-leg starting point</h2>
+    <table class="example-table">
+      <thead><tr><th>Measure</th><th>Fair</th><th>Offered</th></tr></thead>
+      <tbody>
+        <tr><td>Probability</td><td>50%</td><td>52.63% implied by 1.90</td></tr>
+        <tr><td>Decimal odds</td><td>2.00</td><td>1.90</td></tr>
+        <tr><td>Return ratio vs fair</td><td>100%</td><td>95%</td></tr>
+      </tbody>
+    </table>
+    <p>The 1.90 price does not mean the outcome's true chance suddenly became 52.63%. In this model we deliberately hold true probability at 50% and use 1.90 as the quoted price.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Compounding the prices</h2>
+    <p>If the selections are independent, the fair accumulator price is found by multiplying the fair prices. The quoted accumulator price is found by multiplying the quoted prices.</p>
+    <div class="formula-box">
+      <p><strong>Fair acca odds after n legs</strong> = 2.00<sup>n</sup></p>
+      <p><strong>Quoted acca odds after n legs</strong> = 1.90<sup>n</sup></p>
+      <p><strong>Return ratio vs fair</strong> = 1.90<sup>n</sup> ÷ 2.00<sup>n</sup> = 0.95<sup>n</sup></p>
+    </div>
+
+    <table class="example-table">
+      <thead><tr><th>Legs</th><th>Fair odds</th><th>Quoted odds</th><th>Quoted return vs fair</th><th>Modelled shortfall</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>2.00</td><td>1.90</td><td>95.00%</td><td>5.00%</td></tr>
+        <tr><td>2</td><td>4.00</td><td>3.61</td><td>90.25%</td><td>9.75%</td></tr>
+        <tr><td>3</td><td>8.00</td><td>6.86</td><td>85.74%</td><td>14.26%</td></tr>
+        <tr><td>5</td><td>32.00</td><td>24.76</td><td>77.38%</td><td>22.62%</td></tr>
+        <tr><td>8</td><td>256.00</td><td>169.84</td><td>66.34%</td><td>33.66%</td></tr>
+        <tr><td>10</td><td>1024.00</td><td>613.11</td><td>59.87%</td><td>40.13%</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>A £10 five-leg example</h2>
+    <p>Five independent 50/50 selections all winning has a true model probability of 3.125%, or fair odds of 32.00. At quoted odds of 1.90 per leg, the accumulator pays 24.76099.</p>
+    <div class="formula-box">
+      <p>Fair return on £10 at 32.00 = <strong>£320.00</strong></p>
+      <p>Quoted return on £10 at 24.76099 = <strong>£247.61</strong></p>
+      <p>Expected quoted return = 3.125% × £247.61 = <strong>about £7.74</strong></p>
+      <p>Modelled expected loss from a £10 stake = <strong>about £2.26</strong></p>
+    </div>
+    <p>The important point is not that every five-leg accumulator has a 22.62% disadvantage. It does not. The point is that <strong>repeating a small disadvantage on every leg can magnify it substantially when prices are multiplied.</strong></p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Why this is different from adding the margins</h2>
+    <p>It would be tempting to say five 5% disadvantages simply make 25%. The exact modelled effect here is 22.62% because the return ratios multiply: 0.95 × 0.95 × 0.95 × 0.95 × 0.95 = 0.7738.</p>
+    <p>This distinction matters because accumulator maths is multiplicative, not additive.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Limitations</h2>
+    <ul class="standard-list">
+      <li>Real selections do not all have 50% true probability.</li>
+      <li>Real bookmaker margins are not necessarily distributed evenly between outcomes.</li>
+      <li>Accumulator legs can be correlated, which changes the fair combined probability.</li>
+      <li>Bookmakers may apply special same-game or related-contingency pricing.</li>
+      <li>This model isolates price compounding; it does not estimate any specific bookmaker's actual hold.</li>
+    </ul>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What the analysis tells us</h2>
+    <p>A small gap between fair price and quoted price can look modest on a single selection. When that same relative gap is repeated across many independent legs, the combined offered return can move much further away from the fair model price.</p>
+    <p>That is one mathematical reason the headline potential return of an accumulator does not tell the whole story.</p>
+    <div class="button-row">
+      <a class="button primary" href="/calculators/accumulator-calculator/">Use the Accumulator Calculator</a>
+      <a class="button secondary" href="/guides/bookmaker-margin-explained/">Bookmaker Margin Explained</a>
+      <a class="button secondary" href="/methodology/">Methodology</a>
+    </div>
+  </section>
+
+  <div class="callout"><strong>Responsible note:</strong> This is a mathematical model for education, not a recommendation to place or avoid a particular bet.</div>
+
+  <style>
+    .article-section { margin-top: 1.25rem; }
+    .formula-box { padding: 1rem 1.15rem; border: 1px solid var(--color-border); border-radius: 14px; background: var(--color-bg); }
+    .formula-box p { margin: 0.4rem 0; }
+    .example-table { width: 100%; border-collapse: collapse; margin: 1rem 0; background: white; }
+    .example-table th, .example-table td { padding: 0.75rem; border: 1px solid var(--color-border); text-align: left; }
+    .example-table th { background: #f4f7fa; color: var(--color-navy); }
+    .standard-list { padding-left: 1.3rem; }
+  </style>
+</MainLayout>

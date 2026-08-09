@@ -1,0 +1,111 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="Calculation Methodology"
+  description="How Betting Maths calculates odds, probability, returns, bookmaker margin, exchange liability and other betting maths, including assumptions, rounding and limitations."
+>
+  <section class="content-card">
+    <p class="eyebrow">How our calculations work</p>
+    <h1>Betting Maths Calculation Methodology</h1>
+    <p class="lead">
+      This page explains the conventions, formulas and checking principles used across Betting Maths calculators, guides and analysis.
+    </p>
+    <div class="callout">
+      <strong>Core principle:</strong> Betting Maths aims to make every important calculation reproducible. Where an estimate depends on assumptions rather than known facts, we say so.
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Our calculation standard</h2>
+    <p>Decimal odds are used as the internal standard because they make returns and implied probabilities straightforward to reproduce. Fractional and American odds are converted to decimal form before related calculations are performed.</p>
+    <div class="formula-box">
+      <p><strong>Total return</strong> = stake × decimal odds</p>
+      <p><strong>Profit</strong> = total return − stake</p>
+      <p><strong>Implied probability</strong> = 1 ÷ decimal odds × 100</p>
+    </div>
+    <p>Displayed figures are normally rounded for readability, but calculations should use the unrounded values available in the tool wherever practical. Small differences of a penny or a few hundredths of a percentage point can therefore occur when a displayed example is recalculated from rounded intermediate figures.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Bookmaker margin and overround</h2>
+    <p>For a market with mutually exclusive outcomes, Betting Maths converts each quoted price into implied probability and adds those probabilities together.</p>
+    <div class="formula-box">
+      <p><strong>Book percentage</strong> = sum of all implied probabilities</p>
+      <p><strong>Overround</strong> = book percentage − 100%</p>
+    </div>
+    <p>Overround is a useful description of the prices offered in a market, but it is not the same thing as a guaranteed bookmaker profit on that event. Real results also depend on liabilities, customer stakes, price changes and market management.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>No-vig fair odds</h2>
+    <p>The No-Vig Fair Odds Calculator uses proportional normalisation: each implied probability is divided by the total implied probability of the market so that the adjusted probabilities sum to 100%.</p>
+    <div class="formula-box">
+      <p><strong>Normalised probability</strong> = outcome implied probability ÷ total implied probability</p>
+      <p><strong>No-vig decimal odds</strong> = 1 ÷ normalised probability</p>
+    </div>
+    <p>This is a mathematical way of removing the observed overround. It does <strong>not</strong> prove the true probability of an outcome, because bookmaker margin does not have to be distributed proportionally between every selection.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Expected value</h2>
+    <p>Expected value calculations combine the possible profit and loss with an estimated probability. The probability estimate is an input, not a fact supplied by the calculator.</p>
+    <div class="formula-box">
+      <p><strong>Profit if win</strong> = stake × (decimal odds − 1)</p>
+      <p><strong>Expected value</strong> = (win probability × profit if win) − (loss probability × stake)</p>
+      <p><strong>Expected ROI</strong> = expected value ÷ stake × 100</p>
+    </div>
+    <p>A positive expected value result only means the arithmetic is positive <em>if the probability estimate is accurate</em>. It is not a prediction or guarantee.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Accumulators</h2>
+    <p>For an accumulator, decimal odds are multiplied together. The calculator also converts the combined decimal price into an implied probability.</p>
+    <div class="formula-box">
+      <p><strong>Combined odds</strong> = odds 1 × odds 2 × odds 3 × …</p>
+      <p><strong>Combined implied probability</strong> = 1 ÷ combined odds × 100</p>
+    </div>
+    <p>Multiplying quoted prices also compounds the pricing embedded in each leg. Our analysis section explores this effect separately from the basic calculator.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Exchange commission and lay liability</h2>
+    <p>Lay liability measures the amount at risk if a laid selection wins. Commission is applied only where the relevant calculator explicitly includes it and follows the stated input assumptions.</p>
+    <div class="formula-box">
+      <p><strong>Lay liability</strong> = lay stake × (lay odds − 1)</p>
+      <p><strong>Net exchange win</strong> = gross exchange win × (1 − commission rate)</p>
+    </div>
+    <p>Exchange charging structures can differ, so users should check the actual rules applying to their account and market.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Each-way, dead heat and Rule 4 calculations</h2>
+    <p>Each-way calculations treat the win and place parts as separate stakes. Place odds are derived from the quoted win odds and the stated place fraction. Dead-heat and Rule 4 tools apply the inputs supplied by the user to the standard mathematical treatment described on the relevant page.</p>
+    <p>Bookmaker settlement rules can vary, particularly around concessions, non-runners, enhanced places and promotional terms. Our tools are therefore educational estimators rather than substitutes for a bookmaker's settlement rules.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>How we check calculators</h2>
+    <p>New or materially changed calculators should be checked against worked examples that can be reproduced by hand. We also check boundary conditions such as zero or invalid inputs, odds below valid decimal ranges, commission percentages and missing selections.</p>
+    <p>Where two calculators cover related mathematics, their overlapping outputs should agree under the same assumptions. Examples on guide pages are intended to provide a second, visible way to check the arithmetic.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Analysis and research standards</h2>
+    <p>Betting Maths analysis separates observed data from modelled examples. A modelled example will state its assumptions. A data study will describe what was collected, the sample period, the calculation method and important limitations.</p>
+    <p>We will not present a hypothetical model as real bookmaker data, and we will not describe an estimated probability as a known true probability.</p>
+    <div class="button-row">
+      <a class="button primary" href="/analysis/">Read Betting Maths Analysis</a>
+      <a class="button secondary" href="/editorial-standards/">Editorial Standards</a>
+    </div>
+  </section>
+
+  <div class="callout"><strong>Educational use:</strong> Betting Maths explains calculations and market mechanics. It does not provide betting tips, predictions, financial advice or guaranteed profit strategies.</div>
+
+  <style>
+    .article-section { margin-top: 1.25rem; }
+    .formula-box { padding: 1rem 1.15rem; border: 1px solid var(--color-border); border-radius: 14px; background: var(--color-bg); }
+    .formula-box p { margin: 0.4rem 0; }
+  </style>
+</MainLayout>
