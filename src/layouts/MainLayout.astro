@@ -12,7 +12,9 @@ import "../styles/global.css";
 
 const {
   title = "Betting Maths",
-  description = "Free betting calculators and plain-English guides to help you understand odds, stakes and bookmaker margins."
+  description = "Free betting calculators and plain-English guides to help you understand odds, stakes and bookmaker margins.",
+  datePublished,
+  dateModified
 } = Astro.props;
 
 const pathname = Astro.url.pathname;
@@ -27,7 +29,7 @@ const showAutoToc =
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <SeoHead title={title} description={description} />
+    <SeoHead title={title} description={description} datePublished={datePublished} dateModified={dateModified} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
