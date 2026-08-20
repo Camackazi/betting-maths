@@ -1,0 +1,160 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+
+const rows = [
+  ["Liverpool v Bournemouth", 105.35, 105.15, 100.54],
+  ["Aston Villa v Newcastle", 107.50, 105.58, 100.94],
+  ["Brighton v Fulham", 105.13, 105.28, 102.95],
+  ["Sunderland v West Ham", 104.63, 105.38, 102.82],
+  ["Tottenham v Burnley", 105.28, 105.87, 101.95],
+  ["Wolves v Man City", 106.02, 105.44, 100.90],
+  ["Chelsea v Crystal Palace", 107.05, 105.55, 102.15],
+  ["Nott'm Forest v Brentford", 104.33, 105.43, 102.19],
+  ["Man United v Arsenal", 106.84, 105.85, 101.61],
+  ["Leeds v Everton", 105.65, 106.02, 101.36]
+];
+---
+
+<MainLayout
+  title="Premier League Opening-Weekend Betting Margins: 2025/26 Data Study"
+  description="Original Betting Maths research measuring the 1X2 book percentage on all 10 Premier League opening-weekend matches in 2025/26 using Football-Data.co.uk odds."
+>
+  <section class="content-card">
+    <p class="eyebrow">Observed market data</p>
+    <h1>How Much Margin Was in Premier League Opening-Weekend 1X2 Markets?</h1>
+    <p class="lead">We measured the 1X2 book percentage on all 10 matches from the opening round of the 2025/26 Premier League season. The aim was simple: replace a generic explanation of overround with a real market snapshot that readers can reproduce.</p>
+    <div class="research-meta">
+      <span><strong>Sample:</strong> 10 matches</span>
+      <span><strong>Market:</strong> Full-time 1X2</span>
+      <span><strong>Season:</strong> 2025/26</span>
+      <span><strong>Published:</strong> 20 August 2026</span>
+    </div>
+    <div class="callout"><strong>Headline finding:</strong> Bet365's opening prices in this 10-match sample averaged a 105.78% book. The cross-bookmaker average prices produced 105.56%, while combining the best available price for each outcome reduced the average book to 101.74%.</div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What we measured</h2>
+    <p>For each opening-weekend match we took three sets of decimal prices from the Football-Data.co.uk Premier League CSV:</p>
+    <ul class="standard-list">
+      <li><strong>Bet365 opening prices</strong> for home, draw and away.</li>
+      <li><strong>Average opening prices</strong> across the bookmakers included in the source file.</li>
+      <li><strong>Maximum opening prices</strong> for each outcome, representing the best listed price available across the source's bookmaker set.</li>
+    </ul>
+    <p>We then converted each price to implied probability and added the three probabilities together.</p>
+    <div class="formula-box">
+      <p><strong>Implied probability</strong> = 1 ÷ decimal odds × 100</p>
+      <p><strong>Book percentage</strong> = home implied probability + draw implied probability + away implied probability</p>
+      <p><strong>Overround</strong> = book percentage − 100%</p>
+    </div>
+    <p>A 105.50% book therefore contains 5.50 percentage points above a theoretical 100% book. That figure is not the bookmaker's guaranteed profit margin; it is a measure of the pricing built into the market.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>The 10-match results</h2>
+    <div class="table-wrap">
+      <table class="example-table">
+        <thead>
+          <tr><th>Match</th><th>Bet365 book</th><th>Market-average book</th><th>Best-available book</th></tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr>
+              <td>{row[0]}</td>
+              <td>{row[1].toFixed(2)}%</td>
+              <td>{row[2].toFixed(2)}%</td>
+              <td>{row[3].toFixed(2)}%</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p>The pattern is clearer than any one match. Bet365's opening book ranged from 104.33% to 107.50%. The market-average book was much tighter as a range, from 105.15% to 106.02%. The best available prices across bookmakers ranged from 100.54% to 102.95%.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Summary statistics</h2>
+    <div class="stat-grid">
+      <div class="stat-card"><span>Bet365 opening book</span><strong>105.78%</strong><small>Average across 10 matches</small></div>
+      <div class="stat-card"><span>Market-average opening book</span><strong>105.56%</strong><small>Average across 10 matches</small></div>
+      <div class="stat-card"><span>Best-available opening book</span><strong>101.74%</strong><small>Average across 10 matches</small></div>
+    </div>
+    <p>In overround terms, those are approximately 5.78, 5.56 and 1.74 percentage points above 100% respectively.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What stands out</h2>
+    <h3>1. The average single-book market sat around 5% to 6% above 100%</h3>
+    <p>The market-average book was remarkably consistent in this small sample. Nine of the 10 matches sat between 105.15% and 105.87%; Leeds v Everton was the highest at 106.02%.</p>
+
+    <h3>2. One bookmaker varied more than the market average</h3>
+    <p>Bet365 ranged from 104.33% on Nott'm Forest v Brentford to 107.50% on Aston Villa v Newcastle. That does not prove anything about long-run pricing, but it shows why a single headline figure such as “football margin is 5%” can hide meaningful match-to-match variation.</p>
+
+    <h3>3. Price shopping changed the arithmetic materially</h3>
+    <p>The best listed price for each outcome reduced the average book from roughly 105.5% to 101.7% in this sample. That does <strong>not</strong> mean one bookmaker offered a 101.74% book. The best-available figure combines prices from different bookmakers. It measures what happened when the strongest listed price was selected outcome by outcome.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Worked example: Liverpool v Bournemouth</h2>
+    <p>Bet365's opening 1X2 prices were 1.30, 6.00 and 8.50.</p>
+    <div class="formula-box">
+      <p>Home: 1 ÷ 1.30 = 76.92%</p>
+      <p>Draw: 1 ÷ 6.00 = 16.67%</p>
+      <p>Away: 1 ÷ 8.50 = 11.76%</p>
+      <p><strong>Total = 105.35%</strong></p>
+    </div>
+    <p>The book therefore sat 5.35 percentage points above 100%. Using the maximum listed prices across the source file—1.34, 6.50 and 9.50—produced a combined book of only 100.54%.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Data source and reproducibility</h2>
+    <p>The underlying match and odds data comes from <a href="https://www.football-data.co.uk/" rel="noreferrer">Football-Data.co.uk</a>, which publishes historical football results and bookmaker odds in CSV format. We used the 2025/26 English Premier League file (division code E0) and calculated the book percentages ourselves.</p>
+    <p>To make the work checkable, Betting Maths publishes the derived 10-row dataset used in this article. It includes the source odds and our calculated book percentages for the opening and closing snapshots.</p>
+    <div class="button-row">
+      <a class="button primary" href="/data/premier-league-opening-weekend-2025-26-1x2-margins.csv">Download the derived CSV</a>
+      <a class="button secondary" href="/methodology/">Calculation Methodology</a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Limitations</h2>
+    <ul class="standard-list">
+      <li>This is one Premier League round: 10 matches, not a claim about every football market.</li>
+      <li>The source's “average” and “maximum” fields depend on the bookmakers represented in that file at the time.</li>
+      <li>The best-available book combines different bookmakers and should not be described as one bookmaker's margin.</li>
+      <li>Overround is a pricing measure. It is not the same thing as realised bookmaker profit or a bettor's guaranteed expected loss.</li>
+      <li>Prices can move over time; this article focuses on the opening snapshot. A separate analysis compares opening and closing books.</li>
+    </ul>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Why this matters</h2>
+    <p>Overround is often taught with a made-up three-outcome example. That is useful for learning the formula, but real markets are more informative. This snapshot shows that the size of the book varied by match, that the bookmaker-specific figure differed from the market average, and that shopping across prices materially changed the combined implied probability.</p>
+    <p>The next step is to repeat this kind of analysis over larger samples and different market types, so Betting Maths can build a growing body of observed data rather than relying only on theoretical examples.</p>
+    <div class="button-row">
+      <a class="button primary" href="/analysis/premier-league-opening-vs-closing-overround-2025-26/">Opening vs Closing Margin Study</a>
+      <a class="button secondary" href="/calculators/overround-calculator/">Use the Overround Calculator</a>
+      <a class="button secondary" href="/guides/bookmaker-margin-explained/">Bookmaker Margin Explained</a>
+    </div>
+  </section>
+
+  <div class="callout"><strong>Responsible note:</strong> This is descriptive market analysis for education. It does not identify bets to place, predict match outcomes or guarantee profit.</div>
+
+  <style>
+    .article-section { margin-top: 1.25rem; }
+    .research-meta { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1rem; }
+    .research-meta span { padding: 0.35rem 0.65rem; border-radius: 999px; background: #eef8f3; color: var(--color-green-dark); font-size: 0.82rem; }
+    .formula-box { padding: 1rem 1.15rem; border: 1px solid var(--color-border); border-radius: 14px; background: var(--color-bg); }
+    .formula-box p { margin: 0.4rem 0; }
+    .table-wrap { overflow-x: auto; }
+    .example-table { width: 100%; min-width: 720px; border-collapse: collapse; margin: 1rem 0; background: white; }
+    .example-table th, .example-table td { padding: 0.72rem; border: 1px solid var(--color-border); text-align: left; }
+    .example-table th { background: #f4f7fa; color: var(--color-navy); }
+    .stat-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; margin: 1rem 0; }
+    .stat-card { padding: 1rem; border: 1px solid var(--color-border); border-radius: 14px; background: white; }
+    .stat-card span, .stat-card small { display: block; color: var(--color-muted); }
+    .stat-card strong { display: block; margin: 0.3rem 0; color: var(--color-navy); font-size: 1.8rem; }
+    .standard-list { padding-left: 1.3rem; }
+    .article-section a:not(.button) { color: var(--color-green-dark); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+    @media (max-width: 760px) { .stat-grid { grid-template-columns: 1fr; } }
+  </style>
+</MainLayout>
