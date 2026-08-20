@@ -1,22 +1,37 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 
-const analyses = [
+const observedResearch = [
+  {
+    href: "/analysis/premier-league-opening-weekend-overround-2025-26/",
+    tag: "Observed data",
+    title: "Premier League Opening-Weekend 1X2 Margins: 2025/26",
+    description: "We measured the book percentage on all 10 opening-round Premier League matches using real opening prices from Football-Data.co.uk."
+  },
+  {
+    href: "/analysis/premier-league-opening-vs-closing-overround-2025-26/",
+    tag: "Observed data",
+    title: "Do 1X2 Margins Tighten Before Kick-Off?",
+    description: "Opening and closing prices from the same 10 matches show a small average tightening, but not a consistent one."
+  }
+];
+
+const modelledAnalyses = [
   {
     href: "/analysis/how-margin-compounds-in-accumulators/",
-    tag: "Accumulator maths",
+    tag: "Model",
     title: "How Bookmaker Margin Compounds in Accumulators",
     description: "A reproducible model showing how a small pricing disadvantage on each leg can become much larger across a multi-leg accumulator."
   },
   {
     href: "/analysis/cash-out-fair-value/",
-    tag: "Cash out",
+    tag: "Model",
     title: "What Is a Cash-Out Offer Worth? A Fair-Value Model",
     description: "A worked model for comparing a cash-out offer with the expected value of the bet at the current estimated probability."
   },
   {
     href: "/analysis/extra-places-mathematical-value/",
-    tag: "Each-way offers",
+    tag: "Model",
     title: "What Does an Extra Place Actually Change?",
     description: "A transparent model showing how an additional place changes the expected return of the place half of an each-way bet."
   }
@@ -24,20 +39,38 @@ const analyses = [
 ---
 
 <MainLayout
-  title="Betting Maths Analysis"
-  description="Original Betting Maths analysis using transparent models and worked calculations to investigate bookmaker margin, accumulators, cash out, extra places and other betting questions."
+  title="Betting Maths Research and Analysis"
+  description="Original Betting Maths research using observed bookmaker-market data, downloadable datasets and reproducible mathematical models."
 >
   <section class="content-card">
-    <p class="eyebrow">Original analysis</p>
-    <h1>Betting Maths Analysis</h1>
-    <p class="lead">This is where Betting Maths goes beyond definitions. We use transparent calculations, modelled examples and future data studies to investigate what betting prices and offer structures actually do mathematically.</p>
-    <div class="callout"><strong>Reproducible by design:</strong> Each analysis explains its assumptions and shows enough of the calculation for readers to check the result. Modelled examples are labelled as models rather than presented as observed bookmaker data.</div>
+    <p class="eyebrow">Research and analysis</p>
+    <h1>Betting Maths Research</h1>
+    <p class="lead">This is where Betting Maths tests questions rather than merely defining terms. We publish observed market studies when data is available, and clearly labelled mathematical models when the purpose is to isolate a mechanism.</p>
+    <div class="callout"><strong>Reproducible by design:</strong> observed-data studies identify their source, sample and calculation method. Modelled studies state their assumptions. Downloadable derived datasets are published where practical.</div>
   </section>
 
   <section class="content-card article-section">
-    <h2>Current analyses</h2>
+    <p class="eyebrow">Real market data</p>
+    <h2>Observed research</h2>
+    <p>These studies use recorded market data rather than hypothetical prices.</p>
+    <div class="analysis-grid observed-grid">
+      {observedResearch.map((analysis) => (
+        <a class="analysis-card observed" href={analysis.href}>
+          <span>{analysis.tag}</span>
+          <h3>{analysis.title}</h3>
+          <p>{analysis.description}</p>
+        </a>
+      ))}
+    </div>
+    <div class="button-row"><a class="button secondary" href="/research-data/">Research Data and Sources</a></div>
+  </section>
+
+  <section class="content-card article-section">
+    <p class="eyebrow">Controlled examples</p>
+    <h2>Mathematical models</h2>
+    <p>Models let us hold assumptions constant and see what a particular mechanism does. They are not presented as observed bookmaker behaviour.</p>
     <div class="analysis-grid">
-      {analyses.map((analysis) => (
+      {modelledAnalyses.map((analysis) => (
         <a class="analysis-card" href={analysis.href}>
           <span>{analysis.tag}</span>
           <h3>{analysis.title}</h3>
@@ -49,29 +82,39 @@ const analyses = [
 
   <section class="content-card article-section">
     <h2>How this differs from a guide</h2>
-    <p>A guide explains a concept such as overround, lay liability or expected value. An analysis starts with a question and works through the mathematics needed to answer it.</p>
-    <p>For example, the accumulator guide can explain how to multiply prices. The analysis asks a different question: <strong>what happens to the effective pricing disadvantage when several margined prices are multiplied together?</strong></p>
+    <p>A guide explains a concept such as overround, lay liability or expected value. Research starts with a question, identifies the evidence needed, performs a calculation and publishes the result with its limitations.</p>
+    <p>For example, the bookmaker-margin guide explains how to calculate overround. The Premier League study asks a different question: <strong>how large was the book percentage in a real set of 1X2 markets?</strong></p>
   </section>
 
   <section class="content-card article-section">
-    <h2>What we plan to measure</h2>
-    <p>Future Betting Maths research can add observed market datasets alongside these modelled studies. Suitable projects include comparing bookmaker overrounds across competitions and market types, measuring cash-out discounts against a stated benchmark, comparing exchange commission effects and quantifying the mathematical impact of promotions.</p>
-    <p>When real market data is used, the study will state the collection period, sample, calculation method and limitations.</p>
+    <h2>Research standards</h2>
+    <ul class="standard-list">
+      <li>Observed data and hypothetical models are labelled separately.</li>
+      <li>Sample sizes and time periods are stated.</li>
+      <li>Important formulas are shown or linked to methodology.</li>
+      <li>Derived datasets are published when licensing and practicality allow.</li>
+      <li>Limitations are part of the article, not hidden in a disclaimer.</li>
+      <li>Research conclusions do not become betting tips or predictions.</li>
+    </ul>
     <div class="button-row">
-      <a class="button primary" href="/methodology/">Read the Methodology</a>
+      <a class="button primary" href="/research-data/">Data and Sources</a>
+      <a class="button secondary" href="/methodology/">Calculation Methodology</a>
       <a class="button secondary" href="/editorial-standards/">Editorial Standards</a>
     </div>
   </section>
 
-  <div class="callout"><strong>Responsible note:</strong> Analysis can explain price and risk. It cannot make an uncertain event certain, and Betting Maths does not provide betting tips or guaranteed profit strategies.</div>
+  <div class="callout"><strong>Responsible note:</strong> Research can explain prices and risk. It cannot make an uncertain event certain, and Betting Maths does not provide betting tips or guaranteed profit strategies.</div>
 
   <style>
     .article-section { margin-top: 1.25rem; }
     .analysis-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .observed-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .analysis-card { display: block; padding: 1.1rem; border: 1px solid var(--color-border); border-radius: 14px; background: var(--color-bg); }
     .analysis-card:hover { border-color: rgba(31, 138, 91, 0.45); transform: translateY(-2px); }
+    .analysis-card.observed { background: #fbfffd; border-color: rgba(31,138,91,.28); }
     .analysis-card span { display: inline-flex; margin-bottom: 0.55rem; padding: 0.15rem 0.55rem; border-radius: 999px; background: #eef8f3; color: var(--color-green-dark); font-size: 0.78rem; font-weight: 800; }
     .analysis-card p { margin: 0; }
-    @media (max-width: 900px) { .analysis-grid { grid-template-columns: 1fr; } }
+    .standard-list { padding-left: 1.3rem; }
+    @media (max-width: 900px) { .analysis-grid, .observed-grid { grid-template-columns: 1fr; } }
   </style>
 </MainLayout>
