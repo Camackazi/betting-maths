@@ -4,108 +4,116 @@ import MainLayout from "../../layouts/MainLayout.astro";
 
 <MainLayout
   title="What Are No-Vig Fair Odds?"
-  description="Learn what no-vig fair odds are, how bookmaker margin affects prices, and how to remove overround from a simple two-outcome market."
+  description="Learn how no-vig fair odds are calculated, what proportional margin removal assumes, and how to interpret fair probabilities in two-way and three-way betting markets."
+  dateModified="2026-08-20"
 >
   <section class="content-card">
     <p class="eyebrow">Betting maths guide</p>
     <h1>What Are No-Vig Fair Odds?</h1>
-    <p class="lead">
-      No-vig fair odds are an estimate of what the odds might look like after removing bookmaker margin from a market. They help explain prices, but they do not automatically show that a bet is good value.
-    </p>
-
-    <div class="callout">
-      <strong>Useful tool:</strong> Use the <a href="/calculators/no-vig-fair-odds-calculator/">No-Vig Fair Odds Calculator</a> to remove overround from a simple two-outcome market.
-    </div>
+    <p class="lead">No-vig fair odds are an estimate of what a market's prices might look like after removing the bookmaker's overround. They are useful for understanding market structure, but they are not the same thing as the true probability of an outcome.</p>
+    <div class="callout"><strong>Useful tool:</strong> Use the <a href="/calculators/no-vig-fair-odds-calculator/">No-Vig Fair Odds Calculator</a> for a quick calculation, then use this guide to understand what the result actually assumes.</div>
   </section>
 
   <section class="content-card article-section">
-    <h2>What vig means</h2>
-    <p>
-      Vig, margin, juice and overround are different ways to talk about the edge built into betting odds. In a balanced market without margin, the probabilities of all outcomes would add up to about 100%.
-    </p>
-    <p>
-      Bookmaker prices often add up to more than 100%. The amount above 100% is one way to understand the built-in margin.
-    </p>
+    <h2>Start with implied probability</h2>
+    <p>Decimal odds can be converted into an implied probability by dividing 1 by the odds. Decimal odds of 2.00 imply 50%; odds of 4.00 imply 25%.</p>
+    <div class="formula-box"><p><strong>Implied probability</strong> = 1 ÷ decimal odds</p></div>
+    <p>In a market with several outcomes, add the implied probabilities together. If the total exceeds 100%, the market contains an overround.</p>
+    <p>For example, a three-way football market priced at 2.10, 3.40 and 3.60 produces implied probabilities of 47.62%, 29.41% and 27.78%. Together they total <strong>104.81%</strong>.</p>
   </section>
 
   <section class="content-card article-section">
-    <h2>Implied probability and book percentage</h2>
-    <p>
-      Decimal odds can be converted into implied probability by dividing 1 by the odds. For example, decimal odds of 2.00 imply 50% before any margin or other market factors are considered.
-    </p>
-    <p>
-      In a two-outcome market, you can add both implied probabilities together. If they add up to more than 100%, the market has an overround.
-    </p>
-  </section>
-
-  <section class="content-card article-section">
-    <h2>No-vig fair odds formula</h2>
-    <p>
-      For a simple two-outcome market, no-vig fair odds scale each implied probability by the total book percentage.
-    </p>
-
+    <h2>What “removing the vig” actually means</h2>
+    <p>One common method is proportional normalisation. Each implied probability is divided by the total book percentage so that the adjusted probabilities add to exactly 100%.</p>
     <div class="formula-box">
-      <p><strong>Implied probability A</strong> = 1 / decimal odds A</p>
-      <p><strong>Implied probability B</strong> = 1 / decimal odds B</p>
-      <p><strong>Book percentage</strong> = implied probability A + implied probability B</p>
-      <p><strong>Fair probability A</strong> = implied probability A / book percentage</p>
-      <p><strong>Fair probability B</strong> = implied probability B / book percentage</p>
-      <p><strong>Fair odds</strong> = 1 / fair probability</p>
+      <p><strong>Raw implied probability</strong> = 1 ÷ odds</p>
+      <p><strong>Total book</strong> = sum of all raw implied probabilities</p>
+      <p><strong>No-vig probability</strong> = raw implied probability ÷ total book</p>
+      <p><strong>No-vig decimal odds</strong> = 1 ÷ no-vig probability</p>
     </div>
+    <p>This removes the overround proportionally. It is transparent and reproducible, which is why Betting Maths uses it in its basic no-vig calculator.</p>
   </section>
 
   <section class="content-card article-section">
-    <h2>Worked example</h2>
-    <p>
-      Suppose both outcomes are priced at decimal odds of 1.91. Each side has an implied probability of about 52.36%, so the book percentage is about 104.71%.
-    </p>
-
+    <h2>Two-outcome example</h2>
+    <p>Suppose both outcomes are priced at 1.91. Each price implies about 52.36%, so the total book is about 104.71%.</p>
     <table class="example-table">
-      <thead>
-        <tr>
-          <th>Outcome</th>
-          <th>Decimal odds</th>
-          <th>Implied probability</th>
-          <th>No-vig fair probability</th>
-          <th>No-vig fair odds</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Outcome</th><th>Odds</th><th>Raw implied probability</th><th>No-vig probability</th><th>No-vig odds</th></tr></thead>
       <tbody>
         <tr><td>A</td><td>1.91</td><td>52.36%</td><td>50.00%</td><td>2.00</td></tr>
         <tr><td>B</td><td>1.91</td><td>52.36%</td><td>50.00%</td><td>2.00</td></tr>
       </tbody>
     </table>
-
-    <p>
-      This example shows how the margin is removed in a simple two-outcome market. It does not prove that either side is a good bet.
-    </p>
+    <p>Because the market is perfectly symmetrical, proportional normalisation returns a 50/50 fair-price estimate.</p>
   </section>
 
   <section class="content-card article-section">
-    <h2>No-vig odds and value betting</h2>
-    <p>
-      No-vig odds are not the same as value betting. They estimate fair probabilities from the market prices you enter. Value betting also depends on whether your own probability estimate is better than the available price.
-    </p>
-    <p>
-      Real markets can include commission, exchange liquidity, void rules, dead heat rules, each-way terms, deductions and other conditions. Those details can change the practical result.
-    </p>
+    <h2>Three-outcome example</h2>
+    <p>Now take the football prices 2.10, 3.40 and 3.60.</p>
+    <table class="example-table">
+      <thead><tr><th>Outcome</th><th>Odds</th><th>Raw implied</th><th>No-vig probability</th><th>No-vig odds</th></tr></thead>
+      <tbody>
+        <tr><td>Home</td><td>2.10</td><td>47.62%</td><td>45.43%</td><td>2.20</td></tr>
+        <tr><td>Draw</td><td>3.40</td><td>29.41%</td><td>28.06%</td><td>3.56</td></tr>
+        <tr><td>Away</td><td>3.60</td><td>27.78%</td><td>26.50%</td><td>3.77</td></tr>
+      </tbody>
+    </table>
+    <p>The raw probabilities total 104.81%. After normalisation they total 100%. The adjusted odds are therefore longer than the quoted odds because the overround has been removed.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>No-vig probability is not automatically “true probability”</h2>
+    <p>This distinction matters. A no-vig calculation starts with bookmaker prices and mathematically rescales them. It does not independently estimate how likely each event really is.</p>
+    <p>The market may be informative, but it can still contain bias, uneven margin allocation, stale prices, differing limits, liquidity effects or bookmaker-specific opinions. Calling the result “fair odds” is shorthand for <em>fair under the chosen margin-removal method</em>.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Does every bookmaker spread margin proportionally?</h2>
+    <p>No-vig calculations often assume proportional margin allocation because it is simple and transparent. Real bookmakers do not have to price markets that way.</p>
+    <p>A bookmaker can shade one outcome more heavily than another. Favourite-longshot effects, liability management, customer behaviour and market-making choices can all make the true margin distribution uneven.</p>
+    <p>That means two different vig-removal methods can produce slightly different fair-probability estimates from the same quoted prices. The correct interpretation is therefore an estimate, not a revealed fact.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Book percentage, overround and no-vig odds are different things</h2>
+    <table class="example-table">
+      <thead><tr><th>Term</th><th>What it describes</th></tr></thead>
+      <tbody>
+        <tr><td>Implied probability</td><td>The percentage implied by one quoted price.</td></tr>
+        <tr><td>Book percentage</td><td>The total of all implied probabilities in the market.</td></tr>
+        <tr><td>Overround</td><td>The amount by which the book exceeds 100%.</td></tr>
+        <tr><td>No-vig probability</td><td>An adjusted probability after removing overround using a stated method.</td></tr>
+        <tr><td>No-vig odds</td><td>The decimal odds corresponding to that adjusted probability.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What real Premier League data looked like</h2>
+    <p>Betting Maths has also measured overround in observed markets rather than relying only on examples. In our 10-match Premier League opening-weekend sample for 2025/26, cross-bookmaker average opening prices produced an average book of 105.56%, while combining the best available listed price for each outcome reduced the average book to 101.74%.</p>
+    <p>That research is useful context for this guide because it shows that overround is not just a textbook idea: it is measurable in recorded markets, and the size of the book changes depending on which prices are used.</p>
+    <div class="button-row"><a class="button secondary" href="/analysis/premier-league-opening-weekend-overround-2025-26/">Read the Premier League Margin Study</a></div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>No-vig odds and expected value are not the same calculation</h2>
+    <p>No-vig odds remove margin from the market prices you supply. Expected value asks what happens when a price is compared with a probability estimate.</p>
+    <p>You can use a no-vig probability as one benchmark, but doing so does not prove that benchmark is the true probability. A genuinely independent EV calculation requires a probability estimate you are prepared to defend.</p>
+    <div class="button-row"><a class="button secondary" href="/guides/expected-value-betting/">Read the Expected Value Guide</a></div>
   </section>
 
   <section class="content-card article-section">
     <h2>When to use the calculator</h2>
-    <p>
-      Use the No-Vig Fair Odds Calculator when you want to understand the margin in a simple two-outcome market and estimate the fair probabilities after removing overround.
-    </p>
-
+    <p>Use the No-Vig Fair Odds Calculator when you want to understand how a simple two-outcome market looks after proportional margin removal. For larger markets, the same normalisation idea can be applied across all outcomes.</p>
+    <p>Use the result as an educational benchmark, not as proof that a selection is mispriced.</p>
     <div class="button-row">
       <a class="button primary" href="/calculators/no-vig-fair-odds-calculator/">Open the No-Vig Fair Odds Calculator</a>
       <a class="button secondary" href="/calculators/overround-calculator/">Open the Overround Calculator</a>
+      <a class="button secondary" href="/methodology/">Read the Methodology</a>
     </div>
   </section>
 
-  <div class="callout">
-    <strong>Responsible note:</strong> No-vig fair odds are an educational estimate. They do not automatically identify profit and do not remove betting risk.
-  </div>
+  <div class="callout"><strong>Responsible note:</strong> No-vig fair odds are an educational estimate. They do not identify guaranteed value, predict an outcome or remove betting risk.</div>
 
   <style>
     .article-section { margin-top: 1.25rem; }
