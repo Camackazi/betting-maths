@@ -2,84 +2,13 @@
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<MainLayout
-  title="Research Data and Sources"
-  description="See the data sources, derived datasets, reproducibility notes and limitations used in Betting Maths original research."
->
-  <section class="content-card">
-    <p class="eyebrow">Research transparency</p>
-    <h1>Research Data and Sources</h1>
-    <p class="lead">Betting Maths publishes the inputs, derived data and calculation methods behind its original research wherever practical, so readers can inspect what was measured and reproduce the arithmetic.</p>
-    <div class="callout"><strong>Principle:</strong> observed market data is labelled as observed data; hypothetical examples are labelled as models. We do not mix the two.</div>
-  </section>
-
-  <section class="content-card article-section">
-    <h2>Current public datasets</h2>
-    <div class="dataset-card">
-      <p class="eyebrow">Premier League 2025/26</p>
-      <h3>Opening-weekend 1X2 margins</h3>
-      <p>Ten Premier League matches with Bet365, market-average and best-available opening and closing 1X2 prices, plus Betting Maths-derived book percentages.</p>
-      <dl>
-        <div><dt>Underlying source</dt><dd>Football-Data.co.uk, 2025/26 English Premier League CSV (E0)</dd></div>
-        <div><dt>Sample</dt><dd>All 10 matches in the opening Premier League round, 15–18 August 2025</dd></div>
-        <div><dt>Derived fields</dt><dd>Opening book %, closing book %, and best-available combined book %</dd></div>
-        <div><dt>Published by Betting Maths</dt><dd>20 August 2026</dd></div>
-      </dl>
-      <div class="button-row">
-        <a class="button primary" href="/data/premier-league-opening-weekend-2025-26-1x2-margins.csv">Download CSV</a>
-        <a class="button secondary" href="/analysis/premier-league-opening-weekend-overround-2025-26/">Read the margin study</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="content-card article-section">
-    <h2>How derived data is created</h2>
-    <p>When Betting Maths uses an external dataset, we try to preserve a clear distinction between the source fields and the figures we calculate ourselves.</p>
-    <ul class="standard-list">
-      <li>Source odds remain identifiable in the downloadable file.</li>
-      <li>Derived book percentages are calculated from the stated formula.</li>
-      <li>Rounding is applied only for presentation; the methodology page explains the general approach.</li>
-      <li>Sample size and date range are stated on the research page.</li>
-      <li>Important limitations are published alongside the findings.</li>
-    </ul>
-  </section>
-
-  <section class="content-card article-section">
-    <h2>Primary and secondary sources</h2>
-    <p>For mathematical research, the strongest source is often the underlying data itself. For rules, definitions or regulatory claims, Betting Maths prefers primary sources such as official bookmaker/exchange rules, GOV.UK, the Gambling Commission or the organisation responsible for the rule being described.</p>
-    <p>Secondary sources may be used for context, but they should not replace an available primary source for an important factual claim.</p>
-  </section>
-
-  <section class="content-card article-section">
-    <h2>Reproducibility</h2>
-    <p>A reader should be able to take the published inputs and get materially the same answer. That does not mean every page needs a downloadable spreadsheet, but original research should disclose enough information to test the result.</p>
-    <div class="formula-box">
-      <p><strong>Example:</strong> for decimal odds 2.00, 3.50 and 4.00:</p>
-      <p>Book % = (1/2.00 + 1/3.50 + 1/4.00) × 100 = 103.57%</p>
-    </div>
-    <p>If a future analysis depends on modelling assumptions rather than directly observed data, those assumptions will be stated explicitly.</p>
-  </section>
-
-  <section class="content-card article-section">
-    <h2>Corrections</h2>
-    <p>If a derived dataset contains a transcription or calculation error, we will correct the public file and the associated article. Material corrections should be noted on the affected page.</p>
-    <div class="button-row">
-      <a class="button primary" href="/contact/">Report an error</a>
-      <a class="button secondary" href="/methodology/">Calculation Methodology</a>
-      <a class="button secondary" href="/editorial-standards/">Editorial Standards</a>
-    </div>
-  </section>
-
-  <style>
-    .article-section { margin-top: 1.25rem; }
-    .dataset-card { padding: 1.1rem; border: 1px solid var(--color-border); border-radius: 14px; background: white; }
-    .dataset-card dl { display: grid; gap: 0.65rem; margin: 1rem 0; }
-    .dataset-card dl div { display: grid; grid-template-columns: 180px 1fr; gap: 0.75rem; padding-bottom: 0.55rem; border-bottom: 1px solid var(--color-border); }
-    .dataset-card dt { font-weight: 800; color: var(--color-navy); }
-    .dataset-card dd { margin: 0; color: var(--color-muted); }
-    .standard-list { padding-left: 1.3rem; }
-    .formula-box { padding: 1rem 1.15rem; border: 1px solid var(--color-border); border-radius: 14px; background: var(--color-bg); }
-    .formula-box p { margin: 0.4rem 0; }
-    @media (max-width: 700px) { .dataset-card dl div { grid-template-columns: 1fr; gap: 0.2rem; } }
-  </style>
+<MainLayout title="Research Data and Sources" description="See the data sources, derived datasets, reproducibility notes and limitations used in Betting Maths original research.">
+  <section class="content-card"><p class="eyebrow">Research transparency</p><h1>Research Data and Sources</h1><p class="lead">Betting Maths publishes the inputs, derived data and calculation methods behind its original research wherever practical, so readers can inspect what was measured and reproduce the arithmetic.</p><div class="callout"><strong>Principle:</strong> observed market data is labelled as observed data; hypothetical examples are labelled as models. We do not mix the two.</div></section>
+  <section class="content-card article-section"><h2>Current public datasets</h2><div class="dataset-card"><p class="eyebrow">Premier League 2025/26</p><h3>Opening-weekend 1X2 margins</h3><p>Ten Premier League matches with Bet365, market-average and best-available opening and closing 1X2 prices, plus Betting Maths-derived book percentages.</p><dl><div><dt>Underlying source</dt><dd>Football-Data.co.uk, 2025/26 English Premier League CSV (E0)</dd></div><div><dt>Sample</dt><dd>All 10 matches in the opening Premier League round, 15–18 August 2025</dd></div><div><dt>Derived fields</dt><dd>Opening book %, closing book %, and best-available combined book %</dd></div><div><dt>Published by Betting Maths</dt><dd>20 August 2026</dd></div></dl><div class="button-row"><a class="button primary" href="/data/premier-league-opening-weekend-2025-26-1x2-margins.csv">Download CSV</a><a class="button secondary" href="/analysis/premier-league-opening-weekend-overround-2025-26/">Opening margins</a><a class="button secondary" href="/analysis/premier-league-opening-vs-closing-overround-2025-26/">Opening vs closing</a><a class="button secondary" href="/analysis/how-much-does-price-shopping-reduce-overround-2025-26/">Price shopping</a><a class="button secondary" href="/analysis/best-available-odds-opening-vs-closing-2025-26/">Best prices over time</a></div></div></section>
+  <section class="content-card article-section"><h2>One dataset, several research questions</h2><p>The public CSV currently supports four separate observed-data studies. Reusing the same underlying sample is deliberate: it lets us ask different questions about bookmaker-specific prices, market averages, cross-bookmaker maximum prices and opening-versus-closing movement without quietly changing the matches being analysed.</p><p>This also makes the work easier to audit. A reader can download one file and reproduce the headline calculations across the entire Premier League research series.</p></section>
+  <section class="content-card article-section"><h2>How derived data is created</h2><p>When Betting Maths uses an external dataset, we try to preserve a clear distinction between the source fields and the figures we calculate ourselves.</p><ul class="standard-list"><li>Source odds remain identifiable in the downloadable file.</li><li>Derived book percentages are calculated from the stated formula.</li><li>Rounding is applied only for presentation; the methodology page explains the general approach.</li><li>Sample size and date range are stated on the research page.</li><li>Important limitations are published alongside the findings.</li></ul></section>
+  <section class="content-card article-section"><h2>Primary and secondary sources</h2><p>For mathematical research, the strongest source is often the underlying data itself. For rules, definitions or regulatory claims, Betting Maths prefers primary sources such as official bookmaker/exchange rules, GOV.UK, the Gambling Commission or the organisation responsible for the rule being described.</p><p>Secondary sources may be used for context, but they should not replace an available primary source for an important factual claim.</p></section>
+  <section class="content-card article-section"><h2>Reproducibility</h2><p>A reader should be able to take the published inputs and get materially the same answer. That does not mean every page needs a downloadable spreadsheet, but original research should disclose enough information to test the result.</p><div class="formula-box"><p><strong>Example:</strong> for decimal odds 2.00, 3.50 and 4.00:</p><p>Book % = (1/2.00 + 1/3.50 + 1/4.00) × 100 = 103.57%</p></div><p>If a future analysis depends on modelling assumptions rather than directly observed data, those assumptions will be stated explicitly.</p></section>
+  <section class="content-card article-section"><h2>Corrections</h2><p>If a derived dataset contains a transcription or calculation error, we will correct the public file and the associated article. Material corrections should be noted on the affected page.</p><div class="button-row"><a class="button primary" href="/contact/">Report an error</a><a class="button secondary" href="/methodology/">Calculation Methodology</a><a class="button secondary" href="/editorial-standards/">Editorial Standards</a></div></section>
+  <style>.article-section{margin-top:1.25rem}.dataset-card{padding:1.1rem;border:1px solid var(--color-border);border-radius:14px;background:white}.dataset-card dl{display:grid;gap:.65rem;margin:1rem 0}.dataset-card dl div{display:grid;grid-template-columns:180px 1fr;gap:.75rem;padding-bottom:.55rem;border-bottom:1px solid var(--color-border)}.dataset-card dt{font-weight:800;color:var(--color-navy)}.dataset-card dd{margin:0;color:var(--color-muted)}.standard-list{padding-left:1.3rem}.formula-box{padding:1rem 1.15rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-bg)}.formula-box p{margin:.4rem 0}@media(max-width:700px){.dataset-card dl div{grid-template-columns:1fr;gap:.2rem}}</style>
 </MainLayout>
