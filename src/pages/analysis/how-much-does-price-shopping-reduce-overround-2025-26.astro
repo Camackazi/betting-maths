@@ -1,0 +1,74 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+
+const rows = [
+  ["Liverpool v Bournemouth", 105.15, 100.54, 4.61],
+  ["Aston Villa v Newcastle", 105.58, 100.94, 4.64],
+  ["Brighton v Fulham", 105.28, 102.95, 2.33],
+  ["Sunderland v West Ham", 105.38, 102.82, 2.56],
+  ["Tottenham v Burnley", 105.87, 101.95, 3.92],
+  ["Wolves v Man City", 105.44, 100.90, 4.54],
+  ["Chelsea v Crystal Palace", 105.55, 102.15, 3.40],
+  ["Nott'm Forest v Brentford", 105.43, 102.19, 3.24],
+  ["Man United v Arsenal", 105.85, 101.61, 4.24],
+  ["Leeds v Everton", 106.02, 101.36, 4.66]
+];
+---
+
+<MainLayout title="How Much Did Price Shopping Reduce Premier League 1X2 Overround?" description="Original Betting Maths analysis measuring how much the opening 1X2 book percentage fell when the best listed price for each outcome was used across 10 Premier League matches.">
+  <section class="content-card">
+    <p class="eyebrow">Observed market data</p>
+    <h1>How Much Did Price Shopping Reduce 1X2 Overround?</h1>
+    <p class="lead">Using the same 10 matches from the 2025/26 Premier League opening weekend, we compared the source file's average opening prices with the maximum listed opening price for each outcome. The question is narrow: how much did the combined implied probability change when stronger prices were selected outcome by outcome?</p>
+    <div class="research-meta"><span><strong>Sample:</strong> 10 matches</span><span><strong>Market:</strong> Full-time 1X2</span><span><strong>Snapshot:</strong> Opening prices</span><span><strong>Published:</strong> 20 August 2026</span></div>
+    <div class="callout"><strong>Headline finding:</strong> the market-average opening book was 105.56%. Combining the best listed opening price for each outcome reduced it to 101.74% — a reduction of about 3.81 percentage points on average.</div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What “price shopping” means in this study</h2>
+    <p>Football-Data.co.uk records both average and maximum bookmaker odds. For each match, we calculated one book from the average home, draw and away prices, then a second book from the maximum home, draw and away prices.</p>
+    <div class="formula-box"><p><strong>Book percentage</strong> = (1 ÷ home odds + 1 ÷ draw odds + 1 ÷ away odds) × 100</p><p><strong>Reduction</strong> = average-price book − best-available-price book</p></div>
+    <p>The maximum prices can come from different bookmakers. The best-available book is therefore <strong>not</strong> a bookmaker's own market. It is a cross-bookmaker benchmark showing the arithmetic effect of selecting the strongest listed price separately for each outcome.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Match-by-match results</h2>
+    <div class="table-wrap"><table class="example-table"><thead><tr><th>Match</th><th>Average-price book</th><th>Best-available book</th><th>Reduction</th></tr></thead><tbody>{rows.map((row) => (<tr><td>{row[0]}</td><td>{row[1].toFixed(2)}%</td><td>{row[2].toFixed(2)}%</td><td>{row[3].toFixed(2)} pp</td></tr>))}</tbody></table></div>
+    <p>Every match produced a lower book when maximum rather than average prices were combined. The reduction ranged from 2.33 percentage points on Brighton v Fulham to 4.66 points on Leeds v Everton.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Summary statistics</h2>
+    <div class="stat-grid"><div class="stat-card"><span>Average-price book</span><strong>105.56%</strong><small>10-match mean</small></div><div class="stat-card"><span>Best-available book</span><strong>101.74%</strong><small>10-match mean</small></div><div class="stat-card"><span>Average reduction</span><strong>3.81 pp</strong><small>Difference in book percentage</small></div></div>
+    <p>Another way to express the same result is in overround. The average-price set contained about 5.56 percentage points above 100%; the cross-bookmaker best-price set contained about 1.74 points. This does not translate directly into a guaranteed bettor return or bookmaker profit figure.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Where did the reduction come from?</h2>
+    <p>We also measured the reduction in implied probability produced by replacing the average price with the maximum price separately for home, draw and away outcomes. Averaged across the 10 matches, the contribution was approximately 1.32 percentage points from home prices, 1.13 from draw prices and 1.36 from away prices.</p>
+    <p>Those figures sum to roughly the 3.81-point average reduction in the total book. In this small sample, the effect was therefore spread across all three outcome types rather than being confined to one side of the 1X2 market.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Worked example: Aston Villa v Newcastle</h2>
+    <p>The average opening prices were 2.30, 3.56 and 2.94. They produced a 105.58% book. The maximum listed prices were 2.38, 3.75 and 3.10, which produced a 100.94% book.</p>
+    <div class="formula-box"><p>Average-price book = 105.58%</p><p>Best-available book = 100.94%</p><p><strong>Reduction = 4.64 percentage points</strong></p></div>
+    <p>This is one of the largest reductions in the sample, but it should not be read as a claim that those maximum prices were simultaneously available indefinitely or at unlimited stakes.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What the result does — and does not — show</h2>
+    <ul class="standard-list"><li>It shows that the listed cross-bookmaker maximum prices materially reduced combined implied probability in every match in this sample.</li><li>It does not show that one bookmaker offered a 101.74% average book.</li><li>It does not prove that the same reduction exists in other leagues, market types or time periods.</li><li>It does not account for account restrictions, stake limits, price changes or practical execution.</li><li>It does not identify profitable bets. A smaller book and a correct probability estimate are different questions.</li></ul>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Data and reproducibility</h2>
+    <p>The source is the Football-Data.co.uk 2025/26 English Premier League CSV (division E0). Betting Maths calculated the implied probabilities and book percentages. The same derived dataset used for our opening-weekend and opening-versus-closing studies contains every input used here.</p>
+    <div class="button-row"><a class="button primary" href="/data/premier-league-opening-weekend-2025-26-1x2-margins.csv">Download the derived CSV</a><a class="button secondary" href="/research-data/">Research Data and Sources</a><a class="button secondary" href="/methodology/">Calculation Methodology</a></div>
+  </section>
+
+  <section class="content-card article-section"><h2>Why this matters mathematically</h2><p>Overround is often discussed as though a market has one fixed margin. In practice, the book percentage depends on the exact prices being combined. This sample provides a concrete demonstration: using different recorded prices for the same outcomes changed the arithmetic substantially without changing the matches themselves.</p><div class="button-row"><a class="button primary" href="/analysis/premier-league-opening-weekend-overround-2025-26/">Opening-Weekend Margin Study</a><a class="button secondary" href="/calculators/overround-calculator/">Overround Calculator</a><a class="button secondary" href="/guides/bookmaker-margin-explained/">Bookmaker Margin Explained</a></div></section>
+
+  <div class="callout"><strong>Responsible note:</strong> This is descriptive market analysis for education. It does not provide betting tips, predict results or guarantee profit.</div>
+  <style>.article-section{margin-top:1.25rem}.research-meta{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}.research-meta span{padding:.35rem .65rem;border-radius:999px;background:#eef8f3;color:var(--color-green-dark);font-size:.82rem}.formula-box{padding:1rem 1.15rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-bg)}.formula-box p{margin:.4rem 0}.table-wrap{overflow-x:auto}.example-table{width:100%;min-width:720px;border-collapse:collapse;margin:1rem 0;background:white}.example-table th,.example-table td{padding:.72rem;border:1px solid var(--color-border);text-align:left}.example-table th{background:#f4f7fa;color:var(--color-navy)}.stat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1rem 0}.stat-card{padding:1rem;border:1px solid var(--color-border);border-radius:14px;background:white}.stat-card span,.stat-card small{display:block;color:var(--color-muted)}.stat-card strong{display:block;margin:.3rem 0;color:var(--color-navy);font-size:1.8rem}.standard-list{padding-left:1.3rem}@media(max-width:760px){.stat-grid{grid-template-columns:1fr}}</style>
+</MainLayout>
