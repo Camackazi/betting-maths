@@ -2,17 +2,20 @@
 import MainLayout from "../layouts/MainLayout.astro";
 
 const mainPages = [
-  { href: "/", tag: "Home", title: "Betting Maths", description: "The main homepage for calculators, guides and original betting maths analysis." },
-  { href: "/analysis/", tag: "Hub", title: "Betting Maths Analysis", description: "Original worked mathematical investigations into betting prices, offers and market mechanics." },
+  { href: "/", tag: "Home", title: "Betting Maths", description: "The main homepage for research, calculators and betting maths guides." },
+  { href: "/analysis/", tag: "Hub", title: "Research and Analysis", description: "Observed market studies, downloadable datasets and reproducible mathematical models." },
+  { href: "/research-data/", tag: "Data", title: "Research Data and Sources", description: "Public derived datasets, source notes, reproducibility information and research limitations." },
   { href: "/calculators/", tag: "Hub", title: "All Calculators", description: "Browse all betting calculators in one place." },
   { href: "/guides/", tag: "Hub", title: "All Guides", description: "Browse all betting maths guides in one place." },
   { href: "/glossary/betting-jargon-explained/", tag: "Glossary", title: "Betting Jargon Explained", description: "A plain-English A-Z glossary of betting terms." }
 ];
 
 const analyses = [
-  { href: "/analysis/how-margin-compounds-in-accumulators/", title: "How Bookmaker Margin Compounds in Accumulators", description: "A reproducible model of how repeated pricing disadvantage compounds across accumulator legs." },
-  { href: "/analysis/cash-out-fair-value/", title: "What Is a Cash-Out Offer Worth?", description: "A fair-value model for comparing a cash-out offer with a stated probability benchmark." },
-  { href: "/analysis/extra-places-mathematical-value/", title: "What Does an Extra Place Actually Change?", description: "A transparent model showing how an additional each-way place changes expected return." }
+  { href: "/analysis/premier-league-opening-weekend-overround-2025-26/", tag: "Observed data", title: "Premier League Opening-Weekend 1X2 Margins", description: "A 10-match real-data study measuring opening book percentages using recorded 2025/26 Premier League prices." },
+  { href: "/analysis/premier-league-opening-vs-closing-overround-2025-26/", tag: "Observed data", title: "Do Premier League Margins Tighten Before Kick-Off?", description: "A match-by-match comparison of opening and closing 1X2 book percentages from the same opening round." },
+  { href: "/analysis/how-margin-compounds-in-accumulators/", tag: "Model", title: "How Bookmaker Margin Compounds in Accumulators", description: "A reproducible model of how repeated pricing disadvantage compounds across accumulator legs." },
+  { href: "/analysis/cash-out-fair-value/", tag: "Model", title: "What Is a Cash-Out Offer Worth?", description: "A fair-value model for comparing a cash-out offer with a stated probability benchmark." },
+  { href: "/analysis/extra-places-mathematical-value/", tag: "Model", title: "What Does an Extra Place Actually Change?", description: "A transparent model showing how an additional each-way place changes expected return." }
 ];
 
 const calculators = [
@@ -37,8 +40,8 @@ const calculators = [
 
 const guides = [
   { href: "/guides/what-is-implied-probability/", title: "What Is Implied Probability?", description: "Learn how odds convert into percentage chance." },
-  { href: "/guides/no-vig-fair-odds/", title: "What Are No-Vig Fair Odds?", description: "Learn how bookmaker margin affects prices and how no-vig odds are estimated." },
-  { href: "/guides/expected-value-betting/", title: "What Is Expected Value in Betting?", description: "Learn how EV is calculated and why positive EV does not guarantee profit." },
+  { href: "/guides/no-vig-fair-odds/", title: "What Are No-Vig Fair Odds?", description: "Learn how proportional vig removal works, what it assumes and how fair odds are estimated." },
+  { href: "/guides/expected-value-betting/", title: "What Is Expected Value in Betting?", description: "Learn EV, break-even probability, sensitivity to estimates and why positive EV does not guarantee profit." },
   { href: "/guides/bookmaker-margin-explained/", title: "Bookmaker Margin Explained", description: "Understand bookmaker margin, overround and book percentage." },
   { href: "/guides/what-is-overround/", title: "What Is Overround?", description: "Learn why betting markets usually add up to more than 100%." },
   { href: "/guides/how-bookmakers-make-money/", title: "How Bookmakers Make Money", description: "Understand margin, odds movement, weight of money and liability management." },
@@ -50,7 +53,7 @@ const guides = [
   { href: "/guides/what-is-matched-betting/", title: "What Is Matched Betting?", description: "Understand qualifying bets, free bets, back bets and lay bets." },
   { href: "/guides/stake-returned-vs-stake-not-returned/", title: "Stake Returned vs Stake Not Returned", description: "Learn one of the most important free bet and matched betting terms." },
   { href: "/guides/each-way-betting-terms-explained/", title: "Each-Way Betting Terms Explained", description: "Learn win part, place part, place terms, extra places, non-runners and Rule 4." },
-  { href: "/guides/dead-heat-rules-betting/", title: "What Is a Dead Heat in Betting?", description: "Learn how dead heat rules can split stakes and adjust returns." },
+  { href: "/guides/dead-heat-rules-betting/", title: "What Is a Dead Heat in Betting?", description: "Learn how dead heat settlement divides winning stake and affects win, place and each-way returns." },
   { href: "/guides/what-are-extra-places-in-each-way-betting/", title: "What Are Extra Places in Each-Way Betting?", description: "Understand enhanced place offers and how extra places affect each-way bets." },
   { href: "/guides/what-is-rule-4-in-horse-racing/", title: "What Is Rule 4 in Horse Racing?", description: "Learn how non-runners can lead to deductions from horse racing winnings." },
   { href: "/guides/how-to-hedge-a-bet/", title: "How to Hedge a Bet", description: "Understand back and lay hedging, lay liability and commission." },
@@ -61,6 +64,7 @@ const guides = [
 
 const siteInfo = [
   { href: "/about/", tag: "Info", title: "About", description: "Why Betting Maths exists, what it publishes and how the site approaches trust." },
+  { href: "/research-data/", tag: "Research", title: "Research Data and Sources", description: "Data provenance, public derived datasets, reproducibility and correction principles." },
   { href: "/methodology/", tag: "Standards", title: "Calculation Methodology", description: "Formulas, assumptions, rounding and checking principles used across Betting Maths." },
   { href: "/editorial-standards/", tag: "Standards", title: "Editorial Standards", description: "How Betting Maths handles accuracy, original analysis, sourcing, corrections and commercial independence." },
   { href: "/responsible-gambling/", tag: "Important", title: "Responsible Gambling", description: "Safer gambling reminders, support information and responsible gambling resources." },
@@ -71,21 +75,21 @@ const siteInfo = [
 ];
 ---
 
-<MainLayout title="Sitemap" description="Sitemap for Betting Maths, including original analysis, calculators, guides, glossary, methodology, editorial standards and site information pages.">
+<MainLayout title="Sitemap" description="Sitemap for Betting Maths, including observed research, datasets, calculators, guides, glossary, methodology and site information pages.">
   <section class="content-card">
     <p class="eyebrow">Site navigation</p>
     <h1>Sitemap</h1>
-    <p class="lead">Find the main Betting Maths analysis, calculators, guides, glossary and publication information pages.</p>
+    <p class="lead">Find Betting Maths research, public data, calculators, guides, glossary and publication information pages.</p>
     <div class="callout"><strong>Looking for the XML sitemap?</strong> Search engines can use the technical sitemap at <a href="/sitemap-index.xml">sitemap-index.xml</a>.</div>
   </section>
 
   <section class="content-card sitemap-section"><h2>Main pages</h2><div class="sitemap-grid">{mainPages.map((page) => (<a class="sitemap-card" href={page.href}><span>{page.tag}</span><h3>{page.title}</h3><p>{page.description}</p></a>))}</div></section>
 
-  <section class="content-card sitemap-section"><h2>Original analysis</h2><p>Worked mathematical investigations with explicit assumptions, calculations and limitations.</p><div class="sitemap-grid">{analyses.map((analysis) => (<a class="sitemap-card" href={analysis.href}><span>Analysis</span><h3>{analysis.title}</h3><p>{analysis.description}</p></a>))}</div></section>
+  <section class="content-card sitemap-section"><h2>Research and analysis</h2><p>Observed market studies and clearly labelled mathematical models with calculations and limitations.</p><div class="sitemap-grid">{analyses.map((analysis) => (<a class="sitemap-card" href={analysis.href}><span>{analysis.tag}</span><h3>{analysis.title}</h3><p>{analysis.description}</p></a>))}</div></section>
 
   <section class="content-card sitemap-section"><h2>Betting calculators</h2><p>Tools for odds, stakes, returns, bookmaker margin, expected value, exchange liability, hedging, dead heats and other betting calculations.</p><div class="sitemap-grid">{calculators.map((calculator) => (<a class="sitemap-card" href={calculator.href}><span>Calculator</span><h3>{calculator.title}</h3><p>{calculator.description}</p></a>))}</div></section>
 
-  <section class="content-card sitemap-section"><h2>Betting maths guides</h2><p>Plain-English explanations of the concepts behind the calculators and analysis.</p><div class="sitemap-grid">{guides.map((guide) => (<a class="sitemap-card" href={guide.href}><span>Guide</span><h3>{guide.title}</h3><p>{guide.description}</p></a>))}</div></section>
+  <section class="content-card sitemap-section"><h2>Betting maths guides</h2><p>Plain-English explanations of the concepts behind the calculators and research.</p><div class="sitemap-grid">{guides.map((guide) => (<a class="sitemap-card" href={guide.href}><span>Guide</span><h3>{guide.title}</h3><p>{guide.description}</p></a>))}</div></section>
 
   <section class="content-card sitemap-section"><h2>Site information and standards</h2><div class="sitemap-grid">{siteInfo.map((page) => (<a class="sitemap-card" href={page.href}><span>{page.tag}</span><h3>{page.title}</h3><p>{page.description}</p></a>))}</div></section>
 

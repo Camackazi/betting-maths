@@ -4,41 +4,53 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 <MainLayout
   title="About Betting Maths"
-  description="Learn why Betting Maths exists, what we publish, how our calculations and analysis are checked, and how we approach betting content responsibly."
+  description="Learn why Betting Maths exists, what we publish, how our calculations and observed market research are produced, and how we approach betting content responsibly."
 >
   <section class="content-card">
     <p class="eyebrow">About Betting Maths</p>
     <h1>About Betting Maths</h1>
     <p class="lead">Betting Maths is an independent educational website dedicated to explaining and investigating the mathematics behind betting markets.</p>
-    <div class="callout"><strong>Our purpose:</strong> help readers understand what betting numbers actually mean through free calculators, plain-English guides and transparent mathematical analysis. We do not provide betting tips, predictions or guaranteed profit systems.</div>
+    <div class="callout"><strong>Our purpose:</strong> help readers understand what betting numbers actually mean through free calculators, plain-English guides, observed market research and transparent mathematical analysis. We do not provide betting tips, predictions or guaranteed profit systems.</div>
   </section>
 
   <section class="content-card article-section">
     <h2>Why Betting Maths exists</h2>
-    <p>Betting is full of numbers that can look more intuitive than they really are. Odds contain implied probabilities. A market can contain margin. Exchange bets create liability. Each-way terms alter the return. Accumulator prices multiply. Cash-out offers convert uncertainty into a price.</p>
+    <p>Betting is full of numbers that can look more intuitive than they really are. Odds contain implied probabilities. A market can contain overround. Exchange bets create liability. Each-way terms alter the return. Accumulator prices multiply. Cash-out offers convert uncertainty into a price.</p>
     <p>Betting Maths exists to make those mechanics visible. Rather than telling a reader what to bet on, the site aims to show the calculation, explain the assumptions and help the reader understand the trade-off.</p>
   </section>
 
   <section class="content-card article-section">
     <h2>What we publish</h2>
     <div class="related-grid">
+      <a class="related-card" href="/analysis/"><h3>Research and analysis</h3><p>Observed market studies and clearly labelled mathematical models that start with a testable question.</p></a>
       <a class="related-card" href="/calculators/"><h3>Calculators</h3><p>Interactive tools for odds, margin, staking, exchange liability, each-way settlement and other betting calculations.</p></a>
-      <a class="related-card" href="/guides/"><h3>Guides</h3><p>Plain-English explanations of the concepts and formulas behind the tools.</p></a>
-      <a class="related-card" href="/analysis/"><h3>Analysis</h3><p>Original worked investigations that start with a question and use transparent mathematics to examine it.</p></a>
+      <a class="related-card" href="/guides/"><h3>Guides</h3><p>Plain-English explanations of the concepts, formulas and limitations behind the tools.</p></a>
     </div>
-    <p>These three layers are intended to work together. A calculator gives a result, a guide explains the concept, and an analysis can explore what happens when the same mathematics is applied to a deeper question.</p>
+    <p>These layers are intended to work together. A calculator gives a result, a guide explains the concept, and research tests what the same mathematics looks like in a model or an observed market.</p>
   </section>
 
   <section class="content-card article-section">
-    <h2>How we establish trust</h2>
-    <p>Betting Maths does not ask readers to accept a calculation because of a claimed secret system or uncheckable expertise. Our preferred approach is to show enough of the working for a reader to reproduce the result.</p>
+    <h2>Observed research, not just examples</h2>
+    <p>Betting Maths publishes research using recorded market data where suitable data is available. Our first public dataset measures opening and closing 1X2 book percentages across all 10 matches from the opening round of the 2025/26 Premier League season.</p>
+    <p>The associated research pages state the sample, source, formulas and limitations, and the derived data is downloadable so the headline results can be reproduced.</p>
+    <div class="button-row">
+      <a class="button primary" href="/analysis/premier-league-opening-weekend-overround-2025-26/">Read the Premier League Study</a>
+      <a class="button secondary" href="/research-data/">Research Data and Sources</a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>How the site is produced</h2>
+    <p>Betting Maths is independently produced and maintained. Calculators are built for the site rather than embedded as third-party tools, and research calculations are designed to be reproducible from the published inputs.</p>
+    <p>We do not rely on claims of secret systems or uncheckable expertise. The standard we aim for is simpler: show enough working, sourcing and assumptions for an interested reader to challenge the result.</p>
     <ul class="standard-list">
       <li>Important formulas are shown on calculator, guide or methodology pages.</li>
+      <li>Observed data is distinguished from hypothetical examples.</li>
       <li>Modelled analysis states its assumptions.</li>
-      <li>Observed data will be distinguished from hypothetical examples.</li>
       <li>Probability estimates are labelled as estimates rather than facts.</li>
       <li>Important limitations are included when they affect interpretation.</li>
       <li>External rules or factual claims should use appropriate primary sources where relevant.</li>
+      <li>Research datasets identify their provenance and derived fields.</li>
     </ul>
     <div class="button-row">
       <a class="button primary" href="/methodology/">Calculation Methodology</a>
@@ -75,7 +87,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 
   <section class="content-card article-section">
     <h2>Corrections and contact</h2>
-    <p>Calculations and explanations should be open to correction. If you spot a reproducible calculation error, broken page or factual issue, the contact page explains the current reporting route.</p>
+    <p>Calculations, datasets and explanations should be open to correction. If you spot a reproducible calculation error, data issue, broken page or factual problem, the contact page explains the reporting route.</p>
     <div class="button-row"><a class="button primary" href="/contact/">Contact and Corrections</a></div>
   </section>
 

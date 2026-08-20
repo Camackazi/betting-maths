@@ -4,17 +4,34 @@ import CalculatorCard from "../components/CalculatorCard.astro";
 ---
 
 <MainLayout
-  title="Betting Maths: Calculators, Guides and Original Analysis"
-  description="Understand the mathematics behind betting with free calculators, plain-English guides and original analysis of odds, probability, bookmaker margin, staking and market mechanics."
+  title="Betting Maths: Calculators, Research and Guides"
+  description="Understand betting mathematics with free calculators, observed market research, downloadable data and plain-English guides to odds, probability and bookmaker margin."
 >
   <section class="hero">
     <p class="eyebrow">The mathematics behind betting markets</p>
     <h1>Understand what the numbers actually mean.</h1>
-    <p class="lead">Betting Maths is an independent educational resource built around three things: useful calculators, clear explanations and original mathematical analysis. No tips, predictions or guaranteed systems—just transparent working.</p>
+    <p class="lead">Betting Maths is an independent educational resource combining free calculators, observed market research and plain-English explanations. No tips, predictions or guaranteed systems—just transparent working.</p>
     <div class="button-row">
-      <a class="button primary" href="/analysis/">Explore Original Analysis</a>
+      <a class="button primary" href="/analysis/">Explore Research</a>
       <a class="button secondary" href="/calculators/">Use the Calculators</a>
       <a class="button secondary" href="/guides/">Read the Guides</a>
+    </div>
+  </section>
+
+  <section class="content-card article-section research-feature">
+    <p class="eyebrow">New observed-data research</p>
+    <h2>What did real Premier League 1X2 margins look like?</h2>
+    <p>We analysed all 10 matches from the opening round of the 2025/26 Premier League season using recorded bookmaker odds from Football-Data.co.uk.</p>
+    <div class="headline-stats">
+      <div><span>Bet365 opening book</span><strong>105.78%</strong></div>
+      <div><span>Market-average opening book</span><strong>105.56%</strong></div>
+      <div><span>Best-available opening book</span><strong>101.74%</strong></div>
+    </div>
+    <p>The research includes every match, the calculation method, limitations and a downloadable derived CSV so the numbers can be checked independently.</p>
+    <div class="button-row">
+      <a class="button primary" href="/analysis/premier-league-opening-weekend-overround-2025-26/">Read the Margin Study</a>
+      <a class="button secondary" href="/analysis/premier-league-opening-vs-closing-overround-2025-26/">Opening vs Closing Study</a>
+      <a class="button secondary" href="/research-data/">View Research Data</a>
     </div>
   </section>
 
@@ -23,8 +40,8 @@ import CalculatorCard from "../components/CalculatorCard.astro";
     <div class="pillar-grid">
       <a class="pillar-card analysis" href="/analysis/">
         <span>Investigate</span>
-        <h3>Original analysis</h3>
-        <p>Start with a real mathematical question and work through the assumptions, formulas, findings and limitations.</p>
+        <h3>Research and analysis</h3>
+        <p>Explore observed market studies, published datasets and transparent mathematical models.</p>
       </a>
       <a class="pillar-card" href="/calculators/">
         <span>Calculate</span>
@@ -40,9 +57,9 @@ import CalculatorCard from "../components/CalculatorCard.astro";
   </section>
 
   <section class="content-card article-section">
-    <p class="eyebrow">Betting Maths Analysis</p>
+    <p class="eyebrow">Mathematical models</p>
     <h2>Questions worth doing the maths on</h2>
-    <p>Definitions are useful, but they are only the starting point. Our analysis section uses reproducible models to examine questions that are easy to overlook when looking at a headline price or promotion.</p>
+    <p>Observed data is one part of the site. Controlled models are useful when we want to isolate a specific mechanism and make every assumption explicit.</p>
     <div class="analysis-grid">
       <a class="analysis-card" href="/analysis/how-margin-compounds-in-accumulators/">
         <span>Accumulator maths</span>
@@ -60,7 +77,7 @@ import CalculatorCard from "../components/CalculatorCard.astro";
         <p>Isolate the mathematical effect of one extra qualifying place and see why the headline number of places is only part of the offer.</p>
       </a>
     </div>
-    <div class="button-row"><a class="button primary" href="/analysis/">View All Analysis</a></div>
+    <div class="button-row"><a class="button primary" href="/analysis/">View All Research and Analysis</a></div>
   </section>
 
   <section class="content-card article-section">
@@ -92,22 +109,27 @@ import CalculatorCard from "../components/CalculatorCard.astro";
 
   <section class="content-card article-section">
     <h2>Show the working</h2>
-    <p>The site is designed around reproducible maths. Where a result depends on an assumption—such as an estimated win probability—we make that dependency explicit. Where an article uses a model rather than observed market data, we label it as a model.</p>
+    <p>The site is designed around reproducible maths. Where a result depends on an assumption—such as an estimated win probability—we make that dependency explicit. Where an article uses observed data, we identify the source and sample. Where it uses a model, we label it as a model.</p>
     <div class="standards-grid">
+      <a class="standards-card" href="/research-data/"><h3>Research Data and Sources</h3><p>Download derived datasets and see the provenance behind original Betting Maths research.</p></a>
       <a class="standards-card" href="/methodology/"><h3>Calculation Methodology</h3><p>See the formulas, conventions, rounding approach and limitations used across the calculator library.</p></a>
       <a class="standards-card" href="/editorial-standards/"><h3>Editorial Standards</h3><p>Read how Betting Maths approaches accuracy, original analysis, sourcing, corrections and commercial independence.</p></a>
-      <a class="standards-card" href="/about/"><h3>About Betting Maths</h3><p>Learn why the site exists and how calculators, guides and analysis fit together.</p></a>
     </div>
   </section>
 
   <section class="content-card article-section">
     <h2>Betting maths can explain risk. It cannot remove it.</h2>
     <p>A correct calculation does not make an uncertain event certain. Betting Maths does not tell readers what to bet on and should not be treated as a source of guaranteed income.</p>
-    <div class="button-row"><a class="button primary" href="/responsible-gambling/">Responsible Gambling</a><a class="button secondary" href="/disclaimer/">Read the Disclaimer</a></div>
+    <div class="button-row"><a class="button primary" href="/about/">About Betting Maths</a><a class="button secondary" href="/responsible-gambling/">Responsible Gambling</a><a class="button secondary" href="/disclaimer/">Read the Disclaimer</a></div>
   </section>
 
   <style>
     .article-section { margin-top: 1.25rem; }
+    .research-feature { border-color: rgba(31,138,91,.35); background: #fbfffd; }
+    .headline-stats { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .8rem; margin: 1rem 0; }
+    .headline-stats div { padding: .9rem; border: 1px solid var(--color-border); border-radius: 12px; background: white; }
+    .headline-stats span { display:block; color:var(--color-muted); font-size:.82rem; }
+    .headline-stats strong { display:block; color:var(--color-navy); font-size:1.55rem; margin-top:.2rem; }
     .pillar-grid, .analysis-grid, .guide-grid, .standards-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1rem; }
     .pillar-card, .analysis-card, .guide-card, .standards-card { display: block; padding: 1.1rem; border: 1px solid var(--color-border); border-radius: 14px; background: var(--color-bg); }
     .pillar-card:hover, .analysis-card:hover, .guide-card:hover, .standards-card:hover { border-color: rgba(31, 138, 91, 0.45); transform: translateY(-2px); }
@@ -115,6 +137,6 @@ import CalculatorCard from "../components/CalculatorCard.astro";
     .pillar-card p, .analysis-card p, .guide-card p, .standards-card p { margin: 0; }
     .pillar-card.analysis { border-color: rgba(31, 138, 91, 0.35); background: #f4fbf7; }
     .calculator-grid { margin-top: 1rem; }
-    @media (max-width: 900px) { .pillar-grid, .analysis-grid, .guide-grid, .standards-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 900px) { .headline-stats, .pillar-grid, .analysis-grid, .guide-grid, .standards-grid { grid-template-columns: 1fr; } }
   </style>
 </MainLayout>

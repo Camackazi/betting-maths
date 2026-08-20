@@ -4,106 +4,127 @@ import MainLayout from "../../layouts/MainLayout.astro";
 
 <MainLayout
   title="What Is Expected Value in Betting?"
-  description="Learn what expected value means in betting, how EV is calculated, and why positive EV does not guarantee profit. Includes examples and a calculator link."
+  description="Learn how betting expected value works, how break-even probability is calculated, why probability estimates matter, and how EV differs from profit and ROI."
+  dateModified="2026-08-20"
 >
   <section class="content-card">
     <p class="eyebrow">Betting maths guide</p>
     <h1>What Is Expected Value in Betting?</h1>
-    <p class="lead">
-      Expected value is a way to estimate the average result of a bet if the same type of situation happened many times. It depends heavily on the probability estimate you enter, so it is an educational calculation rather than a prediction.
-    </p>
-
-    <div class="callout">
-      <strong>Useful tool:</strong> Use the <a href="/calculators/expected-value-calculator/">Expected Value Calculator</a> to estimate EV from stake, decimal odds and your own estimated win probability.
-    </div>
+    <p class="lead">Expected value, or EV, estimates the average mathematical result of a bet when possible outcomes are weighted by their probabilities. It can explain whether a price looks favourable under a stated probability estimate, but it cannot predict the result of the next bet.</p>
+    <div class="callout"><strong>Useful tool:</strong> Use the <a href="/calculators/expected-value-calculator/">Expected Value Calculator</a> to compare stake, decimal odds and your own estimated probability, then use this guide to understand what the result does—and does not—mean.</div>
   </section>
 
   <section class="content-card article-section">
-    <h2>What expected value means</h2>
-    <p>
-      Expected value, often shortened to EV, compares the possible profit if a bet wins with the possible loss if it loses. Each outcome is weighted by an estimated probability.
-    </p>
-    <p>
-      In betting, EV is not certainty. It is only as useful as the probability estimate behind it. If the estimate is wrong, the EV result can be misleading.
-    </p>
-  </section>
-
-  <section class="content-card article-section">
-    <h2>Positive EV, negative EV and break-even</h2>
-    <p>
-      A positive EV result means the calculation has a positive average result based on the probability entered. A negative EV result means the calculation has a negative average result. A break-even result is close to zero.
-    </p>
-    <p>
-      Positive EV does not mean the next bet will win. Even a calculation that looks positive can lose, especially across a small number of bets.
-    </p>
-  </section>
-
-  <section class="content-card article-section">
-    <h2>Expected value formula</h2>
-    <p>
-      With decimal odds, the possible profit from a winning bet is the stake multiplied by the decimal odds minus one.
-    </p>
-
+    <h2>The core idea</h2>
+    <p>A bet has at least two possible financial outcomes: a profit if it wins and a loss if it loses. Expected value combines those outcomes into one probability-weighted average.</p>
     <div class="formula-box">
-      <p><strong>Profit if win</strong> = stake x (decimal odds - 1)</p>
-      <p><strong>Expected value</strong> = (probability x profit if win) - ((1 - probability) x stake)</p>
-      <p><strong>EV ROI %</strong> = (expected value / stake) x 100</p>
+      <p><strong>Profit if win</strong> = stake × (decimal odds − 1)</p>
+      <p><strong>EV</strong> = (win probability × profit if win) − (loss probability × stake)</p>
+      <p><strong>EV ROI %</strong> = EV ÷ stake × 100</p>
     </div>
+    <p>EV is therefore not a statement about what will happen once. It is an average implied by the model if the same probability and price could be repeated many times.</p>
   </section>
 
   <section class="content-card article-section">
-    <h2>Worked example</h2>
-    <p>
-      Suppose the stake is £10, the decimal odds are 2.50, and your estimated chance of winning is 45%.
-    </p>
-
+    <h2>A £10 worked example</h2>
+    <p>Suppose the stake is £10, the decimal odds are 2.50 and the estimated chance of winning is 45%.</p>
     <table class="example-table">
-      <thead>
-        <tr>
-          <th>Input</th>
-          <th>Value</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Step</th><th>Calculation</th><th>Result</th></tr></thead>
       <tbody>
-        <tr><td>Stake</td><td>£10</td></tr>
-        <tr><td>Decimal odds</td><td>2.50</td></tr>
-        <tr><td>Estimated win probability</td><td>45%</td></tr>
-        <tr><td>Profit if the bet wins</td><td>£15</td></tr>
-        <tr><td>Expected value</td><td>£1.25</td></tr>
-        <tr><td>EV ROI</td><td>12.50%</td></tr>
+        <tr><td>Profit if win</td><td>£10 × (2.50 − 1)</td><td>£15.00</td></tr>
+        <tr><td>Weighted win profit</td><td>45% × £15</td><td>£6.75</td></tr>
+        <tr><td>Weighted loss</td><td>55% × £10</td><td>£5.50</td></tr>
+        <tr><td>Expected value</td><td>£6.75 − £5.50</td><td><strong>+£1.25</strong></td></tr>
+        <tr><td>Expected ROI</td><td>£1.25 ÷ £10</td><td><strong>+12.50%</strong></td></tr>
       </tbody>
     </table>
-
-    <p>
-      This example is positive based on the 45% estimate. It still does not guarantee profit, because the bet can lose and the estimate may be wrong.
-    </p>
+    <p>The calculation is positive only because we supplied a 45% probability estimate. Change that estimate and the answer changes.</p>
   </section>
 
   <section class="content-card article-section">
-    <h2>Why estimates matter</h2>
-    <p>
-      Expected value depends heavily on the user's own probability estimate. Decimal odds can show implied probability, but they do not prove the true chance of an outcome.
-    </p>
-    <p>
-      Losing runs, variance, small sample sizes, bookmaker limits, changing prices and mistakes in estimates can all affect real results. Responsible bankroll management matters, and no calculator removes betting risk.
-    </p>
+    <h2>Break-even probability</h2>
+    <p>The simplest benchmark for a decimal price is its implied probability. That is also the break-even probability before other costs or settlement complications are considered.</p>
+    <div class="formula-box"><p><strong>Break-even probability</strong> = 1 ÷ decimal odds</p></div>
+    <p>At odds of 2.50, the break-even probability is 40%. If your probability estimate is exactly 40%, the simplified EV is zero. Above 40%, the model is positive; below 40%, it is negative.</p>
+    <table class="example-table">
+      <thead><tr><th>Estimated probability</th><th>EV on £10 at 2.50</th><th>Interpretation</th></tr></thead>
+      <tbody>
+        <tr><td>35%</td><td>-£1.25</td><td>Negative under the estimate</td></tr>
+        <tr><td>40%</td><td>£0.00</td><td>Break-even</td></tr>
+        <tr><td>45%</td><td>+£1.25</td><td>Positive under the estimate</td></tr>
+        <tr><td>50%</td><td>+£2.50</td><td>More positive under the estimate</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>The probability estimate is the hard part</h2>
+    <p>The arithmetic is easy. Estimating the probability accurately is not.</p>
+    <p>Decimal odds tell you the probability implied by the price, not the objectively correct probability. A bettor can calculate positive EV simply by entering an over-optimistic probability. The calculator will faithfully perform the maths even when the assumption is poor.</p>
+    <p>That is why Betting Maths treats EV as a transparent model rather than a selection engine. The useful question is not merely “is the EV positive?” but also “where did the probability estimate come from, and how uncertain is it?”</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Expected value versus profit</h2>
+    <p>Profit is what actually happened on a settled bet. Expected value is what the model says the average result would be under its assumptions.</p>
+    <table class="example-table">
+      <thead><tr><th>Measure</th><th>What it answers</th></tr></thead>
+      <tbody>
+        <tr><td>Actual profit/loss</td><td>What happened on this bet?</td></tr>
+        <tr><td>Expected value</td><td>What is the probability-weighted average result under the assumptions?</td></tr>
+        <tr><td>EV ROI</td><td>What is that expected result as a percentage of stake?</td></tr>
+        <tr><td>Break-even probability</td><td>What win probability would make the simplified EV equal zero at this price?</td></tr>
+      </tbody>
+    </table>
+    <p>A positive-EV bet can lose. A negative-EV bet can win. One result does not validate or invalidate the original probability estimate.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Why repeated bets still do not produce a smooth line</h2>
+    <p>Expected value is a long-run average concept, but real sequences contain variance. Even when a probability model is correct, wins and losses can cluster.</p>
+    <p>For a 45% event, a sequence of ten trials can easily contain far fewer—or far more—than 4.5 wins. The average only becomes more informative as the number of genuinely comparable independent observations grows. In betting, that ideal is complicated because prices and underlying probabilities usually change from event to event.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>EV and bookmaker margin</h2>
+    <p>Bookmaker margin and expected value are related but different ideas. Overround describes how the quoted probabilities in a market add together. EV describes one price relative to a probability estimate.</p>
+    <p>A market with a 105% book does not mean every selection has exactly -5% EV. Margin can be distributed unevenly between outcomes. That is one reason a no-vig calculation is best treated as a benchmark rather than a direct measurement of true probability.</p>
+    <div class="button-row">
+      <a class="button secondary" href="/guides/bookmaker-margin-explained/">Bookmaker Margin Explained</a>
+      <a class="button secondary" href="/guides/no-vig-fair-odds/">No-Vig Fair Odds Guide</a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Common mistakes</h2>
+    <ul class="standard-list">
+      <li><strong>Treating implied probability as true probability.</strong> A price is market information, not proof.</li>
+      <li><strong>Confusing return with profit.</strong> Decimal-odds return includes the returned stake.</li>
+      <li><strong>Assuming positive EV guarantees a win.</strong> It does not.</li>
+      <li><strong>Ignoring settlement rules.</strong> Commission, dead heats, voids, deductions and each-way terms can change the actual cash result.</li>
+      <li><strong>Using an estimate with false precision.</strong> A model saying 43.7% is not necessarily more credible than one saying roughly 44%.</li>
+    </ul>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What observed market research can add</h2>
+    <p>Betting Maths now publishes observed bookmaker-market studies alongside theoretical guides. For example, our Premier League opening-weekend research measured actual 1X2 book percentages across 10 matches rather than assuming a made-up margin.</p>
+    <p>That kind of research does not supply the “true probability” required for an EV calculation, but it helps show how real quoted prices and market margins behave.</p>
+    <div class="button-row"><a class="button secondary" href="/analysis/premier-league-opening-weekend-overround-2025-26/">Read the Premier League Margin Study</a></div>
   </section>
 
   <section class="content-card article-section">
     <h2>When to use the calculator</h2>
-    <p>
-      Use the Expected Value Calculator when you want to compare stake, odds and an estimated probability in one place. It can help explain the maths behind a position, but it should not be treated as advice to place a bet.
-    </p>
-
+    <p>Use the Expected Value Calculator when you already have a price and a probability estimate and want to see the mathematical consequence of combining them. Change the probability deliberately to see how sensitive the result is.</p>
+    <p>Do not use the calculator as evidence that your probability estimate is correct.</p>
     <div class="button-row">
       <a class="button primary" href="/calculators/expected-value-calculator/">Open the Expected Value Calculator</a>
       <a class="button secondary" href="/calculators/odds-converter/">Open the Odds Converter</a>
+      <a class="button secondary" href="/methodology/">Read the Methodology</a>
     </div>
   </section>
 
-  <div class="callout">
-    <strong>Responsible note:</strong> Expected value is an educational calculation. Betting involves risk, and positive EV does not guarantee profit.
-  </div>
+  <div class="callout"><strong>Responsible note:</strong> Expected value is an educational calculation. Betting involves risk, probability estimates can be wrong, and positive EV does not guarantee profit.</div>
 
   <style>
     .article-section { margin-top: 1.25rem; }
@@ -113,6 +134,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
     .example-table th, .example-table td { padding: 0.75rem; border-bottom: 1px solid var(--color-border); text-align: left; vertical-align: middle; }
     .example-table th { color: var(--color-navy); background: #f4f7fa; font-size: 0.9rem; }
     .example-table tr:last-child td { border-bottom: 0; }
+    .standard-list { padding-left: 1.3rem; }
     .article-section a, .callout a { color: var(--color-green-dark); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
   </style>
 </MainLayout>

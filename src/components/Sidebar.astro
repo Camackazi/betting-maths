@@ -5,12 +5,20 @@ const currentPath = Astro.url.pathname.endsWith("/")
 
 const sections = [
   {
-    title: "Analysis",
+    title: "Research",
     groups: [
       {
-        title: "Original work",
+        title: "Observed market data",
         links: [
-          { href: "/analysis/", label: "All Analysis" },
+          { href: "/analysis/", label: "All Research & Analysis" },
+          { href: "/analysis/premier-league-opening-weekend-overround-2025-26/", label: "Premier League 1X2 Margins" },
+          { href: "/analysis/premier-league-opening-vs-closing-overround-2025-26/", label: "Opening vs Closing Margins" },
+          { href: "/research-data/", label: "Research Data & Sources" }
+        ]
+      },
+      {
+        title: "Mathematical models",
+        links: [
           { href: "/analysis/how-margin-compounds-in-accumulators/", label: "Margin in Accumulators" },
           { href: "/analysis/cash-out-fair-value/", label: "Cash-Out Fair Value" },
           { href: "/analysis/extra-places-mathematical-value/", label: "Value of Extra Places" }
@@ -140,6 +148,7 @@ const sections = [
       {
         title: "How we work",
         links: [
+          { href: "/research-data/", label: "Research Data & Sources" },
           { href: "/methodology/", label: "Calculation Methodology" },
           { href: "/editorial-standards/", label: "Editorial Standards" },
           { href: "/about/", label: "About Betting Maths" }

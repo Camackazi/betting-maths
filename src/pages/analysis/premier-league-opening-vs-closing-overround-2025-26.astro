@@ -1,0 +1,148 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+
+const rows = [
+  ["Liverpool v Bournemouth", 105.35, 104.63, -0.72],
+  ["Aston Villa v Newcastle", 107.50, 105.94, -1.56],
+  ["Brighton v Fulham", 105.13, 105.68, 0.54],
+  ["Sunderland v West Ham", 104.63, 105.11, 0.48],
+  ["Tottenham v Burnley", 105.28, 106.16, 0.88],
+  ["Wolves v Man City", 106.02, 105.17, -0.85],
+  ["Chelsea v Crystal Palace", 107.05, 105.32, -1.73],
+  ["Nott'm Forest v Brentford", 104.33, 105.01, 0.68],
+  ["Man United v Arsenal", 106.84, 105.70, -1.14],
+  ["Leeds v Everton", 105.65, 105.58, -0.07]
+];
+---
+
+<MainLayout
+  title="Do Premier League Betting Margins Tighten Before Kick-Off?"
+  description="Original Betting Maths research comparing opening and closing 1X2 book percentages across all 10 matches from the 2025/26 Premier League opening weekend."
+>
+  <section class="content-card">
+    <p class="eyebrow">Observed market data</p>
+    <h1>Do Premier League 1X2 Margins Tighten Before Kick-Off?</h1>
+    <p class="lead">Using the same 10 opening-weekend matches from the 2025/26 Premier League season, we compared opening and closing 1X2 book percentages to see whether the market consistently became tighter by kick-off.</p>
+    <div class="research-meta">
+      <span><strong>Sample:</strong> 10 matches</span>
+      <span><strong>Comparison:</strong> Opening vs closing</span>
+      <span><strong>Market:</strong> Full-time 1X2</span>
+      <span><strong>Published:</strong> 20 August 2026</span>
+    </div>
+    <div class="callout"><strong>Headline finding:</strong> The answer was “a little, but not consistently.” Bet365's average book fell from 105.78% to 105.43%, while the cross-bookmaker average fell only from 105.56% to 105.47%. Six of 10 matches tightened on both measures; four moved the other way.</div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>The question</h2>
+    <p>It is common to hear that football markets become more efficient or competitive as kick-off approaches. That can be true in some contexts, but it is easy to turn a plausible idea into an unsupported rule.</p>
+    <p>We therefore asked a narrower, testable question: <strong>did the 1X2 book percentage decrease between the opening and closing price snapshots on Premier League opening weekend 2025/26?</strong></p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>How we measured it</h2>
+    <p>For each match, we calculated the book percentage from three decimal prices at the opening snapshot and again at the closing snapshot.</p>
+    <div class="formula-box">
+      <p><strong>Book percentage</strong> = (1 ÷ home odds + 1 ÷ draw odds + 1 ÷ away odds) × 100</p>
+      <p><strong>Change</strong> = closing book percentage − opening book percentage</p>
+    </div>
+    <p>A negative change means the book became tighter. A positive change means the book percentage increased.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Bet365 opening vs closing books</h2>
+    <div class="table-wrap">
+      <table class="example-table">
+        <thead><tr><th>Match</th><th>Opening</th><th>Closing</th><th>Change</th></tr></thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr>
+              <td>{row[0]}</td>
+              <td>{row[1].toFixed(2)}%</td>
+              <td>{row[2].toFixed(2)}%</td>
+              <td class={row[3] < 0 ? "down" : "up"}>{row[3] > 0 ? "+" : ""}{row[3].toFixed(2)} pp</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p>Six of the 10 Bet365 books were lower at the closing snapshot and four were higher. The average change was <strong>-0.35 percentage points</strong>.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>The market-average picture was even flatter</h2>
+    <div class="stat-grid">
+      <div class="stat-card"><span>Average opening book</span><strong>105.56%</strong><small>Cross-bookmaker average prices</small></div>
+      <div class="stat-card"><span>Average closing book</span><strong>105.47%</strong><small>Cross-bookmaker average prices</small></div>
+      <div class="stat-card"><span>Average change</span><strong>-0.08 pp</strong><small>Six down, four up</small></div>
+    </div>
+    <p>The cross-bookmaker average barely moved overall. That is an important reminder that “prices moved” and “the book became much tighter” are not the same statement.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Why the best-available book behaved differently</h2>
+    <p>We also calculated a “best available” book by taking the maximum listed home, draw and away price across the source bookmaker set. That book averaged 101.74% at the opening snapshot and 102.10% at closing.</p>
+    <p>Seven of the 10 best-available books increased rather than decreased. This does not contradict the single-book result because it measures something different: it combines the best price for each outcome, potentially from three different bookmakers. When the identity of the best price changes, the combined book can move in a different direction from any one bookmaker's book.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>The biggest moves in the sample</h2>
+    <ul class="standard-list">
+      <li><strong>Chelsea v Crystal Palace:</strong> Bet365 fell from 107.05% to 105.32%, a 1.73-point tightening.</li>
+      <li><strong>Aston Villa v Newcastle:</strong> 107.50% to 105.94%, down 1.56 points.</li>
+      <li><strong>Man United v Arsenal:</strong> 106.84% to 105.70%, down 1.14 points.</li>
+      <li><strong>Tottenham v Burnley:</strong> moved the other way, from 105.28% to 106.16%, up 0.88 points.</li>
+    </ul>
+    <p>That spread is why we do not treat “closing markets are tighter” as a universal rule from this dataset. The average moved slightly lower, but individual matches behaved differently.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>What this can and cannot tell us</h2>
+    <p>This 10-match snapshot supports a modest conclusion: <strong>the average 1X2 book in this sample was slightly lower at the closing snapshot, but the effect was small and not consistent across matches.</strong></p>
+    <p>It does not establish a general law about Premier League closing lines. A stronger study would repeat the calculation across hundreds of matches, separate bookmakers, and perhaps compare high-liquidity and lower-liquidity fixtures.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Data source and reproducibility</h2>
+    <p>The underlying opening and closing odds come from <a href="https://www.football-data.co.uk/" rel="noreferrer">Football-Data.co.uk</a>'s 2025/26 Premier League CSV. Betting Maths calculated the book percentages and opening-to-closing changes.</p>
+    <p>The complete derived dataset for all 10 matches is available below so readers can reproduce every headline number in this article.</p>
+    <div class="button-row">
+      <a class="button primary" href="/data/premier-league-opening-weekend-2025-26-1x2-margins.csv">Download the derived CSV</a>
+      <a class="button secondary" href="/analysis/premier-league-opening-weekend-overround-2025-26/">Read the Opening-Book Study</a>
+      <a class="button secondary" href="/methodology/">Methodology</a>
+    </div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Limitations</h2>
+    <ul class="standard-list">
+      <li>Only one Premier League round is included.</li>
+      <li>Opening and closing are the snapshots supplied in the source dataset; they are not a minute-by-minute record of price movement.</li>
+      <li>Book percentage measures the sum of implied probabilities, not realised bookmaker profit.</li>
+      <li>The average and maximum fields depend on the bookmaker coverage in the underlying file.</li>
+      <li>The sample is descriptive and should not be used as a betting strategy.</li>
+    </ul>
+  </section>
+
+  <div class="callout"><strong>Responsible note:</strong> Observing how prices move does not predict match outcomes or create guaranteed value. This analysis is educational and descriptive.</div>
+
+  <style>
+    .article-section { margin-top: 1.25rem; }
+    .research-meta { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1rem; }
+    .research-meta span { padding: 0.35rem 0.65rem; border-radius: 999px; background: #eef8f3; color: var(--color-green-dark); font-size: 0.82rem; }
+    .formula-box { padding: 1rem 1.15rem; border: 1px solid var(--color-border); border-radius: 14px; background: var(--color-bg); }
+    .formula-box p { margin: 0.4rem 0; }
+    .table-wrap { overflow-x: auto; }
+    .example-table { width: 100%; min-width: 700px; border-collapse: collapse; margin: 1rem 0; background: white; }
+    .example-table th, .example-table td { padding: 0.72rem; border: 1px solid var(--color-border); text-align: left; }
+    .example-table th { background: #f4f7fa; color: var(--color-navy); }
+    .down { color: #166534; font-weight: 800; }
+    .up { color: #9a3412; font-weight: 800; }
+    .stat-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; margin: 1rem 0; }
+    .stat-card { padding: 1rem; border: 1px solid var(--color-border); border-radius: 14px; background: white; }
+    .stat-card span, .stat-card small { display: block; color: var(--color-muted); }
+    .stat-card strong { display: block; margin: 0.3rem 0; color: var(--color-navy); font-size: 1.8rem; }
+    .standard-list { padding-left: 1.3rem; }
+    .article-section a:not(.button) { color: var(--color-green-dark); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+    @media (max-width: 760px) { .stat-grid { grid-template-columns: 1fr; } }
+  </style>
+</MainLayout>
