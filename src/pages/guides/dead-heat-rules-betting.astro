@@ -4,103 +4,137 @@ import MainLayout from "../../layouts/MainLayout.astro";
 
 <MainLayout
   title="What Is a Dead Heat in Betting?"
-  description="Learn how dead heat rules work in betting, how returns are adjusted, and how to estimate dead heat payouts with a simple calculator."
+  description="Learn how dead heat settlement works, how stake is divided when runners tie, and how dead heats affect win, place and each-way returns."
+  dateModified="2026-08-20"
 >
   <section class="content-card">
     <p class="eyebrow">Betting rules guide</p>
     <h1>What Is a Dead Heat in Betting?</h1>
-    <p class="lead">
-      A dead heat happens when two or more participants tie for a position that affects settlement. Dead heat rules usually split the stake into a winning part and a losing part.
-    </p>
-
-    <div class="callout">
-      <strong>Useful tool:</strong> Use the <a href="/calculators/dead-heat-calculator/">Dead Heat Calculator</a> to estimate adjusted returns from stake, odds, tied participants and places available.
-    </div>
+    <p class="lead">A dead heat happens when two or more participants tie for a position that affects settlement. Instead of simply shortening the odds, a common dead-heat method reduces the portion of the stake that is treated as winning.</p>
+    <div class="callout"><strong>Useful tool:</strong> Use the <a href="/calculators/dead-heat-calculator/">Dead Heat Calculator</a> to estimate adjusted return from stake, odds, tied participants and places available. Always check the actual bookmaker rules for the market.</div>
   </section>
 
   <section class="content-card article-section">
-    <h2>What a dead heat means</h2>
-    <p>
-      In betting, a dead heat means there is a tie that affects which selections count as winners. It can happen in racing, golf, top finish markets, place markets and other tied outcomes.
-    </p>
-    <p>
-      The exact rule depends on the bookmaker and the market, so users should always check the terms that apply to the bet.
-    </p>
+    <h2>Why dead heats change the return</h2>
+    <p>Imagine two runners cannot be separated for one winning place. Paying both bets as full winners would effectively create two winners where the market expected one. A common settlement method therefore divides the stake according to the number of tied participants and the number of places available to them.</p>
+    <p>The important point is that the original odds can remain unchanged on the winning portion. What changes is how much of the original stake qualifies for payment.</p>
   </section>
 
   <section class="content-card article-section">
-    <h2>How dead heat rules usually work</h2>
-    <p>
-      A common simplified approach is to split the stake by the number of tied participants and available places. The winning part is paid at the odds, while the rest is treated as losing.
-    </p>
-
+    <h2>The simplified dead-heat formula</h2>
+    <p>For the common proportional method used by the Betting Maths calculator:</p>
     <div class="formula-box">
-      <p><strong>Winning fraction</strong> = places available / number of tied participants</p>
-      <p><strong>Winning stake portion</strong> = stake x winning fraction</p>
-      <p><strong>Losing stake portion</strong> = stake - winning stake portion</p>
-      <p><strong>Adjusted return</strong> = winning stake portion x decimal odds</p>
-      <p><strong>Adjusted profit/loss</strong> = adjusted return - stake</p>
+      <p><strong>Winning fraction</strong> = places available ÷ number of tied participants</p>
+      <p><strong>Winning stake portion</strong> = original stake × winning fraction</p>
+      <p><strong>Losing stake portion</strong> = original stake − winning stake portion</p>
+      <p><strong>Adjusted return</strong> = winning stake portion × decimal odds</p>
+      <p><strong>Adjusted profit/loss</strong> = adjusted return − original stake</p>
     </div>
+    <p>If the number of places available is at least the number of tied participants, there is no stake reduction under this simplified model.</p>
   </section>
 
   <section class="content-card article-section">
-    <h2>Worked example</h2>
-    <p>
-      Suppose you stake £10 at decimal odds of 5.00. Two participants tie for one available place.
-    </p>
-
+    <h2>Two-way dead heat for one place</h2>
+    <p>Suppose you stake £10 at decimal odds of 5.00 and two participants tie for one available place.</p>
     <table class="example-table">
-      <thead>
-        <tr>
-          <th>Step</th>
-          <th>Result</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Step</th><th>Calculation</th><th>Result</th></tr></thead>
       <tbody>
-        <tr><td>Winning fraction</td><td>1 / 2 = 50%</td></tr>
-        <tr><td>Winning stake portion</td><td>£5</td></tr>
-        <tr><td>Losing stake portion</td><td>£5</td></tr>
-        <tr><td>Adjusted return</td><td>£5 x 5.00 = £25</td></tr>
-        <tr><td>Adjusted profit</td><td>£25 - £10 = £15</td></tr>
+        <tr><td>Winning fraction</td><td>1 ÷ 2</td><td>50%</td></tr>
+        <tr><td>Winning stake portion</td><td>£10 × 50%</td><td>£5</td></tr>
+        <tr><td>Losing stake portion</td><td>£10 − £5</td><td>£5</td></tr>
+        <tr><td>Adjusted return</td><td>£5 × 5.00</td><td>£25</td></tr>
+        <tr><td>Adjusted profit</td><td>£25 − £10</td><td>£15</td></tr>
+      </tbody>
+    </table>
+    <p>Without the dead heat, a full £10 winner at 5.00 would return £50. The dead heat halves the winning stake portion, not the quoted odds.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Three runners tied for two places</h2>
+    <p>Now suppose three participants tie across two paid positions. The winning fraction is 2/3.</p>
+    <p>With a £12 stake at decimal odds of 4.00, £8 of the stake is treated as winning and £4 as losing. The adjusted return is £8 × 4.00 = <strong>£32</strong>. Compared with the original £12 stake, the adjusted profit is <strong>£20</strong>.</p>
+    <table class="example-table">
+      <thead><tr><th>Tied participants</th><th>Places available</th><th>Winning fraction</th><th>Stake paid as winner</th></tr></thead>
+      <tbody>
+        <tr><td>2</td><td>1</td><td>1/2</td><td>50%</td></tr>
+        <tr><td>3</td><td>1</td><td>1/3</td><td>33.33%</td></tr>
+        <tr><td>3</td><td>2</td><td>2/3</td><td>66.67%</td></tr>
+        <tr><td>4</td><td>2</td><td>1/2</td><td>50%</td></tr>
       </tbody>
     </table>
   </section>
 
   <section class="content-card article-section">
-    <h2>Another example</h2>
-    <p>
-      If three participants tie for two available places, the winning fraction is 2 / 3. A £12 stake would have £8 treated as the winning stake portion and £4 treated as the losing portion.
-    </p>
-    <p>
-      This is why both numbers matter: the number of tied participants and the number of places available decide how much of the stake is paid as winning.
-    </p>
+    <h2>Why “halve the odds” is not generally the right shortcut</h2>
+    <p>People sometimes describe a two-way dead heat as “half the odds”. That can produce the same profit in some simple cases, but it is an unreliable way to think about settlement because decimal odds include the returned winning stake.</p>
+    <p>The cleaner method is to split the stake first and then pay the winning portion at the original odds. That keeps return and profit calculations explicit and extends naturally to three-way or multi-place dead heats.</p>
   </section>
 
   <section class="content-card article-section">
-    <h2>Win dead heats and place dead heats</h2>
-    <p>
-      A win dead heat usually involves tied participants for first place. A place dead heat can happen when several participants tie around the final paid place in a place or each-way market.
-    </p>
-    <p>
-      Place terms, extra places, each-way rules and bookmaker-specific settlement rules can affect the final result.
-    </p>
+    <h2>Win dead heats</h2>
+    <p>A win dead heat usually means participants tie for first place. If two runners tie for first and there is one winning position, half the stake on each may be treated as winning under the common method.</p>
+    <p>Markets can have their own settlement language, particularly where an official governing body later separates positions or where the bookmaker specifies a different rule. The bet's terms are therefore authoritative.</p>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Place dead heats and each-way bets</h2>
+    <p>Dead heats can also affect the place part of an each-way bet. Suppose a race pays three places and several horses tie around the final paid position. The place stake may be divided according to how many paid positions remain and how many runners share the tie.</p>
+    <p>The win and place halves of an each-way bet are settled separately. A runner could lose the win half while the place half is subject to a dead-heat reduction.</p>
+    <div class="callout"><strong>Example:</strong> If one place remains and two horses dead heat for it, a £5 place stake may have £2.50 treated as the winning stake portion. That winning portion is then settled at the applicable place odds.</div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Extra places do not remove dead-heat risk</h2>
+    <p>An extra-place promotion increases the number of qualifying positions, but a tie can still occur around the final qualifying place. The number of places available within the tie is what matters for the dead-heat fraction.</p>
+    <p>This is why “four places instead of three” and “dead heat for fourth” are separate pieces of the settlement calculation.</p>
+    <div class="button-row"><a class="button secondary" href="/analysis/extra-places-mathematical-value/">Extra Places Mathematical Analysis</a></div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Dead heats, Rule 4 and other deductions</h2>
+    <p>A dead heat is only one possible settlement adjustment. Horse-racing returns can also be affected by Rule 4 deductions, each-way place fractions and other terms.</p>
+    <p>The order and exact application of these rules can depend on bookmaker terms and the market. Betting Maths therefore keeps its dead-heat calculator deliberately focused on the dead-heat fraction rather than pretending to reproduce every bookmaker's settlement engine.</p>
+    <div class="button-row"><a class="button secondary" href="/calculators/rule-4-calculator/">Rule 4 Calculator</a><a class="button secondary" href="/guides/each-way-betting-terms-explained/">Each-Way Terms Guide</a></div>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Return, profit and losing stake</h2>
+    <p>Dead heats are easier to understand when these values are kept separate.</p>
+    <table class="example-table">
+      <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td>Original stake</td><td>The total amount originally risked.</td></tr>
+        <tr><td>Winning stake portion</td><td>The part of that stake that qualifies for payment after the dead-heat split.</td></tr>
+        <tr><td>Losing stake portion</td><td>The remainder that does not qualify for payment.</td></tr>
+        <tr><td>Adjusted return</td><td>The cash returned from the winning stake portion at the applicable odds.</td></tr>
+        <tr><td>Adjusted profit/loss</td><td>Adjusted return minus the full original stake.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="content-card article-section">
+    <h2>Common mistakes</h2>
+    <ul class="standard-list">
+      <li>Using the number of tied participants but forgetting how many paid places remain.</li>
+      <li>Reducing the odds instead of explicitly reducing the winning stake portion.</li>
+      <li>Comparing adjusted return with the reduced winning stake rather than the original total stake when calculating overall profit/loss.</li>
+      <li>Applying a win dead heat to the place half of an each-way bet without checking where the actual tie occurred.</li>
+      <li>Assuming every bookmaker settles every market identically.</li>
+    </ul>
   </section>
 
   <section class="content-card article-section">
     <h2>When to use the calculator</h2>
-    <p>
-      Use the Dead Heat Calculator when you want a simplified educational estimate of an adjusted return after a tie. It is not a substitute for checking the exact bookmaker rules for the market.
-    </p>
-
+    <p>Use the Dead Heat Calculator when you know the original stake, decimal odds, number of tied participants and number of places available within the tie. It provides a transparent estimate using the proportional stake-splitting method described above.</p>
+    <p>For an actual settled bet, compare the result with the bookmaker's rules and settlement statement.</p>
     <div class="button-row">
       <a class="button primary" href="/calculators/dead-heat-calculator/">Open the Dead Heat Calculator</a>
       <a class="button secondary" href="/calculators/each-way-calculator/">Open the Each-Way Calculator</a>
+      <a class="button secondary" href="/methodology/">Read the Methodology</a>
     </div>
   </section>
 
-  <div class="callout">
-    <strong>Responsible note:</strong> This guide and calculator give a simplified educational estimate. Bookmaker rules can vary, and betting always involves risk.
-  </div>
+  <div class="callout"><strong>Responsible note:</strong> This guide explains a common mathematical settlement method. Bookmaker rules can vary, and betting always involves risk.</div>
 
   <style>
     .article-section { margin-top: 1.25rem; }
@@ -110,6 +144,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
     .example-table th, .example-table td { padding: 0.75rem; border-bottom: 1px solid var(--color-border); text-align: left; vertical-align: middle; }
     .example-table th { color: var(--color-navy); background: #f4f7fa; font-size: 0.9rem; }
     .example-table tr:last-child td { border-bottom: 0; }
+    .standard-list { padding-left: 1.3rem; }
     .article-section a, .callout a { color: var(--color-green-dark); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
   </style>
 </MainLayout>
