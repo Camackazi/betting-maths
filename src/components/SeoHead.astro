@@ -2,9 +2,11 @@
 interface Props {
   title: string;
   description: string;
+  datePublished?: string;
+  dateModified?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, datePublished, dateModified } = Astro.props;
 
 const siteName = "Betting Maths";
 const siteUrl = "https://www.bettingmaths.co.uk";
@@ -45,13 +47,14 @@ const breadcrumbItems = [
     const nameOverrides: Record<string, string> = {
       calculators: "Calculators",
       guides: "Guides",
-      analysis: "Analysis",
+      analysis: "Research and Analysis",
       glossary: "Glossary",
       "betting-jargon-explained": "Betting Jargon Explained",
       "privacy-policy": "Privacy Policy",
       "responsible-gambling": "Responsible Gambling",
       methodology: "Calculation Methodology",
-      "editorial-standards": "Editorial Standards"
+      "editorial-standards": "Editorial Standards",
+      "research-data": "Research Data and Sources"
     };
 
     return {
@@ -76,7 +79,7 @@ const websiteSchema = {
   "@id": `${siteUrl}/#website`,
   name: siteName,
   url: siteUrl,
-  description: "Free betting calculators, plain-English guides and original mathematical analysis of odds, probability, bookmaker margin, staking and betting-market mechanics.",
+  description: "Free betting calculators, observed market research, plain-English guides and original mathematical analysis of odds, probability, bookmaker margin, staking and betting-market mechanics.",
   publisher: { "@id": `${siteUrl}/#organization` },
   inLanguage: "en-GB"
 };
@@ -95,7 +98,9 @@ const webPageSchema = {
   description,
   isPartOf: { "@id": `${siteUrl}/#website` },
   breadcrumb: { "@id": `${canonicalUrl}#breadcrumb` },
-  inLanguage: "en-GB"
+  inLanguage: "en-GB",
+  ...(datePublished ? { datePublished } : {}),
+  ...(dateModified ? { dateModified } : {})
 };
 
 const articleSchema = isArticlePage
@@ -105,11 +110,13 @@ const articleSchema = isArticlePage
       headline: title,
       description,
       url: canonicalUrl,
-      articleSection: isAnalysisPage ? "Betting Maths Analysis" : "Betting Maths Guides",
+      articleSection: isAnalysisPage ? "Betting Maths Research and Analysis" : "Betting Maths Guides",
       mainEntityOfPage: { "@id": `${canonicalUrl}#webpage` },
       publisher: { "@id": `${siteUrl}/#organization` },
       author: { "@id": `${siteUrl}/#organization` },
-      inLanguage: "en-GB"
+      inLanguage: "en-GB",
+      ...(datePublished ? { datePublished } : {}),
+      ...(dateModified ? { dateModified } : {})
     }
   : null;
 
@@ -142,6 +149,8 @@ const structuredData = { "@context": "https://schema.org", "@graph": schemaGraph
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:locale" content="en_GB" />
+{datePublished && <meta property="article:published_time" content={datePublished} />}
+{dateModified && <meta property="article:modified_time" content={dateModified} />}
 
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content={pageTitle} />
