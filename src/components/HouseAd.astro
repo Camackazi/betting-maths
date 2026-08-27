@@ -17,34 +17,25 @@ const ecosystemCampaigns = [
   {
     id: "brazilian-footballer-name-generator",
     brand: "Brazilian Footballer Name Generator",
-    eyebrow: "From our other projects",
     headline: "What’s your Brazilian footballer name?",
-    copy: "Generate your shirt number, player stats and shareable Brazilian football identity.",
-    cta: "Generate yours →",
-    icon: "⚽",
     href: "https://brazilian-footballer-name-generator.vercel.app/?utm_source=betting_maths&utm_medium=house_ad&utm_campaign=ecosystem_brazilian_name",
+    image: "/house-ads/brazilian-footballer-name-generator.svg",
     theme: "brazil"
   },
   {
     id: "pub-quiz-team-name-generator",
     brand: "Pub Quiz Team Name Generator",
-    eyebrow: "From our other projects",
-    headline: "Need a pub quiz team name?",
-    copy: "Generate funny, clever, punny and brilliantly silly quiz team names in seconds.",
-    cta: "Generate a team name →",
-    icon: "?",
+    headline: "Need a brilliant pub quiz team name?",
     href: "https://pub-quiz-team-name-generator.vercel.app/?utm_source=betting_maths&utm_medium=house_ad&utm_campaign=ecosystem_quiz_name",
+    image: "/house-ads/pub-quiz-team-name-generator.svg",
     theme: "quiz"
   },
   {
     id: "better-darts",
     brand: "Better Darts",
-    eyebrow: "From our other projects",
     headline: "Score. Train. Improve.",
-    copy: "Start a free 301 or 501 darts game in seconds and track your progress.",
-    cta: "Open Better Darts →",
-    icon: "🎯",
     href: "https://better-darts.vercel.app/?utm_source=betting_maths&utm_medium=house_ad&utm_campaign=ecosystem_better_darts",
+    image: "/house-ads/better-darts.svg",
     theme: "darts"
   }
 ];
@@ -61,12 +52,9 @@ const selected = campaign === "klamic"
   ? {
       id: "klamic-free-invoice",
       brand: "Klamic",
-      eyebrow: "Advertisement",
-      headline: "Need to send an invoice?",
-      copy: "Create, preview and download a professional UK invoice for free. No account required.",
-      cta: "Create a free invoice →",
-      icon: "◆",
+      headline: "Need an invoice?",
       href: "https://klamic.com/?utm_source=betting_maths&utm_medium=house_ad&utm_campaign=free_invoice",
+      image: "/house-ads/klamic.svg",
       theme: "klamic"
     }
   : selectedEcosystem;
@@ -82,310 +70,121 @@ const selected = campaign === "klamic"
   data-house-ad-campaign={selected.id}
   data-house-ad-placement={placement}
 >
-  <span class="house-ad-label">{selected.eyebrow}</span>
-
-  <div class="house-ad-brand-row">
-    <span class="house-ad-icon" aria-hidden="true">{selected.icon}</span>
-    <strong class="house-ad-brand">{selected.brand}</strong>
-  </div>
-
-  <div class="house-ad-copy">
-    <strong class="house-ad-headline">{selected.headline}</strong>
-    <p>{selected.copy}</p>
-  </div>
-
-  {campaign === "klamic" && (
-    <div class="klamic-mini-invoice" aria-hidden="true">
-      <div class="klamic-mini-top">
-        <strong>Klamic<span>◆</span></strong>
-        <small>INVOICE</small>
-      </div>
-      <div class="klamic-mini-lines"><span></span><span></span><span></span></div>
-      <div class="klamic-mini-total"><small>Total</small><strong>£1,250.00</strong></div>
-    </div>
-  )}
-
-  <span class="house-ad-cta">{selected.cta}</span>
+  <img
+    src={selected.image}
+    alt=""
+    aria-hidden="true"
+    loading="lazy"
+    decoding="async"
+  />
 </a>
 
 <style>
   .house-ad {
-    --ad-bg: #ffffff;
-    --ad-ink: #102033;
-    --ad-muted: #5f6c7b;
-    --ad-accent: #1f8a5b;
-    --ad-border: #d9e2ec;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
+    display: block;
     width: 100%;
-    padding: 1.15rem;
     overflow: hidden;
-    border: 1px solid var(--ad-border);
-    border-radius: 18px;
-    background: var(--ad-bg);
-    color: var(--ad-ink);
-    box-shadow: 0 12px 30px rgba(16, 32, 51, 0.09);
+    border: 2px solid rgba(255, 255, 255, 0.72);
+    border-radius: 20px;
+    background: #071b3d;
+    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.16);
     text-decoration: none;
-    transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+    transition: transform 160ms ease, box-shadow 160ms ease;
+    isolation: isolate;
   }
 
   .house-ad::after {
     content: "";
     position: absolute;
-    inset: auto -46px -64px auto;
-    width: 150px;
-    height: 150px;
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--ad-accent) 10%, transparent);
+    inset: 0;
     pointer-events: none;
+    border-radius: inherit;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
   }
 
   .house-ad:hover {
-    transform: translateY(-2px);
-    border-color: color-mix(in srgb, var(--ad-accent) 42%, var(--ad-border));
-    box-shadow: 0 18px 38px rgba(16, 32, 51, 0.13);
+    transform: translateY(-3px) scale(1.006);
+    box-shadow: 0 20px 42px rgba(15, 23, 42, 0.22);
   }
 
   .house-ad:focus-visible {
-    outline: 3px solid color-mix(in srgb, var(--ad-accent) 55%, white);
-    outline-offset: 3px;
+    outline: 4px solid #1f8a5b;
+    outline-offset: 4px;
   }
 
-  .house-ad-label {
-    position: relative;
-    z-index: 1;
-    align-self: flex-start;
-    color: var(--ad-muted);
-    font-size: 0.68rem;
-    font-weight: 800;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-  }
-
-  .house-ad-brand-row {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    gap: 0.55rem;
-  }
-
-  .house-ad-icon {
-    display: grid;
-    place-items: center;
-    width: 34px;
-    height: 34px;
-    flex: 0 0 34px;
-    border-radius: 10px;
-    background: color-mix(in srgb, var(--ad-accent) 12%, white);
-    color: var(--ad-accent);
-    font-size: 1rem;
-    font-weight: 900;
-  }
-
-  .house-ad-brand {
-    font-size: 0.95rem;
-    line-height: 1.2;
-  }
-
-  .house-ad-copy {
-    position: relative;
-    z-index: 1;
-  }
-
-  .house-ad-headline {
+  .house-ad img {
     display: block;
-    font-size: 1.18rem;
-    line-height: 1.18;
-    letter-spacing: -0.02em;
-  }
-
-  .house-ad-copy p {
-    margin: 0.45rem 0 0;
-    color: var(--ad-muted);
-    font-size: 0.9rem;
-    line-height: 1.45;
-  }
-
-  .house-ad-cta {
-    position: relative;
-    z-index: 1;
-    align-self: flex-start;
-    margin-top: auto;
-    padding: 0.52rem 0.75rem;
-    border-radius: 999px;
-    background: var(--ad-accent);
-    color: #ffffff;
-    font-size: 0.82rem;
-    font-weight: 900;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 12 / 5;
+    object-fit: cover;
   }
 
   .house-ad-klamic {
-    --ad-bg: linear-gradient(145deg, #f8fbff 0%, #eef5ff 100%);
-    --ad-ink: #12345a;
-    --ad-muted: #566b82;
-    --ad-accent: #1e73d8;
-    --ad-border: #cfe0f5;
+    border-color: rgba(24, 228, 211, 0.72);
+    box-shadow: 0 16px 38px rgba(8, 73, 190, 0.26);
   }
 
   .house-ad-brazil {
-    --ad-bg: linear-gradient(145deg, #fbfff7 0%, #effaf2 100%);
-    --ad-ink: #173d31;
-    --ad-muted: #577066;
-    --ad-accent: #168c52;
-    --ad-border: #cde9d8;
+    border-color: rgba(255, 209, 24, 0.9);
+    box-shadow: 0 16px 38px rgba(11, 112, 49, 0.24);
   }
 
   .house-ad-quiz {
-    --ad-bg: linear-gradient(145deg, #fcfaff 0%, #f4efff 100%);
-    --ad-ink: #332057;
-    --ad-muted: #6d6480;
-    --ad-accent: #6d28d9;
-    --ad-border: #ded3f5;
+    border-color: rgba(255, 167, 25, 0.82);
+    box-shadow: 0 16px 38px rgba(92, 20, 145, 0.26);
   }
 
   .house-ad-darts {
-    --ad-bg: linear-gradient(145deg, #101513 0%, #1b2420 100%);
-    --ad-ink: #f4f8f6;
-    --ad-muted: #b7c4bd;
-    --ad-accent: #40b56f;
-    --ad-border: #34453d;
+    border-color: rgba(178, 242, 0, 0.62);
+    box-shadow: 0 16px 38px rgba(0, 70, 58, 0.28);
   }
 
-  .house-ad-darts .house-ad-icon {
-    background: rgba(64, 181, 111, 0.14);
+  .house-ad-rail {
+    border-radius: 18px;
   }
 
-  .klamic-mini-invoice {
-    position: relative;
-    z-index: 1;
-    padding: 0.75rem;
-    border: 1px solid rgba(30, 115, 216, 0.16);
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.88);
-    box-shadow: 0 8px 22px rgba(18, 52, 90, 0.08);
+  .house-ad-rail img {
+    height: 330px;
+    aspect-ratio: auto;
+    object-fit: cover;
+    object-position: left center;
   }
 
-  .klamic-mini-top,
-  .klamic-mini-total {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.5rem;
+  .house-ad-rail.house-ad-klamic img {
+    object-position: 7% center;
   }
 
-  .klamic-mini-top strong {
-    color: #12345a;
-    font-size: 0.78rem;
-  }
-
-  .klamic-mini-top strong span {
-    color: #1e73d8;
-    margin-left: 0.15rem;
-  }
-
-  .klamic-mini-top small,
-  .klamic-mini-total small {
-    color: #8091a5;
-    font-size: 0.62rem;
-    font-weight: 800;
-  }
-
-  .klamic-mini-lines {
-    display: grid;
-    gap: 0.35rem;
-    margin: 0.7rem 0;
-  }
-
-  .klamic-mini-lines span {
-    display: block;
-    height: 5px;
-    border-radius: 99px;
-    background: #e7eef6;
-  }
-
-  .klamic-mini-lines span:nth-child(2) { width: 74%; }
-  .klamic-mini-lines span:nth-child(3) { width: 54%; }
-
-  .klamic-mini-total strong {
-    color: #12345a;
-    font-size: 0.82rem;
-  }
-
-  .house-ad-inline {
-    display: grid;
-    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.55fr) auto;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem 1.1rem;
-  }
-
-  .house-ad-inline .house-ad-label {
-    position: absolute;
-    top: 0.55rem;
-    right: 0.75rem;
-  }
-
-  .house-ad-inline .house-ad-brand-row {
-    min-width: 0;
-  }
-
-  .house-ad-inline .house-ad-copy {
-    min-width: 0;
-    padding-right: 0.4rem;
-  }
-
-  .house-ad-inline .house-ad-headline {
-    font-size: 1rem;
-  }
-
-  .house-ad-inline .house-ad-copy p {
-    margin-top: 0.25rem;
-    font-size: 0.84rem;
-  }
-
-  .house-ad-inline .house-ad-cta {
-    align-self: center;
-    white-space: nowrap;
-  }
-
-  .house-ad-inline .klamic-mini-invoice {
-    display: none;
-  }
-
-  .house-ad-rail .house-ad-headline {
-    font-size: 1.3rem;
+  .house-ad-rail.house-ad-brazil img,
+  .house-ad-rail.house-ad-quiz img,
+  .house-ad-rail.house-ad-darts img {
+    object-position: 4% center;
   }
 
   @media (max-width: 700px) {
-    .house-ad,
-    .house-ad-inline {
-      display: flex;
-      padding: 1rem;
+    .house-ad {
+      border-radius: 16px;
     }
 
-    .house-ad-inline .house-ad-label {
-      position: static;
+    .house-ad img {
+      min-height: 170px;
+      object-fit: cover;
+      object-position: left center;
     }
 
-    .house-ad-brand {
-      font-size: 0.9rem;
+    .house-ad-klamic img {
+      object-position: 5% center;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .house-ad {
+      transition: none;
     }
 
-    .house-ad-headline,
-    .house-ad-inline .house-ad-headline {
-      font-size: 1.05rem;
-    }
-
-    .house-ad-copy p,
-    .house-ad-inline .house-ad-copy p {
-      font-size: 0.85rem;
-    }
-
-    .house-ad-cta {
-      white-space: normal;
+    .house-ad:hover {
+      transform: none;
     }
   }
 </style>

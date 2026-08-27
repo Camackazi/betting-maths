@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Better Darts advert</title>
+  <desc id="desc">Dark neon green and teal banner promoting Better Darts scoring and stats.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#04151b"/>
+      <stop offset="0.6" stop-color="#06252a"/>
+      <stop offset="1" stop-color="#0a3a22"/>
+    </linearGradient>
+    <linearGradient id="lime" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d7ff00"/><stop offset="1" stop-color="#78db00"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#000" flood-opacity=".35"/></filter>
+  </defs>
+  <rect width="1200" height="500" rx="28" fill="url(#bg)"/>
+  <path d="M0 438L380 330l168 170H0z" fill="#05c9b0" opacity=".14"/>
+  <path d="M610 500L944 90l256 140v270z" fill="#8cff00" opacity=".11"/>
+  <g transform="translate(60 60)" font-family="Arial, Helvetica, sans-serif">
+    <text x="0" y="68" fill="#fff" font-size="70" font-weight="900">BETTER</text>
+    <text x="0" y="142" fill="url(#lime)" font-size="80" font-weight="900">DARTS</text>
+    <g transform="translate(0 176)" font-size="40" font-weight="900">
+      <text x="0" y="0" fill="#fff">Score.</text>
+      <text x="152" y="0" fill="#28ded0">Train.</text>
+      <text x="300" y="0" fill="#b9f500">Improve.</text>
+    </g>
+    <rect x="0" y="208" width="515" height="5" rx="3" fill="#22d5c4" opacity=".7"/>
+    <text x="0" y="260" fill="#fff" font-size="27" font-weight="700">Free 301 &amp; 501 darts scoring and stats.</text>
+    <text x="0" y="302" fill="#c8d9d3" font-size="22">Play more. Practice smarter. Get better.</text>
+    <g transform="translate(0 337)">
+      <rect width="400" height="78" rx="20" fill="url(#lime)" filter="url(#shadow)"/>
+      <text x="34" y="52" fill="#07211e" font-size="33" font-weight="900">Open Better Darts →</text>
+    </g>
+  </g>
+
+  <g transform="translate(805 55)" filter="url(#shadow)">
+    <circle cx="165" cy="165" r="154" fill="#101516" stroke="#dde7df" stroke-width="7"/>
+    <circle cx="165" cy="165" r="126" fill="#f4e9cb" stroke="#202020" stroke-width="3"/>
+    <circle cx="165" cy="165" r="90" fill="#181818" stroke="#f4e9cb" stroke-width="16" stroke-dasharray="28 20"/>
+    <circle cx="165" cy="165" r="54" fill="#f4e9cb" stroke="#1d7b36" stroke-width="11"/>
+    <circle cx="165" cy="165" r="17" fill="#e51d2a" stroke="#0d522a" stroke-width="7"/>
+    <g stroke-linecap="round">
+      <path d="M-10 82L155 158" stroke="#ef2a35" stroke-width="12"/>
+      <path d="M15 23L159 157" stroke="#10c8d7" stroke-width="12"/>
+      <path d="M76 -4L161 156" stroke="#b8f200" stroke-width="12"/>
+    </g>
+  </g>
+  <g transform="translate(750 314) rotate(-5)" filter="url(#shadow)">
+    <rect width="214" height="152" rx="24" fill="#07131e" stroke="#243b47" stroke-width="5"/>
+    <text x="107" y="45" text-anchor="middle" fill="#c8d9d3" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800">501</text>
+    <text x="107" y="103" text-anchor="middle" fill="#d7ff00" font-family="Arial, Helvetica, sans-serif" font-size="55" font-weight="900">180</text>
+    <text x="107" y="132" text-anchor="middle" fill="#8ca09a" font-family="Arial, Helvetica, sans-serif" font-size="13">3 DART AVG 72.14</text>
+  </g>
+  <text x="1090" y="474" fill="#b7ccc5" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="800" text-anchor="end">From our other projects</text>
+</svg>
