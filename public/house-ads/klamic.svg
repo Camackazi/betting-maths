@@ -1,66 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
-  <title id="title">Klamic invoice advert</title>
-  <desc id="desc">Bright blue Klamic banner promoting free professional UK invoices.</desc>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#071f8f"/>
-      <stop offset="0.48" stop-color="#0f55e8"/>
-      <stop offset="1" stop-color="#12d9d0"/>
-    </linearGradient>
-    <linearGradient id="cta" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#12e4cf"/>
-      <stop offset="1" stop-color="#39f4c1"/>
-    </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#00144c" flood-opacity=".28"/>
-    </filter>
-  </defs>
-  <rect width="1200" height="500" rx="28" fill="url(#bg)"/>
-  <circle cx="1115" cy="72" r="190" fill="#42e8ff" opacity=".16"/>
-  <circle cx="1015" cy="480" r="250" fill="#092ebd" opacity=".22"/>
-  <path d="M20 438 C240 348 292 502 518 392 S906 330 1190 214" fill="none" stroke="#6cefff" stroke-width="38" opacity=".11"/>
-
-  <g transform="translate(64 58)">
-    <text x="0" y="72" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="86" font-weight="900" letter-spacing="3">KLAMIC</text>
-    <rect x="0" y="92" width="104" height="7" rx="4" fill="#19efd6"/>
-    <text x="0" y="164" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="45" font-weight="800">Need an <tspan fill="#1bf1d1">invoice?</tspan></text>
-    <text x="0" y="207" fill="#dce9ff" font-family="Arial, Helvetica, sans-serif" font-size="24">Create, preview and download a professional UK invoice for free.</text>
-    <g transform="translate(0 238)">
-      <circle cx="14" cy="14" r="14" fill="#19efd6"/>
-      <path d="M7 14l5 5 9-11" fill="none" stroke="#07327e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-      <text x="38" y="22" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700">No sign-up required.</text>
-    </g>
-    <g transform="translate(0 296)">
-      <rect width="390" height="76" rx="22" fill="url(#cta)" filter="url(#shadow)"/>
-      <text x="34" y="50" fill="#062a6d" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="900">Create a free invoice →</text>
-    </g>
-    <g transform="translate(0 405)" font-family="Arial, Helvetica, sans-serif" font-weight="800">
-      <text x="0" y="0" fill="#fff" font-size="18">100% FREE</text>
-      <text x="138" y="0" fill="#fff" font-size="18">NO SIGN UP</text>
-      <text x="302" y="0" fill="#fff" font-size="18">UK READY</text>
-    </g>
-  </g>
-
-  <g transform="translate(765 52) rotate(2 180 190)" filter="url(#shadow)">
-    <rect width="365" height="385" rx="24" fill="#fff"/>
-    <text x="28" y="48" fill="#0b43cf" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="900">KLAMIC</text>
-    <text x="272" y="44" fill="#0b43cf" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="900">INVOICE</text>
-    <text x="28" y="85" fill="#314056" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700">From</text>
-    <text x="28" y="105" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800">Your Business Ltd</text>
-    <text x="218" y="85" fill="#314056" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700">To</text>
-    <text x="218" y="105" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800">Client Name</text>
-    <rect x="210" y="130" width="125" height="72" rx="10" fill="#eaf1ff"/>
-    <text x="226" y="151" fill="#0b43cf" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="800">TOTAL DUE</text>
-    <text x="226" y="185" fill="#0b43cf" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="900">£750.00</text>
-    <line x1="28" y1="226" x2="337" y2="226" stroke="#c9d7ee"/>
-    <g fill="#dbe5f4">
-      <rect x="28" y="247" width="250" height="10" rx="5"/>
-      <rect x="28" y="272" width="210" height="10" rx="5"/>
-      <rect x="28" y="297" width="275" height="10" rx="5"/>
-    </g>
-    <line x1="28" y1="330" x2="337" y2="330" stroke="#c9d7ee"/>
-    <text x="216" y="360" fill="#0b43cf" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="800">TOTAL DUE</text>
-    <text x="294" y="362" fill="#0b43cf" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="900">£750</text>
-  </g>
-  <text x="1090" y="474" fill="#eaffff" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="800" text-anchor="end">Advertisement</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 220" role="img" aria-labelledby="title desc">
+<title id="title">Klamic invoice advert</title><desc id="desc">Compact blue Klamic banner promoting free UK invoices.</desc>
+<defs><linearGradient id="bg" x1="0" x2="1"><stop stop-color="#08289d"/><stop offset=".62" stop-color="#0a54df"/><stop offset="1" stop-color="#12d9d0"/></linearGradient><linearGradient id="cta" x1="0" x2="1"><stop stop-color="#16e6d2"/><stop offset="1" stop-color="#5df2be"/></linearGradient><filter id="s"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-opacity=".24"/></filter></defs>
+<rect width="1200" height="220" rx="18" fill="url(#bg)"/><circle cx="1110" cy="30" r="150" fill="#68efff" opacity=".12"/><path d="M730 220c70-110 170-160 310-220h160v220z" fill="#061f92" opacity=".25"/>
+<g font-family="Arial,Helvetica,sans-serif"><text x="34" y="82" fill="#fff" font-size="68" font-weight="900" letter-spacing="2">KLAMIC</text><rect x="36" y="96" width="92" height="5" rx="3" fill="#18efd7"/><text x="280" y="70" fill="#fff" font-size="34" font-weight="900">Create free</text><text x="280" y="111" fill="#19efd7" font-size="40" font-weight="900">UK invoices</text>
+<g transform="translate(36 132)"><circle cx="14" cy="14" r="14" fill="#18efd7"/><path d="M7 14l5 5 9-11" fill="none" stroke="#073281" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><text x="38" y="22" fill="#fff" font-size="21" font-weight="800">Professional invoices</text><circle cx="285" cy="14" r="14" fill="#18efd7"/><path d="M278 14l5 5 9-11" fill="none" stroke="#073281" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><text x="309" y="22" fill="#fff" font-size="21" font-weight="800">No sign-up required</text><text x="570" y="22" fill="#fff" font-size="21" font-weight="800">100% free</text></g>
+<g transform="translate(805 18) rotate(2 145 90)" filter="url(#s)"><rect width="290" height="184" rx="16" fill="#fff"/><text x="18" y="31" fill="#1246c8" font-size="19" font-weight="900">INVOICE</text><text x="214" y="29" fill="#314056" font-size="10">INV-2024-00123</text><text x="18" y="57" fill="#111827" font-size="11" font-weight="800">Bill To</text><text x="18" y="74" fill="#334155" font-size="10">Client Name</text><rect x="185" y="51" width="82" height="51" rx="7" fill="#e9f1ff"/><text x="197" y="68" fill="#1246c8" font-size="8" font-weight="800">TOTAL DUE</text><text x="197" y="91" fill="#1246c8" font-size="18" font-weight="900">£500.00</text><g fill="#dbe5f4"><rect x="18" y="116" width="220" height="7" rx="4"/><rect x="18" y="134" width="180" height="7" rx="4"/><rect x="18" y="152" width="205" height="7" rx="4"/></g></g>
+<g transform="translate(1040 86)" filter="url(#s)"><rect width="130" height="54" rx="18" fill="url(#cta)"/><text x="65" y="35" text-anchor="middle" fill="#052c73" font-size="20" font-weight="900">Create now →</text></g><text x="1105" y="188" fill="#fff" font-size="16" font-weight="800">Klamic.com</text><text x="1168" y="208" fill="#eaffff" font-size="10" text-anchor="end">Advertisement</text></g>
 </svg>
