@@ -3,6 +3,7 @@ import Header from "../components/Header.astro";
 import Sidebar from "../components/Sidebar.astro";
 import Footer from "../components/Footer.astro";
 import AdSlot from "../components/AdSlot.astro";
+import HouseAd from "../components/HouseAd.astro";
 import SeoHead from "../components/SeoHead.astro";
 import RelatedContent from "../components/RelatedContent.astro";
 import NewCalculatorIntegration from "../components/NewCalculatorIntegration.astro";
@@ -17,10 +18,33 @@ const {
   dateModified
 } = Astro.props;
 
-const pathname = Astro.url.pathname;
-const showAutoToc =
-  (pathname.startsWith("/guides/") && pathname !== "/guides/") ||
-  (pathname.startsWith("/analysis/") && pathname !== "/analysis/");
+const rawPathname = Astro.url.pathname;
+const pathname = rawPathname === "/" || rawPathname.endsWith("/")
+  ? rawPathname
+  : `${rawPathname}/`;
+
+const isHomePage = pathname === "/";
+const isCalculatorHub = pathname === "/calculators/";
+const isGuideHub = pathname === "/guides/";
+const isAnalysisHub = pathname === "/analysis/";
+const isCalculatorPage = pathname.startsWith("/calculators/") && !isCalculatorHub;
+const isGuidePage = pathname.startsWith("/guides/") && !isGuideHub;
+const isAnalysisPage = pathname.startsWith("/analysis/") && !isAnalysisHub;
+const isGlossaryPage = pathname.startsWith("/glossary/");
+const isResearchDataPage = pathname === "/research-data/";
+
+const showHouseAds =
+  isHomePage ||
+  isCalculatorHub ||
+  isGuideHub ||
+  isAnalysisHub ||
+  isCalculatorPage ||
+  isGuidePage ||
+  isAnalysisPage ||
+  isGlossaryPage ||
+  isResearchDataPage;
+
+const showAutoToc = isGuidePage || isAnalysisPage;
 ---
 
 <!doctype html>
@@ -36,7 +60,7 @@ const showAutoToc =
   <body>
     <Header />
 
-    <div class="site-shell">
+    <div class:list={["site-shell", showHouseAds && "site-shell-house-ads"]}>
       <Sidebar />
 
       <main class="main-content">
@@ -49,6 +73,18 @@ const showAutoToc =
 
         <slot />
 
+        {showHouseAds && (
+          <div class="house-ad-inline-slot house-ad-inline-primary" data-house-primary-inline>
+            <HouseAd campaign="klamic" variant="inline" placement="primary-inline" />
+          </div>
+        )}
+
+        {showHouseAds && (
+          <div class="house-ad-inline-slot house-ad-inline-secondary" data-house-secondary-inline>
+            <HouseAd campaign="ecosystem" variant="inline" placement="secondary-inline" />
+          </div>
+        )}
+
         <ContentStandards />
 
         <NewCalculatorIntegration />
@@ -57,6 +93,17 @@ const showAutoToc =
 
         <AdSlot position="page-end" />
       </main>
+
+      {showHouseAds && (
+        <aside class="house-ad-rail" aria-label="Promotions">
+          <div class="house-ad-rail-sticky">
+            <HouseAd campaign="klamic" variant="rail" placement="primary-rail" />
+            <div class="house-ad-rail-secondary">
+              <HouseAd campaign="ecosystem" variant="rail" placement="secondary-rail" />
+            </div>
+          </div>
+        </aside>
+      )}
     </div>
 
     <Footer />
@@ -131,6 +178,70 @@ const showAutoToc =
       }
     </script>
 
+    <script is:inline>
+      const houseAdMain = document.querySelector(".main-content");
+      const primaryInline = document.querySelector("[data-house-primary-inline]");
+      const secondaryInline = document.querySelector("[data-house-secondary-inline]");
+      const currentPath = window.location.pathname.endsWith("/") || window.location.pathname === "/"
+        ? window.location.pathname
+        : `${window.location.pathname}/`;
+
+      function directContentCards() {
+        if (!houseAdMain) return [];
+        return Array.from(houseAdMain.children).filter((element) =>
+          element.classList?.contains("content-card") &&
+          !element.classList.contains("related-content-section")
+        );
+      }
+
+      if (houseAdMain && primaryInline) {
+        const cards = directContentCards();
+        let primaryTarget = null;
+
+        if (currentPath.startsWith("/calculators/") && currentPath !== "/calculators/") {
+          primaryTarget = houseAdMain.querySelector(".calculator-panel")?.closest(".content-card") || cards[0];
+        } else if (
+          (currentPath.startsWith("/guides/") && currentPath !== "/guides/") ||
+          (currentPath.startsWith("/analysis/") && currentPath !== "/analysis/")
+        ) {
+          primaryTarget = cards[1] || cards[0];
+        } else if (currentPath === "/") {
+          primaryTarget = houseAdMain.querySelector(".research-feature") || cards[0];
+        } else {
+          primaryTarget = cards[0];
+        }
+
+        primaryTarget?.insertAdjacentElement("afterend", primaryInline);
+      }
+
+      if (houseAdMain && secondaryInline) {
+        const cards = directContentCards();
+        if (cards.length > 0) {
+          const targetIndex = Math.min(
+            cards.length - 1,
+            Math.max(1, Math.floor(cards.length * 0.6))
+          );
+          cards[targetIndex]?.insertAdjacentElement("afterend", secondaryInline);
+        }
+      }
+
+      document.addEventListener("click", (event) => {
+        const target = event.target;
+        if (!(target instanceof Element)) return;
+
+        const ad = target.closest("[data-house-ad]");
+        if (!ad) return;
+
+        if (typeof window.gtag === "function") {
+          window.gtag("event", "house_ad_click", {
+            campaign: ad.getAttribute("data-house-ad-campaign") || "unknown",
+            placement: ad.getAttribute("data-house-ad-placement") || "unknown",
+            destination: ad.getAttribute("href") || ""
+          });
+        }
+      });
+    </script>
+
     <style>
       .auto-toc {
         margin: 1.25rem 0;
@@ -170,8 +281,54 @@ const showAutoToc =
         color: var(--color-green);
       }
 
+      .house-ad-inline-slot {
+        margin: 1.25rem 0;
+      }
+
+      .house-ad-rail {
+        display: none;
+      }
+
       h2[id] {
         scroll-margin-top: 1rem;
+      }
+
+      @media (min-width: 1500px) {
+        .site-shell-house-ads {
+          grid-template-columns: 280px minmax(0, 1fr) 280px;
+          max-width: 1720px;
+        }
+
+        .site-shell-house-ads .main-content {
+          max-width: 1040px;
+        }
+
+        .house-ad-inline-slot {
+          display: none;
+        }
+
+        .house-ad-rail {
+          display: block;
+          min-width: 0;
+          padding: 2rem 1rem 2rem 0;
+        }
+
+        .house-ad-rail-sticky {
+          position: sticky;
+          top: 94px;
+          display: grid;
+          gap: 1rem;
+        }
+
+        .house-ad-rail-secondary {
+          margin-top: 0.15rem;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .house-ad-inline-slot {
+          margin: 1rem 0;
+        }
       }
     </style>
   </body>
