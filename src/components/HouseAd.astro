@@ -20,6 +20,7 @@ const ecosystemCampaigns = [
     headline: "What’s your Brazilian footballer name?",
     href: "https://brazilian-footballer-name-generator.vercel.app/?utm_source=betting_maths&utm_medium=house_ad&utm_campaign=ecosystem_brazilian_name",
     image: "/house-ads/brazilian-footballer-name-generator.svg",
+    mobileImage: "/house-ads/mobile/brazilian-footballer-name-generator.svg",
     theme: "brazil"
   },
   {
@@ -28,6 +29,7 @@ const ecosystemCampaigns = [
     headline: "Need a brilliant pub quiz team name?",
     href: "https://pub-quiz-team-name-generator.vercel.app/?utm_source=betting_maths&utm_medium=house_ad&utm_campaign=ecosystem_quiz_name",
     image: "/house-ads/pub-quiz-team-name-generator.svg",
+    mobileImage: "/house-ads/mobile/pub-quiz-team-name-generator.svg",
     theme: "quiz"
   },
   {
@@ -36,6 +38,7 @@ const ecosystemCampaigns = [
     headline: "Score. Train. Improve.",
     href: "https://better-darts.vercel.app/?utm_source=betting_maths&utm_medium=house_ad&utm_campaign=ecosystem_better_darts",
     image: "/house-ads/better-darts.svg",
+    mobileImage: "/house-ads/mobile/better-darts.svg",
     theme: "darts"
   }
 ];
@@ -55,6 +58,7 @@ const selected = campaign === "klamic"
       headline: "Need an invoice?",
       href: "https://klamic.com/?utm_source=betting_maths&utm_medium=house_ad&utm_campaign=free_invoice",
       image: "/house-ads/klamic.svg",
+      mobileImage: "/house-ads/mobile/klamic.svg",
       theme: "klamic"
     }
   : selectedEcosystem;
@@ -70,13 +74,16 @@ const selected = campaign === "klamic"
   data-house-ad-campaign={selected.id}
   data-house-ad-placement={placement}
 >
-  <img
-    src={selected.image}
-    alt=""
-    aria-hidden="true"
-    loading="lazy"
-    decoding="async"
-  />
+  <picture>
+    <source media="(max-width: 700px)" srcset={selected.mobileImage} />
+    <img
+      src={selected.image}
+      alt=""
+      aria-hidden="true"
+      loading="lazy"
+      decoding="async"
+    />
+  </picture>
 </a>
 
 <style>
@@ -111,6 +118,11 @@ const selected = campaign === "klamic"
   .house-ad:focus-visible {
     outline: 4px solid #1f8a5b;
     outline-offset: 4px;
+  }
+
+  .house-ad picture {
+    display: block;
+    width: 100%;
   }
 
   .house-ad img {
@@ -166,9 +178,12 @@ const selected = campaign === "klamic"
       border-radius: 14px;
     }
 
-    .house-ad img {
-      height: 110px;
-      object-fit: cover;
+    .house-ad img,
+    .house-ad-rail img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 900 / 280;
+      object-fit: contain;
       object-position: center;
     }
   }
