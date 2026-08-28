@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 280" role="img" aria-labelledby="title desc">
+  <title id="title">Brazilian Footballer Name Generator</title>
+  <desc id="desc">Mobile-safe Brazil-themed banner for the Brazilian Footballer Name Generator.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffd81d"/><stop offset=".68" stop-color="#ffc400"/><stop offset="1" stop-color="#0a8d3c"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#075b29" flood-opacity=".24"/></filter>
+  </defs>
+  <rect width="900" height="280" rx="24" fill="url(#bg)"/>
+  <path d="M0 232C160 190 250 260 410 220S710 175 900 96v184H0z" fill="#087c35" opacity=".9"/>
+  <path d="M710 0h190v280H790z" fill="#0b56ad" opacity=".92"/>
+  <g font-family="Arial,Helvetica,sans-serif">
+    <text x="34" y="78" fill="#087631" font-size="54" font-weight="900">BRAZILIAN</text>
+    <rect x="30" y="92" width="520" height="66" rx="12" fill="#082e75" filter="url(#shadow)"/>
+    <text x="50" y="139" fill="#fff" font-size="40" font-weight="900">FOOTBALLER NAME</text>
+    <text x="36" y="196" fill="#fff" font-size="29" font-weight="800">Get your samba striker alias</text>
+    <g transform="translate(36 213)">
+      <rect width="245" height="48" rx="16" fill="#0b45a0"/>
+      <text x="122" y="32" text-anchor="middle" fill="#ffd81d" font-size="22" font-weight="900">Generate yours →</text>
+    </g>
+    <g transform="translate(650 44)" filter="url(#shadow)">
+      <circle cx="82" cy="82" r="72" fill="#fff" stroke="#087631" stroke-width="8"/>
+      <path d="M24 82h116M82 24v116M42 42l80 80M122 42L42 122" stroke="#087631" stroke-width="6" opacity=".72"/>
+      <circle cx="82" cy="82" r="28" fill="#ffd81d" stroke="#087631" stroke-width="6"/>
+    </g>
+  </g>
+</svg>
